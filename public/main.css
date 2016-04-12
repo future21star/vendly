@@ -1,0 +1,74 @@
+.modal-dialog {
+    top: 150px;
+    width: 60em;
+}
+
+.modal-header {
+    background-color: deepskyblue;
+    height: 6em;
+}
+
+.tabbable-panel {
+    margin-top: 50px;
+}
+
+ul.checkout-bar li {
+    color: lightgray;
+    position: relative;
+    display: inline-block;
+    margin: 43px auto;
+    padding: 0;
+    text-align: center;
+    width: 20%;
+}
+
+ul.checkout-bar li:before {
+    background: lightgrey;
+    border: 2px solid lightgrey;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    height: 34px;
+    left: 40%;
+    line-height: 34px;
+    position: absolute;
+    top: -60px;
+    width: 34px;
+    z-index: 99999;
+}
+
+ul.checkout-bar li.visited:before {
+    border: 2px solid green;
+    z-index: 99999;
+}
+
+ul.checkout-bar li:nth-child(1):before {
+    content:"1";
+}
+
+ul.checkout-bar li:nth-child(2):before {
+    content:"2";
+}
+
+ul.checkout-bar li:nth-child(3):before {
+    content:"3";
+}
+
+ul.checkout-bar li:nth-child(4):before {
+    content:"4";
+}
+
+ul.checkout-bar li:nth-child(5):before {
+    content:"5";
+}
+
+ul.checkout-bar {
+    -webkit-box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    height: 2px;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    top: 3em;
+}

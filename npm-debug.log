@@ -1,0 +1,47 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\Seth\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'start' ]
+2 info using npm@3.5.2
+3 info using node@v4.4.1
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info lifecycle ourstory@0.0.0~prestart: ourstory@0.0.0
+6 silly lifecycle ourstory@0.0.0~prestart: no script for prestart, continuing
+7 info lifecycle ourstory@0.0.0~start: ourstory@0.0.0
+8 verbose lifecycle ourstory@0.0.0~start: unsafe-perm in lifecycle true
+9 verbose lifecycle ourstory@0.0.0~start: PATH: C:\Users\Seth\AppData\Roaming\npm\node_modules\npm\bin\node-gyp-bin;C:\Users\Seth\OurStory\firstattempt\ourstory\node_modules\.bin;C:\cygwin64\usr\local\bin;C:\cygwin64\bin;C:\play-2.2.6\play-2.2.6;C:\gurobi650\win64\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Intel\iCLS Client;C:\Program Files\Intel\iCLS Client;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files (x86)\QuickTime\QTSystem;C:\Program Files (x86)\Heroku\bin;C:\Program Files (x86)\git\cmd;C:\Users\sshkeys;C:\grails\grails-2.4.4\bin;C:\Program Files (x86)\Brackets\command;C:\Program Files\Apache\maven\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\Java\jdk1.8.0_60\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\activator-1.3.7-minimal;C:\apache-ant-1.9.6\bin;C:\Program Files\nodejs;C:\Program Files\MongoDB\Server\3.2\bin;C:\Program Files\Git\bin;C:\Users\Seth\AppData\Local\Programs\Python\Python35\Scripts;C:\Users\Seth\AppData\Local\Programs\Python\Python35;C:\Ruby200-x64\bin;C:\bin\apache-maven-3.3.1\bin;C:\Users\Seth\AppData\Roaming\npm;C:\cygwin64\lib\lapack
+10 verbose lifecycle ourstory@0.0.0~start: CWD: C:\Users\Seth\OurStory\firstattempt\ourstory
+11 silly lifecycle ourstory@0.0.0~start: Args: [ '/d /s /c', 'node ./bin/www' ]
+12 silly lifecycle ourstory@0.0.0~start: Returned: code: 1  signal: null
+13 info lifecycle ourstory@0.0.0~start: Failed to exec start script
+14 verbose stack Error: ourstory@0.0.0 start: `node ./bin/www`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (C:\Users\Seth\AppData\Roaming\npm\node_modules\npm\lib\utils\lifecycle.js:232:16)
+14 verbose stack     at emitTwo (events.js:87:13)
+14 verbose stack     at EventEmitter.emit (events.js:172:7)
+14 verbose stack     at ChildProcess.<anonymous> (C:\Users\Seth\AppData\Roaming\npm\node_modules\npm\lib\utils\spawn.js:24:14)
+14 verbose stack     at emitTwo (events.js:87:13)
+14 verbose stack     at ChildProcess.emit (events.js:172:7)
+14 verbose stack     at maybeClose (internal/child_process.js:827:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+15 verbose pkgid ourstory@0.0.0
+16 verbose cwd C:\Users\Seth\OurStory\firstattempt\ourstory
+17 error Windows_NT 10.0.10586
+18 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\Seth\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "start"
+19 error node v4.4.1
+20 error npm  v3.5.2
+21 error code ELIFECYCLE
+22 error ourstory@0.0.0 start: `node ./bin/www`
+22 error Exit status 1
+23 error Failed at the ourstory@0.0.0 start script 'node ./bin/www'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the ourstory package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     node ./bin/www
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs ourstory
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls ourstory
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]

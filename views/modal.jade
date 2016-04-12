@@ -1,0 +1,28 @@
+//Modal
+.modal.fade#myModal(tabindex='-1', role='dialog')
+    .modal-dialog
+        .modal-content
+            .modal-header
+                include checkoutprogress
+            .modal-body
+                .row
+                    h2.text-center
+                        | Account Information
+                .row
+                    .tabbable-panel
+                        .tabbable-line
+                            ul.nav.nav-tabs
+                                li.active
+                                    a(href="#get-started", data-toggle="tab")
+                                        | Get Started
+                                li
+                                    a(href="#about-you", data-toggle="tab")
+                                        | About You
+                                li
+                                    a(href="#looking-for", data-toggle="tab")
+                                        | Looking For
+                            .tab-content
+                                .tab-pane.active(id="get-started")
+                                .tab-pane(id="about-you")
+                                .tab-pane(id="looking-for")
+                
