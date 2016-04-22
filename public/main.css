@@ -1,10 +1,45 @@
+/**
+ * Main body
+ */
+
+body,
+.modal-body {
+    background-color: aliceblue !important;
+}
+
+
+/**
+* Navbar
+*/
+.modal-header,
+nav.navbar.navbar-default {
+    background-color: lightskyblue;
+}
+
+/**
+ * Modal
+ */
+
+.modal input.form-control {
+    margin-left: -15px;
+    margin-bottom: 15px;
+}
+
 .modal-dialog {
     top: 150px;
-    width: 60em;
+    width: 60em !important;
+}
+
+.modal-body-header {
+    margin-top: 0;
+}
+
+.modal-body .row {
+    width: 85%;
+    margin-left: 4em;
 }
 
 .modal-header {
-    background-color: deepskyblue;
     height: 6em;
 }
 
@@ -12,35 +47,45 @@
     margin-top: 50px;
 }
 
+ul.checkout-bar {
+    white-space: nowrap;
+}
+
 ul.checkout-bar li {
-    color: lightgray;
+    color: gray;
     position: relative;
     display: inline-block;
-    margin: 43px auto;
+    margin: 40px 2.4em 0 0;
     padding: 0;
     text-align: center;
     width: 20%;
 }
 
 ul.checkout-bar li:before {
-    background: lightgrey;
-    border: 2px solid lightgrey;
+    background: white;
+    border: 2px solid white;
     border-radius: 50%;
-    color: #fff;
+    color: grey;
     font-size: 16px;
     font-weight: 700;
     text-align: center;
-    height: 34px;
-    left: 40%;
-    line-height: 34px;
+    height: 50px;
+    width: 50px;
+    line-height: 48px;
     position: absolute;
-    top: -60px;
-    width: 34px;
+    top: -65px;
+    left: 0%;
+    z-index: 99999;
+}
+
+ul.checkout-bar li.active:before {
+    border: 2px solid lightgreen;
     z-index: 99999;
 }
 
 ul.checkout-bar li.visited:before {
-    border: 2px solid green;
+    box-shadow: inset 0 0 0 1000px lightgreen;
+    border: 2px solid lightgreen;
     z-index: 99999;
 }
 
@@ -69,6 +114,7 @@ ul.checkout-bar {
     height: 2px;
     padding: 0;
     position: absolute;
-    width: 100%;
+    width: 80%;
     top: 3em;
+    left: 4em;
 }

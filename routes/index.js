@@ -3,48 +3,39 @@ var router = express.Router();
 
 var mongodb = require('mongodb');
 
+var Vacation = require('../models/vacation.js');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+    var context = {
+       
+    }
+    res.render('index', context);
 });
 
-router.get('/thelist', function(req, res){
- 
-  // Get a Mongo client to work with the Mongo server
-  var MongoClient = mongodb.MongoClient;
- 
-  // Define where the MongoDB server is
-  var url = 'mongodb://localhost:27017/ourstory';
- 
-  // Connect to the server
-  MongoClient.connect(url, function (err, db) {
-  if (err) {
-    console.log('Unable to connect to the Server', err);
-  } else {
-    // We are connected
-    console.log('Connection established to', url);
- 
-    // Get the documents collection
-    var collection = db.collection('students');
- 
-    // Find all students
-    collection.find({}).toArray(function (err, result) {
-      if (err) {
-        res.send(err);
-      } else if (result.length) {
-        res.render('studentlist',{
- 
-          // Pass the returned database documents to Jade
-          "studentlist" : result
-        });
-      } else {
-        res.send('No documents found');
-      }
-      //Close connection
-      db.close();
+router.get('/vacations', function(req, res){
+    Vacation.find({ available: true }, function(err, vacations){
+    	var currency = 'USD';
+        var context = {
+            currency: currency,
+            vacations: vacations.map(function(vacation){
+                return {
+                    sku: vacation.sku,
+                    name: vacation.name,
+                    description: vacation.description,
+                    inSeason: vacation.inSeason,
+                    price: vacation.priceInCents/100,
+                    qty: vacation.qty,
+                };
+            })
+        };
+        switch(currency){
+	    	case 'USD': context.currencyUSD = 'selected'; break;
+	        case 'GBP': context.currencyGBP = 'selected'; break;
+	        case 'BTC': context.currencyBTC = 'selected'; break;
+	    }
+        res.render('vacations', context);
     });
-  }
-  });
 });
 
 module.exports = router;

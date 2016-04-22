@@ -10,4 +10,6 @@ $(function() {
         $curr.prevAll().addClass("visited");
 
     });
+    
+    $('#myModal').modal('show');
 });

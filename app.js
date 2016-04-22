@@ -58,5 +58,22 @@ app.use(function(err, req, res, next) {
   });
 });
 
-
 module.exports = app;
+
+var mongoose = require('mongoose');
+var opts = {
+    server: {
+        socketOptions: { keepAlive: 1 }
+    }
+};
+
+switch(app.get('env')) {
+    case 'development':
+        mongoose.connect('mongodb://seth:seth@ds023490.mlab.com:23490/ourstory', opts);
+        break;
+    case 'production':
+        mongoose.connect(process.env.MONGOLAB_URI, opts);
+        break;
+    default:
+        throw new Error('Unknown execution environment: ' + app.get('env'));
+}
