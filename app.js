@@ -72,7 +72,7 @@ switch(app.get('env')) {
         mongoose.connect('mongodb://seth:seth@ds023490.mlab.com:23490/ourstory', opts);
         break;
     case 'production':
-        mongoose.connect(process.env.MONGOLAB_URI, opts);
+        mongoose.connect('mongodb://seth:seth@ds023490.mlab.com:23490/ourstory', opts);
         break;
     default:
         throw new Error('Unknown execution environment: ' + app.get('env'));
