@@ -6,47 +6,42 @@
                 include checkoutprogress
             .modal-body
                 form
-                    .row
-                        h2.text-center.modal-body-header
-                            | Account Information
-                    .row
-                        p.modal-body-text.text-left
-                            | Lorem ipsum dolor sit amet, nibh petentium urbanitas ne per, vel et laoreet fuisset erroribus. Omittam mentitum ne mei. Mel graeci verterem consetetur ne.
-
-                    .row
-                        .col-md-6
-                            input.form-control(type="text", placeholder="First Name")
-                        .col-md-6
-                            input.form-control(type="text", placeholder="Last Name")
-                    .row
-                        .col-md-12
-                            input.form-control(type="email", placeholder="Email Address")
-                    .row
-                        .col-md-6
-                            input.form-control(type="password", placeholder="Password")
-                        .col-md-6
-                            input.form-control(type="password", placeholder="Confirm Password")
-                    .row
-                        button.btn.btn-primary.pull-right
-                            | Continue
-                    
-                    
-                    
-                    .row
-                        .tabbable-panel
-                            .tabbable-line
-                                ul.nav.nav-tabs
-                                    li.active
-                                        a(href="#get-started", data-toggle="tab")
-                                            | Get Started
-                                    li
-                                        a(href="#about-you", data-toggle="tab")
-                                            | About You
-                                    li
-                                        a(href="#looking-for", data-toggle="tab")
-                                            | Looking For
-                                .tab-content
-                                    .tab-pane.active(id="get-started")
-                                    .tab-pane(id="about-you")
-                                    .tab-pane(id="looking-for")
-                
+                    .active(href="#venueInfo")
+                        .row
+                            h2.text-center.modal-body-header
+                                | Account Information
+                        .row
+                            p.modal-body-text.text-left
+                                | Lorem ipsum dolor sit amet, nibh petentium urbanitas ne per, vel et laoreet fuisset erroribus. Omittam mentitum ne mei. Mel graeci verterem consetetur ne.
+                        .row
+                            .col-md-6
+                                input.form-control(type="text", placeholder="First Name")
+                            .col-md-6
+                                input.form-control(type="text", placeholder="Last Name")
+                        .row
+                            .col-md-12
+                                input.form-control(type="email", placeholder="Email Address")
+                        .row
+                            .col-md-6
+                                input.form-control(type="password", placeholder="Password")
+                            .col-md-6
+                                input.form-control(type="password", placeholder="Confirm Password")
+                    div(href="#dateInfo",style="display:none")
+                        .row
+                            h2.text-center.modal-body-header
+                                | Venue Information
+                        .row
+                            p.modal-body-text.text-left
+                                | Lorem ipsum dolor sit amet, nibh petentium urbanitas ne per, vel et laoreet fuisset erroribus. Omittam mentitum ne mei. Mel graeci verterem consetetur ne.
+                        .row
+                            .col-md-6
+                                input.form-control(type="text", placeholder="City")
+                            .col-md-6
+                                input.form-control(type="text", placeholder="State")
+                        .row
+                            .col-md-12
+                                input.form-control(type="text", placeholder="Venue Name")
+                        
+                .row#continueRow
+                    button.btn.btn-primary.pull-right#continue
+                        | Continue

@@ -20,14 +20,28 @@ nav.navbar.navbar-default {
  * Modal
  */
 
+#continue {
+    margin-top: 30px;
+}
+
+#continueRow {
+    position: absolute;
+    bottom: 3em;
+}
+
 .modal input.form-control {
     margin-left: -15px;
     margin-bottom: 15px;
 }
 
+.modal-body {
+    height: 25em;
+}
+
 .modal-dialog {
     top: 150px;
     width: 60em !important;
+    height: 40em;
 }
 
 .modal-body-header {
