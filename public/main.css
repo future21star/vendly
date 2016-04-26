@@ -1,3 +1,89 @@
+#clockdiv{
+	font-family: sans-serif;
+	font-weight: 100;
+	text-align: center;
+	font-size: 30px;
+}
+
+#clockdiv > div{
+	padding: 10px;
+	border-radius: 3px;
+	display: inline-block;
+}
+
+#clockdiv div > span{
+	padding: 15px;
+	border-radius: 3px;
+	background: white;
+	display: inline-block;
+}
+
+.smalltext{
+	padding-top: 5px;
+	font-size: 16px;
+}
+
+
+
+
+
+.sidenav {
+    height: 100%;
+    width: 25px;
+    position: fixed;
+    z-index: -1;
+    top: 48px;
+    left: 0;
+    background-color: darkgrey;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    white-space: nowrap;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 0px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #818181;
+    display: block;
+    transition: 0.5s;
+}
+
+.sidenav img {
+    transition: 0.5s;
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px !important;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.leftnavicon {
+    height: 15px;
+    width: 15px;
+    margin: 5px;
+}
+
+
+
 /**
  * Main body
  */
@@ -14,6 +100,8 @@ body,
 .modal-header,
 nav.navbar.navbar-default {
     background-color: lightskyblue;
+    border-color: transparent;
+    border-radius: 0;
 }
 
 /**
