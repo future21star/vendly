@@ -4,11 +4,15 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var passport = require('passport');
 
-var mongo = require('mongodb');
+// Bring in the data model
+require('./models/db');
+// Bring in the Passport config after model is defined
+require('./config/passport');
+
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 
 var app = express();
 
@@ -17,15 +21,25 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+//app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// [SH] Set the app_client folder to serve static resources
+app.use(express.static(path.join(__dirname, 'app_client')));
+
+// Initialise Passport before using the route middleware
+app.use(passport.initialize());
 
 app.use('/', routes);
-app.use('/users', users);
+
+// Otherwise render the index.html page for the Angular SPA
+// This means we don't have to map all of the SPA routes in Express
+app.use(function(req, res) {
+  res.sendFile(path.join(__dirname, 'app_client', 'index.html'));
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -34,18 +48,27 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+
 // error handlers
+
+// Catch unauthorised errors
+app.use(function (err, req, res, next) {
+  if (err.name === 'UnauthorizedError') {
+    res.status(401);
+    res.json({"message" : err.name + ": " + err.message});
+  }
+});
 
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
+    app.use(function(err, req, res, next) {
+        res.status(err.status || 500);
+        res.render('error', {
+            message: err.message,
+            error: err
+        });
     });
-  });
 }
 
 // production error handler
@@ -59,21 +82,3 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-
-var mongoose = require('mongoose');
-var opts = {
-    server: {
-        socketOptions: { keepAlive: 1 }
-    }
-};
-
-switch(app.get('env')) {
-    case 'development':
-        mongoose.connect('mongodb://seth:seth@ds023490.mlab.com:23490/ourstory', opts);
-        break;
-    case 'production':
-        mongoose.connect('mongodb://seth:seth@ds023490.mlab.com:23490/ourstory', opts);
-        break;
-    default:
-        throw new Error('Unknown execution environment: ' + app.get('env'));
-}
