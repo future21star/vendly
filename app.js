@@ -7,12 +7,11 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 
 // Bring in the data model
-require('./models/db');
+require('./app_api/models/db');
 // Bring in the Passport config after model is defined
-require('./config/passport');
+require('./app_api/config/passport');
 
-
-var routes = require('./routes/index');
+var routesApi = require('./app_api/routes/index');
 
 var app = express();
 
@@ -33,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'app_client')));
 // Initialise Passport before using the route middleware
 app.use(passport.initialize());
 
-app.use('/', routes);
+app.use('/api', routesApi);
 
 // Otherwise render the index.html page for the Angular SPA
 // This means we don't have to map all of the SPA routes in Express
