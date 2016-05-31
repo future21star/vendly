@@ -2,7 +2,8 @@
 
   angular
   .module('meanApp')
-  .controller('loginCtrl', loginCtrl);
+  .controller('loginCtrl', loginCtrl)
+  .controller('logoutCtrl', logoutCtrl);
 
   loginCtrl.$inject = ['$location', 'authentication'];
   function loginCtrl($location, authentication) {
@@ -24,6 +25,16 @@
         });
     };
 
+  }
+    
+  logoutCtrl.$inject = ['$location', 'authentication'];
+  function logoutCtrl($location, authentication) {
+      alert("what the fuck");
+      authentication
+        .logout()
+        .then(function(){
+          $location.path('login');
+        });
   }
 
 })();

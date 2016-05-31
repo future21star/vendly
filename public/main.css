@@ -45,13 +45,20 @@
     padding: 8px 8px 8px 0px;
     text-decoration: none;
     font-size: 15px;
-    color: #818181;
+    color: #444;
     display: block;
     transition: 0.5s;
 }
 
+.sidenav hr {
+    margin-top: 0; 
+    margin-bottom: 0; 
+    border-top: 1px solid #888;
+}
+
 .sidenav img {
     transition: 0.5s;
+    vertical-align: text-bottom;
 }
 
 .sidenav a:hover, .offcanvas a:focus{
@@ -98,10 +105,16 @@ body,
 * Navbar
 */
 .modal-header,
-nav.navbar.navbar-default {
+nav.navbar.navbar-default,
+.navbar-default {
     background-color: lightskyblue;
+    background-image: none;
     border-color: transparent;
     border-radius: 0;
+}
+
+.navbar-default a {
+    color: white !important;
 }
 
 /**

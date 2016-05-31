@@ -9,6 +9,11 @@
         controller: 'homeCtrl',
         controllerAs: 'vm'
       })
+      .when('/dashboard', {
+        templateUrl: 'dashboard/dashboard.view.html',
+        controller: 'dashboardCtrl',
+        controllerAs: 'vm'
+      })
       .when('/register', {
         templateUrl: '/auth/register/register.view.html',
         controller: 'registerCtrl',
@@ -19,6 +24,9 @@
         controller: 'loginCtrl',
         controllerAs: 'vm'
       })
+//      .when('/logout', {
+//        controller: 'logoutCtrl'
+//      })
       .when('/profile', {
         templateUrl: '/profile/profile.view.html',
         controller: 'profileCtrl',
@@ -31,11 +39,15 @@
   }
 
   function run($rootScope, $location, authentication) {
-    $rootScope.$on('$routeChangeStart', function(event, nextRoute, currentRoute) {
-      if ($location.path() === '/profile' && !authentication.isLoggedIn()) {
-        $location.path('/');
-      }
-    });
+      $rootScope.$on('$routeChangeStart', function(event, nextRoute, currentRoute) {
+          if ($location.path() === '/' && authentication.isLoggedIn()) {
+              $location.path('/dashboard');
+          }
+          
+          if ($location.path() === '/profile' && !authentication.isLoggedIn()) {
+              $location.path('/');
+          }
+      });
   }
   
   angular
