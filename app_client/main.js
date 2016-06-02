@@ -24,9 +24,11 @@
         controller: 'loginCtrl',
         controllerAs: 'vm'
       })
-//      .when('/logout', {
-//        controller: 'logoutCtrl'
-//      })
+      .when('/logout', {
+        templateUrl: 'home/home.view.html',
+        controller: 'logoutCtrl',
+        controllerAs: 'vm'
+      })
       .when('/profile', {
         templateUrl: '/profile/profile.view.html',
         controller: 'profileCtrl',

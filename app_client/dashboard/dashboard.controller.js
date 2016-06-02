@@ -11,6 +11,12 @@
         var vm = this;
         vm.isLoggedIn = authentication.isLoggedIn();
         vm.currentUser = authentication.currentUser();
+        
+        
+        $('#calendar').fullCalendar({
+            // put your options and callbacks here
+        });
+        
     }    
 
 })();

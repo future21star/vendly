@@ -29,12 +29,7 @@
     
   logoutCtrl.$inject = ['$location', 'authentication'];
   function logoutCtrl($location, authentication) {
-      alert("what the fuck");
-      authentication
-        .logout()
-        .then(function(){
-          $location.path('login');
-        });
+      authentication.logout();
   }
 
 })();

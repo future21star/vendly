@@ -19,6 +19,14 @@
           <label for="password">Password</label>
           <input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.credentials.password">
         </div>
+        <div class="form-group">
+          <label for="usertype">User type</label>
+          <select id="usertype" class="form-control" ng-model="vm.credentials.usertype" >
+              <option value="planner" selected>Planner</option>
+              <option value="venue">Venue</option>
+              <option value="vendor">Vendor</option>  
+          </select>
+        </div>
         <button type="submit" class="btn btn-default">Register!</button>
       </form>
     </div>

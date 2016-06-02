@@ -7,11 +7,12 @@
   registerCtrl.$inject = ['$location', 'authentication'];
   function registerCtrl($location, authentication) {
     var vm = this;
-
+      
     vm.credentials = {
       name : "",
       email : "",
-      password : ""
+      password : "",
+      usertype : ""
     };
 
     vm.onSubmit = function () {

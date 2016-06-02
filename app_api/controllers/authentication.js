@@ -16,21 +16,22 @@ module.exports.register = function(req, res) {
   //   return;
   // }
 
-  var user = new User();
+    var user = new User();
 
-  user.name = req.body.name;
-  user.email = req.body.email;
+    user.name = req.body.name;
+    user.email = req.body.email;
+    user.usertype = req.body.usertype;
 
-  user.setPassword(req.body.password);
+    user.setPassword(req.body.password);
 
-  user.save(function(err) {
-    var token;
-    token = user.generateJwt();
-    res.status(200);
-    res.json({
-      "token" : token
+    user.save(function(err) {
+        var token;
+        token = user.generateJwt();
+        res.status(200);
+        res.json({
+          "token" : token
+        });
     });
-  });
 
 };
 
