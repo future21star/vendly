@@ -1,4 +1,7 @@
-<div id="mySidenav" class="sidenav" style="z-index:100">
+<div id="mySidenav" class="sidenav">
+    
+    <div id="today"></div>
+<!--
     <div id="clockdiv" style="visibility:hidden">
         <div>
             <span class="months">
@@ -17,23 +20,58 @@
             </div>
         </div>
     </div>
+-->
     
     <a style="top:50px">
         <img class="leftnavicon" src="/img/venue.png" />
-        Venue Details
+        <span ng-show="vm.isPlanner">Venue Details</span>
+        <span ng-hide="vm.isPlanner">Business Details</span>
     </a>
     <hr class="bar">
-    <a>
+    <a ng-show="vm.isPlanner">
         <img class="leftnavicon" src="/img/vendor.png" />
         Vendor Details
     </a>
+    <a ng-hide="vm.isPlanner">
+        <img class="leftnavicon" src="/img/calendar.png" />
+        Calendar
+    </a>
     <hr class="bar">
-    <a>
+    <a ng-hide="vm.isPlanner" href="rolodex">
+        <img class="leftnavicon" src="/img/rolodex.png" />
+        Client Rolodex
+    </a>
+    <a ng-show="vm.isPlanner">
         <img class="leftnavicon" src="/img/guests.png" />
         Guest Details
     </a>
-    <hr class="bar">
-    <a>
+    
+    
+    <hr class="bar" ng-hide="vm.isPlanner">
+    <a ng-hide="vm.isPlanner">
+        <img class="leftnavicon" src="/img/booklets.png" />
+        Event Booklets
+    </a>
+    <hr class="bar" ng-hide="vm.isPlanner">
+    <a ng-hide="vm.isPlanner">
+        <img class="leftnavicon" src="/img/contracts.png" />
+        Contracts
+    </a>
+    <hr class="bar" ng-hide="vm.isPlanner">
+    <a ng-hide="vm.isPlanner">
+        <img class="leftnavicon" src="/img/finances.png" />
+        Finances
+    </a>
+    <hr class="bar" ng-hide="vm.isPlanner">
+    <a ng-hide="vm.isPlanner">
+        <img class="leftnavicon" src="/img/inventory.png" />
+        Inventory
+    </a>
+    
+    
+    
+    <hr class="bar" ng-show="vm.isPlanner">
+    <a ng-show="vm.isPlanner">
         <img class="leftnavicon" src="/img/registry.png" />
         Registry
     </a>

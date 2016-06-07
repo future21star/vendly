@@ -3,14 +3,34 @@
   angular
     .module('meanApp')
     .controller('sidebarCtrl', sidebarCtrl);
+    
 
-  sidebarCtrl.$inject = ['$location','authentication'];
-  function sidebarCtrl($location, authentication) {
-    var vm = this;
+  sidebarCtrl.$inject = ['$location','authentication','meanData'];
+  function sidebarCtrl($location, authentication, meanData) {
+      var vm = this;
+      
+      vm.user = {};
+      
+      meanData.getProfile()
+        .success(function(data) {
+            vm.user = data;
+        })
+        .error(function(e) {
+            console.log(e);
+        });
 
-    vm.isLoggedIn = authentication.isLoggedIn();
-
-    vm.currentUser = authentication.currentUser();
+      vm.isLoggedIn = authentication.isLoggedIn();
+      vm.currentUser = authentication.currentUser();
+      
+      vm.isPlanner = vm.user.usertype === 'planner';
+      
+      
+      
+    /**
+     * page actions
+     */
+      
+    $('#today').text(moment().format('dddd, MMM. Do, YYYY'));
       
     $('.bar').css('visibility','hidden');
     
@@ -21,7 +41,8 @@
         $('.leftnavicon').css('margin-bottom', '0px');
         
         $('.bar').css('visibility','hidden');
-        $('#clockdiv').css('visibility','hidden');
+        $('#today').css('visibility','hidden');
+        //$('#clockdiv').css('visibility','hidden');
     }
 
     function closeNav() {
@@ -30,7 +51,8 @@
         $('.leftnavicon').height('15px');
         $('.leftnavicon').css('margin-bottom', '15px');
         
-        $('#clockdiv').css('visibility','hidden');
+        $('#today').css('visibility','hidden');
+        //$('#clockdiv').css('visibility','hidden');
     }
     
     function fullOpenNav() {
@@ -39,7 +61,8 @@
         $('.leftnavicon').height('30px');
         
         $('.bar').css('visibility','visible');
-        $('#clockdiv').css('visibility','visible');
+        $('#today').css('visibility','visible');
+        //$('#clockdiv').css('visibility','visible');
     }
     
     $('.sidenav').hover(function() {

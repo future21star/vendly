@@ -14,9 +14,18 @@
         }
       });
     };
+      
+    var getRolodex = function () {
+      return $http.get('/api/rolodex', {
+        headers: {
+          Authorization: 'Bearer '+ authentication.getToken()
+        }
+      });
+    };
 
     return {
-      getProfile : getProfile
+      getProfile : getProfile,
+      getRolodex : getRolodex
     };
   }
 

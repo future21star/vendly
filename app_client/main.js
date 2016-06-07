@@ -34,6 +34,11 @@
         controller: 'profileCtrl',
         controllerAs: 'vm'
       })
+      .when('/rolodex', {
+        templateUrl: '/rolodex/rolodex.view.html',
+        controller: 'rolodexCtrl',
+        controllerAs: 'vm'
+      })
       .otherwise({redirectTo: '/'});
 
     // use the HTML5 History API
