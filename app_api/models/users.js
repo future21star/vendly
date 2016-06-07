@@ -16,7 +16,7 @@ var userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    contacts: [{ type: Schema.Types.ObjectId, ref: 'Contact' }],
+    contacts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Contact' }],
     hash: String,
     salt: String
 });
