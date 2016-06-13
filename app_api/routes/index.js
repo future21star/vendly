@@ -13,7 +13,7 @@ var ctrlAuth = require('../controllers/authentication');
 router.get('/profile', auth, ctrlProfile.profileRead);
 
 // rolodex contacts
-//router.get('/rolodex', auth, ctrlProfile.rolodexRead);
+router.get('/rolodex', auth, ctrlProfile.rolodexRead);
 router.post('/saveContact', auth, ctrlProfile.saveContact);
 
 // authentication

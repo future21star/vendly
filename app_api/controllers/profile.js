@@ -18,22 +18,22 @@ module.exports.profileRead = function(req, res) {
 
 };
 
-//module.exports.rolodexRead = function(req, res) {
-//
-//  if (!req.payload._id) {
-//    res.status(401).json({
-//      "message" : "UnauthorizedError: private profile"
-//    });
-//  } else {
-//      User
-//        .findById(req.payload._id)
-//        .populate('contacts')
-//        .exec(function(err, user) {
-//            res.status(200).json(user);
-//        });
-//  }
-//
-//};
+module.exports.rolodexRead = function(req, res) {
+
+  if (!req.payload._id) {
+    res.status(401).json({
+      "message" : "UnauthorizedError: private profile"
+    });
+  } else {
+      User
+        .findById(req.payload._id)
+        .populate('contacts')
+        .exec(function(err, user) {
+            res.status(200).json(user.contacts);
+        });
+  }
+
+};
 
 module.exports.saveContact = function(req, res) {
     
@@ -42,20 +42,6 @@ module.exports.saveContact = function(req, res) {
             "message" : "UnauthorizedError: private profile"
         });
     } else {
-        
-//        var contact = new Contact({
-//            name: req.body.name,
-//            email: req.body.email,
-//            _owner: req.payload._id  
-//        });
-//
-//        contact.save(function(err) {
-//            res.status(200);
-//            res.json(contact);
-//        });
-//        
-//        var user = User.findById(req.payload._id);
-        
         
         User.findById(req.payload._id, function(err, user) {
             if (err) {

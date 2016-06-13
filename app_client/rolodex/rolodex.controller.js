@@ -8,10 +8,15 @@
   function rolodexCtrl($location, meanData) {
     var vm = this;
 
-    vm.contact = {
-      name : "",
-      email : ""
-    };
+    vm.contacts = {};
+      
+    meanData.getRolodex()
+    .success(function(data) {
+        vm.contacts = data;
+    })
+    .error(function (e) {
+        console.log(e);
+    });
       
     vm.onSubmit = function () {
         console.log('Submitting contact ' + vm.contact.name);
@@ -21,45 +26,7 @@
         });
     };
 
-//    meanData.getRolodex()
-//      .success(function(data) {
-//        vm.user = data;
-//      })
-//      .error(function (e) {
-//        console.log(e);
-//      });
-      
-      
-      
     $('#example').DataTable();
-      
-      
-      
-      
-      
-      
-    // delete below  
-//    var vm = this;
-//      
-//    vm.credentials = {
-//      name : "",
-//      email : "",
-//      password : "",
-//      usertype : ""
-//    };
-//      
-//    vm.onSubmit = function () {
-//      console.log('Submitting registration');
-//      authentication
-//        .register(vm.credentials)
-//        .error(function(err){
-//          alert(err);
-//        })
-//        .then(function(){
-//          $location.path('profile');
-//        });
-//    };
-      
   }
 
 })();
