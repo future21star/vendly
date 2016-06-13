@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
-//var User = mongoose.model('User');
+var User = mongoose.model('User');
 
 var contactSchema = new mongoose.Schema({
-    _owner: { type: Number, ref: 'User' },
+    _owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     email: {
         type: String,
         unique: true,

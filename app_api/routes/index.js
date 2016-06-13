@@ -7,14 +7,14 @@ var auth = jwt({
 });
 
 var ctrlProfile = require('../controllers/profile');
-var ctrlRol
 var ctrlAuth = require('../controllers/authentication');
 
 // profile
 router.get('/profile', auth, ctrlProfile.profileRead);
 
 // rolodex contacts
-router.get('/rolodex', auth, ctrlProfile.rolodexRead);
+//router.get('/rolodex', auth, ctrlProfile.rolodexRead);
+router.post('/saveContact', auth, ctrlProfile.saveContact);
 
 // authentication
 router.post('/register', ctrlAuth.register);

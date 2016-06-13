@@ -15,17 +15,26 @@
       });
     };
       
-    var getRolodex = function () {
-      return $http.get('/api/rolodex', {
+//    var getRolodex = function () {
+//      return $http.get('/api/rolodex', {
+//        headers: {
+//          Authorization: 'Bearer '+ authentication.getToken()
+//        }
+//      });
+//    };
+      
+      var saveContact = function (contact) {
+      return $http.post('/api/saveContact', contact, {
         headers: {
           Authorization: 'Bearer '+ authentication.getToken()
         }
       });
     };
-
+      
     return {
       getProfile : getProfile,
-      getRolodex : getRolodex
+      //getRolodex : getRolodex,
+      saveContact: saveContact
     };
   }
 
