@@ -19,8 +19,6 @@
         console.log(e);
     });
     
-      
-      
     vm.onSubmit = function () {
         console.log('Submitting contact ' + vm.contact.name);
         meanData.saveContact(vm.contact)
