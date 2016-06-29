@@ -39,6 +39,11 @@
         controller: 'rolodexCtrl',
         controllerAs: 'vm'
       })
+      .when('/calendar', {
+        templateUrl: '/calendar/calendar.view.html',
+        controller: 'calendarCtrl',
+        controllerAs: 'vm'
+      })
       .otherwise({redirectTo: '/'});
 
     // use the HTML5 History API

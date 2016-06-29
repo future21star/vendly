@@ -31,10 +31,28 @@
         });
     };
       
+    var getCalendar = function () {
+        return $http.get('/api/calendar', {
+            headers: {
+                Authorization: 'Bearer '+ authentication.getToken()
+            }
+        });
+    };
+      
+    var saveEvent = function (event) {
+        return $http.post('/api/saveEvent', event, {
+            headers: {
+                Authorization: 'Bearer '+ authentication.getToken()
+            }
+        });
+    };
+      
     return {
       getProfile : getProfile,
       getRolodex : getRolodex,
-      saveContact: saveContact
+      saveContact: saveContact,
+      getCalendar: getCalendar,
+      saveEvent  : saveEvent
     };
   }
 

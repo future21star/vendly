@@ -1,20 +1,20 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
-var contactSchema = new mongoose.Schema({
+var eventSchema = new mongoose.Schema({
     _owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-    email: {
-        type: String,
-        //unique: true,
-        required: true
-    },
-    name: {
+    title: {
         type: String,
         required: true
     },
-    weddingdate: Date,
-    phone: String,
-    balanceDue: Number
+    allDay: Boolean,
+    start: {
+        type: Date,
+        required: true
+    },
+    end: Date,
+    url: String,
+    description: String
 });
 
-mongoose.model('Contact', contactSchema);
+mongoose.model('Event', eventSchema);

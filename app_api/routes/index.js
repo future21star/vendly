@@ -16,6 +16,10 @@ router.get('/profile', auth, ctrlProfile.profileRead);
 router.get('/rolodex', auth, ctrlProfile.rolodexRead);
 router.post('/saveContact', auth, ctrlProfile.saveContact);
 
+// calendar
+router.get('/calendar', auth, ctrlProfile.calendarRead);
+router.post('/saveEvent', auth, ctrlProfile.saveEvent);
+
 // authentication
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);

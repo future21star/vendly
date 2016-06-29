@@ -13,9 +13,9 @@
         vm.currentUser = authentication.currentUser();
         
         
-        $('#calendar').fullCalendar({
-            // put your options and callbacks here
-        });
+//        $('#calendar').fullCalendar({
+//            // put your options and callbacks here
+//        });
         
     }    
 

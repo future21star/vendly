@@ -1,0 +1,34 @@
+<navigation></navigation>
+<sidebar></sidebar>
+
+<div class="centerdiv">
+    
+    <form ng-submit="vm.onSubmit()">
+        
+        title: 
+    allDay: Boolean,
+    start: {
+    end: Date,
+    url: String,
+    description: String
+
+        <div class="row">
+            <div class="col-md-5 form-group">
+                <label for="name">Event Name</label>
+                <input type="text" class="form-control" id="title" placeholder="Enter event name" ng-model="vm.event.title">
+            </div>
+            <div class="col-md-5 form-group">
+                <label for="email">Event Start</label>
+                <input type="email" class="form-control" id="start" placeholder="Enter Event Start" ng-model="vm.event.start">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-default">Add</button>
+
+    </form>
+    
+    <br><br>
+    
+    <div id="calendar" class="centerdiv" style="width:800px;"></div>
+    
+</div>
