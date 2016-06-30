@@ -1,35 +1,41 @@
-(function() {
+(function () {
   
   angular
     .module('meanApp')
     .controller('calendarCtrl', calendarCtrl);
 
-  calendarCtrl.$inject = ['$location', 'meanData', '$route'];
-  function calendarCtrl($location, meanData, $route) {
+  calendarCtrl.$inject = ['$location', 'meanData', '$route', '$scope'];
+  function calendarCtrl($location, meanData, $route, $scope) {
     var vm = this;
 
-    vm.events = {};
-      
     meanData.getCalendar()
-    .success(function(data) {
-        $('#calendar').fullCalendar({
-            events: data
+        .success(function(data) {
+            $('#calendar').fullCalendar({
+                events: data
+            });
+        })
+        .error(function (e) {
+            console.log(e);
         });
-        vm.events = data;
-    })
-    .error(function (e) {
-        console.log(e);
-    });
+      
+    this.picker = {
+      date: new Date()
+    };
+      
+    vm.openCalendar = function() {
+        vm.picker.open = true;
+    };
       
     vm.onSubmit = function () {
+        alert(JSON.stringify(vm.event));
         console.log('Submitting events ' + vm.event.title);
         meanData.saveEvent(vm.event)
-        .error(function(e){
-            console.log(e);
-        })
-        .then(function(){
-            $route.reload();
-        });
+            .error(function(e){
+                console.log(e);
+            })
+            .then(function(){
+                $route.reload();
+            });
     };
       
     

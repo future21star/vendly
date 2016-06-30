@@ -132,7 +132,7 @@ module.exports.saveEvent = function(req, res) {
             }
 
             var event = new Event({
-                _owner: user._id   
+                _owner: user._id,
                 title: req.body.title,
                 allDay: req.body.allDay,
                 start: req.body.start,

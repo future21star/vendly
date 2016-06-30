@@ -5,21 +5,23 @@
     
     <form ng-submit="vm.onSubmit()">
         
-        title: 
-    allDay: Boolean,
-    start: {
-    end: Date,
-    url: String,
-    description: String
-
         <div class="row">
             <div class="col-md-5 form-group">
-                <label for="name">Event Name</label>
+                <label for="title">Event Name</label>
                 <input type="text" class="form-control" id="title" placeholder="Enter event name" ng-model="vm.event.title">
+                <div>{{vm.event.title}}</div>
             </div>
             <div class="col-md-5 form-group">
-                <label for="email">Event Start</label>
-                <input type="email" class="form-control" id="start" placeholder="Enter Event Start" ng-model="vm.event.start">
+                <label for="start">Event Start</label>
+                <p class="input-group">
+                    
+                    <input type="text" id="start" placeholder="Enter start date" class="form-control" datepicker-popup="MM/dd/yyyy HH:mm"  ng-model="vm.event.start" is-open="vm.picker.open" />
+                    
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar()"><i class="fa fa-calendar"></i></button>
+                    </span>
+                </p>
+                <p class="form-control-static">{{ vm.event.start }}</p>
             </div>
         </div>
 
