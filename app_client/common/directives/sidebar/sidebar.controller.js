@@ -30,6 +30,12 @@
      * page actions
      */
       
+    
+    $('.workingOnIt').click(function () {
+        $('#workingOnItModal').modal('show');
+    });
+    
+      
     $('#today').text(moment().format('dddd, MMM. Do, YYYY'));
       
     $('.bar').css('visibility','hidden');
