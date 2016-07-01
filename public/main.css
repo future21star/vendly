@@ -146,6 +146,12 @@ nav.navbar.navbar-default,
  * Modal
  */
 
+
+
+#loginModal .modal-header {
+    height:50px;
+}
+
 #continue {
     margin-top: 30px;
 }
@@ -156,7 +162,7 @@ nav.navbar.navbar-default,
 }
 
 .modal input.form-control {
-    margin-left: -15px;
+    //margin-left: -15px;
     margin-bottom: 15px;
 }
 
@@ -165,9 +171,9 @@ nav.navbar.navbar-default,
 }
 
 .modal-dialog {
-    top: 150px;
-    width: 60em !important;
-    height: 40em;
+    top: 4em;
+   // width: 60em !important;
+   // height: 40em;
 }
 
 .modal-body-header {
@@ -176,7 +182,7 @@ nav.navbar.navbar-default,
 
 .modal-body .row {
     width: 85%;
-    margin-left: 4em;
+    //margin-left: 4em;
 }
 
 .modal-header {
