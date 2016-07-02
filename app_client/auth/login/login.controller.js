@@ -18,7 +18,7 @@
           authentication
             .login(vm.credentials)
             .error(function(err){
-              alert(err);
+              alert('Error: ' + err.message);
             })
             .then(function(){
               $location.path('profile');

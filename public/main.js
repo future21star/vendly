@@ -28,9 +28,9 @@ $(function() {
         });
     });
     
-    $('#onboarding').click(function(){
-        $('#myModal').modal('show');
-    });
-    
+//    $('#onboarding').click(function(){
+//        $('#myModal').modal('show');
+//    });
+//    
 
 });
