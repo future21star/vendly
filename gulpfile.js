@@ -21,7 +21,5 @@ gulp.task('watch', function() {
   });
 });
 
-gulp.task('default', ['scripts', 'watch']);
-
-//process = require("process");
-//gulp.on('stop', function() { process.exit(0); })
+//gulp.task('default', ['scripts', 'watch']);
+gulp.task('default', ['scripts']);
