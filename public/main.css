@@ -167,7 +167,7 @@ nav.navbar.navbar-default,
 }
 
 .modal-body {
-    height: 25em;
+    height: auto;
 }
 
 .modal-dialog {

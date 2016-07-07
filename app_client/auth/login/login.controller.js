@@ -10,8 +10,10 @@
         var vm = this;
 
         vm.credentials = {
+            name : "",
             email : "",
-            password : ""
+            password : "",
+            usertype : ""
         };
 
         vm.onSubmit = function () {
@@ -23,6 +25,20 @@
             .then(function(){
               $location.path('profile');
             });
+        };
+        
+
+
+        vm.onRegisterSubmit = function () {
+            console.log('Submitting registration');
+            authentication
+                .register(vm.credentials)
+                .error(function(err){
+                    alert(err);
+                })
+                .then(function(){
+                    $location.path('profile');
+                });
         };
 
         $('.registerButton').click(function(){
