@@ -40,7 +40,6 @@
     };
       
     var saveEvent = function (event) {
-        alert(JSON.stringify(event));
         return $http.post('/api/saveEvent', event, {
             headers: {
                 Authorization: 'Bearer '+ authentication.getToken()
