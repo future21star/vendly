@@ -110,7 +110,6 @@ a:hover {
 }
 
 
-
 /**
  * Main body
  */
@@ -125,8 +124,21 @@ body,
 * Navbar
 */
 
+.navicon {
+    height:2em;
+}
+
 .navbar {
     z-index: 2;
+}
+
+.usericon {
+    margin-right:5px;
+}
+
+.navbar li > a {
+    padding-top: 11px;
+    padding-bottom: 11px;
 }
 
 .modal-header,
@@ -141,6 +153,12 @@ nav.navbar.navbar-default,
 .navbar-default a {
     color: white !important;
 }
+
+.dropdown-menu a {
+    color: black !important;
+}
+
+
 
 /**
  * Modal

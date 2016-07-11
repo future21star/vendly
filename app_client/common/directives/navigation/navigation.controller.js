@@ -12,16 +12,17 @@
 
     vm.currentUser = authentication.currentUser();
       
-      $('.registerButton').click(function(){
-            $('#loginModal').modal('hide');
-            $('#registerModal').modal('show');
-        });
-        
-        $('.loginButton').click(function(){
-            $('#registerModal').modal('hide');
-            $('#loginModal').modal('show');
-        });
+    $('.registerButton').click(function(){
+        $('#loginModal').modal('hide');
+        $('#registerModal').modal('show');
+    });
 
+    $('.loginButton').click(function(){
+        $('#registerModal').modal('hide');
+        $('#loginModal').modal('show');
+    });
+      
+    $(".dropdown-toggle").dropdown();
   }
 
 })();

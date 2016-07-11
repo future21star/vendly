@@ -28,9 +28,4 @@ $(function() {
         });
     });
     
-//    $('#onboarding').click(function(){
-//        $('#myModal').modal('show');
-//    });
-//    
-
 });
