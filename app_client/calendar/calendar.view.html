@@ -1,8 +1,9 @@
 <navigation></navigation>
 <sidebar></sidebar>
 
-<div class="centerdiv">
+<div class="centerdiv" style="width:800px;">
     
+<!--
     <form ng-submit="vm.onSubmit()">
         
         <div class="row">
@@ -14,8 +15,19 @@
             <div class="col-md-5 form-group">
                 <label for="start">Event Start</label>
                 
-                <div class='input-group date' id='datetimepicker1'>
+                <div class='input-group date' id='starttimepicker'>
                     <input type='text' class="form-control" placeholder="Enter date start" ng-model="vm.event.start">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            
+            <div class="col-md-5 form-group">
+                <label for="start">Event End</label>
+                
+                <div class='input-group date' id='endtimepicker'>
+                    <input type='text' class="form-control" placeholder="Enter date end" ng-model="vm.event.end">
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -26,9 +38,96 @@
         <button type="submit" class="btn btn-default">Add</button>
 
     </form>
+-->
     
-    <br><br>
+    <div class="row">
+        <button class="btn" id="neweventbutton">New Event</button>
+    </div>
     
-    <div id="calendar" class="centerdiv" style="width:800px;"></div>
+    <div id="calendar"></div>
     
+</div>
+
+<div class="modal fade" id="neweventmodal" tabindex="-1" role="dialog">
+    <div class="modal-dialog"><div class="modal-content">
+        <div class="modal-header"><h3 id="modalTitle" class="modal-title">Add New Event</h3></div>
+        <div class="modal-body">
+            
+            <form ng-submit="vm.onSubmit()">
+        
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label for="title">Event Name</label>
+                        <input type="text" class="form-control" id="title" placeholder="Enter event name" ng-model="vm.event.title">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label for="start">Event Start</label>
+
+                        <div class='input-group date' id='starttimepicker'>
+                            <input type='text' class="form-control" placeholder="Enter date start" ng-model="vm.event.start">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 form-group">
+                        <label for="start">Event End</label>
+
+                        <div class='input-group date' id='endtimepicker'>
+                            <input type='text' class="form-control" placeholder="Enter date end" ng-model="vm.event.end">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-default">Add</button>
+
+            </form>
+            
+            
+        </div>
+    </div></div>
+</div>
+
+<div id="fullCalModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+                <h2 id="modalTitle" class="modal-title"></h2>
+            </div>
+            <div id="modalBody" class="modal-body">
+        
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="eventtitle">Event Name</label>
+                            <input type="text" class="form-control" id="eventtitle">
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="eventstart">Event Start</label>
+                            <input type='text' class="form-control" id="eventstart">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="eventend">Event End</label>
+                            <input type='text' class="form-control" id="eventend">
+                        </div>
+                    </div>
+            
+            </div>
+<!--
+            <div class="modal-footer">
+            </div>
+-->
+        </div>
+    </div>
 </div>

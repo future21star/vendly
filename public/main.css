@@ -1,3 +1,7 @@
+#neweventbutton {
+    margin: 10px 20px;
+}
+
 .datetime-picker-dropdown > li.date-picker-menu div > table .btn-default {
   border: 0;
 }
@@ -9,7 +13,7 @@ a:hover {
 .centerdiv {
     float: none; 
     margin: 0 auto;
-    width: 800px;
+    //width: 800px;
 }
 
 
@@ -181,7 +185,7 @@ nav.navbar.navbar-default,
 
 .modal input.form-control {
     //margin-left: -15px;
-    margin-bottom: 15px;
+    //margin-bottom: 15px;
 }
 
 .modal-body {
@@ -190,8 +194,6 @@ nav.navbar.navbar-default,
 
 .modal-dialog {
     top: 4em;
-   // width: 60em !important;
-   // height: 40em;
 }
 
 .modal-body-header {
@@ -199,12 +201,11 @@ nav.navbar.navbar-default,
 }
 
 .modal-body .row {
-    width: 85%;
-    //margin-left: 4em;
+    //width: 85%;
 }
 
 .modal-header {
-    height: 6em;
+    //height: 6em;
 }
 
 .tabbable-panel {
