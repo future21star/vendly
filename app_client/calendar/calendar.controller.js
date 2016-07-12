@@ -23,7 +23,8 @@
     $('#datetimepicker1')
         .datetimepicker()
         .on("dp.change", function() {
-            vm.event.start = $('#datetimepicker1 > input').val();
+            vm.event.start = moment.utc($("#datetimepicker1").data("DateTimePicker").date()).valueOf();
+            //vm.event.start = $('#datetimepicker1 > input').val();
         });
       
     vm.onSubmit = function () {
