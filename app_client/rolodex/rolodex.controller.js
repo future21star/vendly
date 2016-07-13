@@ -11,13 +11,13 @@
     vm.contacts = {};
       
     meanData.getRolodex()
-    .success(function(data) {
-        vm.contacts = data;
-        $('#example').DataTable();
-    })
-    .error(function (e) {
-        console.log(e);
-    });
+        .success(function(data) {
+            vm.contacts = data;
+            //$('#example').DataTable();
+        })
+        .error(function (e) {
+            console.log(e);
+        });
     
     vm.onSubmit = function () {
         console.log('Submitting contact ' + vm.contact.name);

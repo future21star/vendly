@@ -24,4 +24,8 @@ router.post('/saveEvent', auth, ctrlProfile.saveEvent);
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
 
+// booklet
+router.get('/booklets', auth, ctrlProfile.bookletRead);
+router.post('/saveBooklet', auth, ctrlProfile.saveBooklet);
+
 module.exports = router;

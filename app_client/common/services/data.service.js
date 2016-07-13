@@ -47,12 +47,30 @@
         });
     };
       
+    var getBooklets = function () {
+        return $http.get('/api/booklets', {
+            headers: {
+                Authorization: 'Bearer '+ authentication.getToken()
+            }
+        });
+    };
+      
+    var saveBooklet = function (booklet) {
+        return $http.post('/api/saveBooklet', booklet, {
+            headers: {
+                Authorization: 'Bearer '+ authentication.getToken()
+            }
+        });
+    };
+      
     return {
       getProfile : getProfile,
       getRolodex : getRolodex,
       saveContact: saveContact,
       getCalendar: getCalendar,
-      saveEvent  : saveEvent
+      saveEvent  : saveEvent,
+      getBooklets: getBooklets,
+      saveBooklet: saveBooklet
     };
   }
 

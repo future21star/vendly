@@ -18,6 +18,7 @@ var userSchema = new mongoose.Schema({
     },
     contacts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Contact' }],
     events: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Event' }],
+    booklets: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Booklet'}],
     hash: String,
     salt: String
 });
