@@ -1,26 +1,6 @@
 <div id="mySidenav" class="sidenav">
     
     <div id="today"></div>
-<!--
-    <div id="clockdiv" style="visibility:hidden">
-        <div>
-            <span class="months">
-                02
-            </span>
-            <div class="smalltext">
-                Months
-            </div>
-        </div>
-        <div>
-            <span class="days">
-                28
-            </span>
-            <div class="smalltext">
-                Days
-            </div>
-        </div>
-    </div>
--->
     
     <a class="workingOnIt" style="top:50px">
         <img class="leftnavicon" src="/img/venue.png" />
@@ -48,12 +28,12 @@
     
     
     <hr class="bar" ng-hide="vm.isPlanner">
-    <a class="workingOnIt" ng-hide="vm.isPlanner">
+    <a ng-hide="vm.isPlanner" href="booklet">
         <img class="leftnavicon" src="/img/booklets.png" />
         Event Booklets
     </a>
     <hr class="bar" ng-hide="vm.isPlanner">
-    <a class="workingOnIt" ng-hide="vm.isPlanner">
+    <a ng-hide="vm.isPlanner" href="contract">
         <img class="leftnavicon" src="/img/contracts.png" />
         Contracts
     </a>

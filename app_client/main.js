@@ -25,7 +25,7 @@
         controllerAs: 'vm'
       })
       .when('/logout', {
-        templateUrl: 'home/home.view.html',
+        templateUrl: '/auth/login/login.view.html',
         controller: 'logoutCtrl',
         controllerAs: 'vm'
       })
@@ -42,6 +42,16 @@
       .when('/calendar', {
         templateUrl: '/calendar/calendar.view.html',
         controller: 'calendarCtrl',
+        controllerAs: 'vm'
+      })
+      .when('/booklet', {
+        templateUrl: '/booklet/booklet.view.html',
+        controller: 'bookletCtrl',
+        controllerAs: 'vm'
+      })
+      .when('/contract', {
+        templateUrl: '/contract/contract.view.html',
+        controller: 'contractCtrl',
         controllerAs: 'vm'
       })
       .otherwise({redirectTo: '/'});
