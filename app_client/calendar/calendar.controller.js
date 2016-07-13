@@ -13,12 +13,17 @@
         .success(function(data) {
             $('#calendar').fullCalendar({
                 events: data,
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
                 timezone: 'local',
                 eventClick: function(event, jsEvent, view) {
                     $('#modalTitle').html(event.title);
                     $('#eventtitle').val(event.title);
-                    $('#eventstart').val(event.start);
-                    $('#eventend').val(event.end);
+                    $('#eventstart').val(event.start.format('LLL'));
+                    $('#eventend').val(event.end.format('LLL'));
 //                    $('#modalBody').html(event.description);
 //                    $('#eventUrl').attr('href',event.url);
                     $('#fullCalModal').modal();
