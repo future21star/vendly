@@ -29,7 +29,10 @@
             $route.reload();
         });
     };
-
+      
+    $('#newcontactbutton').click(function(){
+        $('#newcontactmodal').modal();
+    });
     
   }
 

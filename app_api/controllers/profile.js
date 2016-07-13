@@ -67,6 +67,9 @@ module.exports.saveContact = function(req, res) {
             var contact = new Contact({
                 name: req.body.name,
                 email: req.body.email,
+                weddingdate: req.body.weddingdate,
+                balanceDue: req.body.balanceDue,
+                phone: req.body.phone,
                 _owner: user._id   
             });
 
