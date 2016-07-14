@@ -25,7 +25,7 @@
                     $('#eventstart').val(event.start.format('LLL'));
                     $('#eventend').val(event.end.format('LLL'));
 //                    $('#modalBody').html(event.description);
-//                    $('#eventUrl').attr('href',event.url);
+
                     $('#fullCalModal').modal();
                 }
             });
