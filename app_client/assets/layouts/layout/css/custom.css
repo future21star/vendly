@@ -1,0 +1,97 @@
+/* here you can put your own css to customize and override the theme */
+
+.portlet-title .page-title {
+  float: left;
+  display: inline-block;
+  font-size: 18px;
+  line-height: 18px;
+  padding: 10px 0;
+  font-size: 28px;
+  letter-spacing: -1px;
+  color: #666666;
+  margin: 0px 0px 15px 0px;
+  font-weight: 300;
+}
+.margin-0 {
+  margin: 0;
+}
+.inline {
+  display: inline-block;
+  margin: 0;
+}
+.border-top {
+  border-top: 1px solid;
+}
+.border-right {
+  border-right: 1px solid;
+}
+.border-bottom {
+  border-bottom: 1px solid;
+}
+.border-left {
+  border-left: 1px solid;
+}
+.padding-5 {
+  padding: 5px;
+}
+.padding-10 {
+  padding: 10px;
+}
+.padding-15 {
+  padding: 15px;
+}
+.padding-20 {
+  padding: 20px;
+}
+.padding-top-5 {
+  padding-top: 5px;
+}
+.padding-top-10 {
+  padding-top: 10px;
+}
+.padding-top-15 {
+  padding-top: 15px;
+}
+.padding-top-20 {
+  padding-top: 20px;
+}
+.padding-right-5 {
+  padding-right: 5px;
+}
+.padding-right-10 {
+  padding-right: 10px;
+}
+.padding-right-15 {
+  padding-right: 15px;
+}
+.padding-right-20 {
+  padding-right: 20px;
+}
+.padding-bottom-5 {
+  padding-bottom: 5px;
+}
+.padding-bottom-10 {
+  padding-bottom: 10px;
+}
+.padding-bottom-15 {
+  padding-bottom: 15px;
+}
+.padding-bottom-20 {
+  padding-bottom: 20px;
+}
+.padding-left-5 {
+  padding-left: 5px;
+}
+.padding-left-10 {
+  padding-left: 10px;
+}
+.padding-left-15 {
+  padding-left: 15px;
+}
+.padding-left-20 {
+  padding-left: 20px;
+}
+.vendor-tools {
+  padding-right: 10px;
+  display: inline-block;
+}

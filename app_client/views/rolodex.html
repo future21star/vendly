@@ -1,0 +1,180 @@
+<!-- BEGIN PAGE HEADER-->
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+      <li>
+          <a href="#/dashboard.html">Home</a>
+          <i class="fa fa-circle"></i>
+        </li>
+      <li>
+          <a href="#/rolodex.html">Client Rolodex</a>
+        </li>
+    </ul>
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN MAIN CONTENT -->
+<div class="row" ng-controller="GeneralPageController">
+  <div class="col-md-12">
+      <!-- BEGIN: ACCORDION DEMO -->
+      <div class="portlet light">
+        <div class="portlet-title">
+          <div class="page-title">
+            My Clients
+          </div>
+          <div class="actions">
+            <a class="btn btn-circle btn-default" data-target="#add_client" data-toggle="modal">
+              <i class="fa fa-user-plus"></i>
+              Add Client
+            </a>
+            <a class="btn btn-circle btn-icon-only btn-default" href="#">
+              <i class="fa fa-cog"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- Client Rolodex -->
+<div class="row padding-left-20 ">
+  <div class="col-md-12">
+    <form class="form-inline well-sm">
+      <div class="form-control">
+        <span class="fa fa-search font-blue" style="opacity: .45;"></span>
+        <input type="text" style="border: none" placeholder="Search...">
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div ng-controller="RolodexController" class="portlet light">
+    <table class="table table-bordered">
+      <th> # </th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Event Date</th>
+      <th>Balance Due</th>
+
+      <tr > <!--ng-repeat= "person in persons" -->
+        <td class="text-center">
+          <a data-target="#client_details" data-toggle="modal">
+            <i class="fa fa-external-link font-blue"></i>
+          </a>
+        </td>
+        <td> {{ client.name }}</td>
+        <td> {{ client.email }}</td>
+        <td> {{ client.phone }}</td>
+        <td> {{ client.date | date:"longDate" }}</td>
+        <td> {{ client.balance }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+<!-- END MAIN CONTENT -->
+
+<!-- BEGIN Client Details Modal -->
+  <div id="client_details" class="modal fade" role="dialog" aria-labelledby="myModalLabel10" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title bold">{{ client.name }} &nbsp;
+            <a class="btn btn-circle btn-default border-blue btn-small font-blue" style="float: right;">
+              <i class="fa fa-wrench"></i>
+              Edit
+            </a>
+          </h4>
+        </div>
+        <div class="modal-body">
+          <div class="portlet light">
+            <div class="row">
+              <div class="col-md-6">
+                <dl>
+                  <dt>Email</dt>
+                  <dd class="padding-bottom-10">{{selectedClient.email}}</dd>
+                  <dt>Phone Number</dt>
+                  <dd class="padding-bottom-10">{{selectedClient.phone}}</dd>
+                  <dt>Event Date</dt>
+                  <dd class="padding-bottom-10">{{selectedClient.date | date:"longDate"}}</dd>
+                  <dt>Balance Due</dt>
+                  <dd>{{selectedClient.balance}}</dd>
+                </dl>
+              </div>
+              <div class="col-md-6">
+                <dl>
+                  <dt>Email</dt>
+                  <dd class="padding-bottom-10">{{selectedClient.email}}</dd>
+                  <dt>Phone Number</dt>
+                  <dd class="padding-bottom-10">{{selectedClient.phone}}</dd>
+                  <dt>Event Date</dt>
+                  <dd class="padding-bottom-10">{{selectedClient.date | date:"longDate"}}</dd>
+                  <dt>Balance Due</dt>
+                  <dd>{{selectedClient.balance}}</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
+          <button class="btn blue" data-dismiss="modal">View Full Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- END Client Details Modal -->
+
+<!-- BEGIN Add Client Modal -->
+  <div id="add_client" class="modal fade" role="dialog" aria-labelledby="myModalLabel10" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title bold">Add New Client
+          </h4>
+        </div>
+        <div class="modal-body">
+          <div class="portlet light form margin-0">
+            <!-- BEGIN FORM-->
+            <form action="#" class="form-horizontal">
+              <div class="form-body">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <span class="help-block"> First Name </span>
+                      <input class="form-control" type="text" required="required" />
+                    </div>
+                    <div class="col-md-6">
+                      <span class="help-block"> Last Name </span>
+                      <input class="form-control" type="text" required="required" />
+                    </div>
+                  </div>
+                  <div class="padding-bottom-10 padding-top-10"></div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <span class="help-block"> Email </span>
+                      <input class="form-control" type="email" required="required" />
+                    </div>
+                    <div class="col-md-6">
+                      <span class="help-block"> Event Date </span>
+                      <input class="form-control date-picker" size="16" type="text" value="" data-date-start-date="+0d" required="required" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
+                <input class="btn blue" type="submit" value="Add Client" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- END Add Client Modal -->
+
+</div>
+
+<!-- BEGIN MAIN JS-->
+<script>
+  ComponentsDateTimePickers.init(); // init todo page
+</script>
+<!-- BEGIN MAIN JS -->

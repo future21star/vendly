@@ -1,9 +1,11 @@
 {
-  "name": "ourstory",
+  "name": "vendly-interface",
   "version": "0.0.0",
+  "main": "gulpfile.js",    
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
+    "poststart": "gulp",
     "postinstall": "gulp"
   },
   "dependencies": {
@@ -22,6 +24,14 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.3",
     "gulp-watch": "^4.3.5",
+    "gulp-connect": "^4.1.0",
+    "gulp-ignore": "^2.0.1",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-prettify": "^0.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-rtlcss": "^0.1.4",
+    "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.5.2",
     "jade": "~1.11.0",
     "jsonwebtoken": "^6.2.0",
     "kerberos": "~0.0.17",

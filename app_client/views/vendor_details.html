@@ -1,0 +1,156 @@
+<!-- BEGIN PAGE HEADER-->
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+      <li>
+          <a href="#/dashboard.html">Home</a>
+          <i class="fa fa-circle"></i>
+        </li>
+      <li>
+          <a href="#/rolodex.html">Client Rolodex</a>
+        </li>
+    </ul>
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN MAIN CONTENT -->
+<div class="row" ng-controller="GeneralPageController">
+  <div class="col-md-12">
+      <!-- BEGIN: ACCORDION DEMO -->
+      <div class="portlet light margin-0">
+        <div class="portlet-title">
+          <div class="page-title">
+            My Vendors
+            <p uib-popover="This is a tooltip" popover-trigger="mouseenter" class="inline">
+              <i class="fa fa-question-circle font-grey-salt" style="font-size: 16px;"></i>
+            </p>
+          </div>
+          <div class="actions">
+            <a class="btn btn-circle btn-default" href="#">
+              <i class="fa fa-cog"></i>
+              Settings
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- END PAGE HEADER-->
+
+<!-- BEGIN MAIN CONTENT -->
+<div class="row">
+  <div class="col-md-8">
+        <div class="portlet-body form">
+            <!-- BEGIN FORM-->
+          <form action="index.html" class="form-horizontal form-row-seperated">
+            <div class="form-body">
+              <div class="form-group">
+                <div class="col-md-8">
+                  <div class="input-group">
+                    <input placeholder="Start typing to search..." type="text" id="typeahead_example_4" name="typeahead_example_4" class="form-control" />
+                  </div>
+                </div>
+                <div class="col-md-4 hidden-1024">
+                  <select placeholder="All" id="vendor-types" class="bs-select form-control" multiple data-selected-text-format="count > 2">
+                    <option value="All" selected>All Vendor Types</option>
+                    <option value="Band & DJ">Band &amp; DJ </option>
+                    <option value="Catering">Catering</option>
+                    <option value="Ceremony Music">Ceremony Music</option>
+                    <option value="Dress & Attire">Dress &amp; Attire</option>
+                    <option value="Event Rentals">Event Rentals</option>
+                    <option value="Favors & Gifts">Favors &amp; Gifts</option>
+                    <option value="Flowers">Flowers</option>
+                    <option value="Guest Accommodations">Guest Accommodations</option>
+                    <option value="Invitations">Invitations</option>
+                    <option value="Lighting & Decor">Lighting &amp; Decor</option>
+                    <option value="Men's Formal Wear">Men's Formal Wear</option>
+                    <option value="Officiant">Officiant</option>
+                    <option value="Photographer">Photographer</option>
+                    <option value="Transportation">Transportation</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Videography">Videography</option>
+                    <option value="Wedding Cake">Wedding Cake</option>
+                    <option value="Unique Services (Other)">Unique Services (Other)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+        </form>
+      </div>
+    <div class="portlet-body portlet light col-md-9" id="selectedVendors" style="cursor: default;">
+      <div class="padding-bottom-20" id="cater">
+        <div class="border-bottom border-grey">
+          <i class="fa fa-cutlery"></i> Catering
+        </div>
+        <div class="padding-20 padding-top-5 padding-bottom-5">
+          <div class="vendor-tools">
+            <a href="" style="text-decoration: none;" class="padding-right-5">
+              <i class="fa fa-search font-grey-salt"></i>
+            </a>
+            <a href="" style="text-decoration: none;">
+              <i class="fa fa-pencil-square-o font-grey-salt"></i>
+            </a>
+          </div>
+          The Three Men &amp; A Cook
+        </div>
+      </div>
+      <div class="padding-bottom-20" id="accommodations">
+        <div class="border-bottom border-grey">
+          <i class="fa fa-bed"></i> Guest Accommodations
+        </div>
+        <div class="padding-20 padding-top-5 padding-bottom-5">
+          <div class="vendor-tools">
+            <a href="" style="text-decoration: none;" class="padding-right-5">
+              <i class="fa fa-search font-grey-salt"></i>
+            </a>
+            <a href="" style="text-decoration: none;">
+              <i class="fa fa-pencil-square-o font-grey-salt"></i>
+            </a>
+          </div>
+          Motel 6 of Houston
+        </div>
+        <div class="padding-20 padding-top-5 padding-bottom-5">
+          <div class="vendor-tools">
+            <a href="" style="text-decoration: none;" class="padding-right-5">
+              <i class="fa fa-search font-grey-salt"></i>
+            </a>
+            <a href="" style="text-decoration: none;">
+              <i class="fa fa-pencil-square-o font-grey-salt"></i>
+            </a>
+          </div>
+          Hilton Garden &amp; Inn
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="portlet box blue border-blue">
+      <div class="portlet-title">
+        <div class="caption">
+          <i class="fa fa-check-circle-o"></i> Preferred Vendors
+        </div>
+        <div class="tools">
+          <a href="javascript:;" class="collapse"> </a>
+          <a href="javascript:;" class="reload"> </a>
+        </div>
+      </div>
+      <div class="portlet-body" style="line-height: 26px;">
+        <a href="">
+          <i class="fa fa-camera"></i> Kandid.ly
+        </a>
+        <a href="">
+          <i class="fa fa-hotel"></i> Home Town Bed &amp; Breakfast
+        </a>
+        <a href="">
+          <i class="fa fa-glass"></i> AJ's Event Bartenders
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END MAIN CONTENT -->
+<!-- BEGIN MAIN JS-->
+<script>
+  ComponentsSelect2.init(); // init todo page
+  ComponentsBootstrapSelect.init(); // init todo page
+    // call any jquery or angularjs code here
+</script>
+<!-- BEGIN MAIN JS -->
