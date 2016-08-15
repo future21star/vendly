@@ -1,0 +1,42 @@
+<!-- BEGIN MAIN CONTENT -->
+<div ng-controller="LoginController">
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"></div>
+                <div class="modal-body">
+                    <div class="row centerdiv">
+                        <div class="col-md-12">
+
+                            <form ng-submit="alert('hello!');">
+                                <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="email" class="form-control" id="email" placeholder="Email" ng-model="vm.credentials.email">
+                                </div>
+                                <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.credentials.password">
+                                </div>
+                                <button type="submit" class="btn btn-default" ng-click="alert('hiiii!');">Log in</button>
+                            </form>
+
+<!--
+                            <br><br>
+                            <p class="lead">New user? Please <a class="registerButton">register here</a>.</p>
+-->
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END MAIN CONTENT -->
+
+<!-- BEGIN MAIN JS & CSS -->
+<script>
+    //Login.init();
+</script>
+<!-- BEGIN MAIN JS & CSS -->

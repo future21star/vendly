@@ -99,16 +99,174 @@ MetronicApp.controller('FooterController', ['$scope', function($scope) {
     });
 }]);
 
+MetronicApp.service('authentication', ['$http', '$window',
+    function ($http, $window) {
+
+        var saveToken = function (token) {
+          $window.localStorage['mean-token'] = token;
+        };
+
+        var getToken = function () {
+          return $window.localStorage['mean-token'];
+        };
+
+        var isLoggedIn = function() {
+          var token = getToken();
+          var payload;
+
+          if(token){
+            payload = token.split('.')[1];
+            payload = $window.atob(payload);
+            payload = JSON.parse(payload);
+
+            return payload.exp > Date.now() / 1000;
+          } else {
+            return false;
+          }
+        };
+
+        var currentUser = function() {
+          if(isLoggedIn()){
+            var token = getToken();
+            var payload = token.split('.')[1];
+            payload = $window.atob(payload);
+            payload = JSON.parse(payload);
+            return {
+              email : payload.email,
+              name : payload.name
+            };
+          }
+        };
+
+        register = function(user) {
+          return $http.post('/api/register', user).success(function(data){
+            saveToken(data.token);
+          });
+        };
+
+        login = function(user) {
+          return $http.post('/api/login', user).success(function(data) {
+            saveToken(data.token);
+          });
+        };
+
+        logout = function() {
+          $window.localStorage.removeItem('mean-token');
+        };
+
+        return {
+          currentUser : currentUser,
+          saveToken : saveToken,
+          getToken : getToken,
+          isLoggedIn : isLoggedIn,
+          register : register,
+          login : login,
+          logout : logout
+        };
+    }
+]);
+
+MetronicApp.service('meanData', ['$http', 'authentication', 
+    function ($http, authentication) {
+
+        var getProfile = function () {
+          return $http.get('/api/profile', {
+            headers: {
+              Authorization: 'Bearer '+ authentication.getToken()
+            }
+          });
+        };
+
+        var getRolodex = function () {
+            return $http.get('/api/rolodex', {
+                headers: {
+                    Authorization: 'Bearer '+ authentication.getToken()
+                }
+            });
+        };
+
+        var saveContact = function (contact) {
+            return $http.post('/api/saveContact', contact, {
+                headers: {
+                    Authorization: 'Bearer '+ authentication.getToken()
+                }
+            });
+        };
+
+        var getCalendar = function () {
+            return $http.get('/api/calendar', {
+                headers: {
+                    Authorization: 'Bearer '+ authentication.getToken()
+                }
+            });
+        };
+
+        var saveEvent = function (event) {
+            return $http.post('/api/saveEvent', event, {
+                headers: {
+                    Authorization: 'Bearer '+ authentication.getToken()
+                }
+            });
+        };
+
+        var getBooklets = function () {
+            return $http.get('/api/booklets', {
+                headers: {
+                    Authorization: 'Bearer '+ authentication.getToken()
+                }
+            });
+        };
+
+        var saveBooklet = function (booklet) {
+            return $http.post('/api/saveBooklet', booklet, {
+                headers: {
+                    Authorization: 'Bearer '+ authentication.getToken()
+                }
+            });
+        };
+
+        return {
+          getProfile : getProfile,
+          getRolodex : getRolodex,
+          saveContact: saveContact,
+          getCalendar: getCalendar,
+          saveEvent  : saveEvent,
+          getBooklets: getBooklets,
+          saveBooklet: saveBooklet
+        };
+    }              
+]);
+
 /* Setup Rounting For All Pages */
 MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     // Redirect any unmatched url
-    $urlRouterProvider.otherwise("/dashboard.html");
-
+    $urlRouterProvider.otherwise("/dashboard");
+    
     $stateProvider
+    
+        // Login
+        .state('login', {
+            url: "/login",
+            templateUrl: "views/login.html",
+            data: {pageTitle: 'Login'},
+            controller: "LoginController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'MetronicApp',
+                        insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+                        files: [
+
+                            'js/controllers/LoginController.js'
+                        ]
+                    });
+                }]
+            }
+        })
 
         // Dashboard
         .state('dashboard', {
-            url: "/dashboard.html",
+            url: "/dashboard",
             templateUrl: "views/dashboard.html",
             data: {pageTitle: 'Admin Dashboard Template'},
             controller: "DashboardController",
@@ -183,7 +341,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
             url: "/rolodex",
             templateUrl: "views/rolodex.html",
             data: {pageTitle: 'Rolodex'},
-            controller: "GeneralPageController",
+            controller: "RolodexController",
             resolve: {
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
@@ -194,6 +352,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                           '../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js',
                           '../assets/pages/scripts/components-date-time-pickers.min.js',
 
+                            'js/controllers/RolodexController.js',
                             'js/controllers/GeneralPageController.js'
                         ]
                     });
@@ -562,7 +721,28 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
 }]);
 
 /* Init global settings and run the app */
-MetronicApp.run(["$rootScope", "settings", "$state", function($rootScope, settings, $state) {
+MetronicApp.run(["$rootScope", "settings", "$state", "authentication", "$location", function($rootScope, settings, $state, authentication, $location) {
+    $rootScope.$on('$locationChangeStart', function(event, nextRoute, currentRoute) {
+        if (!authentication.isLoggedIn()) {
+            // TODO fix this so it isn't logging in automatically
+           // $location.path('/login');
+            
+            var creds = {
+                email : "seth@vendly.com",
+                password : "seth"
+            };
+            
+            authentication
+                .login(creds)
+                .error(function(err){
+                  alert('Error: ' + err.message);
+                })
+                .then(function(){
+                  $location.path('dashboard');
+                });
+        }
+    });
+    
     $rootScope.$state = $state; // state to be accessed from view
     $rootScope.$settings = settings; // state to be accessed from view
 }]);
