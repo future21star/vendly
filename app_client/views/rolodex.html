@@ -2,11 +2,11 @@
 <div class="page-bar">
   <ul class="page-breadcrumb">
       <li>
-          <a href="#/dashboard.html">Home</a>
+          <a href="#/dashboard.html">Dashboard</a>
           <i class="fa fa-circle"></i>
         </li>
       <li>
-          <a href="#/rolodex.html">Client Rolodex</a>
+          <span> Client Rolodex </span>
         </li>
     </ul>
 </div>
@@ -14,60 +14,65 @@
 <!-- BEGIN MAIN CONTENT -->
 <div class="row" ng-controller="GeneralPageController">
   <div class="col-md-12">
-      <!-- BEGIN: ACCORDION DEMO -->
-      <div class="portlet light">
-        <div class="portlet-title">
-          <div class="page-title">
-            My Clients
-          </div>
-          <div class="actions">
-            <a class="btn btn-circle btn-default" data-target="#add_client" data-toggle="modal">
-              <i class="fa fa-user-plus"></i>
-              Add Client
-            </a>
-            <a class="btn btn-circle btn-icon-only btn-default" href="#">
-              <i class="fa fa-cog"></i>
-            </a>
-          </div>
+    <!-- BEGIN: ACCORDION DEMO -->
+    <div class="portlet light">
+      <div class="portlet-title">
+        <div class="page-title">
+          My Clients
+        </div>
+        <div class="actions">
+          <a class="btn btn-circle btn-default" data-target="#add_client" data-toggle="modal">
+            <i class="fa fa-user-plus"></i>
+            Add Client
+          </a>
+          <a class="btn btn-circle btn-icon-only btn-default" href="#">
+            <i class="fa fa-cog"></i>
+          </a>
         </div>
       </div>
     </div>
+  </div>
 
 <!-- Client Rolodex -->
-<div class="row padding-left-20 ">
+<div class="row hidden-xs">
   <div class="col-md-12">
     <form class="form-inline well-sm">
       <div class="form-control">
         <span class="fa fa-search font-blue" style="opacity: .45;"></span>
-        <input type="text" style="border: none" placeholder="Search...">
+        <input type="text" style="border: transparent;" placeholder="Search...">
       </div>
     </form>
   </div>
-</div>
-<div class="row">
-  <div ng-controller="RolodexController" class="portlet light">
-    <table class="table table-bordered">
-      <th> # </th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Event Date</th>
-      <th>Balance Due</th>
+  <div class="col-md-12">
+    <div ng-controller="RolodexController" class="portlet light">
+      <table class="table table-bordered  table-hover">
+        <th> # </th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Event Date</th>
+        <th>Balance Due</th>
 
-      <tr > <!--ng-repeat= "person in persons" -->
-        <td class="text-center">
-          <a data-target="#client_details" data-toggle="modal">
-            <i class="fa fa-external-link font-blue"></i>
-          </a>
-        </td>
-        <td> {{ client.name }}</td>
-        <td> {{ client.email }}</td>
-        <td> {{ client.phone }}</td>
-        <td> {{ client.date | date:"longDate" }}</td>
-        <td> {{ client.balance }}</td>
-      </tr>
-    </table>
+        <tr > <!--ng-repeat= "person in persons" -->
+          <td class="text-center">
+            <a data-target="#client_details" data-toggle="modal">
+              <i class="fa fa-external-link font-blue"></i>
+            </a>
+          </td>
+          <td> {{ client.name }}</td>
+          <td> {{ client.email }}</td>
+          <td> {{ client.phone }}</td>
+          <td> {{ client.date | date:"longDate" }}</td>
+          <td> {{ client.balance }}</td>
+        </tr>
+      </table>
+    </div>
   </div>
+</div>
+<div class="h2 visible-xs-block">
+  <h2 align="center" class="bold font-grey-salt padding-20">
+    This content is only visible on desktop and tablet devices.
+  </h2>
 </div>
 <!-- END MAIN CONTENT -->
 
@@ -115,7 +120,7 @@
         </div>
         <div class="modal-footer">
           <button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
-          <button class="btn blue" data-dismiss="modal">View Full Details</button>
+          <button class="btn blue" href="#/user/details">View Full Details</button>
         </div>
       </div>
     </div>
@@ -131,7 +136,7 @@
           </h4>
         </div>
         <div class="modal-body">
-          <div class="portlet light form margin-0">
+          <div class="portlet light form no-margin">
             <!-- BEGIN FORM-->
             <form action="#" class="form-horizontal">
               <div class="form-body">
