@@ -1,6 +1,5 @@
 <!-- BEGIN PAGE HEADER-->
-<div class="page-bar">
-  <div class="note note-info">
+  <div class="note no-margin note-info">
       <h3>Welcome to Vendly!
         <span class="close" data-close="note"></span>
       </h3>
@@ -9,613 +8,546 @@
       <span class="label label-danger">NOTE:</span> If you every have any questions feel free to reach out to us!</span>
       </p>
   </div>
-</div>
-<h3 class="page-title"> Dashboard </h3>
+<h3 class="page-title padding-bottom-10"> Dashboard </h3>
 <!-- END PAGE HEADER-->
 
 <!-- BEGIN MAIN CONTENT -->
 <div ng-controller="DashboardController">
-    <div class="row">
-      <!-- Begin Approval Feature -->
-      <div class="portlet light bordered">
-          <div class="portlet-title tabbable-line">
-              <div class="caption">
-                  <span class="caption-subject font-blue bold uppercase">Pending Approvals</span>
-              </div>
-          </div>
-          <div class="portlet-body">
-              <div class="tab-content">
-                  <div class="tab-pane active" id="tab_actions_pending">
-                      <!-- BEGIN: Actions -->
-                      <div class="mt-actions">
-                          <div class="mt-action">
-                              <div class="mt-action-img">
-                                  <img src="../assets/pages/media/users/avatar10.jpg" /> </div>
-                              <div class="mt-action-body">
-                                  <div class="mt-action-row">
-                                      <div class="mt-action-info ">
-                                          <div class="mt-action-details ">
-                                              <span class="mt-action-author">Natasha Kim</span>
-                                              <p class="mt-action-desc">Dummy text of the printing</p>
-                                          </div>
-                                      </div>
-                                      <div class="mt-action-datetime ">
-                                          <span class="mt-action-date">June 2</span>
-                                          <span class="">@</span>
-                                          <span class="mt=action-time">1:02pm</span>
-                                      </div>
-                                      <div class="mt-action-buttons ">
-                                          <div class="btn-group btn-group-circle">
-                                              <button type="button" class="btn btn-outline blue btn-sm">Approve</button>
-                                              <button type="button" class="btn btn-outline red btn-sm">Reject</button>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
+  <div class="row">
+    <!-- Begin Approval Feature -->
+    <div class="portlet light bordered">
+      <div class="portlet-title tabbable-line">
+        <div class="caption">
+          <span class="caption-subject font-blue bold uppercase">Pending Approvals</span>
+        </div>
+        <div class="tools">
+          <a href="javascript:;" class="collapse"> </a>
+          <a href="javascript:;" class="reload"> </a>
+        </div>
+      </div>
+      <div class="portlet-body">
+        <div class="tab-content">
+          <div class="tab-pane active" id="tab_actions_pending">
+            <!-- BEGIN: Actions -->
+            <div class="mt-actions">
+              <div class="mt-action" id="approval1">
+                  <div class="mt-action-img">
+                      <img src="../assets/pages/media/users/avatar10.jpg" /> </div>
+                  <div class="mt-action-body">
+                      <div class="mt-action-row">
+                        <div class="mt-action-info ">
+                          <div class="mt-action-details ">
+                            <span class="mt-action-author">Natasha Kim</span>
+                            <p class="mt-action-desc">Requests access to your handbook</p>
                           </div>
-                          <div class="mt-action">
-                              <div class="mt-action-img">
-                                  <img src="../assets/pages/media/users/avatar3.jpg" /> </div>
-                              <div class="mt-action-body">
-                                  <div class="mt-action-row">
-                                      <div class="mt-action-info ">
-                                          <div class="mt-action-details ">
-                                              <span class="mt-action-author">Gavin Bond</span>
-                                              <p class="mt-action-desc">pending for approval</p>
-                                          </div>
-                                      </div>
-                                      <div class="mt-action-datetime ">
-                                          <span class="mt-action-date">June 2</span>
-                                          <span class="">@</span>
-                                          <span class="mt=action-time">7:32pm</span>
-                                      </div>
-                                      <div class="mt-action-buttons ">
-                                          <div class="btn-group btn-group-circle">
-                                              <button type="button" class="btn btn-outline blue btn-sm">Approve</button>
-                                              <button type="button" class="btn btn-outline red btn-sm">Reject</button>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
+                        </div>
+                        <div class="mt-action-datetime ">
+                          <span class="mt-action-date">June 2</span>
+                          <span class="">@</span>
+                          <span class="mt=action-time">1:02pm</span>
+                        </div>
+                        <div class="mt-action-buttons ">
+                          <div class="btn-group btn-group-circle">
+                            <button type="button" class="btn btn-outline blue btn-sm" onclick="hide('approval1')">Approve</button>
+                            <button type="button" class="btn btn-outline red btn-sm" onclick="hide('approval1')">Reject</button>
                           </div>
-                          <div class="mt-action">
-                              <div class="mt-action-img">
-                                  <img src="../assets/pages/media/users/avatar2.jpg" /> </div>
-                              <div class="mt-action-body">
-                                  <div class="mt-action-row">
-                                      <div class="mt-action-info ">
-                                          <div class="mt-action-details ">
-                                              <span class="mt-action-author">Diana Berri</span>
-                                              <p class="mt-action-desc">Lorem Ipsum is simply dummy text</p>
-                                          </div>
-                                      </div>
-                                      <div class="mt-action-datetime ">
-                                          <span class="mt-action-date">June 3</span>
-                                          <span class="">@</span>
-                                          <span class="mt=action-time">8:46am</span>
-                                      </div>
-                                      <div class="mt-action-buttons ">
-                                          <div class="btn-group btn-group-circle">
-                                              <button type="button" class="btn btn-outline blue btn-sm">Approve</button>
-                                              <button type="button" class="btn btn-outline red btn-sm">Reject</button>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="mt-action">
-                              <div class="mt-action-img">
-                                  <img src="../assets/pages/media/users/avatar7.jpg" /> </div>
-                              <div class="mt-action-body">
-                                  <div class="mt-action-row">
-                                      <div class="mt-action-info ">
-                                          <div class="mt-action-details ">
-                                              <span class="mt-action-author">John Clark</span>
-                                              <p class="mt-action-desc">Text of the printing and typesetting industry</p>
-                                          </div>
-                                      </div>
-                                      <div class="mt-action-datetime ">
-                                          <span class="mt-action-date">June 3</span>
-                                          <span class="">@</span>
-                                          <span class="mt=action-time">9:21am</span>
-                                      </div>
-                                      <div class="mt-action-buttons ">
-                                          <div class="btn-group btn-group-circle">
-                                              <button type="button" class="btn btn-outline blue btn-sm">Approve</button>
-                                              <button type="button" class="btn btn-outline red btn-sm">Reject</button>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
+                        </div>
                       </div>
-                      <!-- END: Actions -->
                   </div>
               </div>
-          </div>
-      </div>
-      <!-- End Approval Feature -->
-    </div>
-    <div class="row">
-        <div class="col-md-6 col-sm-12">
-            <!-- BEGIN Recent Activities -->
-            <div class="portlet light bordered ">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <span class="caption-subject font-blue bold uppercase">Recent Activities</span>
+              <div class="mt-action" id="approval2">
+                <div class="mt-action-img">
+                  <img src="../assets/pages/media/users/avatar3.jpg" />
+                </div>
+                <div class="mt-action-body">
+                  <div class="mt-action-row">
+                    <div class="mt-action-info ">
+                      <div class="mt-action-details ">
+                        <span class="mt-action-author">Gavin Bond</span>
+                        <p class="mt-action-desc">Requests access to your handbook</p>
+                      </div>
                     </div>
-                    <div class="actions">
-                        <div class="btn-group">
-                            <a class="btn btn-sm btn-default btn-circle" href="#" data-toggle="dropdown" dropdown-menu-hover data-close-others="true"> Filter By
+                    <div class="mt-action-datetime ">
+                      <span class="mt-action-date">June 2</span>
+                      <span class="">@</span>
+                      <span class="mt=action-time">7:32pm</span>
+                    </div>
+                    <div class="mt-action-buttons ">
+                      <div class="btn-group btn-group-circle">
+                        <button type="button" class="btn btn-outline blue btn-sm" onclick="hide('approval2')">Approve</button>
+                        <button type="button" class="btn btn-outline red btn-sm" onclick="hide('approval2')">Reject</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-action" id="approval3">
+                <div class="mt-action-img">
+                  <img src="../assets/pages/media/users/avatar2.jpg" />
+                </div>
+                <div class="mt-action-body">
+                  <div class="mt-action-row">
+                    <div class="mt-action-info ">
+                      <div class="mt-action-details ">
+                        <span class="mt-action-author">Diana Berri</span>
+                        <p class="mt-action-desc">Requests access to your handbook</p>
+                      </div>
+                    </div>
+                      <div class="mt-action-datetime ">
+                          <span class="mt-action-date">June 3</span>
+                          <span class="">@</span>
+                          <span class="mt=action-time">8:46am</span>
+                      </div>
+                      <div class="mt-action-buttons ">
+                          <div class="btn-group btn-group-circle">
+                              <button type="button" class="btn btn-outline blue btn-sm" onclick="hide('approval3')">Approve</button>
+                              <button type="button" class="btn btn-outline red btn-sm" onclick="hide('approval3')">Reject</button>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-action" id="approval4">
+                <div class="mt-action-img">
+                  <img src="../assets/pages/media/users/avatar7.jpg" />
+                </div>
+                <div class="mt-action-body">
+                  <div class="mt-action-row">
+                    <div class="mt-action-info ">
+                      <div class="mt-action-details ">
+                        <span class="mt-action-author">John Clark</span>
+                        <p class="mt-action-desc">Requests access to your handbook</p>
+                      </div>
+                    </div>
+                    <div class="mt-action-datetime ">
+                      <span class="mt-action-date">June 3</span>
+                      <span class="">@</span>
+                      <span class="mt=action-time">9:21am</span>
+                    </div>
+                    <div class="mt-action-buttons ">
+                      <div class="btn-group btn-group-circle">
+                        <button type="button" class="btn btn-outline blue btn-sm" onclick="hide('approval4')">Approve</button>
+                        <button type="button" class="btn btn-outline red btn-sm" onclick="hide('approval4')">Reject</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END: Actions -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Approval Feature -->
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 col-sm-12">
+      <!-- BEGIN Recent Activities -->
+      <div class="portlet light bordered ">
+        <div class="portlet-title">
+          <div class="caption">
+            <span class="caption-subject font-blue bold uppercase">Recent Activities</span>
+          </div>
+          <div class="actions">
+            <div class="btn-group">
+              <a class="btn btn-sm btn-default btn-circle" href="#" data-toggle="dropdown" dropdown-menu-hover data-close-others="true"> Filter
+                <i class="fa fa-angle-down"></i>
+              </a>
+              <div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+                <label>
+                  <input type="checkbox" checked="" value="clients"/> Clients
+                </label>
+                <label>
+                  <input type="checkbox" checked="" value="finances"/> Finances
+                </label>
+                <label>
+                  <input type="checkbox" checked="" value="internal"/> Internal
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="portlet-body">
+          <div class="scroller" style="height: 265px;" data-always-visible="1" data-rail-visible="0">
+            <ul class="feeds">
+              <li>
+                <div class="col1">
+                  <div class="cont">
+                    <div class="desc"> Taylor Christine paid $875 </div>
+                  </div>
+                </div>
+                <div class="col2">
+                  <div class="date"> 2 hours </div>
+                </div>
+              </li>
+              <li>
+                <div class="col1">
+                  <div class="cont">
+                    <div class="desc"> John Clark requested access to your handbook </div>
+                  </div>
+                </div>
+                <div class="col2">
+                  <div class="date"> 3 hours </div>
+                </div>
+              </li>
+              <li>
+                <div class="col1">
+                  <div class="cont">
+                    <div class="desc"> Erin Hursh answered 12 questions </div>
+                  </div>
+                </div>
+                <div class="col2">
+                  <div class="date"> 3 hours </div>
+                </div>
+              </li>
+              <li>
+                <div class="col1">
+                  <div class="cont">
+                    <div class="desc"> Diana Berri requested access to your handbook </div>
+                  </div>
+                </div>
+                <div class="col2">
+                  <div class="date"> 4 hours </div>
+                </div>
+              </li>
+              <li>
+                <div class="col1">
+                  <div class="cont">
+                    <div class="desc"> Erin Hursh answered 4 questions </div>
+                  </div>
+                </div>
+                <div class="col2">
+                  <div class="date"> 5 hours </div>
+                </div>
+              </li>
+              <li>
+                <div class="col1">
+                  <div class="cont">
+                    <div class="desc"> Erin Hursh is connected to your handbook </div>
+                  </div>
+                </div>
+                <div class="col2">
+                  <div class="date"> 5 hours </div>
+                </div>
+              </li>
+              <li>
+                <div class="col1">
+                  <div class="cont">
+                    <div class="desc"> Gavin Bond requested access to your handbook </div>
+                  </div>
+                </div>
+                <div class="col2">
+                  <div class="date"> 16 hours </div>
+                </div>
+              </li>
+              <li>
+                <div class="col1">
+                  <div class="cont">
+                    <div class="desc"> Jordan Johnson paid $1,600 </div>
+                  </div>
+                </div>
+                <div class="col2">
+                  <div class="date"> 16 hours </div>
+                </div>
+              </li>
+              <li>
+                <div class="col1">
+                  <div class="cont">
+                    <div class="desc"> Jordan Johnson answered 13 questions </div>
+                  </div>
+                </div>
+                <div class="col2">
+                  <div class="date"> 16 hours </div>
+                </div>
+              </li>
+              <li>
+                <div class="col1">
+                  <div class="cont">
+                    <div class="desc"> Natasha Kim requested access to your handbook </div>
+                  </div>
+                </div>
+                <div class="col2">
+                  <div class="date"> 22 hours </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="scroller-footer">
+            <div class="btn-arrow-link pull-right">
+              <a href="#">See All Activities
+                <i class="icon-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END Recent Activities -->
+    </div>
+
+    <!-- BEGIN Tasks -->
+    <div class="col-md-6 col-sm-12">
+      <div class="portlet light bordered tasks-widget">
+        <div class="portlet-title">
+          <div class="caption caption-md">
+            <span class="caption-subject font-blue bold uppercase">TASKS</span>
+            <span class="caption-helper">7 pending</span>
+          </div>
+          <div class="actions">
+            <div class="btn-group">
+              <a class="btn btn-sm btn-default btn-circle" href="#" data-toggle="dropdown" dropdown-menu-hover data-close-others="true"> Filter
+                <i class="fa fa-angle-down"></i>
+              </a>
+              <div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+                <label>
+                  <input type="checkbox" value="current-tasks" checked="checked" />
+                  Current Tasks
+                </label>
+                <label>
+                  <input type="checkbox" value="completed-tasks"/>
+                  Completed Tasks
+                </label>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="portlet-body">
+        <div class="task-content">
+          <div class="scroller" style="height: 265px;" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2">
+            <!-- START TASK LIST -->
+            <ul class="task-list">
+                <li>
+                  <div class="task-checkbox">
+                    <input type="hidden" value="1" name="test" />
+                    <input type="checkbox" class="liChild" value="2" name="test" /> </div>
+                  <div class="task-title">
+                    <span class="task-title-sp"> Update Calendar with upcoming showings </span>
+                  </div>
+                  <div class="task-config">
+                    <div class="task-config-btn btn-group">
+                      <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
+                        <i class="fa fa-cog"></i>
+                        <i class="fa fa-angle-down"></i>
+                      </a>
+                      <ul class="dropdown-menu pull-right">
+                        <li>
+                          <a href="javascript:;">
+                            <i class="fa fa-check"></i> Complete </a>
+                        </li>
+                        <li>
+                          <a href="javascript:;">
+                            <i class="fa fa-pencil"></i> Edit </a>
+                        </li>
+                        <li>
+                          <a href="javascript:;">
+                            <i class="fa fa-trash-o"></i> Delete </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="task-checkbox">
+                    <input type="checkbox" class="liChild" value="" /> </div>
+                  <div class="task-title">
+                    <span class="task-title-sp"> Check marketing on TheKnot </span>
+                  </div>
+                  <div class="task-config">
+                    <div class="task-config-btn btn-group">
+                      <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
+                        <i class="fa fa-cog"></i>
+                        <i class="fa fa-angle-down"></i>
+                      </a>
+                      <ul class="dropdown-menu pull-right">
+                        <li>
+                          <a href="javascript:;">
+                            <i class="fa fa-check"></i> Complete
+                          </a>
+                        </li>
+                        <li>
+                          <a href="javascript:;">
+                            <i class="fa fa-pencil"></i> Edit
+                          </a>
+                        </li>
+                        <li>
+                          <a href="javascript:;">
+                            <i class="fa fa-trash-o"></i> Delete
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                    <div class="task-checkbox">
+                        <input type="checkbox" class="liChild" value="" /> </div>
+                    <div class="task-title">
+                        <span class="task-title-sp"> Follow up with Juan about venue upgrades </span>
+                    </div>
+                    <div class="task-config">
+                        <div class="task-config-btn btn-group">
+                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
+                                <i class="fa fa-cog"></i>
                                 <i class="fa fa-angle-down"></i>
                             </a>
-                            <div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
-                                <label>
-                                    <input type="checkbox" checked="" /> Clients</label>
-                                <label>
-                                    <input type="checkbox" checked="" /> Finances</label>
-                                <label>
-                                    <input type="checkbox" checked="" /> Internal</label>
-                            </div>
-                        </div>
-                        <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#"> </a>
-                    </div>
-                </div>
-                <div class="portlet-body">
-                    <div class="scroller" style="height: 300px;" data-always-visible="1" data-rail-visible="0">
-                        <ul class="feeds">
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                            <div class="desc"> You have 4 pending tasks. </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date"> Just now </div>
-                                </div>
-                            </li>
-                            <li>
-                              <div class="col1">
-                                  <div class="cont">
-                                          <div class="desc"> Finance Report for year 2013 has been released. </div>
-                                  </div>
-                              </div>
-                              <div class="col2">
-                                  <div class="date"> 20 mins </div>
-                              </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                            <div class="desc"> You have 5 pending membership that requires a quick review. </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date"> 24 mins </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                            <div class="desc"> New order received. </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date"> 30 mins </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                            <div class="desc"> You have 5 pending membership that requires a quick review. </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date"> 24 mins </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                            <div class="desc"> Web server hardware needs to be upgraded. </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date"> 2 hours </div>
-                                </div>
-                            </li>
-                            <li>
-                              <div class="col1">
-                                  <div class="cont">
-                                          <div class="desc"> IPO Report for year 2013 has been released. </div>
-                                  </div>
-                              </div>
-                              <div class="col2">
-                                  <div class="date"> 20 mins </div>
-                              </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                            <div class="desc"> You have 4 pending tasks. </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date"> Just now </div>
-                                </div>
-                            </li>
-                            <li>
-                              <div class="col1">
-                                  <div class="cont">
-                                          <div class="desc"> Finance Report for year 2013 has been released. </div>
-                                  </div>
-                              </div>
-                              <div class="col2">
-                                  <div class="date"> 20 mins </div>
-                              </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                  <div class="cont">
-                                    <div class="desc"> You have 5 pending membership that requires a quick review. </div>
-                                  </div>
-                                </div>
-                                <div class="col2">
-                                  <div class="date"> 24 mins </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                      <div class="desc"> New order received. </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date"> 30 mins </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                      <div class="desc"> You have 5 pending membership that requires a quick review. </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date"> 24 mins </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                      <div class="desc"> Web server hardware needs to be upgraded. </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date"> 2 hours </div>
-                                </div>
-                            </li>
-                            <li>
-                              <div class="col1">
-                                  <div class="cont">
-                                    <div class="desc"> IPO Report for year 2013 has been released. </div>
-                                  </div>
-                              </div>
-                              <div class="col2">
-                                  <div class="date"> 20 mins </div>
-                              </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="scroller-footer">
-                        <div class="btn-arrow-link pull-right">
-                            <a href="#">See All Records
-                              <i class="icon-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- END Recent Activities -->
-        </div>
-
-        <div class="col-md-6 col-sm-12">
-            <!-- BEGIN Tasks -->
-            <div class="portlet light bordered tasks-widget">
-                <div class="portlet-title">
-                    <div class="caption caption-md">
-                        <span class="caption-subject font-blue bold uppercase">TASKS</span>
-                        <span class="caption-helper">16 pending</span>
-                    </div>
-                </div>
-                <div class="portlet-body">
-                    <div class="task-content">
-                        <div class="scroller" style="height: 282px;" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2">
-                            <!-- START TASK LIST -->
-                            <ul class="task-list">
+                            <ul class="dropdown-menu pull-right">
                                 <li>
-                                    <div class="task-checkbox">
-                                        <input type="hidden" value="1" name="test" />
-                                        <input type="checkbox" class="liChild" value="2" name="test" /> </div>
-                                    <div class="task-title">
-                                        <span class="task-title-sp"> Present 2013 Year IPO Statistics at Board Meeting </span>
-                                    </div>
-                                    <div class="task-config">
-                                        <div class="task-config-btn btn-group">
-                                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
-                                                <i class="fa fa-cog"></i>
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-check"></i> Complete </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-check"></i> Complete </a>
                                 </li>
                                 <li>
-                                    <div class="task-checkbox">
-                                        <input type="checkbox" class="liChild" value="" /> </div>
-                                    <div class="task-title">
-                                        <span class="task-title-sp"> Hold An Interview for Marketing Manager Position </span>
-                                    </div>
-                                    <div class="task-config">
-                                        <div class="task-config-btn btn-group">
-                                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
-                                                <i class="fa fa-cog"></i>
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-check"></i> Complete </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-pencil"></i> Edit </a>
                                 </li>
                                 <li>
-                                    <div class="task-checkbox">
-                                        <input type="checkbox" class="liChild" value="" /> </div>
-                                    <div class="task-title">
-                                        <span class="task-title-sp"> AirAsia Intranet System Project Internal Meeting </span>
-                                    </div>
-                                    <div class="task-config">
-                                        <div class="task-config-btn btn-group">
-                                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
-                                                <i class="fa fa-cog"></i>
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-check"></i> Complete </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="task-checkbox">
-                                        <input type="checkbox" class="liChild" value="" /> </div>
-                                    <div class="task-title">
-                                        <span class="task-title-sp"> Technical Management Meeting </span>
-                                    </div>
-                                    <div class="task-config">
-                                        <div class="task-config-btn btn-group">
-                                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
-                                                <i class="fa fa-cog"></i>
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-check"></i> Complete </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="task-checkbox">
-                                        <input type="checkbox" class="liChild" value="" /> </div>
-                                    <div class="task-title">
-                                        <span class="task-title-sp"> Kick-off Company CRM Mobile App Development </span>
-                                    </div>
-                                    <div class="task-config">
-                                        <div class="task-config-btn btn-group">
-                                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
-                                                <i class="fa fa-cog"></i>
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-check"></i> Complete </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="task-checkbox">
-                                        <input type="checkbox" class="liChild" value="" /> </div>
-                                    <div class="task-title">
-                                        <span class="task-title-sp"> Prepare Commercial Offer For SmartVision Website Rewamp </span>
-                                    </div>
-                                    <div class="task-config">
-                                        <div class="task-config-btn btn-group">
-                                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
-                                                <i class="fa fa-cog"></i>
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-check"></i> Complete </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="task-checkbox">
-                                        <input type="checkbox" class="liChild" value="" /> </div>
-                                    <div class="task-title">
-                                        <span class="task-title-sp"> Sign-Off The Comercial Agreement With AutoSmart </span>
-                                    </div>
-                                    <div class="task-config">
-                                        <div class="task-config-btn btn-group">
-                                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
-                                                <i class="fa fa-cog"></i>
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-check"></i> Complete </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="task-checkbox">
-                                        <input type="checkbox" class="liChild" value="" /> </div>
-                                    <div class="task-title">
-                                        <span class="task-title-sp"> Company Staff Meeting </span>
-                                    </div>
-                                    <div class="task-config">
-                                        <div class="task-config-btn btn-group">
-                                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
-                                                <i class="fa fa-cog"></i>
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-check"></i> Complete </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="last-line">
-                                    <div class="task-checkbox">
-                                        <input type="checkbox" class="liChild" value="" /> </div>
-                                    <div class="task-title">
-                                        <span class="task-title-sp"> KeenThemes Investment Discussion </span>
-                                    </div>
-                                    <div class="task-config">
-                                        <div class="task-config-btn btn-group">
-                                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
-                                                <i class="fa fa-cog"></i>
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-check"></i> Complete </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-trash-o"></i> Delete </a>
                                 </li>
                             </ul>
-                            <!-- END START TASK LIST -->
                         </div>
                     </div>
-                    <div class="task-footer">
-                        <div class="btn-arrow-link pull-right">
-                            <a href="javascript:;">See All Tasks
-                              <i class="icon-arrow-right"></i>
+                </li>
+                <li>
+                    <div class="task-checkbox">
+                        <input type="checkbox" class="liChild" value="" /> </div>
+                    <div class="task-title">
+                        <span class="task-title-sp"> Show Ashley how to use Vendly </span>
+                    </div>
+                    <div class="task-config">
+                        <div class="task-config-btn btn-group">
+                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
+                                <i class="fa fa-cog"></i>
+                                <i class="fa fa-angle-down"></i>
                             </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-check"></i> Complete </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-pencil"></i> Edit </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-trash-o"></i> Delete </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- END Tasks -->
+                </li>
+                <li>
+                    <div class="task-checkbox">
+                        <input type="checkbox" class="liChild" value="" /> </div>
+                    <div class="task-title">
+                        <span class="task-title-sp"> Balance month end budget </span>
+                    </div>
+                    <div class="task-config">
+                        <div class="task-config-btn btn-group">
+                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
+                                <i class="fa fa-cog"></i>
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-check"></i> Complete </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-pencil"></i> Edit </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-trash-o"></i> Delete </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="task-checkbox">
+                        <input type="checkbox" class="liChild" value="" /> </div>
+                    <div class="task-title">
+                        <span class="task-title-sp"> Add banking info to incorporate payment processing on Vendly </span>
+                    </div>
+                    <div class="task-config">
+                        <div class="task-config-btn btn-group">
+                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
+                                <i class="fa fa-cog"></i>
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-check"></i> Complete </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-pencil"></i> Edit </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-trash-o"></i> Delete </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="last-line">
+                    <div class="task-checkbox">
+                        <input type="checkbox" class="liChild" value="" /> </div>
+                    <div class="task-title">
+                        <span class="task-title-sp"> Reach out to Austin regarding marketing </span>
+                    </div>
+                    <div class="task-config">
+                        <div class="task-config-btn btn-group">
+                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
+                                <i class="fa fa-cog"></i>
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-check"></i> Complete </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-pencil"></i> Edit </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-trash-o"></i> Delete </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <!-- END START TASK LIST -->
+          </div>
         </div>
-
+          <div class="task-footer">
+            <div class="btn-arrow-link pull-right">
+              <a href="javascript:;">See All Tasks
+                <i class="icon-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+      </div>
     </div>
+      <!-- END Tasks -->
+    </div>
+  </div>
 </div>
 <!-- END MAIN CONTENT -->
 
 <!-- BEGIN MAIN JS & CSS -->
 <script>
-    Dashboard.init();
+  Dashboard.init();
+  function hide(target) {
+    document.getElementById(target).style.display = 'none';
+    }
 </script>
 <!-- BEGIN MAIN JS & CSS -->

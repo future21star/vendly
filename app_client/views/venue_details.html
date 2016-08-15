@@ -2,11 +2,11 @@
 <div class="page-bar">
   <ul class="page-breadcrumb">
       <li>
-          <a href="#/dashboard.html">Home</a>
+          <a href="#/dashboard.html">Dashboard</a>
           <i class="fa fa-circle"></i>
         </li>
       <li>
-          <a href="#/rolodex.html">Client Rolodex</a>
+          <span> Venue Details </span>
         </li>
     </ul>
 </div>
@@ -14,13 +14,10 @@
 <!-- BEGIN MAIN CONTENT -->
 <div class="row" ng-controller="GeneralPageController">
   <div class="col-md-12">
-      <div class="portlet light margin-0">
+      <div class="portlet light no-margin">
         <div class="portlet-title">
           <div class="page-title">
-            My Clients
-            <p uib-popover="This is a tooltip" popover-trigger="mouseenter" class="inline">
-              <i class="fa fa-question-circle font-grey-salt" style="font-size: 16px;"></i>
-            </p>
+            My Venues
           </div>
           <div class="actions">
             <a class="btn btn-circle btn-default" href="#">
@@ -36,72 +33,85 @@
 <!-- BEGIN MAIN CONTENT -->
 <div class="row" ng-controller="GeneralPageController">
     <div class="col-md-12">
-        <div class="portlet light bordered">
-            <div class="portlet-title">
-                <div class="caption font-blue-sharp">
-                    <span class="caption-subject bold uppercase">Lindsay Lakes</span>
-                    <span class="caption-helper">Ceremony &amp; Reception</span>
-                </div>
-                <div class="actions">
-                    <a class="btn btn-circle btn-icon-only btn-default" href="">
-                        <i class="fa fa-envelope-o"></i>
-                    </a>
-                    <a class="btn btn-circle btn-icon-only btn-default" href="">
-                        <i class="fa fa-cog"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="portlet-body row">
-              <div ng-controller="ProgressDemoCtrl" class="col-md-7">
-                <h6>Progress:</h6>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width:65%">
-                    65%
-                  </div>
-                </div>
+      <div class="portlet light bordered">
+        <div class="portlet-title">
+          <div class="caption font-blue-sharp">
+            <span class="caption-subject bold uppercase">Lindsay Lakes</span>
+            <span class="caption-helper">Ceremony &amp; Reception</span>
+          </div>
+          <div class="actions">
+            <a class="btn btn-circle btn-default">
+              <i class="fa fa-book"></i> Access Handbook
+            </a>
+            <a class="btn btn-circle btn-icon-only btn-default hidden" href="">
+              <i class="fa fa-envelope-o"></i>
+            </a>
+          </div>
+        </div>
+        <div class="portlet-body row">
+          <div ng-controller="ProgressDemoCtrl" class="col-md-7">
+            <h6>Progress:</h6>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width:65%">
+                65%
               </div>
             </div>
-            Upcoming Deadlines:
-            <ul class="list-unstyled">
-              <li>
-                <a href="">
-                  Name of florist you booked:
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  Did you order fresh rose petals for the aisle?
-                </a>
-              </li>
-            </ul>
+          </div>
         </div>
+        Upcoming Deadlines:
+        <ul class="list-unstyled">
+          <li>
+            <input type="checkbox" disabled checked>
+            <a>
+              Name of florist you booked:
+            </a>
+          </li>
+          <li>
+            <input type="checkbox" disabled>
+            <a>
+              Did you order fresh rose petals for the aisle?
+            </a>
+          </li>
+          <li>
+            <input type="checkbox" disabled>
+            <a>
+              Are there any additional ceremony decorations you have planned?
+            </a>
+          </li>
+        </ul>
     </div>
-</div>
+  </div>
 
-<div class="row" ng-controller="GeneralPageController">
-    <div class="col-md-12">
-        <div class="portlet light bordered">
-            <div class="portlet-title">
-                <div class="caption font-blue-sharp">
-                    <span class="caption-subject bold uppercase">Perry's Steakhouse</span>
-                    <span class="caption-helper">Rehearsal Dinner</span>
-                </div>
-                <div class="actions">
-                    <a class="btn btn-circle btn-icon-only btn-default" href="">
-                        <i class="fa fa-envelope-o"></i>
-                    </a>
-                    <a class="btn btn-circle btn-icon-only btn-default" href="">
-                        <i class="fa fa-cog"></i>
-                    </a>
-                </div>
+  <div class="col-md-12">
+    <div class="portlet light bordered">
+      <div class="portlet-title">
+          <div class="caption font-blue-sharp">
+              <span class="caption-subject bold uppercase">Perry's Steakhouse</span>
+              <span class="caption-helper">Rehearsal Dinner</span>
+          </div>
+          <div class="actions">
+            <a class="btn btn-circle btn-default">
+              <i class="fa fa-book"></i> Access Handbook
+            </a>
+            <a class="btn btn-circle btn-icon-only btn-default hidden" href="">
+              <i class="fa fa-envelope-o"></i>
+            </a>
+          </div>
+      </div>
+      <div class="portlet-body row">
+        <div ng-controller="ProgressDemoCtrl" class="col-md-7">
+          <h6>Progress:</h6>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:20%">
+              20%
             </div>
-            <div class="portlet-body"> Access Handbook </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<div class="row" ng-controller="GeneralPageController">
-  <p align="center" class="margin-0">
+  <p align="center" class="no-margin">
     <a class="btn btn-circle bg-blue font-white btn-large" data-target="#add_venue" data-toggle="modal">
       <i class="fa fa-user-plus"></i>
       Add Venue
@@ -121,9 +131,6 @@
             <form action="#" class="form-horizontal form-bordered">
               <div class="form-body">
                 <div class="form-group">
-                  <div class="col-md-8" style="border-left: 0px;">
-                    <input id="venue-city" class="form-control" type="text" placeholder="City"/>
-                  </div>
                   <div class="col-md-4 hidden-1024" style="border-left: 0px;">
                     <select id="venue-state" class="bs-select form-control">
                       <option value="" disabled selected>State</option>
@@ -180,6 +187,9 @@
                     	<option value="WY">Wyoming</option>
                     </select>
                   </div>
+                  <div class="col-md-8" style="border-left: 0px;">
+                    <input id="venue-city" class="form-control" type="text" placeholder="City"/>
+                  </div>
                   <div class="col-md-12" style="border: 0px;">
                     <input id="venue-search" class="form-control" type="text" placeholder="Search for venue..." disabled="disabled"/>
                   </div>
@@ -201,19 +211,19 @@
 <!-- BEGIN MAIN JS-->
 <script>
 (function() {
-  $('#venue-city, #venue-state').keyup(function() {
+  $('#venue-city').keyup(function() {
 
       var empty = false;
-      $('#venue-city, #venue-state').each(function() {
+      $('#venue-city').each(function() {
           if ($(this).val() == '') {
               empty = true;
           }
       });
 
       if (empty) {
-          $('#venue-search').attr('disabled', 'disabled'); // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
+          $('#venue-search').attr('disabled', 'disabled');
       } else {
-          $('#venue-search').removeAttr('disabled'); // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
+          $('#venue-search').removeAttr('disabled');
       }
   });
 })()

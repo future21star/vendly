@@ -76,22 +76,6 @@ MetronicApp.controller('SidebarController', ['$scope', function($scope) {
     });
 }]);
 
-/* Setup Layout Part - Quick Sidebar */
-MetronicApp.controller('QuickSidebarController', ['$scope', function($scope) {
-    $scope.$on('$includeContentLoaded', function() {
-       setTimeout(function(){
-            QuickSidebar.init(); // init quick sidebar
-        }, 2000)
-    });
-}]);
-
-/* Setup Layout Part - Theme Panel */
-MetronicApp.controller('ThemePanelController', ['$scope', function($scope) {
-    $scope.$on('$includeContentLoaded', function() {
-        Demo.init(); // init theme panel
-    });
-}]);
-
 /* Setup Layout Part - Footer */
 MetronicApp.controller('FooterController', ['$scope', function($scope) {
     $scope.$on('$includeContentLoaded', function() {
@@ -240,7 +224,7 @@ MetronicApp.service('meanData', ['$http', 'authentication',
 /* Setup Rounting For All Pages */
 MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     // Redirect any unmatched url
-    $urlRouterProvider.otherwise("/dashboard");
+    $urlRouterProvider.otherwise("/404");
     
     $stateProvider
     
@@ -268,7 +252,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
         .state('dashboard', {
             url: "/dashboard",
             templateUrl: "views/dashboard.html",
-            data: {pageTitle: 'Admin Dashboard Template'},
+            data: {pageTitle: 'Dashboard'},
             controller: "DashboardController",
             resolve: {
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
@@ -335,6 +319,28 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 }]
             }
         })
+    
+        // Calendar
+        .state('calendar', {
+            url: "/calendar",
+            templateUrl: "views/calendar.html",
+            data: {pageTitle: 'Calendar'},
+            controller: "GeneralPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'MetronicApp',
+                        insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+                        files: [
+                          '../assets/global/plugins/moment.min.js',
+                          '../assets/global/plugins/fullcalendar/fullcalendar.min.js',
+                          '../assets/global/plugins/jquery-ui/jquery-ui.min.js',
+                            'js/controllers/GeneralPageController.js'
+                        ]
+                    });
+                }]
+            }
+        })
 
         // Client Rolodex
         .state('rolodex', {
@@ -352,7 +358,42 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                           '../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js',
                           '../assets/pages/scripts/components-date-time-pickers.min.js',
 
-                            'js/controllers/RolodexController.js',
+                            'js/controllers/RolodexController.js'
+                        ]
+                    });
+                }]
+            }
+        })
+        // Handbooks
+        .state('handbooks', {
+            url: "/handbooks",
+            templateUrl: "views/handbooks.html",
+            data: {pageTitle: 'Handbooks'},
+            controller: "GeneralPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'MetronicApp',
+                        insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+                        files: [
+                            'js/controllers/GeneralPageController.js'
+                        ]
+                    });
+                }]
+            }
+        })
+        // Handbook Editor
+        .state('handbookeditor', {
+            url: "/handbook_editor",
+            templateUrl: "views/handbook_editor.html",
+            data: {pageTitle: 'Handbook Editor'},
+            controller: "GeneralPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'MetronicApp',
+                        insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+                        files: [
                             'js/controllers/GeneralPageController.js'
                         ]
                     });
@@ -362,8 +403,8 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
 
         // Account Settings Page
         .state('account', {
-            url: "/account",
-            templateUrl: "views/account.html",
+            url: "/settings/account",
+            templateUrl: "views/settings/account.html",
             data: {pageTitle: 'Account Settings'},
             controller: "GeneralPageController",
             resolve: {
@@ -372,7 +413,78 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                         name: 'MetronicApp',
                         insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
                         files: [
-                            '../assets/global/plugins/credit-card/card.js',
+                            'js/controllers/GeneralPageController.js'
+                        ]
+                    });
+                }]
+            }
+        })
+        // Payment Settings Page
+        .state('payments', {
+            url: "/settings/payments",
+            templateUrl: "views/settings/payments.html",
+            data: {pageTitle: 'Payments'},
+            controller: "PaymentPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'MetronicApp',
+                        insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+                        files: [
+                          'js/controllers/GeneralPageController.js'
+                        ]
+                    });
+                }]
+            }
+        })
+        // Notifications Page
+        .state('notifications', {
+            url: "/settings/notifications",
+            templateUrl: "views/settings/notifications.html",
+            data: {pageTitle: 'Notifications'},
+            controller: "GeneralPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'MetronicApp',
+                        insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+                        files: [
+                            'js/controllers/GeneralPageController.js'
+                        ]
+                    });
+                }]
+            }
+        })
+        // Invoice Page
+        .state('invoice', {
+            url: "/settings/invoice",
+            templateUrl: "views/settings/invoice.html",
+            data: {pageTitle: 'Invoice'},
+            controller: "GeneralPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'MetronicApp',
+                        insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+                        files: [
+                            'js/controllers/GeneralPageController.js'
+                        ]
+                    });
+                }]
+            }
+        })
+        // 404 Page
+        .state('404', {
+            url: "/404",
+            templateUrl: "views/404.html",
+            data: {pageTitle: 'Something Went Wrong'},
+            controller: "BlankController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'MetronicApp',
+                        insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+                        files: [
                             'js/controllers/GeneralPageController.js'
                         ]
                     });
@@ -382,8 +494,8 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
 
         // Blank Page
         .state('blank', {
-            url: "/blank",
-            templateUrl: "views/blank.html",
+            url: "/templates/blank",
+            templateUrl: "views/templates/blank.html",
             data: {pageTitle: 'Blank Page Template'},
             controller: "BlankController",
             resolve: {
@@ -401,8 +513,8 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
 
         // AngularJS plugins
         .state('fileupload', {
-            url: "/file_upload.html",
-            templateUrl: "views/file_upload.html",
+            url: "/templates/file_upload.html",
+            templateUrl: "views/templates/file_upload.html",
             data: {pageTitle: 'AngularJS File Upload'},
             controller: "GeneralPageController",
             resolve: {
@@ -424,8 +536,8 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
 
         // UI Select
         .state('uiselect', {
-            url: "/ui_select.html",
-            templateUrl: "views/ui_select.html",
+            url: "/templates/ui_select.html",
+            templateUrl: "views/templates/ui_select.html",
             data: {pageTitle: 'AngularJS Ui Select'},
             controller: "UISelectController",
             resolve: {
@@ -449,8 +561,8 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
 
         // UI Bootstrap
         .state('uibootstrap', {
-            url: "/ui_bootstrap.html",
-            templateUrl: "views/ui_bootstrap.html",
+            url: "/templates/ui_bootstrap.html",
+            templateUrl: "views/templates/ui_bootstrap.html",
             data: {pageTitle: 'AngularJS UI Bootstrap'},
             controller: "GeneralPageController",
             resolve: {
@@ -467,8 +579,8 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
 
         // Tree View
         .state('tree', {
-            url: "/tree",
-            templateUrl: "views/tree.html",
+            url: "/templates/tree",
+            templateUrl: "views/templates/tree.html",
             data: {pageTitle: 'jQuery Tree View'},
             controller: "GeneralPageController",
             resolve: {
@@ -490,8 +602,8 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
 
         // Form Tools
         .state('formtools', {
-            url: "/form_tools",
-            templateUrl: "views/form_tools.html",
+            url: "/templates/form_tools",
+            templateUrl: "views/templates/form_tools.html",
             data: {pageTitle: 'Form Tools'},
             controller: "GeneralPageController",
             resolve: {
@@ -526,8 +638,8 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
 
         // Date & Time Pickers
         .state('pickers', {
-            url: "/pickers",
-            templateUrl: "views/pickers.html",
+            url: "/templates/pickers",
+            templateUrl: "views/templates/pickers.html",
             data: {pageTitle: 'Date & Time Pickers'},
             controller: "GeneralPageController",
             resolve: {
@@ -559,8 +671,8 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
 
         // Custom Dropdowns
         .state('dropdowns', {
-            url: "/dropdowns",
-            templateUrl: "views/dropdowns.html",
+            url: "/templates/dropdowns",
+            templateUrl: "views/templates/dropdowns.html",
             data: {pageTitle: 'Custom Dropdowns'},
             controller: "GeneralPageController",
             resolve: {
@@ -588,8 +700,8 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
 
         // Advanced Datatables
         .state('datatablesAdvanced', {
-            url: "/datatables/managed.html",
-            templateUrl: "views/datatables/managed.html",
+            url: "/templates/datatables/managed.html",
+            templateUrl: "views/templates/datatables/managed.html",
             data: {pageTitle: 'Advanced Datatables'},
             controller: "GeneralPageController",
             resolve: {
@@ -614,8 +726,8 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
 
         // Ajax Datetables
         .state('datatablesAjax', {
-            url: "/datatables/ajax.html",
-            templateUrl: "views/datatables/ajax.html",
+            url: "/templates/datatables/ajax.html",
+            templateUrl: "views/templates/datatables/ajax.html",
             data: {pageTitle: 'Ajax Datatables'},
             controller: "GeneralPageController",
             resolve: {
@@ -643,7 +755,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
         // User Profile
         .state("profile", {
             url: "/profile",
-            templateUrl: "views/profile/main.html",
+            templateUrl: "views/templates/profile/main.html",
             data: {pageTitle: 'User Profile'},
             controller: "UserProfileController",
             resolve: {
@@ -669,29 +781,29 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
 
         // User Profile Dashboard
         .state("profile.dashboard", {
-            url: "/dashboard",
-            templateUrl: "views/profile/dashboard.html",
+            url: "/templates/profile/dashboard",
+            templateUrl: "views/templates/profile/dashboard.html",
             data: {pageTitle: 'User Profile'}
         })
 
         // User Profile Account
         .state("profile.account", {
-            url: "/account",
-            templateUrl: "views/profile/account.html",
+            url: "/templates/profile/account",
+            templateUrl: "views/templates/profile/account.html",
             data: {pageTitle: 'User Account'}
         })
 
         // User Profile Help
         .state("profile.help", {
-            url: "/help",
-            templateUrl: "views/profile/help.html",
+            url: "/templates/profile/help",
+            templateUrl: "views/templates/profile/help.html",
             data: {pageTitle: 'User Help'}
         })
 
         // Todo
         .state('todo', {
             url: "/todo",
-            templateUrl: "views/todo.html",
+            templateUrl: "views/templates/todo.html",
             data: {pageTitle: 'Todo'},
             controller: "TodoController",
             resolve: {
