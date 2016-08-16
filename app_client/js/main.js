@@ -8,11 +8,8 @@ var MetronicApp = angular.module("MetronicApp", [
     "ui.bootstrap",
     "oc.lazyLoad",
     "ngSanitize",
-<<<<<<< HEAD
-    "angular-sir-trevor"
-=======
+    "angular-sir-trevor",
     "xeditable"
->>>>>>> handbook-edits
 ]);
 
 /* Configure ocLazyLoader(refer: https://github.com/ocombe/ocLazyLoad) */
