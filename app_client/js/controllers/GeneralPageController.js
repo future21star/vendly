@@ -43,4 +43,8 @@ angular.module('MetronicApp')
 
     });
 
+    $scope.handbook = {
+      name: 'Untitled'
+    };
+
 }]);

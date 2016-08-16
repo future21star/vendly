@@ -8,7 +8,11 @@ var MetronicApp = angular.module("MetronicApp", [
     "ui.bootstrap",
     "oc.lazyLoad",
     "ngSanitize",
+<<<<<<< HEAD
     "angular-sir-trevor"
+=======
+    "xeditable"
+>>>>>>> handbook-edits
 ]);
 
 /* Configure ocLazyLoader(refer: https://github.com/ocombe/ocLazyLoad) */
@@ -834,7 +838,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
 }]);
 
 /* Init global settings and run the app */
-MetronicApp.run(["$rootScope", "settings", "$state", "authentication", "$location", function($rootScope, settings, $state, authentication, $location) {
+MetronicApp.run(["$rootScope", "settings", "$state", "authentication", "$location", "editableOptions", function($rootScope, settings, $state, authentication, $location, editableOptions, theme) {
     $rootScope.$on('$locationChangeStart', function(event, nextRoute, currentRoute) {
         if (!authentication.isLoggedIn()) {
             // TODO fix this so it isn't logging in automatically
@@ -858,4 +862,5 @@ MetronicApp.run(["$rootScope", "settings", "$state", "authentication", "$locatio
 
     $rootScope.$state = $state; // state to be accessed from view
     $rootScope.$settings = settings; // state to be accessed from view
+    editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
 }]);
