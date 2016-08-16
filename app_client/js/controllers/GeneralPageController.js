@@ -11,4 +11,8 @@ angular.module('MetronicApp').controller('GeneralPageController', ['$rootScope',
 
     });
 
+    $scope.handbook = {
+      name: 'Untitled'
+    };
+
 }]);

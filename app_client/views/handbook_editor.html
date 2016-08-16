@@ -2,7 +2,7 @@
 <div class="page-bar">
   <ul class="page-breadcrumb">
       <li>
-        <a href="#/dashboard.html">Dashboard</a>
+        <a href="#/dashboard">Dashboard</a>
         <i class="fa fa-circle"></i>
       </li>
       <li>
@@ -17,7 +17,7 @@
       <div class="portlet light no-margin">
         <div class="portlet-title">
           <div class="page-title">
-            Wedding Handbook
+            <a href="#" editable-text="handbook.name" e-label="Title">{{ handbook.name || 'Empty' }}</a>
           </div>
           <div style="float: right;">
             <button ng-click="saveHandbook()" class="btn blue">Save Handbook</button>
