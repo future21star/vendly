@@ -7,7 +7,8 @@ var MetronicApp = angular.module("MetronicApp", [
     "ui.router",
     "ui.bootstrap",
     "oc.lazyLoad",
-    "ngSanitize"
+    "ngSanitize",
+    "angular-sir-trevor"
 ]);
 
 /* Configure ocLazyLoader(refer: https://github.com/ocombe/ocLazyLoad) */
@@ -150,7 +151,7 @@ MetronicApp.service('authentication', ['$http', '$window',
     }
 ]);
 
-MetronicApp.service('meanData', ['$http', 'authentication', 
+MetronicApp.service('meanData', ['$http', 'authentication',
     function ($http, authentication) {
 
         var getProfile = function () {
@@ -218,16 +219,16 @@ MetronicApp.service('meanData', ['$http', 'authentication',
           getBooklets: getBooklets,
           saveBooklet: saveBooklet
         };
-    }              
+    }
 ]);
 
 /* Setup Rounting For All Pages */
 MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     // Redirect any unmatched url
     $urlRouterProvider.otherwise("/404");
-    
+
     $stateProvider
-    
+
         // Login
         .state('login', {
             url: "/login",
@@ -319,7 +320,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 }]
             }
         })
-    
+
         // Calendar
         .state('calendar', {
             url: "/calendar",
@@ -838,12 +839,12 @@ MetronicApp.run(["$rootScope", "settings", "$state", "authentication", "$locatio
         if (!authentication.isLoggedIn()) {
             // TODO fix this so it isn't logging in automatically
            // $location.path('/login');
-            
+
             var creds = {
                 email : "seth@vendly.com",
                 password : "seth"
             };
-            
+
             authentication
                 .login(creds)
                 .error(function(err){
@@ -854,7 +855,7 @@ MetronicApp.run(["$rootScope", "settings", "$state", "authentication", "$locatio
                 });
         }
     });
-    
+
     $rootScope.$state = $state; // state to be accessed from view
     $rootScope.$settings = settings; // state to be accessed from view
 }]);
