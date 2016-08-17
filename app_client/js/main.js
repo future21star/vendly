@@ -855,6 +855,10 @@ MetronicApp.run(["$rootScope", "settings", "$state", "authentication", "$locatio
                   $location.path('dashboard');
                 });
         }
+        
+        if ($location.path() === '' && authentication.isLoggedIn()) {
+            $location.path('/dashboard');
+        }
     });
 
     $rootScope.$state = $state; // state to be accessed from view
