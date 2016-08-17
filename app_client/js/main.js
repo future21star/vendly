@@ -74,7 +74,7 @@ MetronicApp.controller('HeaderController', ['$scope', function($scope) {
 /* Setup Layout Part - Sidebar */
 MetronicApp.controller('SidebarController', ['$scope', function($scope) {
     $scope.$on('$includeContentLoaded', function() {
-        Layout.initSidebar(); // init sidebar
+        //Layout.initSidebar(); // init sidebar
     });
 }]);
 
@@ -327,7 +327,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
             url: "/calendar",
             templateUrl: "views/calendar.html",
             data: {pageTitle: 'Calendar'},
-            controller: "GeneralPageController",
+            controller: "CalendarController",
             resolve: {
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
@@ -337,7 +337,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                           '../assets/global/plugins/moment.min.js',
                           '../assets/global/plugins/fullcalendar/fullcalendar.min.js',
                           '../assets/global/plugins/jquery-ui/jquery-ui.min.js',
-                            'js/controllers/GeneralPageController.js'
+                            'js/controllers/CalendarController.js'
                         ]
                     });
                 }]

@@ -23,11 +23,13 @@
                 blockTypes: [
                     "Heading",
                     "Text",
-                    "List",
-                    "Quote",
-                    "Image",
-                    "Video",
-                    "Tweet"
+                    "Checkbox",
+                    "Textentry"
+//                    "List",
+//                    "Quote",
+//                    "Image",
+//                    "Video",
+//                    "Tweet"
                 ]
             });
 

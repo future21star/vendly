@@ -1398,11 +1398,13 @@ Fullcalendar
   font-weight: 300; }
 
 .portlet.calendar.light .fc-button {
-  top: -60px;
+  //top: -60px;
+  top: -5px;
   color: #666;
   text-transform: uppercase;
   font-size: 12px;
-  padding-bottom: 35px; }
+  //padding-bottom: 35px; 
+  padding-bottom: 0px; }
   .portlet.calendar.light .fc-button .fc-text-arrow {
     margin-top: -6px;
     display: inline-block; }
