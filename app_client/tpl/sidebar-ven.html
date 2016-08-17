@@ -1,0 +1,189 @@
+<div class="page-sidebar navbar-collapse collapse">
+    <!-- BEGIN SIDEBAR MENU -->
+    <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+    <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+    <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse ("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+    <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+    <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+    <ul class="page-sidebar-menu page-sidebar-menu-light" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="400" ng-class="{'page-sidebar-menu-closed': settings.layout.pageSidebarClosed}">
+        <li class="start nav-item">
+            <a href="#/dashboard">
+                <i class="fa fa-dashboard"></i>
+                <span class="title">Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#/calendar">
+                <i class="fa fa-calendar"></i>
+                <span class="title">Calendar</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#/rolodex">
+                <i class="fa fa-user"></i>
+                <span class="title">Client Rolodex</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#/handbook_editor">
+                <i class="fa fa-book"></i>
+                <span class="title">Event Handbooks</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#/contracts">
+                <i class="fa fa-file-text-o"></i>
+                <span class="title">Contracts</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="fa fa-money"></i>
+                <span class="title">Finances</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="#/finance">
+                        Overview
+                    </a>
+                </li>
+                <li>
+                    <a href="#/finance/revenue">
+                      Revenue
+                    </a>
+                </li>
+                <li>
+                    <a href="#/finance/expenses">
+                      Expenses
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#/inventory">
+                <i class="fa fa-bookmark-o"></i>
+                <span class="title">Inventory</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#/inbox">
+                <i class="fa fa-envelope-o"></i>
+                <span class="title">Inbox</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="fa fa-gear"></i>
+                <span class="title">Settings</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="#/settings/account">
+                      Account Information
+                    </a>
+                </li>
+                <li>
+                    <a href="#/settings/notifications">
+                      Alerts &amp; Notifications
+                    </a>
+                </li>
+                <li>
+                  <a href="#/settings/payments">
+                    <span class="title">Payments &amp; Subscription</span>
+                  </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <span class="title">Templates</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+              <li>
+                  <a href="#/templates/dropdowns">
+                    Dropdowns
+                  </a>
+              </li>
+              <li>
+                  <a href="#/templates/file_upload.html">
+                    File Upload
+                  </a>
+              </li>
+              <li>
+                <a href="#/templates/form_tools">
+                  Form Tools
+                </a>
+              </li>
+              <li>
+                  <a href="#/templates/pickers">
+                    Pickers
+                  </a>
+              </li>
+              <li>
+                  <a href="#/templates/todo">
+                    Todo
+                  </a>
+              </li>
+              <li>
+                <a href="#/templates/tree">
+                  Tree
+                </a>
+              </li>
+              <li>
+                  <a href="#/templates/ui_bootstrap.html">
+                    UI Bootstrap
+                  </a>
+              </li>
+              <li>
+                  <a href="#/templates/ui_select.html">
+                    UI Select
+                  </a>
+              </li>
+              <li>
+                  <a href="#/templates/profile/account.html">
+                    Profile -> Account
+                  </a>
+              </li>
+              <li>
+                  <a href="#/templates/profile/dashboard">
+                    Profile -> Dashboard
+                  </a>
+              </li>
+              <li>
+                  <a href="#/templates/profile/help">
+                    Profile -> Help
+                  </a>
+              </li>
+              <li>
+                  <a href="#/templates/profile/main.html">
+                    Profile -> Main
+                  </a>
+              </li>
+              <li>
+                  <a href="#/templates/datatables/ajax.html">
+                    Datatables -> Ajax
+                  </a>
+              </li>
+              <li>
+                  <a href="#/templates/datatables/managed.html">
+                    Datatables -> Managed
+                  </a>
+              </li>
+            </ul>
+        </li>
+        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+        <li class="nav-item margin-top-40">
+          <a class="menu-toggler sidebar-toggler">
+              <i class="fa fa-bars"></i>
+              <span class="title">Collase Sidebar</span>
+          </a>
+        </li>
+        <!-- END RESPONSIVE MENU TOGGLER -->
+
+    </ul>
+    <!-- END SIDEBAR MENU -->
+</div>

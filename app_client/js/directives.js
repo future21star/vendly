@@ -20,11 +20,11 @@ MetronicApp.directive('ngSpinnerBar', ['$rootScope',
                     element.addClass('hide'); // hide spinner bar
                     $('body').removeClass('page-on-load'); // remove page loading indicator
                     //Layout.setSidebarMenuActiveLink('match'); // activate selected link in the sidebar menu
-                   
+
                     // auto scorll to page top
                     setTimeout(function () {
                         App.scrollTop(); // scroll to the top on content load
-                    }, $rootScope.settings.layout.pageAutoScrollOnLoad);     
+                    }, $rootScope.settings.layout.pageAutoScrollOnLoad);
                 });
 
                 // handle errors
@@ -61,5 +61,5 @@ MetronicApp.directive('dropdownMenuHover', function () {
     link: function (scope, elem) {
       elem.dropdownHover();
     }
-  };  
+  };
 });
