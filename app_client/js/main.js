@@ -74,7 +74,7 @@ MetronicApp.controller('HeaderController', ['$scope', function($scope) {
 /* Setup Layout Part - Sidebar */
 MetronicApp.controller('SidebarController', ['$scope', function($scope) {
     $scope.$on('$includeContentLoaded', function() {
-        //Layout.initSidebar(); // init sidebar
+        Layout.initSidebar(); // init sidebar
     });
 }]);
 
@@ -855,7 +855,7 @@ MetronicApp.run(["$rootScope", "settings", "$state", "authentication", "$locatio
                   $location.path('dashboard');
                 });
         }
-        
+
         if ($location.path() === '' && authentication.isLoggedIn()) {
             $location.path('/dashboard');
         }

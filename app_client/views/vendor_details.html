@@ -43,8 +43,8 @@
           <div class="form-body">
             <div class="form-group">
               <div class="col-md-8">
-                <div class="input-group">
-                  <input placeholder="Start typing to search..." type="text" id="typeahead_example_4" name="typeahead_example_4" class="form-control" />
+                <div class="input-group" id="vendorList">
+                  <input placeholder="Start typing to search..." id="typeahead_example_2" name="typeahead_example_2" type="text" class="form-control typeahead"/>
                 </div>
               </div>
               <div class="col-md-4 hidden-1024">
@@ -223,7 +223,7 @@
         </div>
         <div class="modal-footer">
           <button class="btn btn-danger" data-dismiss="modal">Dismiss</button>
-          <button class="btn blue" data-dismiss="modal">Accept</button>
+          <button class="btn blue" data-dismiss="modal" id="acceptVendor">Accept</button>
         </div>
       </div>
     </div>
@@ -231,8 +231,15 @@
 <!-- END Accept Preferred Vendor Modal -->
 
 <!-- BEGIN MAIN JS-->
+<script type="text/javascript">
+  $(document).on('click', '#acceptVendor', function(evt) {
+    evt.preventDefault();
+    toastr.warning('Pending approval to access their handbook.', 'Vendor Added');
+  });
+</script>
 <script>
   ComponentsSelect2.init(); // init todo page
   ComponentsBootstrapSelect.init(); // init todo page
+  ComponentsFormTools.init(); // init todo page
 </script>
 <!-- BEGIN MAIN JS -->

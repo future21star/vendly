@@ -168,7 +168,7 @@
               </div>
               <div class="modal-footer">
                 <button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
-                <input class="btn blue" type="submit" value="Add Client" />
+                <input class="btn blue" data-dismiss="modal" type="submit" value="Add Client" id="addClient" />
               </div>
             </form>
           </div>
@@ -181,6 +181,12 @@
 </div>
 
 <!-- BEGIN MAIN JS-->
+<script type="text/javascript">
+  $(document).on('click', '#addClient', function(evt) {
+    evt.preventDefault();
+    toastr.success('An invitation email has been sent to them to access your handbook.', 'Client Added');
+  });
+</script>
 <script>
   ComponentsDateTimePickers.init(); // init todo page
 </script>
