@@ -23,7 +23,7 @@
             </p>
           </div>
           <div class="actions">
-            <a class="btn btn-circle btn-default" href="#">
+            <a class="btn btn-circle btn-default hidden" href="#"> <!-- TBD what to display within settings -->
               <i class="fa fa-cog"></i>
               Settings
             </a>
@@ -47,7 +47,7 @@
                   <input placeholder="Start typing to search..." id="typeahead_example_2" name="typeahead_example_2" type="text" class="form-control typeahead"/>
                 </div>
               </div>
-              <div class="col-md-4 hidden-1024">
+              <div class="col-md-4 hidden-1024"> <!-- Automatically deselect All when another option is selected -->
                 <select placeholder="All" id="vendor-types" class="bs-select form-control" multiple data-selected-text-format="count > 2">
                   <option value="All" selected>All Vendor Types</option>
                   <option value="Band & DJ">Band &amp; DJ </option>
@@ -81,14 +81,20 @@
         </div>
         <div class="padding-20 padding-top-5 padding-bottom-5">
           <div class="vendor-tools">
-            <a data-target="#vendor_details" data-toggle="modal" style="text-decoration: none;" class="padding-right-5">
-              <i class="fa fa-search font-grey-salt"></i>
-            </a>
-            <a href="" style="text-decoration: none;">
-              <i class="fa fa-pencil-square-o font-grey-salt"></i>
-            </a>
+            <p uib-popover="View Details" popover-trigger="mouseenter" class="inline">
+              <a data-target="#vendor_details" data-toggle="modal" style="text-decoration: none;" class="padding-right-5">
+                <i class="fa fa-search font-grey-salt"></i>
+              </a>
+            </p>
+            <p uib-popover="Edit Details" popover-trigger="mouseenter" class="inline">
+              <a href="" style="text-decoration: none;">
+                <i class="fa fa-pencil-square-o font-grey-salt"></i>
+              </a>
+            </p>
           </div>
-          The Three Men &amp; A Cook
+          <a href="" class="font-grey-gallery"> <!-- Modal with Business Contact Info (Name, Address, Email, Phone Number) -->
+            The Three Men &amp; A Cook
+          </a>
         </div>
       </div>
       <div class="padding-bottom-20" id="accommodations">
@@ -97,25 +103,37 @@
         </div>
         <div class="padding-20 padding-top-5 padding-bottom-5">
           <div class="vendor-tools">
-            <a href="" style="text-decoration: none;" class="padding-right-5">
-              <i class="fa fa-search font-grey-salt"></i>
-            </a>
-            <a href="" style="text-decoration: none;">
-              <i class="fa fa-pencil-square-o font-grey-salt"></i>
-            </a>
+            <p uib-popover="View Details" popover-trigger="mouseenter" class="inline">
+              <a data-target="#vendor_details" data-toggle="modal" style="text-decoration: none;" class="padding-right-5">
+                <i class="fa fa-search font-grey-salt"></i>
+              </a>
+            </p>
+            <p uib-popover="Edit Details" popover-trigger="mouseenter" class="inline">
+              <a href="" style="text-decoration: none;">
+                <i class="fa fa-pencil-square-o font-grey-salt"></i>
+              </a>
+            </p>
           </div>
-          Motel 6 of Houston
+          <a href="" class="font-grey-gallery"> <!-- Modal with Business Contact Info (Name, Address, Email, Phone Number) -->
+            Motel 6 of Houston
+          </a>
         </div>
         <div class="padding-20 padding-top-5 padding-bottom-5">
           <div class="vendor-tools">
-            <a href="" style="text-decoration: none;" class="padding-right-5">
-              <i class="fa fa-search font-grey-salt"></i>
-            </a>
-            <a href="" style="text-decoration: none;">
-              <i class="fa fa-pencil-square-o font-grey-salt"></i>
-            </a>
+            <p uib-popover="View Details" popover-trigger="mouseenter" class="inline">
+              <a data-target="#vendor_details" data-toggle="modal" style="text-decoration: none;" class="padding-right-5">
+                <i class="fa fa-search font-grey-salt"></i>
+              </a>
+            </p>
+            <p uib-popover="Edit Details" popover-trigger="mouseenter" class="inline">
+              <a href="" style="text-decoration: none;">
+                <i class="fa fa-pencil-square-o font-grey-salt"></i>
+              </a>
+            </p>
           </div>
-          Hilton Garden &amp; Inn
+          <a href="" class="font-grey-gallery"> <!-- Modal with Business Contact Info (Name, Address, Email, Phone Number) -->
+            Hilton Garden &amp; Inn
+          </a>
         </div>
       </div>
     </div>
@@ -223,7 +241,7 @@
         </div>
         <div class="modal-footer">
           <button class="btn btn-danger" data-dismiss="modal">Dismiss</button>
-          <button class="btn blue" data-dismiss="modal" id="acceptVendor">Accept</button>
+          <button class="btn blue" data-dismiss="modal" id="acceptVendor">Accept</button> <!-- Sends a request to the vendor to approve access to handbook -->
         </div>
       </div>
     </div>
