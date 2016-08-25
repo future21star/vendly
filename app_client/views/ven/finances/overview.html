@@ -1,0 +1,63 @@
+<!-- BEGIN PAGE HEADER-->
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+    <li>
+      <a href="#/dashboard">Dashboard</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <span>Finances</span>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <span> Overview </span>
+    </li>
+  </ul>
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN MAIN CONTENT -->
+<div class="row" ng-controller="GeneralPageController">
+  <div class="col-md-12">
+    <!-- BEGIN: ACCORDION DEMO -->
+    <div class="portlet light no-margin">
+      <div class="portlet-title">
+        <div class="page-title">
+          Finances: Overview
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- END PAGE HEADER-->
+
+<!-- BEGIN MAIN CONTENT -->
+<!-- BEGIN Bar Chart -->
+  <div class="row">
+    <div class="col-md-12">
+      <div class="portlet light bordered">
+        <div class="portlet-title">
+          <div class="caption font-blue-sharp">
+            <span class="caption-subject bold uppercase">Quarterly Finances</span>
+          </div>
+          <div class="tools">
+            <a href="javascript:;" class="collapse"> </a>
+            <a href="javascript:;" class="reload"> </a>
+          </div>
+        </div>
+        <div class="portlet-body">
+          <div class="portlet-body">
+            <div id="chart_1" class="chart" style="height: 500px;"> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- END Bar Chart -->
+</div>
+<!-- END MAIN CONTENT -->
+
+<!-- BEGIN MAIN JS-->
+<script>
+  ComponentsSelect2.init(); // init todo page
+  ComponentsBootstrapSelect.init(); // init todo page
+</script>
+<!-- BEGIN MAIN JS -->
