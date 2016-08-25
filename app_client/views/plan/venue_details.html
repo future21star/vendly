@@ -19,7 +19,7 @@
           <div class="page-title">
             My Venues
           </div>
-          <div class="actions">
+          <div class="actions hidden"> <!-- TBD what to display within settings -->
             <a class="btn btn-circle btn-default" href="#">
               <i class="fa fa-cog"></i>
               Settings
@@ -36,6 +36,9 @@
       <div class="portlet light bordered">
         <div class="portlet-title">
           <div class="caption font-blue-sharp">
+            <a href="" class="btn btn-circle btn-default btn-mini"> <!-- Modal with Business Contact Info (Name, Address, Email, Phone Number) -->
+              <i class="fa fa-info"></i>
+            </a>
             <span class="caption-subject bold uppercase">Lindsay Lakes</span>
             <span class="caption-helper">Ceremony &amp; Reception</span>
           </div>
@@ -58,10 +61,10 @@
             </div>
           </div>
         </div>
-        Upcoming Deadlines:
+        Upcoming Deadlines: <!-- When item is clicked the user is redirected to question within handbook -->
         <ul class="list-unstyled">
           <li>
-            <input type="checkbox" disabled checked>
+            <input type="checkbox" disabled checked>  <!-- All boxes disabled. Checked means the event detail has an answer. -->
             <a>
               Name of florist you booked:
             </a>
@@ -86,8 +89,11 @@
     <div class="portlet light bordered">
       <div class="portlet-title">
           <div class="caption font-blue-sharp">
-              <span class="caption-subject bold uppercase">Perry's Steakhouse</span>
-              <span class="caption-helper">Rehearsal Dinner</span>
+            <a href="" class="btn btn-circle btn-default btn-mini"> <!-- Modal with Business Contact Info (Name, Address, Email, Phone Number) -->
+              <i class="fa fa-info"></i>
+            </a>
+            <span class="caption-subject bold uppercase">Perry's Steakhouse</span> <!-- Modal with Business Contact Info (Name, Address, Email, Phone Number) -->
+            <span class="caption-helper">Rehearsal Dinner</span>
           </div>
           <div class="actions">
             <a class="btn btn-circle btn-default">
@@ -191,7 +197,7 @@
                     <input id="venue-city" class="form-control" type="text" placeholder="City"/>
                   </div>
                   <div class="col-md-12" style="border: 0px;">
-                    <input id="venue-search" class="form-control" type="text" placeholder="Search for venue..." disabled="disabled"/>
+                    <input id="venue-search" class="form-control" type="text" placeholder="Search for venue..." disabled="disabled"/> <!-- User must input city & state before searching -->
                   </div>
                 </div>
               </div>
