@@ -12,29 +12,39 @@ angular.module('MetronicApp').controller('RolodexController', ['$rootScope', '$s
     var vm = this;
 
     $scope.clients = {};
-      
-    meanData.getRolodex()
-        .success(function(data) {
-            $scope.clients = data;
-            //$('#example').DataTable();
-        })
-        .error(function (e) {
-            console.log(e);
-        });
     
-//    vm.onSubmit = function () {
-//        console.log('Submitting contact ' + vm.contact.name);
-//        meanData.saveContact(vm.contact)
-//        .error(function(e){
-//            console.log(e);
-//        })
-//        .then(function(){
-//            $route.reload();
-//        });
-//    };
+    loadRolodex = function () {
+        meanData.getRolodex()
+            .success(function(data) {
+                $scope.clients = data;
+                //$('#example').DataTable();
+            })
+            .error(function (e) {
+                console.log(e);
+            });
+    };
+    
+    loadRolodex();
       
-//    $('#newcontactbutton').click(function(){
-//        $('#newcontactmodal').modal();
-//    });
+    $scope.onSubmit = function () {
+        $scope.contact.name = $scope.firstname + ' ' + $scope.lastname;
+        console.log('Submitting contact ' + $scope.contact.name);
+        meanData.saveContact($scope.contact)
+        .error(function(e){
+            console.log(e);
+        })
+        .then(function(){
+            $('#add_client').modal('hide');
+            loadRolodex();
+        });
+    };
+    
+    $scope.viewContact = function(client) {
+        $('#clientname').html(client.name);
+        $('#clientemail').html(client.email);
+        $('#clientphone').html(client.phone);
+        $('#clientweddingdate').html(new Date(client.weddingdate).toLocaleDateString());
+        $('#clientbalancedue').html(client.balanceDue);
+    };
     
 }]);
