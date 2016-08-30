@@ -63,7 +63,7 @@
           <td> {{ client.name }}</td>
           <td> {{ client.email }}</td>
           <td> {{ client.phone }}</td>
-          <td> {{ client.date | date:"longDate" }}</td>
+          <td> {{ client.weddingdate | date:"longDate" }}</td>
           <td> {{ client.balanceDue | currency }}</td>
         </tr>
       </table>
@@ -140,28 +140,28 @@
         <div class="modal-body">
           <div class="portlet light form no-margin">
             <!-- BEGIN FORM-->
-            <form action="#" class="form-horizontal">
+            <form ng-submit="onSubmit()" class="form-horizontal">
               <div class="form-body">
                 <div class="form-group">
                   <div class="row">
                     <div class="col-md-6">
                       <span class="help-block"> First Name </span>
-                      <input class="form-control" type="text" required="required" />
+                      <input class="form-control" type="text" required="required" ng-model="firstname"/>
                     </div>
                     <div class="col-md-6">
                       <span class="help-block"> Last Name </span>
-                      <input class="form-control" type="text" required="required" />
+                      <input class="form-control" type="text" required="required" ng-model="lastname"/>
                     </div>
                   </div>
                   <div class="padding-bottom-10 padding-top-10"></div>
                   <div class="row">
                     <div class="col-md-6">
                       <span class="help-block"> Email </span>
-                      <input class="form-control" type="email" required="required" />
+                      <input class="form-control" type="email" required="required" ng-model="contact.email"/>
                     </div>
                     <div class="col-md-6">
                       <span class="help-block"> Event Date </span>
-                      <input class="form-control date-picker" size="16" type="text" value="" data-date-start-date="+0d" required="required" />
+                      <input class="form-control date-picker" size="16" type="text" value="" data-date-start-date="+0d" required="required" ng-model="contact.weddingdate"/>
                     </div>
                   </div>
                 </div>
