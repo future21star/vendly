@@ -56,7 +56,7 @@
 
         <tr ng-repeat= "client in clients" >
           <td class="text-center">
-            <a data-target="#client_details" data-toggle="modal">
+            <a data-target="#client_details" data-toggle="modal" ng-click="viewContact(client)">
               <i class="fa fa-external-link font-blue"></i>
             </a>
           </td>
@@ -83,7 +83,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title bold">{{ client.name }} &nbsp;
+          <h4 class="modal-title bold"><span id="clientname"></span> &nbsp;
             <a class="btn btn-circle btn-default border-blue btn-small font-blue" style="float: right;">
               <i class="fa fa-wrench"></i>
               Edit
@@ -96,25 +96,13 @@
               <div class="col-md-6">
                 <dl>
                   <dt>Email</dt>
-                  <dd class="padding-bottom-10">{{selectedClient.email}}</dd>
+                  <dd class="padding-bottom-10" id="clientemail"></dd>
                   <dt>Phone Number</dt>
-                  <dd class="padding-bottom-10">{{selectedClient.phone}}</dd>
+                  <dd class="padding-bottom-10" id="clientphone"></dd>
                   <dt>Event Date</dt>
-                  <dd class="padding-bottom-10">{{selectedClient.date | date:"longDate"}}</dd>
+                  <dd class="padding-bottom-10" id="clientweddingdate"></dd>
                   <dt>Balance Due</dt>
-                  <dd>{{selectedClient.balance}}</dd>
-                </dl>
-              </div>
-              <div class="col-md-6">
-                <dl>
-                  <dt>Email</dt>
-                  <dd class="padding-bottom-10">{{selectedClient.email}}</dd>
-                  <dt>Phone Number</dt>
-                  <dd class="padding-bottom-10">{{selectedClient.phone}}</dd>
-                  <dt>Event Date</dt>
-                  <dd class="padding-bottom-10">{{selectedClient.date | date:"longDate"}}</dd>
-                  <dt>Balance Due</dt>
-                  <dd>{{selectedClient.balance}}</dd>
+                  <dd id="clientbalancedue"></dd>
                 </dl>
               </div>
             </div>

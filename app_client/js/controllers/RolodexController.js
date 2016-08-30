@@ -39,4 +39,12 @@ angular.module('MetronicApp').controller('RolodexController', ['$rootScope', '$s
         });
     };
     
+    $scope.viewContact = function(client) {
+        $('#clientname').html(client.name);
+        $('#clientemail').html(client.email);
+        $('#clientphone').html(client.phone);
+        $('#clientweddingdate').html(new Date(client.weddingdate).toLocaleDateString());
+        $('#clientbalancedue').html(client.balanceDue);
+    };
+    
 }]);
