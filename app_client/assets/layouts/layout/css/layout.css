@@ -145,7 +145,7 @@ Page Header
         margin-right: 13px; }
     .page-header.navbar .menu-toggler.responsive-toggler {
       display: none;
-      float: right;
+      float: left;
       margin: 15.5px 6px 0 6px; }
   .page-header.navbar .top-menu {
     margin: 0;
@@ -651,7 +651,7 @@ Horizontal Menu
   /* 480px */
   /* Fixed header for mobile */
   .page-header-fixed.page-header-fixed-mobile .page-header.navbar {
-    height: 100px; }
+    height: auto; }
   .page-header.navbar {
     /* Top menu */ }
     .page-header.navbar .top-menu {
@@ -730,7 +730,7 @@ Page container
 @media (max-width: 480px) {
   /* Page container */
   .page-header-fixed.page-header-fixed-mobile .page-container {
-    margin-top: 100px !important; } }
+    margin-top: 40px !important; } }
 
 /***
 Page sidebar
