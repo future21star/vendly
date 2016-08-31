@@ -74,12 +74,13 @@
 
 .st-text-block, .st-text-block:active, .st-text-block:focus, .st-block [contenteditable="true"], .st-block [contenteditable="true"]:active, .st-block [contenteditable="true"]:focus, .st-block input[type="text"], .st-block input[type="text"]:active, .st-block input[type="text"]:focus, .st-block textarea, .st-block textarea:hover, .st-block textarea:active {
   outline: none;
-  border: none; }
+  border: none;
+  display: table-cell; }
 
 .st-block input[type="text"], .st-block input[type="text"]:active, .st-block input[type="text"]:focus {
   color: #42474b;
-  border: 0.1em solid #d4d4d4;
-  padding: .6em; }
+  text-align: left;
+  padding: .6em .6em .6em 0; }
 
 .st-errors {
   background-color: #ffe1e4;
@@ -144,15 +145,17 @@
   position: relative; }
 
 .st-block__inner {
-  padding: 1.875em 1.875em 2.8em;
+  padding: 0 .2em 0 .5em;
   border: 2px solid #fff;
-  position: relative; }
+  display: table;
+  width: 100%; }
 
 .st-block__inner:hover {
   border-color: #7FA8D7; }
 
 .st-block--with-errors .st-block__inner, .st-block--delete-active .st-block__inner {
-  border-color: #d70014; }
+  border-color: #d70014;
+  border-radius: .2em; }
 
 .st-block--with-plus:after, .st-icon--add:after {
   display: block;
@@ -362,38 +365,34 @@ ul.st-text-block {
     border-color: #d70014; }
 
 .st-block__ui, .st-block__ui-delete-controls {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  opacity: 0; }
+  opacity: 0;
+  display: table-cell;
+  width: 65px;
+  vertical-align: bottom;}
 
 .st-block__control-ui {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  opacity: 0; }
+  opacity: 0;
+  display: table-cell;
+  width: 65px;
+  vertical-align: bottom; }
 
 .st-block__inner:hover .st-block__ui, .st-block__inner:hover .st-block__control-ui {
   opacity: 1; }
 
 .st-block-ui-btn, .st-block-control-ui-btn {
   display: block;
-  float: left;
-  width: 3em;
-  height: 2.5em;
-  line-height: 2.5em;
+  float: right;
   font-size: 1.4em;
   color: #7FA8D7;
   background: #fff;
   text-align: center;
-  border: 2px solid #7FA8D7;
   border-right: 0;
   border-bottom: 0;
   margin-bottom: 0;
   cursor: pointer; }
   .st-block-ui-btn:hover, .st-block-control-ui-btn:hover, .st-block-ui-btn.active, .active.st-block-control-ui-btn {
-    color: #fff;
-    background: #7FA8D7; }
+    color: #7FA8D7;
+    text-decoration: none; }
 
 .st-block-control-ui-btn {
   width: 2em;

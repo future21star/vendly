@@ -4,7 +4,7 @@ SirTrevor.Blocks.Textentry = SirTrevor.Block.extend({
 
 	title: function() { return 'Text Entry'; },
 
-	editorHTML: '<input type=text class="st-input-string js-caption-input" name=caption placeholder="Enter Response" style="width: 100%; margin-top: 10px; text-align: center">',
+	editorHTML: '<input type=text class="st-input-string js-caption-input" name=question placeholder="Enter your question..." style="width: 100%; margin-top: 10px; text-align: left"><br><p class="st-input-string js-caption-input" style="width: 75%; font-style: italic; text-align: left; border-bottom: 1px solid #AAAAAA; color: #BBBBBB; font-weight: 100;" disabled>Client Response</p>',
 
 	icon_name: 'quote',
 
@@ -19,7 +19,7 @@ SirTrevor.Blocks.Checkbox = SirTrevor.Block.extend({
 	type: "checkbox",
 
 	title: function() { return 'Multiple Choice'; },
-    
+
     editorHTML: '<input type=checkbox> <span class="st-required" contenteditable="true">Edit text</span><br><input type=checkbox> <span class="st-required" contenteditable="true">Edit text</span><br><input type=checkbox> <span class="st-required" contenteditable="true">Edit text</span>',
 
 	icon_name: 'list',
