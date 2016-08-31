@@ -80,7 +80,8 @@
 .st-block input[type="text"], .st-block input[type="text"]:active, .st-block input[type="text"]:focus {
   color: #42474b;
   text-align: left;
-  padding: .6em .6em .6em 0; }
+  padding: .6em .6em 0 0;
+  font-size: 1em; }
 
 .st-errors {
   background-color: #ffe1e4;
@@ -102,10 +103,10 @@
 
 .st-block-controls__top:before {
   width: 100%;
-  display: block;
+  display: none;
   text-align: center;
   font-size: 1.875em;
-  padding: 0.3em 0;
+  padding: 0.1em 0;
   line-height: 0.9;
   border-radius: 0.2em; }
 
@@ -138,7 +139,8 @@
   display: block; }
 
 .st-block-control:hover {
-  color: #7FA8D7; }
+  color: #7FA8D7;
+  text-decoration: none; }
 
 .st-block {
   padding: 0;
@@ -169,9 +171,10 @@
 .st-icon--add:after {
   text-align: center;
   font-size: 1.875em;
-  padding: 0.3em 0;
+  padding: 0.1em 0;
   line-height: 0.9;
-  border-radius: 0.2em; }
+  border-radius: 0.2em;
+  color: #DDDDDD; }
 
 .st-block--with-plus:after {
   background: #F3F3F3;
@@ -195,12 +198,12 @@
 
 .st-text-block {
   min-height: 3em;
-  font-size: 1.275em;
+  font-size: 1em;
   line-height: 1.45; }
 
 .st-text-block--heading {
   line-height: 1.1;
-  font-size: 2.2em;
+  font-size: 1.6em;
   min-height: 1em;
   font-weight: 700; }
 

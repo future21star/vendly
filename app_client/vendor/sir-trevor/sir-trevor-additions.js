@@ -4,7 +4,7 @@ SirTrevor.Blocks.Textentry = SirTrevor.Block.extend({
 
 	title: function() { return 'Text Entry'; },
 
-	editorHTML: '<input type=text class="st-input-string js-caption-input" name=question placeholder="Enter your question..." style="width: 100%; margin-top: 10px; text-align: left"><br><p class="st-input-string js-caption-input" style="width: 75%; font-style: italic; text-align: left; border-bottom: 1px solid #AAAAAA; color: #BBBBBB; font-weight: 100;" disabled>Client Response</p>',
+	editorHTML: '<input type=text class="st-input-string js-caption-input" name=question placeholder="Enter your question..." style="width: 100%; margin-top: 10px; text-align: left;"><br><p class="st-input-string js-caption-input" style="width: 75%; font-style: italic; text-align: left; border-bottom: 1px solid #AAAAAA; color: #BBBBBB; font-weight: 100;" disabled>Client\'s Response</p>',
 
 	icon_name: 'quote',
 
