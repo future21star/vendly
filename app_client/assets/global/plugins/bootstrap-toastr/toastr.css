@@ -10,6 +10,7 @@
  */
 .toast-title {
   font-weight: bold;
+  font-size: 110%;
 }
 .toast-message {
   -ms-word-wrap: break-word;

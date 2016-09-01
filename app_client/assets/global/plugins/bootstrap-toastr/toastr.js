@@ -19,7 +19,8 @@
                 error: 'error',
                 info: 'info',
                 success: 'success',
-                warning: 'warning'
+                warning: 'warning',
+                saved: 'saved'
             };
 
             var toastr = {
@@ -32,7 +33,8 @@
                 subscribe: subscribe,
                 success: success,
                 version: '2.1.0',
-                warning: warning
+                warning: warning,
+                saved: saved
             };
 
             var previousToast;
@@ -83,6 +85,16 @@
                     message: message,
                     optionsOverride: optionsOverride,
                     title: title
+                });
+            }
+
+            function saved(message, title, optionsOverride) {
+                return notify({
+                    type: toastType.saved,
+                    iconClass: getOptions().iconClasses.success,
+                    message: message,
+                    optionsOverride: optionsOverride,
+                    title: title,
                 });
             }
 
