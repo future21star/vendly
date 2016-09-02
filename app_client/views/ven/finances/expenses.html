@@ -1,0 +1,243 @@
+<!-- BEGIN PAGE HEADER-->
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+    <li>
+      <a href="#/dashboard">Dashboard</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <a href="#/finance/overview">Finances</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <span> Expenses </span>
+    </li>
+  </ul>
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN MAIN CONTENT -->
+<div class="row" ng-controller="GeneralPageController">
+  <div class="col-md-12">
+    <!-- BEGIN: ACCORDION DEMO -->
+    <div class="portlet light no-margin">
+      <div class="portlet-title">
+        <div class="page-title">
+          Finances: Expenses
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- END PAGE HEADER-->
+
+<!-- BEGIN MAIN CONTENT -->
+<!-- BEGIN Payments Chart -->
+  <div class="row">
+    <div class="col-md-6">
+      <div class="portlet light bordered">
+        <div class="portlet-title">
+          <div class="caption font-blue-sharp">
+            <span class="caption-subject bold uppercase">Month over Month</span>
+          </div>
+          <div class="tools">
+            <a href="javascript:;" class="reload"> </a>
+          </div>
+        </div>
+        <div class="portlet-body">
+          <div id="expenses_bar_chart" style="height:300px;"></div>
+        </div>
+      </div>
+    </div>
+<!-- END Payments Chart -->
+
+<!-- BEGIN Recent Payment Table -->
+    <div class="col-md-6">
+      <div class="portlet light bordered">
+        <div class="portlet-title">
+          <div class="caption font-blue-sharp">
+            <span class="caption-subject bold uppercase">Recent Expenses</span>
+          </div>
+          <div class="actions">
+            <a class="btn btn-circle btn-default">
+              <i class="fa fa-plus"></i> Add Expense
+            </a>
+          </div>
+        </div>
+        <div class="portlet-body scroller" style="padding-top: 0; height:308px;">
+          <table class="table table-hover" style="table-layout: fixed;">
+            <th class="no-border-top" width="69%">Item</th>
+            <th class="no-border-top" width="25%">Amount</th>
+            <th class="no-border-top" width="6%"> </th>
+
+            <!-- <tr ng-repeat= "client in clients">
+              <td> {{ client.name }}</td>
+              <td> {{ client.balanceDue | currency }}</td>
+            </tr> -->
+            <tr>
+              <td> Party City - Upcoming Event Decorations </td>
+              <td> $1,592.00 </td>
+              <td class="text-center">
+                <a data-target="#client_details" data-toggle="modal" ng-click="viewContact(client)">
+                  <i class="fa fa-external-link font-blue"></i>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td> Party City - Upcoming Event Decorations </td>
+              <td> $1,592.00 </td>
+              <td class="text-center">
+  <a data-target="#client_details" data-toggle="modal" ng-click="viewContact(client)">
+    <i class="fa fa-external-link font-blue"></i>
+  </a>
+</td>
+            </tr>
+            <tr>
+              <td> Party City - Upcoming Event Decorations </td>
+              <td> $1,592.00 </td>
+              <td class="text-center">
+                <a data-target="#client_details" data-toggle="modal" ng-click="viewContact(client)">
+                  <i class="fa fa-external-link font-blue"></i>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td> Party City - Upcoming Event Decorations </td>
+              <td> $1,592.00 </td>
+              <td class="text-center">
+                <a data-target="#client_details" data-toggle="modal" ng-click="viewContact(client)">
+                  <i class="fa fa-external-link font-blue"></i>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td> Party City - Upcoming Event Decorations </td>
+              <td> $1,592.00 </td>
+              <td class="text-center">
+                <a data-target="#client_details" data-toggle="modal" ng-click="viewContact(client)">
+                  <i class="fa fa-external-link font-blue"></i>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td> Party City - Upcoming Event Decorations </td>
+              <td> $1,592.00 </td>
+              <td class="text-center">
+                <a data-target="#client_details" data-toggle="modal" ng-click="viewContact(client)">
+                  <i class="fa fa-external-link font-blue"></i>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td> Party City - Upcoming Event Decorations </td>
+              <td> $1,592.00 </td>
+              <td class="text-center">
+                <a data-target="#client_details" data-toggle="modal" ng-click="viewContact(client)">
+                  <i class="fa fa-external-link font-blue"></i>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td> Party City - Upcoming Event Decorations </td>
+              <td> $1,592.00 </td>
+              <td class="text-center">
+                <a data-target="#client_details" data-toggle="modal" ng-click="viewContact(client)">
+                  <i class="fa fa-external-link font-blue"></i>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td> Party City - Upcoming Event Decorations </td>
+              <td> $1,592.00 </td>
+              <td class="text-center">
+                <a data-target="#client_details" data-toggle="modal" ng-click="viewContact(client)">
+                  <i class="fa fa-external-link font-blue"></i>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td> Party City - Upcoming Event Decorations </td>
+              <td> $1,592.00 </td>
+              <td class="text-center">
+                <a data-target="#client_details" data-toggle="modal" ng-click="viewContact(client)">
+                  <i class="fa fa-external-link font-blue"></i>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td> Party City - Upcoming Event Decorations </td>
+              <td> $1,592.00 </td>
+              <td class="text-center">
+                <a data-target="#client_details" data-toggle="modal" ng-click="viewContact(client)">
+                  <i class="fa fa-external-link font-blue"></i>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td> Party City - Upcoming Event Decorations </td>
+              <td> $1,592.00 </td>
+              <td class="text-center">
+                <a data-target="#client_details" data-toggle="modal" ng-click="viewContact(client)">
+                  <i class="fa fa-external-link font-blue"></i>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td> Party City - Upcoming Event Decorations </td>
+              <td> $1,592.00 </td>
+              <td class="text-center">
+                <a data-target="#client_details" data-toggle="modal" ng-click="viewContact(client)">
+                  <i class="fa fa-external-link font-blue"></i>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td> Party City - Upcoming Event Decorations </td>
+              <td> $1,592.00 </td>
+              <td class="text-center">
+                <a data-target="#client_details" data-toggle="modal" ng-click="viewContact(client)">
+                  <i class="fa fa-external-link font-blue"></i>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td> Party City - Upcoming Event Decorations </td>
+              <td> $1,592.00 </td>
+              <td class="text-center">
+                <a data-target="#client_details" data-toggle="modal" ng-click="viewContact(client)">
+                  <i class="fa fa-external-link font-blue"></i>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td> Party City - Upcoming Event Decorations </td>
+              <td> $1,592.00 </td>
+              <td class="text-center">
+                <a data-target="#client_details" data-toggle="modal" ng-click="viewContact(client)">
+                  <i class="fa fa-external-link font-blue"></i>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td> Party City - Upcoming Event Decorations </td>
+              <td> $1,592.00 </td>
+              <td class="text-center">
+                <a data-target="#client_details" data-toggle="modal" ng-click="viewContact(client)">
+                  <i class="fa fa-external-link font-blue"></i>
+                </a>
+              </td>
+            </tr>
+
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- END Recent Payment Table -->
+
+</div>
+<!-- END MAIN CONTENT -->
+
+<!-- BEGIN MAIN JS-->
+<script>
+  Dashboard.init();
+</script>
+<!-- BEGIN MAIN JS -->
