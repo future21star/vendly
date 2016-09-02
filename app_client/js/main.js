@@ -493,7 +493,10 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                         name: 'MetronicApp',
                         insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
                         files: [
-                            'js/controllers/GeneralPageController.js'
+                          '../assets/pages/css/coming-soon.min.css',
+
+                          '../assets/pages/scripts/coming-soon.js',
+                          'js/controllers/GeneralPageController.js'
                         ]
                     });
                 }]
@@ -512,9 +515,6 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                         name: 'MetronicApp',
                         insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
                         files: [
-                          '../assets/pages/css/coming-soon.min.css',
-
-                          '../assets/pages/scripts/coming-soon.js',
                           'js/controllers/GeneralPageController.js'
                         ]
                     });
