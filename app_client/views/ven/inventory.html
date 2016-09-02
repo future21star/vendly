@@ -1,21 +1,47 @@
-<div class="page-bar" ng-controller="GeneralPageController">
-    <h1 style="text-align: center">Coming Soon</h1>
-</div>
-
 <div class="row" ng-controller="GeneralPageController">
-  <div class="col-md-12">
-    <div class="portlet light">
-    <script type="text/javascript">
-    window._chatlio = window._chatlio||[];
-    !function(){ var t=document.getElementById("chatlio-widget-embed");if(t&&window.ChatlioReact&&_chatlio.init)return void _chatlio.init(t,ChatlioReact);for(var e=function(t){return function(){_chatlio.push([t].concat(arguments)) }},i=["configure","identify","track","show","hide","isShown","isOnline"],a=0;a<i.length;a++)_chatlio[i[a]]||(_chatlio[i[a]]=e(i[a]));var n=document.createElement("script"),c=document.getElementsByTagName("script")[0];n.id="chatlio-widget-embed",n.src="https://w.chatlio.com/w.chatlio-widget.js",n.async=!0,n.setAttribute("data-embed-version","2.1");
-       n.setAttribute('data-widget-options', '{"embedInline": true}');
-       n.setAttribute('data-widget-id','4c8684ee-fc7e-4c5a-7727-6a2ca0f594fe');
-       c.parentNode.insertBefore(n,c);
-    	}();
-	</script>
-
-	<!-- Add this div in your DOM where you want the inline div to be inserted by Chatlio, change height/width to fit your needs -->
-	<div id="chatlioWidgetPlaceholder" style="margin: auto; height: 400px;width:400px;"></div>
-	</div>
-	</div>
+  <div class="col-md-6 coming-soon-countdown">
+      <div id="defaultCountdown"> </div>
+  </div>
+  <div class="col-md-6 coming-soon-content">
+      <h1 class="font-blue">Coming Soon!</h1>
+      <p class="font-grey-mint padding-bottom-20">
+        At Vendly, we are constantly expanding our platform features. With each new feature we it meets the need of our users, is intuitive to use, and works without a hitch.
+        <br><br>Subscribe below to be alerted when new features are made available.
+      </p>
+      <form class="form-inline" action="#">
+          <div class="input-group input-group-lg input-large">
+              <input type="email" class="form-control">
+              <span class="input-group-btn">
+                  <button class="btn blue" type="button"> Notify Me </button>
+              </span>
+          </div>
+      </form>
+      <ul class="social-icons margin-top-20">
+          <li>
+              <a href="javascript:;" data-original-title="Feed" class="rss"> </a>
+          </li>
+          <li>
+              <a href="javascript:;" data-original-title="Facebook" class="facebook"> </a>
+          </li>
+          <li>
+              <a href="javascript:;" data-original-title="Twitter" class="twitter"> </a>
+          </li>
+          <li>
+              <a href="javascript:;" data-original-title="Goole Plus" class="googleplus"> </a>
+          </li>
+          <li>
+              <a href="javascript:;" data-original-title="Pinterest" class="pintrest"> </a>
+          </li>
+          <li>
+              <a href="javascript:;" data-original-title="Linkedin" class="linkedin"> </a>
+          </li>
+          <li>
+              <a href="javascript:;" data-original-title="Vimeo" class="vimeo"> </a>
+          </li>
+      </ul>
+  </div>
 </div>
+
+<script>
+  ComingSoon.init();
+</script>

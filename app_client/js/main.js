@@ -495,7 +495,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                         files: [
                           '../assets/pages/css/coming-soon.min.css',
 
-                          '../assets/pages/scripts/coming-soon.js',
+                          '../assets/pages/scripts/coming-soon.min.js',
                           'js/controllers/GeneralPageController.js'
                         ]
                     });
