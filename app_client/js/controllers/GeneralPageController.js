@@ -32,13 +32,13 @@ angular.module('MetronicApp')
 
 
         $scope.editorContent = {
-            "data": [{
-                "type": "text",
-                "data": {
-                    "text": "<p align='center'>Start creating your event handbook!</p>",
-                    "format": "html"
-                }
-            }]
+          "data": [{
+              "type": "checkbox",
+              "data": {
+                  "text": "<p>Start creating your event handbook!</p>",
+                  "format": "html"
+              }
+          }]
         };
 
     });

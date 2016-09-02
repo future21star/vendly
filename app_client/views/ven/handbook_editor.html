@@ -20,7 +20,7 @@
             <a href="#" editable-text="handbook.name" e-label="Title:">&nbsp;{{ handbook.name || 'Empty' }}</a>
           </div>
           <div style="float: right;">
-            <button ng-click="saveHandbook()" class="btn blue">Save Handbook</button>
+            <button ng-click="saveHandbook()" class="btn blue" id="saveHandbook">Save Handbook</button>
           </div>
         </div>
       </div>
@@ -33,7 +33,7 @@
     <div class="portlet-body">
       <pre hidden>Form Data {{editorContent | json}}</pre>
       <form>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" hidden />
         <textarea sir-trevor-editor ng-model="editorContent"></textarea>
       </form>
     </div>
@@ -42,6 +42,10 @@
 <!-- END MAIN CONTENT -->
 
 <!-- BEGIN MAIN JS-->
-<script>
+<script type="text/javascript">
+  $(document).on('click', '#saveHandbook', function(evt) {
+    evt.preventDefault();
+    toastr.saved('Your handbook was saved!');
+  });
 </script>
 <!-- BEGIN MAIN JS -->

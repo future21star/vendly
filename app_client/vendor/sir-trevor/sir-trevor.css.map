@@ -12,7 +12,7 @@
 		"../block-control.scss",
 		"../block.scss",
 		"../block-positioner.scss",
-		"../block-ui.scss",
+		".../block-ui.scss",
 		"../format-bar.scss",
 		"../../../node_modules/node-bourbon/node_modules/bourbon/app/assets/stylesheets/settings/_prefixer.scss",
 		"../../../node_modules/node-bourbon/node_modules/bourbon/app/assets/stylesheets/settings/_px-to-em.scss",
