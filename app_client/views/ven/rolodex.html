@@ -154,6 +154,22 @@
                   </div>
                 </div>
               </div>
+              <div ng-controller="AccordionDemoCtrl">
+                <uib-accordion close-others="oneAtATime">
+                  <uib-accordion-group heading="+ Additional Options" style="text-align: right;">
+                    <div class="row" style="text-align: left;">
+                      <div class="col-md-6">
+                        <span class="help-block"> Phone Number </span>
+                        <input class="form-control" type="text" ng-model="contact.phone"/>
+                      </div>
+                      <div class="col-md-6">
+                        <span class="help-block"> Balance Due </span>
+                        <input class="form-control" type="text" ng-model="contact.balanceDue"/>
+                      </div>
+                    </div>
+                  </uib-accordion-group>
+                </uib-accordion>
+              </div>
               <div class="modal-footer">
                 <button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
                 <input class="btn blue" data-dismiss="modal" type="submit" value="Add Client" id="addClient" />
@@ -174,6 +190,23 @@
     evt.preventDefault();
     toastr.success('An invitation email has been sent to them to access your handbook.', 'Client Added');
   });
+</script>
+<script type="text/javascript">
+  /**
+   * @param {Object} $scope
+   * @return {undefined}
+   */
+  function AccordionDemoCtrl($scope)
+  {
+      /** @type {boolean} */
+      $scope.oneAtATime = true;
+      /** @type {Array} */
+      $scope.status = {
+        isCustomHeaderOpen: false,
+        isFirstOpen: false,
+        isFirstDisabled: false
+      };
+  }
 </script>
 <script>
   ComponentsDateTimePickers.init(); // init todo page
