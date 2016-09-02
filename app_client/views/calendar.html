@@ -16,7 +16,7 @@
 <!-- END PAGE BAR -->
 
 <!-- BEGIN MAIN CONTENT -->
-<div class="row" ng-controller="GeneralPageController">
+<div class="row" ng-controller="CalendarController">
   <div class="col-md-12">
     <!-- BEGIN: ACCORDION DEMO -->
     <div class="portlet light" style="padding-bottom: 0;">
@@ -48,7 +48,7 @@
                           <i class="fa fa-user-plus"></i>
                           Add Client
                         </a>
-                        <a href="javascript:;" id="event_add" class="btn default margin-left-10"> <!-- Add event (Name, date, time, notes) -->
+                        <a href="javascript:;" id="event_add" class="btn default margin-left-10" data-target="#add_event" data-toggle="modal"> <!-- Add event (Name, date, time, notes) -->
                           <i class="fa fa-calendar-plus-o"></i>
                           Add Event
                         </a>
@@ -65,8 +65,58 @@
         </div>
     </div>
   </div>
+    
+    <!-- BEGIN Add Event Modal -->
+  <div id="add_event" class="modal fade" role="dialog" aria-labelledby="myModalLabel10" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title bold">Add New Event
+          </h4>
+        </div>
+        <div class="modal-body">
+          <div class="portlet light form no-margin">
+            <!-- BEGIN FORM-->
+            <form ng-submit="onSubmit()" class="form-horizontal">
+              <div class="form-body">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <span class="help-block"> Event Name </span>
+                      <input class="form-control" type="text" required="required" ng-model="event.title"/>
+                    </div>
+                    <div class="col-md-6">
+                      <span class="help-block"> Description </span>
+                      <input class="form-control" type="text" required="required" ng-model="event.description"/>
+                    </div>
+                  </div>
+                  <div class="padding-bottom-10 padding-top-10"></div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <span class="help-block"> Event Start </span>
+                      <input class="form-control" type="text" required="required" ng-model="event.start"/>
+                    </div>
+                    <div class="col-md-6">
+                      <span class="help-block"> Event End </span>
+                      <input class="form-control date-picker" type="text" ng-model="event.end"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
+                <input class="btn blue" type="submit" value="Add Event" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- END Add Event Modal -->
+ 
+    
 </div>
-
 
 <script src="../assets/global/plugins/moment.min.js" type="text/javascript"></script>
 <script src="../assets/global/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
