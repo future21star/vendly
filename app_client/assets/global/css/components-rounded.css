@@ -1329,11 +1329,7 @@ File dropzone
 Fontawesome Icons
 ***/
 [class^="fa-"]:not(.fa-stack),
-[class^="glyphicon-"],
-[class^="icon-"],
-[class*=" fa-"]:not(.fa-stack),
-[class*=" glyphicon-"],
-[class*=" icon-"] {
+[class*=" fa-"]:not(.fa-stack) {
   display: inline-block;
   *margin-right: .3em;
   line-height: 14px;
@@ -1341,30 +1337,13 @@ Fontawesome Icons
 
 /* Make font awesome icons fixed width */
 li [class^="fa-"],
-li [class^="glyphicon-"],
-li [class^="icon-"],
-li [class*=" fa-"],
-li [class*=" glyphicon-"],
-li [class*=" icon-"] {
+li [class*=" fa-"] {
   display: inline-block;
   width: 1.25em;
   text-align: center; }
 
-li [class^="glyphicon-"],
-li [class*=" glyphicon-"] {
-  top: 2px; }
-
-li [class^="icon-"],
-li [class*=" icon-"] {
-  top: 1px;
-  position: relative; }
-
 li [class^="fa-"].icon-large,
-li [class^="glyphicon-"].icon-large,
-li [class^="icon-"].icon-large,
-li [class*=" fa-"].icon-large,
-li [class*=" glyphicon-"].icon-large,
-li [class*=" icon-"].icon-large {
+li [class*=" fa-"].icon-large {
   /* increased font size for icon-large */
   width: 1.5625em; }
 
@@ -6717,30 +6696,6 @@ UI Loading
   .block-spinner-bar .bounce2 {
     -webkit-animation-delay: -0.16s;
     animation-delay: -0.16s; }
-
-/***
-Metro icons
-***/
-[class^="m-icon-"] {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  margin-top: 3px;
-  line-height: 14px;
-  vertical-align: top;
-  background-image: url(../img/syncfusion-icons.png);
-  background-position: 0 0;
-  background-repeat: no-repeat; }
-
-[class^="m-icon-big-"] {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  margin: 6px;
-  vertical-align: middle;
-  background-image: url(../img/syncfusion-icons.png);
-  background-position: 0 0px;
-  background-repeat: no-repeat; }
 
 /* large icons */
 .btn.m-icon-big {
