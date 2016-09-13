@@ -77,7 +77,7 @@
         <div class="modal-body">
           <div class="portlet light form no-margin">
             <!-- BEGIN FORM-->
-            <form ng-submit="onSubmit()" class="form-horizontal">
+            <form ng-submit="onAddSubmit()" class="form-horizontal">
               <div class="form-body">
                 <div class="form-group">
                   <div class="row">
@@ -94,11 +94,21 @@
                   <div class="row">
                     <div class="col-md-6">
                       <span class="help-block"> Event Start </span>
-                      <input class="form-control" type="text" required="required" ng-model="event.start"/>
+                        <div class='input-group date' id='starttimepicker'>
+                            <input type='text' class="form-control" placeholder="Enter date start" ng-model="event.start">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
                     </div>
                     <div class="col-md-6">
                       <span class="help-block"> Event End </span>
-                      <input class="form-control date-picker" type="text" ng-model="event.end"/>
+                        <div class='input-group date' id='endtimepicker'>
+                            <input type='text' class="form-control" placeholder="Enter date end" ng-model="event.end">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
                     </div>
                   </div>
                 </div>

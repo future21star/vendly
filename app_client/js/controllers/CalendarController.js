@@ -14,31 +14,35 @@ angular.module('MetronicApp')
     
     var vm = this;
     vm.event = {};
+    
+    loadCalendar = function() {
 
-    meanData.getCalendar()
-        .success(function(data) {
-            $('#calendar').fullCalendar({
-                events: data,
-                header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'month,agendaWeek,agendaDay'
-                },
-                timezone: 'local',
-                eventClick: function(event, jsEvent, view) {
-                    $('#modalTitle').html(event.title);
-                    $('#eventtitle').val(event.title);
-                    $('#eventstart').val(event.start.format('LLL'));
-                    $('#eventend').val(event.end.format('LLL'));
-//                    $('#modalBody').html(event.description);
+        meanData.getCalendar()
+            .success(function(data) {
+                $('#calendar').fullCalendar({
+                    events: data,
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,agendaWeek,agendaDay'
+                    },
+                    timezone: 'local',
+                    eventClick: function(event, jsEvent, view) {
+                        $('#modalTitle').html(event.title);
+                        $('#eventtitle').val(event.title);
+                        $('#eventstart').val(event.start.format('LLL'));
+                        $('#eventend').val(event.end.format('LLL'));
+    //                    $('#modalBody').html(event.description);
 
-                    $('#fullCalModal').modal();
-                }
+                        $('#fullCalModal').modal();
+                    }
+                });
+            })
+            .error(function (e) {
+                console.log(e);
             });
-        })
-        .error(function (e) {
-            console.log(e);
-        });
+    
+    };
       
     $('#neweventbutton').click(function(){
         $('#neweventmodal').modal();
@@ -47,25 +51,29 @@ angular.module('MetronicApp')
     $('#starttimepicker')
         .datetimepicker()
         .on("dp.change", function() {
-            vm.event.start = $('#starttimepicker > input').val();
+        // TODO - come back and fix these
+            //$scope.event.start = $('#starttimepicker > input').val();
         });
       
     $('#endtimepicker')
         .datetimepicker()
         .on("dp.change", function() {
-            vm.event.start = $('#endtimepicker > input').val();
+            //$scope.event.end = $('#endtimepicker > input').val();
         });
+    
+    loadCalendar();
       
-    vm.onSubmit = function () {
-        console.log('Submitting events ' + vm.event.title);
-        vm.event.start = moment.utc($("#starttimepicker").data("DateTimePicker").date()).valueOf();
-        vm.event.end = moment.utc($("#endtimepicker").data("DateTimePicker").date()).valueOf();
-        meanData.saveEvent(vm.event)
+    $scope.onAddSubmit = function () {
+        console.log('Submitting event ' + $scope.event.title);
+        $scope.event.start = moment.utc($("#starttimepicker").data("DateTimePicker").date()).valueOf();
+        $scope.event.end = moment.utc($("#endtimepicker").data("DateTimePicker").date()).valueOf();
+        meanData.saveEvent($scope.event)
             .error(function(e){
                 console.log(e);
             })
             .then(function(){
-                $route.reload();
+                $('#add_event').modal('hide');
+                loadCalendar();
             });
     };
    
