@@ -1,8 +1,18 @@
 var mongoose = require('mongoose');
+var nodemailer = require('nodemailer');
+var mg = require('nodemailer-mailgun-transport');
 var User = mongoose.model('User');
 var Contact = mongoose.model('Contact');
 var Event = mongoose.model('Event');
 var Booklet = mongoose.model('Booklet');
+
+var auth = {
+  auth: {
+    api_key: 'key-5d8054dd4051083b2ae9565c3bdfef8b',
+    domain: 'sandbox4c02a6e604144b7dbab5f9c69b0fb805.mailgun.org'
+  }
+}
+var nodemailerMailgun = nodemailer.createTransport(mg(auth));
 
 module.exports.profileRead = function(req, res) {
 
@@ -236,4 +246,30 @@ module.exports.saveBooklet = function(req, res) {
 
     }
     
+};
+
+module.exports.sendEmail = function (req, res) {
+    
+    if (!req.payload._id) {
+        res.status(401).json({
+            "message" : "UnauthorizedError: private profile"
+        });
+    } else {
+        
+        var mailOptions = {
+            from: 'Vendly <info@vendly.com>',
+            to: req.body.email,
+            subject: 'Welcome to Vendly!',
+            text: 'Welcome ' + req.body.firstname
+        };
+        
+        nodemailerMailgun.sendMail(mailOptions, function(error, info) {
+            if(error) {
+                return console.log(error);
+            }
+            console.log('Message sent: ' + info.response);
+        }); 
+        
+        res.json(req.body.email);
+    }
 };
