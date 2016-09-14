@@ -30,8 +30,8 @@ angular.module('MetronicApp')
                     eventClick: function(event, jsEvent, view) {
                         $('#modalTitle').html(event.title);
                         $('#eventtitle').val(event.title);
-                        $('#eventstart').val(event.start.format('LLL'));
-                        $('#eventend').val(event.end.format('LLL'));
+                        $('#eventstart').val(event.start); //.format('LLL'));  TODO - fix formatting
+                        $('#eventend').val(event.end); //.format('LLL'));
     //                    $('#modalBody').html(event.description);
 
                         $('#fullCalModal').modal();
@@ -73,6 +73,7 @@ angular.module('MetronicApp')
             })
             .then(function(){
                 $('#add_event').modal('hide');
+                // TODO - calendar reload not working
                 loadCalendar();
             });
     };
