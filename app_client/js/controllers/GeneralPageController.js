@@ -20,7 +20,7 @@ angular.module('MetronicApp')
     });
 }])
 
-.controller('GeneralPageController', ['$rootScope', '$scope', 'settings', function($rootScope, $scope, settings) {
+.controller('GeneralPageController', ['$rootScope', '$scope', 'settings', 'meanData', function($rootScope, $scope, settings, meanData) {
     $scope.$on('$viewContentLoaded', function() {
         // initialize core components
         App.initAjax();
@@ -45,6 +45,16 @@ angular.module('MetronicApp')
 
     $scope.handbook = {
       name: 'Untitled'
+    };
+    
+    $scope.onNewProvilegeUserSubmit = function () {
+        meanData.sendEmail($scope.user)
+            .error(function(e){
+                console.log(e);
+            })
+            .then(function(){
+                $('#add_privilege_user').modal('hide');
+            });
     };
 
 }]);

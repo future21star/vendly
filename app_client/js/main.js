@@ -210,6 +210,14 @@ MetronicApp.service('meanData', ['$http', 'authentication',
                 }
             });
         };
+        
+        var sendEmail = function (user) {
+            return $http.post('/api/sendEmail', user, {
+                headers: {
+                    Authorization: 'Bearer '+ authentication.getToken()
+                }
+            });
+        };
 
         return {
           getProfile : getProfile,
@@ -218,7 +226,8 @@ MetronicApp.service('meanData', ['$http', 'authentication',
           getCalendar: getCalendar,
           saveEvent  : saveEvent,
           getBooklets: getBooklets,
-          saveBooklet: saveBooklet
+          saveBooklet: saveBooklet,
+          sendEmail  : sendEmail
         };
     }
 ]);
@@ -643,9 +652,9 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
             }
         })
         // Account Settings Page
-        .state('plan_account', {
-            url: "/settings/account",
-            templateUrl: "views/plan/settings/account.html",
+        .state('account', {
+            url: "/account/settings",
+            templateUrl: "views/plan/settings/settings.html",
             data: {pageTitle: 'Account Settings'},
             controller: "GeneralPageController",
             resolve: {

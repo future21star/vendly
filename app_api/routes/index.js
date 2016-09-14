@@ -28,4 +28,7 @@ router.post('/login', ctrlAuth.login);
 router.get('/booklets', auth, ctrlProfile.bookletRead);
 router.post('/saveBooklet', auth, ctrlProfile.saveBooklet);
 
+// email
+router.post('/sendEmail', auth, ctrlProfile.sendEmail);
+
 module.exports = router;
