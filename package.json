@@ -35,6 +35,8 @@
     "mongodb": "^2.1.18",
     "mongoose": "3.8",
     "morgan": "~1.6.1",
+    "nodemailer": "^2.6.0",
+    "nodemailer-mailgun-transport": "^1.2.2",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "serve-favicon": "~2.3.0"
