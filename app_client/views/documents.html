@@ -48,7 +48,7 @@
         <th style="width: 65%">Title</th>
         <th style="width: 28%">Uploaded</th>
 
-        <tr ng-repeat= "document in documents" >
+        <tr>
           <td class="text-center">
             <a data-target="#client_details" data-toggle="modal" ng-click="viewDocument(document)">
               <i class="fa fa-external-link font-blue"></i>
@@ -56,8 +56,14 @@
           </td>
           <td>Vendly Venue Document</td>
           <td>February 23, 2016</td>
-          <!-- <td> {{ document.name }}</td>
-          <td> {{ document.upload_date | date:"longDate" }}</td> -->
+        <!-- <tr ng-repeat= "document in documents" >
+          <td class="text-center">
+            <a data-target="#client_details" data-toggle="modal" ng-click="viewDocument(document)">
+              <i class="fa fa-external-link font-blue"></i>
+            </a>
+          </td>
+          <td>{{ document.name }}</td>
+          <td>{{ document.upload_date | date:"longDate" }}</td> -->
         </tr>
       </table>
     </div>
@@ -71,31 +77,47 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title bold">Upload Document
+          <h4 class="modal-title bold">
+            Upload Document
           </h4>
         </div>
         <div class="modal-body">
           <div class="portlet light form no-margin">
-            <!-- BEGIN FORM-->
-            <form ng-submit="onSubmit()" class="form-horizontal">
-              <div class="form-body">
-                <div class="form-group">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <span class="help-block"> Title </span>
-                      <input class="form-control" type="text" required="required" ng-model="documentTitle"/>
-                    </div>
-                  </div>
-                  <div class="padding-bottom-10 padding-top-10"></div>
-                  <div class="row">
+            <div class="portal-body">
+                <div class="row padding-bottom-20">
+                  <div class="col-md-12">
+                    <span class="help-block"> Title </span>
+                    <input class="form-control" type="text" required="required"/>
                   </div>
                 </div>
+                <div class="row" ng-controller="FileUploadCtrl" nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter">
+                  <div class="col-md-12 hidden-xs hidden-sm">
+                    <div ng-show="uploader.isHTML5">
+                      <!-- 3. nv-file-over uploader="link" over-class="className" -->
+                      <div class="file-drop-zone margin-bottom-20 hidden" nv-file-over="" uploader="uploader" over-class="file-drop-zone-over"> Base drop zone </div>
+                      <!-- Example: nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" -->
+                      <div nv-file-drop="" uploader="uploader" options="{ url: '/foo' }">
+                          <div nv-file-over="" uploader="uploader" over-class="file-drop-zone-over" class="file-drop-zone margin-bottom-20">
+                            <strong>Drop File Here</strong>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="portlet-body">
+                    <div class="col-md-12">
+                      <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
+                      Browse For File:
+                      <input type="file" nv-file-select="" uploader="uploader" />
+                    </div>
+                  </div>
+                </div>
+                </div>
               </div>
-              <div class="modal-footer">
-                <button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
-                <input class="btn blue" data-dismiss="modal" type="submit" value="Upload" id="uploadDocument" />
-              </div>
-            </form>
+            </div>
+            <div class="modal-footer">
+              <button class="btn default" data-dismiss="modal" ng-click="item.cancel()" ng-disabled="!item.isUploading">Cancel</button>
+              <button class="btn blue" type="button" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">Upload</button>
+            </div>
           </div>
         </div>
       </div>
@@ -107,29 +129,67 @@
 
 <!-- BEGIN MAIN JS-->
 <script type="text/javascript">
-  $(document).on('click', '#addClient', function(evt) {
-    evt.preventDefault();
-    toastr.success('An invitation email has been sent to them to access your handbook.', 'Client Added');
-  });
-</script>
-<script type="text/javascript">
-  /**
-   * @param {Object} $scope
-   * @return {undefined}
-   */
-  function AccordionDemoCtrl($scope)
+  function FileUploadCtrl($scope, FileUploader)
   {
-    /** @type {boolean} */
-    $scope.oneAtATime = true;
-    /** @type {Array} */
-    $scope.status = {
-      isCustomHeaderOpen: false,
-      isFirstOpen: false,
-      isFirstDisabled: false
-    };
-  }
-</script>
-<script>
-  ComponentsDateTimePickers.init(); // init todo page
+      var uploader = $scope.uploader = new FileUploader(
+      {
+        url: '../assets/global/plugins/angularjs/plugins/angular-file-upload/upload.php'
+      });
+      // FILTERS
+      uploader.filters.push(
+      {
+          name: 'customFilter',
+          fn: function(item /*{File|FileLikeObject}*/ , options)
+          {
+            return this.queue.length < 10;
+          }
+      });
+      // CALLBACKS
+      uploader.onWhenAddingFileFailed = function(item /*{File|FileLikeObject}*/ , filter, options)
+      {
+        console.info('onWhenAddingFileFailed', item, filter, options);
+      };
+      uploader.onAfterAddingFile = function(fileItem)
+      {
+        console.info('onAfterAddingFile', fileItem);
+      };
+      uploader.onAfterAddingAll = function(addedFileItems)
+      {
+        console.info('onAfterAddingAll', addedFileItems);
+      };
+      uploader.onBeforeUploadItem = function(item)
+      {
+        console.info('onBeforeUploadItem', item);
+      };
+      uploader.onProgressItem = function(fileItem, progress)
+      {
+        console.info('onProgressItem', fileItem, progress);
+      };
+      uploader.onProgressAll = function(progress)
+      {
+        console.info('onProgressAll', progress);
+      };
+      uploader.onSuccessItem = function(fileItem, response, status, headers)
+      {
+        console.info('onSuccessItem', fileItem, response, status, headers);
+      };
+      uploader.onErrorItem = function(fileItem, response, status, headers)
+      {
+        console.info('onErrorItem', fileItem, response, status, headers);
+      };
+      uploader.onCancelItem = function(fileItem, response, status, headers)
+      {
+        console.info('onCancelItem', fileItem, response, status, headers);
+      };
+      uploader.onCompleteItem = function(fileItem, response, status, headers)
+      {
+        console.info('onCompleteItem', fileItem, response, status, headers);
+      };
+      uploader.onCompleteAll = function()
+      {
+        console.info('onCompleteAll');
+      };
+      console.info('uploader', uploader);
+  };
 </script>
 <!-- BEGIN MAIN JS -->
