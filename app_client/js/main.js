@@ -210,7 +210,7 @@ MetronicApp.service('meanData', ['$http', 'authentication',
                 }
             });
         };
-        
+
         var sendEmail = function (user) {
             return $http.post('/api/sendEmail', user, {
                 headers: {
@@ -279,11 +279,11 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 }]
             }
         })
-        // Contracts
-        .state('contracts', {
-            url: "/contracts",
-            templateUrl: "views/contracts.html",
-            data: {pageTitle: 'Contracts'},
+        // Uploaded Documents
+        .state('documents', {
+            url: "/documents",
+            templateUrl: "views/documents.html",
+            data: {pageTitle: 'Uploaded Documents'},
             controller: "GeneralPageController",
             resolve: {
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
