@@ -162,10 +162,13 @@
   border-radius: .2em; }
 
 .st-block--with-plus:after, .st-icon--add:after {
-  display: block;
+  display: none;
   position: relative;
   z-index: 1;
   bottom: 0; }
+
+.st-block:hover::after {
+  display: block; }
 
 .st--block-limit-reached .st-block--with-plus:after, .st--block-limit-reached .st-icon--add:after {
   display: none; }
