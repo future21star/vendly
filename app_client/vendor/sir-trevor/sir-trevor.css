@@ -328,10 +328,8 @@ ul.st-text-block {
   color: #d70014; }
 
 .st-block-positioner {
-  border: 2px solid #7FA8D7;
   position: absolute;
   z-index: 2;
-  left: -5.5em;
   bottom: 0.4em;
   background: #fff;
   visibility: hidden;
