@@ -653,8 +653,8 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
         })
         // Account Settings Page
         .state('account', {
-            url: "/account/settings",
-            templateUrl: "views/plan/settings/settings.html",
+            url: "/settings/account",
+            templateUrl: "views/plan/settings/account.html",
             data: {pageTitle: 'Account Settings'},
             controller: "GeneralPageController",
             resolve: {
