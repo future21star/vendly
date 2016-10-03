@@ -218,21 +218,20 @@
 <script>
 (function() {
   $('#venue-city').keyup(function() {
-
       var empty = false;
       $('#venue-city').each(function() {
-          if ($(this).val() == '') {
-              empty = true;
-          }
+        if ($(this).val() == '') {
+          empty = true;
+        }
       });
-
       if (empty) {
-          $('#venue-search').attr('disabled', 'disabled');
-      } else {
-          $('#venue-search').removeAttr('disabled');
+        $('#venue-search').attr('disabled', 'disabled');
       }
-  });
-})()
+      else {
+        $('#venue-search').removeAttr('disabled');
+      }
+    });
+  })()
 </script>
 
 <script type="text/javascript">
