@@ -20,11 +20,11 @@
         <div class="portlet light profile-sidebar-portlet ">
             <!-- SIDEBAR USERPIC -->
             <div class="profile-userpic">
-                <img src="{{settings.layoutPath}}/img/photo2.jpg" class="img-responsive" alt="Jane Doe"> </div>
+                <img src="{{settings.layoutPath}}/img/avatar.png" class="img-responsive" alt="Jane Doe"> </div>
             <!-- END SIDEBAR USERPIC -->
             <!-- SIDEBAR USER TITLE -->
             <div class="profile-usertitle">
-                <div class="profile-usertitle-name"> Jane Doe </div>
+                <div class="profile-usertitle-name"> Vendly Venue </div>
             </div>
             <!-- END SIDEBAR USER TITLE -->
 
@@ -63,13 +63,13 @@
                   <a href="#" data-target="#tab_1" data-toggle="tab">Profile Info</a>
                 </li>
                 <li>
-                  <a href="#" data-target="#tab_2" data-toggle="tab">Change Avatar</a>
+                  <a href="#" data-target="#tab_2" data-toggle="tab">Change Logo</a>
                 </li>
                 <li>
                   <a href="#" data-target="#tab_3" data-toggle="tab">Change Password</a>
                 </li>
                 <li>
-                  <a href="#" data-target="#tab_4" data-toggle="tab">Privileges</a>
+                  <a href="#" data-target="#tab_4" data-toggle="tab">Employees</a>
                 </li>
               </ul>
             </div>
@@ -80,20 +80,20 @@
                 <div class="tab-pane active" id="tab_1">
                     <form action="#" role="form">
                         <div class="form-group">
-                            <label class="control-label">First Name</label>
-                            <input type="text" value="Jane" class="form-control" /> </div>
+                            <label class="control-label">Business</label>
+                            <input type="text" value="Vendly Venue" class="form-control" /> </div>
                         <div class="form-group">
-                            <label class="control-label">Last Name</label>
-                            <input type="text" value="Doe" class="form-control" /> </div>
-                        <div class="form-group">
-                            <label class="control-label">Email</label>
-                            <input type="email" value="jane.doe@vendly.com" class="form-control" /> </div>
+                            <label class="control-label">Primary Email</label>
+                            <input type="email" value="info@vendly.com" class="form-control" /> </div>
                         <div class="form-group">
                             <label class="control-label">Phone Number</label>
                             <input type="text" value="012-345-6789" class="form-control" /> </div>
+                          <div class="form-group">
+                              <label class="control-label">Website</label>
+                              <input type="text" value="vendly.com" class="form-control" /> </div>
                         <div class="form-group">
-                            <label class="control-label">Event Date</label>
-                            <input type="text" value="June 11, 2017" class="form-control date-picker" data-date-start-date="+0d" /> </div>
+                            <label class="control-label">Business Type</label>
+                            <input type="text" value="Event Venue" class="form-control date-picker" data-date-start-date="+0d" /> </div>
                         <div class="margiv-top-10">
                             <a href="javascript:;" class="btn blue"> Save Changes </a>
                             <a href="javascript:;" class="btn default"> Cancel </a>
@@ -110,10 +110,10 @@
                     <form action="#" role="form">
                         <div class="form-group">
                             <div class="fileinput fileinput-new" data-provides="fileinput">
-                                <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                                  <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=No+Image" alt="" />
+                                <div class="fileinput-new thumbnail" style="width: 200px; height: 200px;">
+                                  <img src="{{settings.layoutPath}}/img/avatar.png" alt="Vendly Venue" height="100%" width="100%" />
                                 </div>
-                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
+                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 200px;"> </div>
                                 <div>
                                   <span class="btn default btn-file">
                                     <span class="fileinput-new"> Select image </span>
@@ -152,42 +152,34 @@
                 </div>
                 <!-- END CHANGE PASSWORD TAB -->
 
-                <!-- PRIVACY SETTINGS TAB -->
+                <!-- EMPLOYEES SETTINGS TAB -->
                 <div class="tab-pane " id="tab_4">
                     <form action="#">
                         <table class="table table-light table-hover">
                           <th class="no-border-top border-bottom border-bottom-default"> </th>
-                          <th class="no-border-top border-bottom border-bottom-default"> Submit Changes </th>
-                          <th class="no-border-top border-bottom border-bottom-default"> Make Suggestions </th>
+                          <th class="no-border-top border-bottom border-bottom-default"> Make Edits </th>
+                          <th class="no-border-top border-bottom border-bottom-default"> Add Clients </th>
                           <th class="no-border-top border-bottom border-bottom-default"> View Details </th>
-                          <th class="no-border-top border-bottom border-bottom-default"> None </th>
-
                           <tr>
                             <td>
-                              Jack Nicoles<br>
-                              <span class="small font-blue"> Groom </span>
+                              Austin Teague<br>
+                              <span class="small font-blue"> Owner </span>
                             </td>
                             <td align="center">
                               <label class="mt-radio">
-                                <input type="radio" name="optionsRadios1" value="submit" checked />
+                                <input type="radio" name="optionsRadios1" value="edit" checked />
                                 <span></span>
                               </label>
                             </td>
                             <td align="center">
                               <label class="mt-radio">
-                                <input type="radio" name="optionsRadios1" value="suggest" />
+                                <input type="radio" name="optionsRadios1" value="add" />
                                 <span></span>
                               </label>
                             </td>
                             <td align="center">
                               <label class="mt-radio">
                                 <input type="radio" name="optionsRadios1" value="view" />
-                                <span></span>
-                              </label>
-                            </td>
-                            <td align="center">
-                              <label class="mt-radio">
-                                <input type="radio" name="optionsRadios1" value="none" />
                                 <span></span>
                               </label>
                             </td>
@@ -199,13 +191,13 @@
                             </td>
                             <td align="center">
                               <label class="mt-radio">
-                                <input type="radio" name="optionsRadios2" value="submit" />
+                                <input type="radio" name="optionsRadios2" value="edit" />
                                 <span></span>
                               </label>
                             </td>
                             <td align="center">
                               <label class="mt-radio">
-                                <input type="radio" name="optionsRadios2" value="suggest" checked />
+                                <input type="radio" name="optionsRadios2" value="add" checked />
                                 <span></span>
                               </label>
                             </td>
@@ -215,39 +207,27 @@
                                 <span></span>
                               </label>
                             </td>
-                            <td align="center">
-                              <label class="mt-radio">
-                                <input type="radio" name="optionsRadios2" value="none" />
-                                <span></span>
-                              </label>
-                            </td>
                           </tr>
                           <tr>
                             <td>
                               Hannah Doe<br>
-                              <span class="small font-blue"> Mother </span>
+                              <span class="small font-blue"> Intern </span>
                             </td>
                             <td align="center">
                               <label class="mt-radio">
-                                <input type="radio" name="optionsRadios3" value="submit" />
+                                <input type="radio" name="optionsRadios3" value="edit" />
                                 <span></span>
                               </label>
                             </td>
                             <td align="center">
                               <label class="mt-radio">
-                                <input type="radio" name="optionsRadios3" value="suggest" />
+                                <input type="radio" name="optionsRadios3" value="add" />
                                 <span></span>
                               </label>
                             </td>
                             <td align="center">
                               <label class="mt-radio">
                                 <input type="radio" name="optionsRadios3" value="view" checked />
-                                <span></span>
-                              </label>
-                            </td>
-                            <td align="center">
-                              <label class="mt-radio">
-                                <input type="radio" name="optionsRadios3" value="none" />
                                 <span></span>
                               </label>
                             </td>
@@ -260,7 +240,7 @@
                             <a class="btn btn-default pull-right" data-target="#add_privilege_user" data-toggle="modal"> Add User </a>
                         </div>
                     </form>
-                    
+
                     <!-- start add privilege user modal -->
                     <div id="add_privilege_user" class="modal fade" role="dialog" aria-labelledby="myModalLabel10" aria-hidden="true">
                         <div class="modal-dialog">
@@ -305,11 +285,11 @@
                                                     <option value="view">View Details</option>
                                                     <option value="none">None</option>
                                                 </select>
-                                            </div>  
+                                            </div>
                                           </div>
                                         </div>
                                       </div>
-                                        
+
                                         <button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
                                         <button type="submit" class="btn btn-default">Add User</button>
                                     </form>

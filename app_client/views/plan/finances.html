@@ -1,0 +1,219 @@
+<!-- BEGIN PAGE HEADER-->
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+    <li>
+      <a href="#/dashboard">Dashboard</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <span> Expenses </span>
+    </li>
+  </ul>
+</div>
+<!-- END PAGE HEADER-->
+
+<div class="row" ng-controller="GeneralPageController">
+  <div class="col-xs-12">
+    <div class="portlet light no-margin">
+      <div class="portlet-title">
+        <div class="page-title">
+          My Finances
+          <p uib-popover="This is a tooltip" popover-trigger="mouseenter" class="inline hidden">
+            <i class="fa fa-question-circle font-grey-salt" style="font-size: 16px;"></i>
+          </p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-circle btn-default hidden" href="#"> <!-- TBD what to display within settings -->
+            <i class="fa fa-cog"></i>
+            Settings
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- BEGIN Budget Breakdown Table -->
+  <div class="col-xs-12 col-md-7">
+    <div class="portlet light">
+      <div class="portlet-title">
+        <div class="caption font-blue-sharp">
+          <span class="caption-subject bold uppercase">Outstanding Balances</span>
+        </div>
+        <div class="actions">
+          <a class="btn btn-circle btn-default" data-target="#make_payment" data-toggle="modal">
+            <i class="fa fa-plus"></i> Make Payment
+          </a>
+        </div>
+      </div>
+      <table class="table table-hover">
+        <thead>
+          <th>
+            Company
+          </th>
+          <th>
+            Amount
+          </th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Vendly Venue</td>
+            <td>$12,274.13</td>
+          </tr>
+          <tr>
+            <td>The Three Men &amp; A Cook</td>
+            <td>$6,187.61</td>
+          </tr>
+          <tr>
+            <td>Rose's Flowers and Decor</td>
+            <td>$467.53</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- END Budget Breakdown Table -->
+
+  <!-- BEGIN Recent Payments Table -->
+  <div class="col-xs-12">
+    <div class="portlet light bordered">
+      <div class="portlet-title">
+        <div class="caption font-blue-sharp">
+          <span class="caption-subject bold uppercase">Recent Payments</span>
+        </div>
+        <div class="actions hidden">
+          <a class="btn btn-circle btn-default">
+            <i class="fa fa-gear"></i> Settings
+          </a>
+        </div>
+      </div>
+      <div class="portlet-body scroller" style="padding-top: 0; max-height:300px;">
+        <table class="table table-hover" style="table-layout: fixed;">
+          <th class="no-border-top" width="15%">Type</th>
+          <th class="no-border-top" width="50%">Business Name</th>
+          <th class="no-border-top" width="15%">Amount</th>
+          <th class="no-border-top" width="15%">Payment Date</th>
+          <th class="no-border-top text-center" width="10%">View</th>
+
+          <!-- <tr ng-repeat= "client in clients">
+            <td> {{ client.name }}</td>
+            <td> {{ client.balanceDue | currency }}</td>
+          </tr> -->
+          <tr>
+            <td> Venue </td>
+            <td> Vendly Venue </td>
+            <td> $1,529.00 </td>
+            <td> Oct. 2, 2016 </td>
+            <td class="text-center">
+              <a data-target="#client_details" data-toggle="modal" ng-click="viewContact(client)">
+                <i class="fa fa-external-link font-blue"></i>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td> Flowers </td>
+            <td> Rose's Flowers and Decor </td>
+            <td> $192.00 </td>
+            <td> Sept. 30, 2016 </td>
+            <td class="text-center">
+              <a data-target="#client_details" data-toggle="modal" ng-click="viewContact(client)">
+                <i class="fa fa-external-link font-blue"></i>
+              </a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- END Recent Payments Table -->
+</div>
+
+<!-- Make Payment Modal -->
+<div id="make_payment" class="modal fade" role="dialog" aria-labelledby="myModalLabel10" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title bold">Add New Venue
+        </h4>
+      </div>
+      <div class="modal-body">
+        <div class="portlet light form">
+          <!-- BEGIN FORM-->
+          <form action="#" class="form-horizontal">
+            <div class="form-body">
+              <div class="form-group">
+                <div class="col-xs-12 col-sm-6" style="border-left: 0px;">
+                  <select id="venue-state" class="bs-select form-control" required="required" >
+                    <option value="" disabled selected>Business</option>
+                    <option value="venue1205">Vendly Venue</option>
+                    <option value="vendor16467">The Three Men &amp; a Cook</option>
+                    <option value="vendor20658">Rose's Flowers and Decor</option>
+                  </select>
+                </div>
+                <div class="col-xs-12 col-sm-6" style="border: 0px;">
+                  <input class="form-control" type="text" placeholder="Amount" required="required" /> <!-- User must input city & state before searching -->
+                </div>
+              </div>
+            </div>
+            <div ng-controller="AccordionDemoCtrl">
+              <uib-accordion close-others="oneAtATime">
+                <uib-accordion-group heading="+ Additional Options">
+                  <div class="row" style="text-align: left;">
+                    <div class="col-xs-12 text-left padding-bottom-10">
+                      <span class="text-muted">Enable Reoccuring Payments</span>
+                    </div>
+                    <div class="col-xs-3 text-center">
+                      <label class="mt-checkbox">
+                        <input type="checkbox" name="reoccuring" value="reoccuring" id="reoccuringPayment" />
+                        <span></span>
+                      </label>
+                    </div>
+                    <div class="col-xs-9">
+                      <div class="col-xs-3">
+                        <input class="form-control" type="text" name="frequency_number" value="">
+                      </div>
+                      <div class="col-xs-9">
+                        <select id="paymentFrequency" class="bs-select form-control" required >
+                          <option value="" disabled selected>Select One</option>
+                          <option value="venue1205">Day</option>
+                          <option value="vendor16467">Week</option>
+                          <option value="vendor20658">Month</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </uib-accordion-group>
+              </uib-accordion>
+            </div>
+            <div class="modal-footer">
+              <button class="btn default" data-dismiss="modal" aria-hidden="true">Cancel</button>
+              <input type="submit" value="Submit Payment" class="btn blue" id="submitPayment" data-dismiss="modal"/>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).on('click', '#submitPayment', function(evt) {
+    evt.preventDefault();
+    toastr.success('Payment Submitted');
+  });
+</script>
+<script type="text/javascript">
+  /**
+   * @param {Object} $scope
+   * @return {undefined}
+   */
+  function AccordionDemoCtrl($scope)
+  {
+    /** @type {boolean} */
+    $scope.oneAtATime = true;
+    /** @type {Array} */
+    $scope.status = {
+      isCustomHeaderOpen: false,
+      isFirstOpen: false,
+      isFirstDisabled: false
+    };
+  }
+</script>
