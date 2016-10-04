@@ -399,6 +399,24 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 }]
             }
         })
+        // Full Client Details
+        .state('client_details', {
+            url: "/client_details",
+            templateUrl: "views/ven/client_details.html",
+            data: {pageTitle: 'Client Details'},
+            controller: "GeneralPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'MetronicApp',
+                        insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+                        files: [
+                            'js/controllers/GeneralPageController.js'
+                        ]
+                    });
+                }]
+            }
+        })
         // Handbook Editor
         .state('handbookeditor', {
             url: "/handbook_editor",

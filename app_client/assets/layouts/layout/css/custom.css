@@ -28,13 +28,23 @@
   padding-left: 10px;
   padding-bottom: 15px;
 }
-.vendor-detial-divider {
+.vendor-detail-divider {
   padding: 20px 0 0;
   text-align: right;
   color: #555555;
   border-bottom: 1px solid #333333;
   display: block;
   width: 100%;
+}
+.client-details h3 {
+  border-bottom: thin solid #E0E0E0;
+}
+.client-details dl {
+  padding-bottom: 15px;
+}
+.client-details dt { }
+.client-details dd {
+  padding-bottom: 10px;
 }
 .no-margin {
   margin: 0;
