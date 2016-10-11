@@ -4,7 +4,8 @@
   "main": "gulpfile.js",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "debug": "node-debug --no-preload ./bin/www"
   },
   "dependencies": {
     "angular-route": "^1.5.5",
@@ -35,7 +36,9 @@
     "mongodb": "^2.1.18",
     "mongoose": "3.8",
     "morgan": "~1.6.1",
+    "node-inspector": "^0.12.8",
     "nodemailer": "^2.6.0",
+    "nodemailer-express-handlebars": "^2.0.0",
     "nodemailer-mailgun-transport": "^1.2.2",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",

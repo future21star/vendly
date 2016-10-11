@@ -48,7 +48,9 @@ angular.module('MetronicApp')
     };
     
     $scope.onNewProvilegeUserSubmit = function () {
-        meanData.sendEmail($scope.user)
+        // save user data
+        
+        meanData.sendNewUserInviteEmail($scope.user)
             .error(function(e){
                 console.log(e);
             })

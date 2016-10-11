@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 var nodemailer = require('nodemailer');
 var mg = require('nodemailer-mailgun-transport');
+var hbs = require('nodemailer-express-handlebars');
+var fs = require('fs');
 var User = mongoose.model('User');
 var Contact = mongoose.model('Contact');
 var Event = mongoose.model('Event');
@@ -259,8 +261,8 @@ module.exports.sendEmail = function (req, res) {
         var mailOptions = {
             from: 'Vendly <info@vendly.com>',
             to: req.body.email,
-            subject: 'Welcome to Vendly!',
-            text: 'Welcome ' + req.body.firstname
+            subject: "Welcome to Vendly",
+            html: "Welcome to Vendly"
         };
         
         nodemailerMailgun.sendMail(mailOptions, function(error, info) {
@@ -268,6 +270,45 @@ module.exports.sendEmail = function (req, res) {
                 return console.log(error);
             }
             console.log('Message sent: ' + info.response);
+        }); 
+        
+        res.json(req.body.email);
+    }
+};
+
+module.exports.sendNewUserInviteEmail = function (req, res) {
+    if (!req.payload._id) {
+        res.status(401).json({
+            "message" : "UnauthorizedError: private profile"
+        });
+    } else {
+        
+        var options = {
+            viewEngine: {
+                extname: '.hbs',
+                layoutsDir: 'views/email/',
+                defaultLayout : 'welcome_email'
+            },
+            viewPath: 'views/email/',
+            extName: '.hbs'
+        };
+        nodemailerMailgun.use('compile', hbs(options));
+        
+        var mailOptions = {
+            from: 'Vendly <info@vendly.com>',
+            to: req.body.email,
+            subject: "Welcome to Vendly!",
+            template: 'welcome_email',
+            context: {
+                firstname: req.body.firstname
+            }
+        };
+        
+        nodemailerMailgun.sendMail(mailOptions, function(error, info) {
+            if(error) {
+                return console.log(error);
+            }
+            console.log('Message sent: ' + JSON.stringify(info));
         }); 
         
         res.json(req.body.email);

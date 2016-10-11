@@ -30,5 +30,6 @@ router.post('/saveBooklet', auth, ctrlProfile.saveBooklet);
 
 // email
 router.post('/sendEmail', auth, ctrlProfile.sendEmail);
+router.post('/sendNewUserInviteEmail', auth, ctrlProfile.sendNewUserInviteEmail);
 
 module.exports = router;

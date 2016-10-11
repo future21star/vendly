@@ -210,8 +210,16 @@ MetronicApp.service('meanData', ['$http', 'authentication',
                 }
             });
         };
+        
+        var sendNewUserInviteEmail = function (user) {
+            return $http.post('/api/sendNewUserInviteEmail', user, {
+                headers: {
+                    Authorization: 'Bearer '+ authentication.getToken()
+                }
+            });
+        };
 
-        var sendEmail = function (user) {
+        var sendEmail = function (email, subject, content) {
             return $http.post('/api/sendEmail', user, {
                 headers: {
                     Authorization: 'Bearer '+ authentication.getToken()
@@ -227,6 +235,7 @@ MetronicApp.service('meanData', ['$http', 'authentication',
           saveEvent  : saveEvent,
           getBooklets: getBooklets,
           saveBooklet: saveBooklet,
+          sendNewUserInviteEmail: sendNewUserInviteEmail,
           sendEmail  : sendEmail
         };
     }
