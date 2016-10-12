@@ -1,42 +1,121 @@
-<!-- BEGIN MAIN CONTENT -->
+<style>
+.modal-backdrop.in {
+   opacity: 1;
+}
+.pac-container {
+    z-index: 100000 !important;
+}
+</style>
+
 <div ng-controller="LoginController">
+    
+    <!-- BEGIN LOGIN MODAL CONTENT -->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header"></div>
+                <div class="modal-header">
+                  <h4 class="modal-title bold">Welcome to Vendly</h4>
+                </div>
                 <div class="modal-body">
-                    <div class="row centerdiv">
+                    <div id="loginbody" class="row centerdiv">
                         <div class="col-md-12">
 
-                            <form ng-submit="alert('hello!');">
+                            <form ng-submit="onSubmit()">
                                 <div class="form-group">
-                                <label for="email">Email address</label>
-                                <input type="email" class="form-control" id="email" placeholder="Email" ng-model="vm.credentials.email">
+                                    <label for="email">Email address</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Email" ng-model="credentials.email">
                                 </div>
                                 <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.credentials.password">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" id="password" placeholder="Password" ng-model="credentials.password">
                                 </div>
-                                <button type="submit" class="btn btn-default" ng-click="alert('hiiii!');">Log in</button>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn-primary btn">Log in</button>
+                                    <button type="button" id="registerButton" class="btn btn-default">Sign up</button>
+                                </div>
                             </form>
-
-<!--
-                            <br><br>
-                            <p class="lead">New user? Please <a class="registerButton">register here</a>.</p>
--->
 
                         </div>
                     </div>
-
+                   
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- END MAIN CONTENT -->
+    <!-- END LOGIN MODAL CONTENT -->
+    
+    <!-- BEGIN REGISTER MODAL CONTENT -->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title bold">Welcome to Vendly</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="loginbody" class="row centerdiv">
+                        <div class="col-md-12">
 
-<!-- BEGIN MAIN JS & CSS -->
-<script>
-    //Login.init();
-</script>
-<!-- BEGIN MAIN JS & CSS -->
+                            <form ng-submit="onRegisterSubmit()">
+                                
+                                <div class="form-group">
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <span class="help-block"> First Name </span>
+                                            <input class="form-control" type="text" required="required" ng-model="register.firstname"/>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span class="help-block"> Last Name </span>
+                                            <input class="form-control" type="text" required="required" ng-model="register.lastname"/>
+                                        </div>
+                                    </div>
+                                    <div class="padding-bottom-10 padding-top-10"></div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <span class="help-block"> Email </span>
+                                            <input class="form-control" type="email" required="required" ng-model="register.email"/>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span class="help-block"> Password </span>
+                                            <input class="form-control" type="password" required="required" ng-model="register.password"/>
+                                        </div>
+                                    </div>
+                                    <div class="padding-bottom-10 padding-top-10"></div>
+                                    <div class="row">
+                                        <div class="col-md-2" style="margin-right:-3em">
+                                            <h4>I am a </h4>
+                                        </div>
+                                        <div class="col-md-3" style="margin-right:-1em">
+                                            <select ng-model="register.usertype" class="form-control">
+                                                <option>Venue</option>
+                                                <option>Vendor</option>
+                                                <option>Planner</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3" style="margin-right:-4em">
+                                            <h4> located at </h4>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input ng-model="address" class="form-control" google-place/>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <button type="button" class="btn-default btn" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Sign up</button>
+                                </div>
+                                
+                            </form>
+
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END REGISTER MODAL CONTENT -->
+    
+</div>

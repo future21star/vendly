@@ -79,20 +79,6 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- BEGIN CONTAINER -->
         <div class="page-container">
             <!-- BEGIN SIDEBAR -->
-            <script type="text/javascript">
-              $(document).ready(function(){
-                  $('#sidebarType[type="checkbox"]').click(function(){
-                      if($(this).attr("value")=="checked"){
-                        $("#sidebarVen").removeClass('hidden');
-                        $('#sidebarPlan').addClass('hidden');
-                      }
-                      else {
-                        $("#sidebarVen").addClass('hidden');
-                        $('#sidebarPlan').removeClass('hidden');
-                      }
-                  });
-              });
-            </script>
             <div data-ng-include="'tpl/sidebar.html'" data-ng-controller="SidebarController" class="page-sidebar-wrapper"> </div>
             <!-- <div data-ng-include="'tpl/sidebar-ven.html'" data-ng-controller="SidebarController" class="page-sidebar-wrapper" id="sidebarVen"> </div> -->
             <!-- <div data-ng-include="'tpl/sidebar-plan.html'" data-ng-controller="SidebarController" class="page-sidebar-wrapper" id="sidebarPlan"> </div> -->
@@ -130,6 +116,20 @@ License: You must have a valid license purchased only from themeforest(the above
         <script src="../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script>
         <!-- END CORE JQUERY PLUGINS -->
+        <script type="text/javascript">
+          $(document).ready(function(){
+              $('#sidebarType[type="checkbox"]').click(function(){
+                  if($(this).attr("value")=="checked"){
+                    $("#sidebarVen").removeClass('hidden');
+                    $('#sidebarPlan').addClass('hidden');
+                  }
+                  else {
+                    $("#sidebarVen").addClass('hidden');
+                    $('#sidebarPlan').removeClass('hidden');
+                  }
+              });
+          });
+        </script>
         <!-- BEGIN CORE ANGULARJS PLUGINS -->
         <script src="../assets/global/plugins/angularjs/angular.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/angularjs/angular-sanitize.min.js" type="text/javascript"></script>
@@ -170,6 +170,10 @@ License: You must have a valid license purchased only from themeforest(the above
         <script src="../assets/global/plugins/icheck/icheck.min.js" type="text/javascript"></script>
         <script src="/lib/moment/min/moment.min.js"></script>
         <script src="/lib/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+        <!-- Google -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB03z9IAfm3RHDUvIBcKYqTt8hE6IId0aE&libraries=places"></script>
+        
+
     </body>
     <!-- END BODY -->
 

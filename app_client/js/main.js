@@ -91,6 +91,10 @@ MetronicApp.service('authentication', ['$http', '$window',
         var saveToken = function (token) {
           $window.localStorage['mean-token'] = token;
         };
+        
+        var clearToken = function () {
+          $window.localStorage.removeItem('mean-token');
+        };
 
         var getToken = function () {
           return $window.localStorage['mean-token'];
@@ -137,7 +141,7 @@ MetronicApp.service('authentication', ['$http', '$window',
         };
 
         logout = function() {
-          $window.localStorage.removeItem('mean-token');
+          clearToken();
         };
 
         return {
@@ -247,7 +251,17 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
     $urlRouterProvider.otherwise("/404");
 
     $stateProvider
-
+    
+        // Log out
+        .state('logout', {
+            url: "/logout",
+            templateUrl: "views/login.html",
+            controller: function($location, authentication) {
+                authentication.logout();
+                $location.path('login');
+            }
+        })
+    
         // Login
         .state('login', {
             url: "/login",
@@ -260,7 +274,6 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                         name: 'MetronicApp',
                         insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
                         files: [
-
                             'js/controllers/LoginController.js'
                         ]
                     });
@@ -721,21 +734,21 @@ MetronicApp.run(["$rootScope", "settings", "$state", "authentication", "$locatio
     $rootScope.$on('$locationChangeStart', function(event, nextRoute, currentRoute) {
         if (!authentication.isLoggedIn()) {
             // TODO fix this so it isn't logging in automatically
-           // $location.path('/login');
+            $location.path('/login');
 
-            var creds = {
-                email : "seth@vendly.com",
-                password : "seth"
-            };
+//            var creds = {
+//                email : "seth@vendly.com",
+//                password : "seth"
+//            };
 
-            authentication
-                .login(creds)
-                .error(function(err){
-                  alert('Error: ' + err.message);
-                })
-                .then(function(){
-                  $location.path('dashboard');
-                });
+//            authentication
+//                .login(creds)
+//                .error(function(err){
+//                  alert('Error: ' + err.message);
+//                })
+//                .then(function(){
+//                  $location.path('dashboard');
+//                });
         }
 
         if ($location.path() === '' && authentication.isLoggedIn()) {
