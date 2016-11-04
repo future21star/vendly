@@ -457,6 +457,24 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 }]
             }
         })
+        // New Handbook
+        .state('newhandbook', {
+            url: "/newhandbook",
+            templateUrl: "views/ven/newhandbook.html",
+            data: {pageTitle: 'Handbook Editor'},
+            controller: "HandbookController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'MetronicApp',
+                        insertBefore: '#ng_load_plugins_before',
+                        files: [
+                            'js/controllers/HandbookController.js'
+                        ]
+                    });
+                }]
+            }
+        })
         // Finances - Overview
         .state('fin_overview', {
             url: "/finance/overview",
