@@ -9,5 +9,5 @@ angular.module('MetronicApp').controller('HandbookController', ['$rootScope', '$
         $rootScope.settings.layout.pageSidebarClosed = false;
     });
 
-    $('.build-wrap').formBuilder();
+    var formbuilder = new Formbuilder({ selector: '#formbuilder' });
 }]);
