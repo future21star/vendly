@@ -562,7 +562,25 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
             url: "/account/employees",
             templateUrl: "views/ven/account/employees.html",
             data: {pageTitle: 'Employees'},
-            controller: "PaymentPageController",
+            controller: "GeneralPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'MetronicApp',
+                        insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+                        files: [
+                          'js/controllers/GeneralPageController.js'
+                        ]
+                    });
+                }]
+            }
+        })
+        // Preferred Businesses Settings Page
+        .state('preferred_business', {
+            url: "/account/preferred",
+            templateUrl: "views/ven/account/preferred_business.html",
+            data: {pageTitle: 'Preferred Businesses'},
+            controller: "GeneralPageController",
             resolve: {
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
