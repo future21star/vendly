@@ -20,11 +20,12 @@
         <div class="portlet light profile-sidebar-portlet ">
             <!-- SIDEBAR USERPIC -->
             <div class="profile-userpic">
-                <img src="{{settings.layoutPath}}/img/avatar.png" class="img-responsive" alt="Jane Doe"> </div>
+              <img src="{{settings.layoutPath}}/img/avatar.png" class="img-responsive" alt="Jane Doe" style="max-width: 130px;">
+            </div>
             <!-- END SIDEBAR USERPIC -->
             <!-- SIDEBAR USER TITLE -->
             <div class="profile-usertitle">
-                <div class="profile-usertitle-name"> Vendly Venue </div>
+              <div class="profile-usertitle-name"> Vendly Venue </div>
             </div>
             <!-- END SIDEBAR USER TITLE -->
 
@@ -63,7 +64,7 @@
                   <a href="#" data-target="#tab_1" data-toggle="tab">Profile Info</a>
                 </li>
                 <li>
-                  <a href="#" data-target="#tab_2" data-toggle="tab">Change Logo</a>
+                  <a href="#" data-target="#tab_2" data-toggle="tab">Change Image</a>
                 </li>
                 <li>
                   <a href="#" data-target="#tab_3" data-toggle="tab">Change Password</a>
@@ -235,13 +236,13 @@
                         </table>
                         <!--end profile-settings-->
                         <div class="margin-top-10">
-                            <a href="javascript:;" class="btn blue"> Save Changes </a>
-                            <a href="javascript:;" class="btn default"> Cancel </a>
-                            <a class="btn btn-default pull-right" data-target="#add_privilege_user" data-toggle="modal"> Add User </a>
+                          <a href="javascript:;" class="btn blue"> Save Changes </a>
+                          <a href="javascript:;" class="btn default"> Cancel </a>
+                          <a class="btn btn-default pull-right" data-target="#add_privilege_user" data-toggle="modal"> Add User </a>
                         </div>
                     </form>
 
-                    <!-- start add privilege user modal -->
+                    <!-- start add employee modal -->
                     <div id="add_privilege_user" class="modal fade" role="dialog" aria-labelledby="myModalLabel10" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -253,7 +254,6 @@
                                     <!-- BEGIN FORM-->
                                     <form ng-submit="onNewProvilegeUserSubmit()" class="form-horizontal">
                                       <div class="form-body">
-                                        <div class="form-group">
                                           <div class="row">
                                             <div class="col-md-6">
                                               <span class="help-block"> First Name </span>
@@ -278,27 +278,24 @@
                                           <div class="padding-bottom-10 padding-top-10"></div>
                                           <div class="row">
                                             <div class="col-md-12">
-                                                <span class="help-block"> Permission </span>
-                                                <select class="form-control" ng-model="user.permission">
-                                                    <option value="submit">Submit Changes</option>
-                                                    <option value="suggest">Make Suggestions</option>
-                                                    <option value="view">View Details</option>
-                                                    <option value="none">None</option>
-                                                </select>
+                                              <span class="help-block"> Permission </span>
+                                              <select class="form-control" ng-model="user.permission">
+                                                <option value="submit">Make Edits</option>
+                                                <option value="suggest">Add Clients</option>
+                                                <option value="view">View Details</option>
+                                              </select>
                                             </div>
                                           </div>
-                                        </div>
                                       </div>
-
-                                        <button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
-                                        <button type="submit" class="btn btn-default">Add User</button>
+                                      <button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
+                                      <button type="submit" class="btn btn-default">Add User</button>
                                     </form>
                                   </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- end add privilege user modal -->
+                    <!-- end add employee modal -->
                 </div>
                 <!-- END PRIVACY SETTINGS TAB -->
               </div>
