@@ -80,13 +80,14 @@
           </div>
           <hr>
           <div class="portlet light h4">
-            <a><i class="fa fa-envelope-o"></i></a>&nbsp;
-            <a>Vendly Vendors</a>
+            <a href="#/inbox"><i class="fa fa-envelope-o"></i></a>&nbsp;
+            <a data-target="#VendlyVendor" data-toggle="modal">Vendly Vendors</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+  
   <div class="modal fade" id="addPreferredBusiness" tabindex="-1" role="dialog" aria-labelledby="addPreferredBusiness" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -124,5 +125,67 @@
       </div>
     </div>
   </div>
+  
+  <!-- BEGIN Vendly Venue Modal -->
+  <div id="VendlyVendor" class="modal fade" role="dialog" aria-labelledby="VendlyVendor" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #7FA8D7; color: #FFFFFF;">
+          <h4 class="modal-title bold" align="center">
+            Vendly Vendors
+          </h4>
+        </div>
+        <div>
+          <img src="http://www.hotelabq.com/sites/hotelabq.com/files/website/Hero/Hotel-Albuquerque-Old-Town-Weddings-Venues.jpg" alt="Wedding Venue" width="100%">
+        </div>
+        <div class="modal-body">
+          <div class="tabbable-line">
+            <ul class="nav nav-tabs">
+              <li class="active">
+                <a data-target="#tab_1" data-toggle="tab">Vendor Info</a>
+              </li>
+              <li>
+                <a data-target="#tab_2" data-toggle="tab">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-content">
+            <!-- PERSONAL INFO TAB -->
+            <div class="tab-pane active" id="tab_1">
+              <h4>
+                Description:
+              </h4>
+              <p>
+                This section can provide detail on the venue, rules, and restrictions.
+              </p>
+            </div>
+            <!-- END PERSONAL INFO TAB -->
+            <!-- PERSONAL INFO TAB -->
+            <div class="tab-pane" id="tab_2">
+              <h4>
+                Contact Info:
+              </h4>
+              <dl class="">
+                <dt>Main Contact</dt>
+                <dd>Austin Teague</dd>
+                <dt>Phone Number</dt>
+                <dd>832-922-7104</dd>
+                <dt>Email</dt>
+                <dd>austin@vendly.com</dd>
+                <dt>Website</dt>
+                <dd>vendly.com</dd>
+              </dl>
+            </div>
+            <!-- END PERSONAL INFO TAB -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn blue" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- END Vendly Venue Modal -->
+
 </div>
 					
