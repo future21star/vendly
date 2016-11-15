@@ -652,7 +652,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
 // Event Planner Specific Controllers //
         // Dashboard
         .state('plan_dashboard', {
-            url: "/dashboard",
+            url: "/dashboard-plan",
             templateUrl: "views/plan/dashboard.html",
             data: {pageTitle: 'Dashboard'},
             controller: "DashboardController",
