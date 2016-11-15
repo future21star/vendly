@@ -1,123 +1,185 @@
-<div class="page-sidebar navbar-collapse collapse">
-    <!-- BEGIN SIDEBAR MENU -->
-    <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
-    <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
-    <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse ("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
-    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
-    <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
-    <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-    <ul class="page-sidebar-menu page-sidebar-menu-light" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="400" ng-class="{'page-sidebar-menu-closed': settings.layout.pageSidebarClosed}">
-        <li class="start nav-item">
-            <a href="#/dashboard">
-                <i class="fa fa-dashboard"></i>
-                <span class="title">Dashboard</span>
-            </a>
-        </li>
-        <li class="start nav-item">
-            <a href="#/venue_details">
-                <i class="fa fa-home"></i>
-                <span class="title">Venue Details</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="#/vendor_details">
-                <i class="fa fa-cart-arrow-down"></i>
-                <span class="title">Vendor Details</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="#/calendar">
-                <i class="fa fa-calendar"></i>
-                <span class="title">Calendar</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="#/rolodex">
-                <i class="fa fa-user"></i>
-                <span class="title">Client Rolodex</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="#/handbooks">
-                <i class="fa fa-book"></i>
-                <span class="title">Event Handbooks</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="#/documents">
-                <i class="fa fa-file-text-o"></i>
-                <span class="title">Documents</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="javascript:;" class="nav-link nav-toggle">
-                <i class="fa fa-money"></i>
-                <span class="title">Finances</span>
-                <span class="arrow"></span>
-            </a>
-            <ul class="sub-menu">
-                <li>
-                    <a href="#/finance/overview">
-                        Overview
-                    </a>
-                </li>
-                <li>
-                    <a href="#/finance/revenue">
-                      Revenue
-                    </a>
-                </li>
-                <li>
-                    <a href="#/finance/expenses">
-                      Expenses
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="nav-item">
-            <a href="#/inventory">
-                <i class="fa fa-bookmark-o"></i>
-                <span class="title">Inventory</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="#/inbox">
-                <i class="fa fa-envelope-o"></i>
-                <span class="title">Inbox</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="javascript:;" class="nav-link nav-toggle">
-                <i class="fa fa-gear"></i>
-                <span class="title">Settings</span>
-                <span class="arrow "></span>
-            </a>
-            <ul class="sub-menu">
-                <li>
-                    <a href="#/settings/account">
-                      Account Information
-                    </a>
-                </li>
-                <li>
-                    <a href="#/settings/notifications">
-                      Alerts &amp; Notifications
-                    </a>
-                </li>
-                <li>
-                  <a href="#/account/payments">
-                    <span class="title">Payments &amp; Subscription</span>
-                  </a>
-                </li>
-            </ul>
-        </li>
-        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-        <li class="nav-item margin-top-40">
-          <a class="menu-toggler sidebar-toggler">
-              <i class="fa fa-bars"></i>
-              <span class="title">Collase Sidebar</span>
-          </a>
-        </li>
-        <!-- END RESPONSIVE MENU TOGGLER -->
+<div ng-app class="page-sidebar navbar-collapse collapse">
+  
+  <p style="padding: 0; margin: 0" align="center" class="">
+    <small>Toggle Interfaces</small><br>
+    <input type="checkbox" name="sidebarType" ng-model="checked">
+  </p>
 
-    </ul>
-    <!-- END SIDEBAR MENU -->
+  <!-- BEGIN VEN MENU -->
+  <ul ng-if="checked" class="page-sidebar-menu page-sidebar-menu-light" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="400" ng-class="{'page-sidebar-menu-closed': settings.layout.pageSidebarClosed}">
+    <li class="start nav-item">
+        <a href="#/dashboard">
+            <i class="fa fa-dashboard"></i>
+            <span class="title">Dashboard</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="#/calendar">
+            <i class="fa fa-calendar"></i>
+            <span class="title">Calendar</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="#/rolodex">
+            <i class="fa fa-user"></i>
+            <span class="title">Client Rolodex</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="#/handbooks">
+            <i class="fa fa-book"></i>
+            <span class="title">Event Handbooks</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="#/documents">
+            <i class="fa fa-file-text-o"></i>
+            <span class="title">Documents</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="javascript:;" class="nav-link nav-toggle">
+            <i class="fa fa-money"></i>
+            <span class="title">Finances</span>
+            <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a href="#/finance/overview">
+                    Overview
+                </a>
+            </li>
+            <li>
+                <a href="#/finance/revenue">
+                  Revenue
+                </a>
+            </li>
+            <li>
+                <a href="#/finance/expenses">
+                  Expenses
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item">
+        <a href="#/inventory">
+            <i class="fa fa-bookmark-o"></i>
+            <span class="title">Inventory</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="#/inbox">
+            <i class="fa fa-envelope-o"></i>
+            <span class="title">Inbox</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="javascript:;" class="nav-link nav-toggle">
+            <i class="fa fa-gear"></i>
+            <span class="title">Settings</span>
+            <span class="arrow "></span>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a href="#/account/settings">
+                  Account Information
+                </a>
+            </li>
+            <li>
+                <a href="#/account/notifications">
+                  Alerts &amp; Notifications
+                </a>
+            </li>
+            <li>
+              <a href="#/account/payments">
+                <span class="title">Payments &amp; Subscription</span>
+              </a>
+            </li>
+        </ul>
+    </li>
+    <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+    <li class="nav-item margin-top-40">
+      <a class="menu-toggler sidebar-toggler">
+          <i class="fa fa-bars"></i>
+          <span class="title">Collase Sidebar</span>
+      </a>
+    </li>
+    <!-- END RESPONSIVE MENU TOGGLER -->
+  </ul>
+  <!-- END VEN MENU -->
+
+
+  <!-- BEGIN PLANNER MENU -->
+  <ul ng-hide="checked" class="page-sidebar-menu page-sidebar-menu-light" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="400" ng-class="{'page-sidebar-menu-closed': settings.layout.pageSidebarClosed}">
+      <li class="start nav-item">
+          <a href="#/dashboard">
+              <i class="fa fa-dashboard"></i>
+              <span class="title">Dashboard</span>
+          </a>
+      </li>
+      <li class="start nav-item">
+          <a href="#/venue_details">
+              <i class="fa fa-home"></i>
+              <span class="title">Venue Details</span>
+          </a>
+      </li>
+      <li class="nav-item">
+          <a href="#/vendor_details">
+              <i class="fa fa-cart-arrow-down"></i>
+              <span class="title">Vendor Details</span>
+          </a>
+      </li>
+      <li class="nav-item">
+          <a href="#/calendar">
+              <i class="fa fa-calendar"></i>
+              <span class="title">Calendar</span>
+          </a>
+      </li>
+      <li class="nav-item">
+          <a href="#/documents">
+              <i class="fa fa-file-text-o"></i>
+              <span class="title">Documents</span>
+          </a>
+      </li>
+      <li class="nav-item">
+          <a href="#/finances" class="nav-link nav-toggle">
+              <i class="fa fa-money"></i>
+              <span class="title">Finances</span>
+          </a>
+      </li>
+      <li class="nav-item">
+          <a href="#/inbox">
+              <i class="fa fa-envelope-o"></i>
+              <span class="title">Inbox</span>
+          </a>
+      </li>
+      <li class="nav-item">
+          <a href="javascript:;" class="nav-link nav-toggle">
+              <i class="fa fa-gear"></i>
+              <span class="title">Settings</span>
+              <span class="arrow "></span>
+          </a>
+          <ul class="sub-menu">
+              <li>
+                  <a href="#/settings/account">
+                    Account Information
+                  </a>
+              </li>
+              <li>
+                  <a href="#/settings/notifications">
+                    Alerts &amp; Notifications
+                  </a>
+              </li>
+          </ul>
+      </li>
+      <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+      <li class="nav-item margin-top-40">
+        <a class="menu-toggler sidebar-toggler">
+            <i class="fa fa-bars"></i>
+            <span class="title">Collase Sidebar</span>
+        </a>
+      </li>
+      <!-- END RESPONSIVE MENU TOGGLER -->
+  </ul>
+  <!-- END PLANNER SIDEBAR MENU -->
 </div>
