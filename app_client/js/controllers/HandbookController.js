@@ -10,4 +10,8 @@ angular.module('MetronicApp').controller('HandbookController', ['$rootScope', '$
     });
 
     var formbuilder = new Formbuilder({ selector: '#formbuilder' });
+
+    formbuilder.on('save', function(payload){
+        alert(payload);
+    });
 }]);
