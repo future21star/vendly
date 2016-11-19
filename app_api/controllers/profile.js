@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 var nodemailer = require('nodemailer');
 var mg = require('nodemailer-mailgun-transport');
 var hbs = require('nodemailer-express-handlebars');
-var fs = require('fs');
 var User = mongoose.model('User');
 var Contact = mongoose.model('Contact');
 var Event = mongoose.model('Event');

@@ -17,6 +17,7 @@
     "express": "~4.13.1",
     "express-handlebars": "^3.0.0",
     "express-jwt": "^3.4.0",
+    "formBuilder": "^1.24.3",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-connect": "^4.1.0",

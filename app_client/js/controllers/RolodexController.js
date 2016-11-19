@@ -9,10 +9,8 @@ angular.module('MetronicApp').controller('RolodexController', ['$rootScope', '$s
         $rootScope.settings.layout.pageSidebarClosed = false;
     });
     
-    var vm = this;
-
     $scope.clients = {};
-    
+
     loadRolodex = function () {
         meanData.getRolodex()
             .success(function(data) {

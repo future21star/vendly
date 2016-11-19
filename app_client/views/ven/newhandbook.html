@@ -1,0 +1,51 @@
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        background-color: #444;
+        font-family: sans-serif;
+    }
+    .fb-main {
+        background-color: #fff;
+        border-radius: 5px;
+        min-height: 600px;
+    }
+    input[type=text] {
+        height: 26px;
+        margin-bottom: 3px;
+    }
+    select {
+        margin-bottom: 5px;
+    }
+</style>
+
+<!-- BEGIN PAGE HEADER-->
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="#/dashboard">Dashboard</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="#/handbooks">Handbooks</a>
+        </li>
+    </ul>
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN MAIN CONTENT -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light no-margin">
+            <div class="portlet-title">
+                <div class="page-title">
+                    <a href="#" editable-text="handbook.name">{{ handbook.name || 'New Handbook' }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END PAGE HEADER-->
+
+    <div id='formbuilder'></div>
+
+</div>

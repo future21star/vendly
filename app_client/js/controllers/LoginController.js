@@ -11,54 +11,39 @@ angular.module('MetronicApp').controller('LoginController', ['$location', 'authe
         
         
     });
-  
-    var vm = this;
 
-    vm.credentials = {
-        name : "",
-        email : "",
-        password : "",
-        usertype : ""
-    };
-
-    vm.onSubmit = function () {
+    $scope.onSubmit = function () {
       authentication
-        .login(vm.credentials)
+        .login($scope.credentials)
         .error(function(err){
           alert('Error: ' + err.message);
         })
         .then(function(){
+          $('.modal-backdrop').remove();
           $location.path('dashboard');
         });
     };
+    
+    $scope.onRegisterSubmit = function () {
+        console.log('Submitting registration');
+        authentication
+            .register($scope.register)
+            .error(function(err){
+                alert(err);
+            })
+            .then(function(){
+                $('.modal-backdrop').remove();
+                $location.path('/account/settings');
+            });
+    };
 
-
-//    vm.onRegisterSubmit = function () {
-//        console.log('Submitting registration');
-//        authentication
-//            .register(vm.credentials)
-//            .error(function(err){
-//                alert(err);
-//            })
-//            .then(function(){
-//                $location.path('profile');
-//            });
-//    };
-//
-//    $('.registerButton').click(function(){
-//        $('#loginModal').modal('hide');
-//        $('#registerModal').modal('show');
-//    });
-//
-//    $('.loginButton').click(function(){
-//        $('#registerModal').modal('hide');
-//        $('#loginModal').modal('show');
-//    });
+    $('#registerButton').click(function(){
+        $('#registerModal').modal('show');
+    });
 
     $('#loginModal').modal({
         backdrop: 'static',
         keyboard: false
-    })
-    .modal('show');
+    }).modal('show');
     
 }]);
