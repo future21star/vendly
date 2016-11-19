@@ -158,6 +158,9 @@
      -moz-border-radius: 3px;
           border-radius: 3px;
 }
+.btn-small.invite-btn {
+  padding: 0 10px 0 0;
+}
 .btn-block {
   display: block;
   width: 100%;
