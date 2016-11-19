@@ -39,34 +39,37 @@
         <div class="portlet light portlet-fit calendar">
             <div class="portlet-body">
                 <div class="row">
-                    <div class="col-md-7 margin-bottom-20">
-                        <div id="calendar" class="has-toolbar"> </div>
-                    </div>
-                    <div class="col-md-5">
-                      <p align="center">
-                        <a href="javascript:;" id="event_add" class="btn default margin-right-10"> <!-- Same modal as adding a client on the rolodex page -->
-                          <i class="fa fa-user-plus"></i>
-                          Add Client
-                        </a>
-                        <a href="javascript:;" id="event_add" class="btn default margin-left-10" data-target="#add_event" data-toggle="modal"> <!-- Add event (Name, date, time, notes) -->
-                          <i class="fa fa-calendar-plus-o"></i>
-                          Add Event
-                        </a>
-                      </p>
-                      <h4 style="text-decoration: underline; font-style: italic;">Upcoming Events:</h4>
-                        <ul style="list-style: none; padding: 0;">
-                          <li>
-                            <span style="background-color: #EEEEEE;">[Date]</span> Launching Vendly! <!-- Needs restyling. Basic list of 10 upcoming events -->
-                          </li>
-                        </ul>
-                    </div>
+                  <div class="col-xs-12 col-md-4">
+                    <p align="center">
+                      <a href="javascript:;" class="btn red-pink btn-outline default margin-left-10 margin-right-10" data-target="#add_event" data-toggle="modal"> <!-- Add event (Name, date, time, notes) -->
+                        <i class="fa fa-calendar-plus-o"></i>
+                        Add Event
+                      </a>
+                      <a href="javascript:;" class="btn blue btn-outline " data-target="#add_client" data-toggle="modal"> <!-- Same modal as adding a client on the rolodex page -->
+                        <i class="fa fa-user-plus"></i>
+                        Add Client
+                      </a>
+                    </p>
+                    <h4 style="text-decoration: underline; font-style: italic;">Upcoming Events:</h4>
+                    <ul style="list-style: none; padding: 0;">
+                      <li style="padding-bottom: 15px;">
+                        <span class="label label-info" style="opacity: .35;">11/30/16</span> Complete Demo <!-- Needs restyling. Basic list of 10 upcoming events -->
+                      </li>
+                      <li>
+                        <span class="label label-default" style="opacity: .35; color: #000;">01/01/17</span> Launch Vendly! <!-- Needs restyling. Basic list of 10 upcoming events -->
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-xs-12 col-md-7 margin-bottom-20">
+                    <div id="calendar" class="has-toolbar"> </div>
+                  </div>
                 </div>
             </div>
         </div>
     </div>
   </div>
     
-    <!-- BEGIN Add Event Modal -->
+<!-- BEGIN Add Event Modal -->
   <div id="add_event" class="modal fade" role="dialog" aria-labelledby="myModalLabel10" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -78,40 +81,71 @@
           <div class="portlet light form no-margin">
             <!-- BEGIN FORM-->
             <form ng-submit="onAddSubmit()" class="form-horizontal">
-              <div class="form-body">
+              <div class="form-body" style="padding-bottom: 0;">
                 <div class="form-group">
                   <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-xs-12">
                       <span class="help-block"> Event Name </span>
-                      <input class="form-control" type="text" required="required" ng-model="event.title"/>
-                    </div>
-                    <div class="col-md-6">
-                      <span class="help-block"> Description </span>
-                      <input class="form-control" type="text" required="required" ng-model="event.description"/>
+                      <input class="form-control" type="text" required ng-model="event.title"/>
                     </div>
                   </div>
-                  <div class="padding-bottom-10 padding-top-10"></div>
+                  <div class="padding-bottom-5 padding-top-5"></div>
                   <div class="row">
-                    <div class="col-md-6">
-                      <span class="help-block"> Event Start </span>
-                        <div class='input-group date' id='starttimepicker'>
-                            <input type='text' class="form-control" placeholder="Enter date start" ng-model="event.start">
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
+                    <div class="col-xs-6">
+                      <span class="help-block"> Starts </span>
+                      <div class="input-group date" id='starttimepicker' style="width: 100%; display: table;">
+                        <span class="input-group-addon">
+                          <i class="fa fa-calendar"></i>
+                        </span>
+                        <input type='text' class="form-control" required placeholder="Enter date start" ng-model="event.start">
+                      </div>
+                    </div>
+                    <div class="col-xs-6">
+                      <span class="help-block"> Ends </span>
+                        <div class="input-group date" id='endtimepicker' style="width: 100%; display: table;">
+                          <span class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                          </span>
+                          <input type='text' class="form-control" required placeholder="Enter date end" ng-model="event.end">
                         </div>
                     </div>
-                    <div class="col-md-6">
-                      <span class="help-block"> Event End </span>
-                        <div class='input-group date' id='endtimepicker'>
-                            <input type='text' class="form-control" placeholder="Enter date end" ng-model="event.end">
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
-                        </div>
+                  </div>
+                  <div class="padding-bottom-5 padding-top-5"></div>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <span class="help-block"> Description </span>
+                      <textarea class="form-control" rows="3" ng-model="event.description"/>
                     </div>
                   </div>
                 </div>
+              </div>
+              <div ng-controller="AccordionDemoCtrl">
+                <uib-accordion close-others="oneAtATime">
+                  <uib-accordion-group heading="+ Invite Others" style="text-align: left;">
+                    <div class="row" style="text-align: left;">
+                      <div class="col-xs-12 margin-bottom-15">
+                        <input type="text" class="form-control" name="name" placeholder="Enter person's name or email address">
+                      </div>
+                      <div class="col-xs-12">
+                        <button class="btn grey-gallery btn-outline btn-circle btn-small invite-btn">
+                          <img src="../assets/layouts/layout/img/avatar9.jpg" alt="" class="img-circle" style="height: 30px;"/>
+                          No Response
+                          <span>x</span>
+                        </button>
+                        <button class="btn red btn-outline btn-circle btn-small invite-btn">
+                          <img src="../assets/layouts/layout/img/avatar6.jpg" alt="" class="img-circle" style="height: 30px;"/>
+                          Rejected
+                          <span>x</span>
+                        </button>
+                        <button class="btn green-jungle btn-outline btn-circle btn-small invite-btn">
+                          <img src="../assets/layouts/layout/img/avatar11.jpg" alt="" class="img-circle" style="height: 30px;"/>
+                          Confirmed
+                          <span>x</span>
+                        </button>
+                      </div>
+                    </div>
+                  </uib-accordion-group>
+                </uib-accordion>
               </div>
               <div class="modal-footer">
                 <button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
@@ -124,45 +158,107 @@
     </div>
   </div>
 <!-- END Add Event Modal -->
-    
-<!-- Start view event modal -->
-<div id="fullCalModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
-                <h2 id="modalTitle" class="modal-title"></h2>
-            </div>
-            <div id="modalBody" class="modal-body">
-        
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="eventtitle">Event Name</label>
-                            <input type="text" class="form-control" id="eventtitle">
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="eventstart">Event Start</label>
-                            <input type='text' class="form-control" id="eventstart">
-                        </div>
 
-                        <div class="col-md-6">
-                            <label for="eventend">Event End</label>
-                            <input type='text' class="form-control" id="eventend">
-                        </div>
-                    </div>
-            
-            </div>
-<!--
-            <div class="modal-footer">
-            </div>
--->
+<!-- BEGIN Add Client Modal -->
+<!-- BEGIN Add Client Modal -->
+  <div id="add_client" class="modal fade" role="dialog" aria-labelledby="myModalLabel10" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title bold">Add New Client
+          </h4>
         </div>
+        <div class="modal-body">
+          <div class="portlet light form no-margin">
+            <!-- BEGIN FORM-->
+            <form ng-submit="onSubmit()" class="form-horizontal">
+              <div class="form-body" style="padding-bottom: 0;">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <span class="help-block"> First Name </span>
+                      <input class="form-control" type="text" required="required" ng-model="firstname"/>
+                    </div>
+                    <div class="col-md-6">
+                      <span class="help-block"> Last Name </span>
+                      <input class="form-control" type="text" required="required" ng-model="lastname"/>
+                    </div>
+                  </div>
+                  <div class="padding-bottom-10 padding-top-10"></div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <span class="help-block"> Email </span>
+                      <input class="form-control" type="email" required="required" ng-model="contact.email"/>
+                    </div>
+                    <div class="col-md-6">
+                      <span class="help-block"> Event Date </span>
+                      <input class="form-control date-picker" size="16" type="text" value="" data-date-start-date="+0d" required="required" ng-model="contact.weddingdate"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div ng-controller="AccordionDemoCtrl">
+                <uib-accordion close-others="oneAtATime">
+                  <uib-accordion-group heading="+ Additional Options" style="text-align: left;">
+                    <div class="row" style="text-align: left;">
+                      <div class="col-md-6">
+                        <span class="help-block"> Phone Number </span>
+                        <input class="form-control" type="text" ng-model="contact.phone"/>
+                      </div>
+                      <div class="col-md-6">
+                        <span class="help-block"> Balance Due </span>
+                        <input class="form-control" type="text" ng-model="contact.balanceDue"/>
+                      </div>
+                    </div>
+                  </uib-accordion-group>
+                </uib-accordion>
+              </div>
+              <div class="modal-footer">
+                <button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
+                <input class="btn blue" data-dismiss="modal" type="submit" value="Add Client" id="addClient" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-<!-- End view event modal -->
+  </div>
+<!-- END Add Client Modal -->
+
+<!-- END Add Client Modal -->
+    
+<!-- BEGIN view event modal -->
+  <div id="fullCalModal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+          <h2 id="modalTitle" class="modal-title"></h2>
+        </div>
+        <div id="modalBody" class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="eventtitle">Event Name</label>
+              <input type="text" class="form-control" id="eventtitle">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="eventstart">Event Start</label>
+              <input type='text' class="form-control" id="eventstart">
+            </div>
+            <div class="col-md-6">
+              <label for="eventend">Event End</label>
+              <input type='text' class="form-control" id="eventend">
+            </div>
+          </div>
+        </div>
+        <!-- <div class="modal-footer">
+        </div> -->
+      </div>
+    </div>
+  </div>
+<!-- END view event modal -->
  
     
 </div>
@@ -170,4 +266,21 @@
 <script src="../assets/global/plugins/moment.min.js" type="text/javascript"></script>
 <script src="../assets/global/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
 <script src="../assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+  /**
+   * @param {Object} $scope
+   * @return {undefined}
+   */
+  function AccordionDemoCtrl($scope)
+  {
+    /** @type {boolean} */
+    $scope.oneAtATime = true;
+    /** @type {Array} */
+    $scope.status = {
+      isCustomHeaderOpen: false,
+      isFirstOpen: false,
+      isFirstDisabled: false
+    };
+  }
+</script>
 <!-- END PAGE LEVEL PLUGINS -->
