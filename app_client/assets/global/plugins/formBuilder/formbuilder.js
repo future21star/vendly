@@ -569,7 +569,7 @@
       BUTTON_CLASS: 'fb-button',
       HTTP_ENDPOINT: '',
       HTTP_METHOD: 'POST',
-      AUTOSAVE: true,
+      AUTOSAVE: false,
       CLEAR_FIELD_CONFIRM: false,
       mappings: {
         SIZE: 'field_options.size',
@@ -591,7 +591,7 @@
       },
       dict: {
         ALL_CHANGES_SAVED: 'All changes saved',
-        SAVE_FORM: 'Save form',
+        SAVE_FORM: 'Save Handbook',
         UNSAVED_CHANGES: 'You have unsaved changes. If you leave this page, you will lose those changes!'
       }
     };
@@ -780,16 +780,27 @@
 
 }).call(this);
 
+
 (function() {
-  Formbuilder.registerField('section_break', {
-    order: 0,
-    type: 'non_input',
-    view: "<label class='section-name'><%= rf.get(Formbuilder.options.mappings.LABEL) %></label>\n<p><%= rf.get(Formbuilder.options.mappings.DESCRIPTION) %></p>",
-    edit: "<div class='fb-edit-section-header'>Label</div>\n<input type='text' data-rv-input='model.<%= Formbuilder.options.mappings.LABEL %>' />\n<textarea data-rv-input='model.<%= Formbuilder.options.mappings.DESCRIPTION %>'\n  placeholder='Add a longer description to this field'></textarea>",
+  Formbuilder.registerField('new_section_break', {
+    order: 25,
+    view: "<div class='section-name'></div>",
+    edit: "",
     addButton: "<span class='symbol'><span class='fa fa-minus'></span></span> Section Break"
   });
 
 }).call(this);
+
+// (function() {
+//   Formbuilder.registerField('section_break', {
+//     order: 0,
+//     type: 'non_input',
+//     view: "<div class='section-name'><%= rf.get(Formbuilder.options.mappings.LABEL) %></div>\n<p><%= rf.get(Formbuilder.options.mappings.DESCRIPTION) %></p>",
+//     edit: "<div class='fb-edit-section-header'>Label</div>\n<input type='text' data-rv-input='model.<%= Formbuilder.options.mappings.LABEL %>' />\n<textarea data-rv-input='model.<%= Formbuilder.options.mappings.DESCRIPTION %>'\n  placeholder='Add a longer description to this field'></textarea>",
+//     addButton: "<span class='symbol'><span class='fa fa-minus'></span></span> Section Break"
+//   });
+//
+// }).call(this);
 
 (function() {
   Formbuilder.registerField('text', {
@@ -1072,7 +1083,7 @@ this["Formbuilder"]["templates"]["partials/left_side"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class=\'fb-left\'>\n  <ul class=\'fb-tabs\'>\n    <li class=\'active\'><a data-target=\'#addField\'>Add new field</a></li>\n    <li><a data-target=\'#editField\'>Edit field</a></li>\n  </ul>\n\n  <div class=\'fb-tab-content\'>\n    ' +
+__p += '<div class=\'fb-right\'>\n  <ul class=\'fb-tabs\'>\n    <li class=\'active\'><a data-target=\'#addField\'>Add new field</a></li>\n    <li><a data-target=\'#editField\'>Edit field</a></li>\n  </ul>\n\n  <div class=\'fb-tab-content\'>\n    ' +
 ((__t = ( Formbuilder.templates['partials/add_field']() )) == null ? '' : __t) +
 '\n    ' +
 ((__t = ( Formbuilder.templates['partials/edit_field']() )) == null ? '' : __t) +
@@ -1086,7 +1097,7 @@ this["Formbuilder"]["templates"]["partials/right_side"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class=\'fb-right\'>\n  <div class=\'fb-no-response-fields\'>No response fields</div>\n  <div class=\'fb-response-fields\'></div>\n</div>\n';
+__p += '<div class=\'fb-left\'>\n  <div class=\'fb-no-response-fields\'>No response fields</div>\n  <div class=\'fb-response-fields\'></div>\n</div>\n';
 
 }
 return __p
