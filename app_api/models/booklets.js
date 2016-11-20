@@ -7,7 +7,7 @@ var bookletSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    content: String
+    content: Object
 });
 
 mongoose.model('Booklet', bookletSchema);

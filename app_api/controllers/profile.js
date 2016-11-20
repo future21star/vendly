@@ -180,7 +180,6 @@ module.exports.saveEvent = function(req, res) {
     
 };
 
-
 module.exports.bookletRead = function(req, res) {
 
   if (!req.payload._id) {
@@ -247,6 +246,24 @@ module.exports.saveBooklet = function(req, res) {
 
     }
     
+};
+
+module.exports.updateBooklet = function(req, res) {
+
+    if (!req.payload._id) {
+        res.status(401).json({
+            "message" : "UnauthorizedError: private profile"
+        });
+    } else {
+        Booklet.findOneAndUpdate({ _id: req.body._id }, { title: req.body.title, content:req.body.content }, function(err, booklet) {
+            if (err) {
+                res.status(409).json({
+                    "message" : err
+                });
+            }
+        });
+    }
+
 };
 
 module.exports.sendEmail = function (req, res) {

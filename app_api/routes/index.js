@@ -27,6 +27,7 @@ router.post('/login', ctrlAuth.login);
 // booklet
 router.get('/booklets', auth, ctrlProfile.bookletRead);
 router.post('/saveBooklet', auth, ctrlProfile.saveBooklet);
+router.put('/updateBooklet', auth, ctrlProfile.updateBooklet);
 
 // email
 router.post('/sendEmail', auth, ctrlProfile.sendEmail);

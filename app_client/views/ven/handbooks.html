@@ -12,7 +12,7 @@
 </div>
 <!-- END PAGE HEADER-->
 <!-- BEGIN MAIN CONTENT -->
-<div class="row" ng-controller="GeneralPageController">
+<div class="row">
   <div class="col-md-12">
       <div class="portlet light no-margin">
         <div class="portlet-title">
@@ -36,28 +36,21 @@
 <!-- BEGIN MAIN CONTENT -->
 <div class="row">
   <div class="col-md-12">
-    <div ng-controller="GeneralPageController" class="portlet light">
+    <div class="portlet light">
       <table class="table table-bordered table-hover">
         <th class="text-center" style="width: 7%;"><small>Edit</small></th>
         <th style="width: 65%">Title</th>
         <th style="width: 28%">Updated</th>
 
-        <tr>
+        <tr ng-repeat= "handbook in handbooks" >
           <td class="text-center">
-            <a href="#/handbook_editor">
+            <a href="#/handbook_editor/{{handbook._id}}">
               <i class="fa fa-pencil-square-o font-blue"></i>
             </a>
           </td>
-          <td>Vendly Venue Handbook</td>
+          <td>{{ handbook.title }}</td>
           <td>August 23, 2016</td>
-        <!-- <tr ng-repeat= "document in documents" >
-          <td class="text-center">
-            <a data-target="#client_details" data-toggle="modal" ng-click="viewDocument(document)">
-              <i class="fa fa-external-link font-blue"></i>
-            </a>
-          </td>
-          <td>{{ document.name }}</td>
-          <td>{{ document.upload_date | date:"longDate" }}</td> -->
+          <!--<td>{{ handbook.upload_date | date:"longDate" }}</td>-->
         </tr>
       </table>
     </div>

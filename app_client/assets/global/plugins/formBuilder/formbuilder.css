@@ -2,7 +2,7 @@
 .fb-button[disabled]{background:#ddd !important;border:thin solid #ccc;color:#777 !important;text-shadow:none !important;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=65)";opacity:.65;cursor:default}
 .fb-clear{clear:both}
 .fb-main{max-width:1000px;margin:0 auto;padding:0 20px 0 0;position:relative;font-family:'Source Sans Pro','Open Sans',Tahoma}
-.fb-save-wrapper{position:absolute;right:20px;top:10px}
+.fb-save-wrapper{position:absolute;right:55px;top:60px}
 .fb-left{
     padding-left:20px;
     min-height:100%;
