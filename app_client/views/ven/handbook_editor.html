@@ -10,42 +10,16 @@
       </li>
     </ul>
 </div>
-<!-- END PAGE HEADER-->
-<!-- BEGIN MAIN CONTENT -->
-<div class="row" ng-controller="GeneralPageController">
+<div class="row">
   <div class="col-md-12">
       <div class="portlet light no-margin">
         <div class="portlet-title">
           <div class="page-title">
-            <a href="#" editable-text="handbook.name" e-label="Title:">{{ handbook.name || 'Empty' }}</a>
-          </div>
-          <div style="float: right;">
-            <button ng-click="saveHandbook()" class="btn blue" id="saveHandbook">Save Handbook</button>
+            <a href="#" editable-text="handbook.title" e-label="Title:">{{ handbook.title || 'Untitled' }}</a>
           </div>
         </div>
       </div>
     </div>
-<!-- END PAGE HEADER-->
 
-<!-- BEGIN MAIN CONTENT -->
-<div class="row">
-  <div class="col-md-12">
-    <div class="portlet-body">
-      <pre hidden>Form Data {{editorContent | json}}</pre>
-      <form>
-        <input type="submit" value="Submit" hidden />
-        <textarea sir-trevor-editor ng-model="editorContent"></textarea>
-      </form>
-    </div>
-  </div>
+    <div id='formbuilder'></div>
 </div>
-<!-- END MAIN CONTENT -->
-
-<!-- BEGIN MAIN JS-->
-<script type="text/javascript">
-  $(document).on('click', '#saveHandbook', function(evt) {
-    evt.preventDefault();
-    toastr.saved('Your handbook was saved!');
-  });
-</script>
-<!-- BEGIN MAIN JS -->

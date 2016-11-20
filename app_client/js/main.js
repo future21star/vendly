@@ -214,6 +214,14 @@ MetronicApp.service('meanData', ['$http', 'authentication',
                 }
             });
         };
+
+        var updateBooklet = function (booklet) {
+            return $http.put('/api/updateBooklet', booklet, {
+                headers: {
+                    Authorization: 'Bearer '+ authentication.getToken()
+                }
+            });
+        }
         
         var sendNewUserInviteEmail = function (user) {
             return $http.post('/api/sendNewUserInviteEmail', user, {
@@ -239,6 +247,7 @@ MetronicApp.service('meanData', ['$http', 'authentication',
           saveEvent  : saveEvent,
           getBooklets: getBooklets,
           saveBooklet: saveBooklet,
+          updateBooklet: updateBooklet,
           sendNewUserInviteEmail: sendNewUserInviteEmail,
           sendEmail  : sendEmail
         };
@@ -408,14 +417,14 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
             url: "/handbooks",
             templateUrl: "views/ven/handbooks.html",
             data: {pageTitle: 'Handbooks'},
-            controller: "GeneralPageController",
+            controller: "HandbookController",
             resolve: {
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
                         insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
                         files: [
-                            'js/controllers/GeneralPageController.js'
+                            'js/controllers/HandbookController.js'
                         ]
                     });
                 }]
@@ -441,17 +450,17 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
         })
         // Handbook Editor
         .state('handbookeditor', {
-            url: "/handbook_editor",
+            url: "/handbook_editor/{handbookId}",
             templateUrl: "views/ven/handbook_editor.html",
             data: {pageTitle: 'Handbook Editor'},
-            controller: "GeneralPageController",
+            controller: "HandbookController",
             resolve: {
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
                         insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
                         files: [
-                            'js/controllers/GeneralPageController.js'
+                            'js/controllers/HandbookController.js'
                         ]
                     });
                 }]

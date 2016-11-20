@@ -1,4 +1,4 @@
-angular.module('MetronicApp').controller('HandbookController', ['$rootScope', '$scope', 'settings', 'meanData', function($rootScope, $scope, settings, meanData) {
+angular.module('MetronicApp').controller('HandbookController', ['$rootScope', '$scope', '$stateParams', 'settings', 'meanData', function($rootScope, $scope, $stateParams, settings, meanData) {
     $scope.$on('$viewContentLoaded', function() {
         // initialize core components
         App.initAjax();
@@ -19,7 +19,44 @@ angular.module('MetronicApp').controller('HandbookController', ['$rootScope', '$
                 {"label":"Wedding cord/lasso","checked":false}],"include_other_option":true},"cid":"c17"}]
     });
 
+    $scope.handbook = {};
+    $scope.handbooks = {};
+    var loadHandbooks = function () {
+        meanData.getBooklets()
+            .success(function(data) {
+                $scope.handbooks = data;
+                if ($stateParams.hasOwnProperty('handbookId')) {
+                    $scope.handbook = $.grep(data, function(e){ return e._id == $stateParams.handbookId })[0];
+
+                    formbuilder = new Formbuilder({
+                        selector: '#formbuilder',
+                        bootstrapData: JSON.parse($scope.handbook.content).fields
+                    });
+
+                    formbuilder.on('save', function(payload){
+                        $scope.handbook.content = payload;
+                        meanData.updateBooklet($scope.handbook)
+                            .error(function(e){
+                                console.log(e);
+                            })
+                            .then(function(){
+                            });
+                    });
+                }
+            })
+            .error(function (e) {
+                console.log(e);
+            });
+    };
+    loadHandbooks();
+
     formbuilder.on('save', function(payload){
-        console.log(payload);
+        $scope.handbook.content = payload;
+        meanData.saveBooklet($scope.handbook)
+        .error(function(e){
+            console.log(e);
+        })
+        .then(function(){
+        });
     });
 }]);
