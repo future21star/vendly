@@ -25,10 +25,21 @@
           My Calendar
         </div>
         <div class="actions">
-          <a class="btn btn-circle btn-default hidden" href="#"> <!-- TBD what to display within settings -->
-            <i class="fa fa-cog"></i>
-            Settings
-          </a>
+          <div class="dropdown">
+            <button class="btn btn-default btn-circle dropdown-toggle" type="button" data-toggle="dropdown">
+              <small>
+                Options
+                <span class="caret"></span>
+              </small>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="">Import Calendar</a></li>
+              <li class="dropdown-header">Export Calendar</li>
+              <li class="input-group">
+                <input class="form-control" type="text" disabled value="https://vendly.com/calendar/subscribe/1j3kjlwk23lkjs">
+              </li>                
+            </ul>
+          </div>
         </div>
       </div>
     </div>

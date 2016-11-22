@@ -76,9 +76,18 @@
 						<form action="#">
 							<table class="table table-light table-hover">
 								<th class="no-border-top border-bottom border-bottom-default"> </th>
-								<th class="no-border-top border-bottom border-bottom-default"> Make Edits </th>
-								<th class="no-border-top border-bottom border-bottom-default"> Add Clients </th>
-								<th class="no-border-top border-bottom border-bottom-default"> View Details </th>
+								<th class="no-border-top border-bottom border-bottom-default text-center">
+                  Admin
+                  <i class="fa fa-question-circle font-grey-salt" style="font-size: 16px;" data-toggle="tooltip" data-placement="bottom" title="Manage Settings, Add Clients, and View Details"></i>
+                </th>
+								<th class="no-border-top border-bottom border-bottom-default text-center">
+                  Manager
+                  <i class="fa fa-question-circle font-grey-salt" style="font-size: 16px;" data-toggle="tooltip" data-placement="bottom" title="Add Clients and View Details"></i>
+                </th>
+								<th class="no-border-top border-bottom border-bottom-default text-center">
+                  Overseer
+                  <i class="fa fa-question-circle font-grey-salt" style="font-size: 16px;" data-toggle="tooltip" data-placement="bottom" title="Only View Details"></i>
+                </th>
 								<tr>
 									<td>
 										Austin Teague<br>
@@ -156,7 +165,7 @@
 							<div class="margin-top-10">
 								<a href="javascript:;" class="btn blue"> Save Changes </a>
 								<a href="javascript:;" class="btn default"> Cancel </a>
-								<a class="btn btn-default pull-right" data-target="#add_privilege_user" data-toggle="modal"> Add User </a>
+								<a class="btn btn-default pull-right" data-target="#add_privilege_user" data-toggle="modal"> Add Employee </a>
 							</div>
 						</form>
 					</div>
@@ -169,12 +178,12 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h4 class="modal-title bold"> Add New User </h4>
+						<h4 class="modal-title bold"> Add Employee </h4>
 					</div>
-					<div class="modal-body">
-						<div class="portlet light form no-margin">
-							<!-- BEGIN FORM-->
-							<form ng-submit="onNewProvilegeUserSubmit()" class="form-horizontal">
+          <!-- BEGIN FORM-->
+          <form ng-submit="onNewProvilegeUserSubmit()" class="form-horizontal">
+  					<div class="modal-body">
+  						<div class="portlet light form no-margin">
 								<div class="form-body">
 									<div class="row">
 										<div class="col-md-6">
@@ -209,14 +218,22 @@
 										</div>
 									</div>
 								</div>
-								<button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
-								<button type="submit" class="btn btn-default">Add User</button>
-							</form>
-						</div>
-					</div>
+  						</div>
+  					</div>
+            <div class="modal-footer">
+              <button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
+              <button type="submit" class="btn btn-default">Add</button>
+            </div>
+          </form>
 				</div>
 			</div>
 		</div>
 		<!-- end add employee modal -->
 	</div>
 </div>
+
+<script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>

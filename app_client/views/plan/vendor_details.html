@@ -18,9 +18,7 @@
         <div class="portlet-title">
           <div class="page-title">
             My Vendors
-            <p uib-popover="This is a tooltip" popover-trigger="mouseenter" class="inline hidden">
-              <i class="fa fa-question-circle font-grey-salt" style="font-size: 16px;"></i>
-            </p>
+            <i class="fa fa-question-circle font-grey-salt hidden" style="font-size: 16px;" data-toggle="tooltip" data-placement="top" title="Tooltip on left"></i>
           </div>
           <div class="actions">
             <a class="btn btn-circle btn-default hidden" href="#"> <!-- TBD what to display within settings -->
@@ -302,6 +300,12 @@
     toastr.warning('Pending approval to access their handbook.', 'Vendor Added');
   });
 </script>
+<script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
 <script>
   ComponentsSelect2.init(); // init todo page
   ComponentsBootstrapSelect.init(); // init todo page

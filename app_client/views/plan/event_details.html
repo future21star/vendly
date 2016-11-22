@@ -23,9 +23,7 @@
       <div class="portlet-title">
         <div class="page-title">
           Vendly Venue Handbook
-          <p uib-popover="This is a tooltip" popover-trigger="mouseenter" class="inline hidden">
-            <i class="fa fa-question-circle font-grey-salt" style="font-size: 16px;"></i>
-          </p>
+          <i class="fa fa-question-circle font-grey-salt hidden" style="font-size: 16px;" data-toggle="tooltip" data-placement="top" title="Tooltip on left"></i>
         </div>
         <div style="float: right;">
           <button ng-click="saveHandbook()" class="btn blue SaveEdits">Save Changes</button>
@@ -287,4 +285,9 @@
     evt.preventDefault();
     toastr.success('Your event details have been updated.', 'Saved');
   });
+</script>
+<script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
 </script>
