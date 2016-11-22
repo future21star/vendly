@@ -18,9 +18,7 @@
         <div class="portlet-title">
           <div class="page-title">
             My Handbooks
-            <p uib-popover="This is a tooltip" popover-trigger="mouseenter" class="inline hidden">
-              <i class="fa fa-question-circle font-grey-salt" style="font-size: 16px;"></i>
-            </p>
+            <i class="fa fa-question-circle font-grey-salt hidden" style="font-size: 16px;" data-toggle="tooltip" data-placement="top" title="This is a tooltip"></i>
           </div>
           <div class="actions">
             <a class="btn btn-circle btn-default" href="#/newhandbook">
@@ -61,5 +59,8 @@
 
 <!-- BEGIN MAIN JS-->
 <script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
 </script>
 <!-- BEGIN MAIN JS -->

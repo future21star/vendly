@@ -80,9 +80,7 @@
                 <th class="no-border-top border-bottom-default border-bottom" style="text-align: center"> In-App </th>
                 <th class="no-border-top border-bottom-default border-bottom" style="text-align: center"> None </th>
                 <th class="no-border-top border-bottom-default border-bottom" style="text-align: center"> Push Alerts
-                  <p uib-popover="This is a tooltip" popover-trigger="mouseenter" class="inline">
-                    <i class="fa fa-question-circle font-grey-salt" style="font-size: 16px;" title="Desktop Notifications"></i>
-                  </p>
+                  <i class="fa fa-question-circle font-grey-salt" style="font-size: 16px;" data-toggle="tooltip" data-placement="left" title="Desktop Notifications"></i>
                 </th>
 
                 <tr>
@@ -305,6 +303,12 @@
 </div>
 
 <!-- BEGIN MAIN JS-->
+<script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
 <script>
   ComponentsBootstrapSelect.init(); // init todo page
   ComponentsSelect2.init(); // init todo page
