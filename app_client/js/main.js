@@ -294,14 +294,14 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
             url: "/confirm_email",
             templateUrl: "views/confirm_email.html",
             data: {pageTitle: 'Confirm Email'},
-            controller: "GeneralPageController",
+            controller: "LoginController",
             resolve: {
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
                         insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
                         files: [
-                            'js/controllers/GeneralPageController.js'
+                            'js/controllers/LoginController.js'
                         ]
                     });
                 }]
