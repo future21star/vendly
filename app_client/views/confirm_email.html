@@ -1,0 +1,38 @@
+<style>
+.modal-backdrop.in {
+   opacity: 1;
+}
+.pac-container {
+    z-index: 100000 !important;
+}
+</style>
+<div ng-controller="LoginController">
+<!-- BEGIN CONFIRM EMAIL MODAL CONTENT -->
+<div id="confirmEmailModal" class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title bold">Welcome to Vendly</h4>
+			</div>
+			<form class="form-inline text-center" action="">
+				<div class="modal-body">
+					<div class="row centerdiv">
+						<div class="col-xs-12 padding-bottom-10">
+							<p class="font-grey-mint lead">
+								Before getting started we want to confirm your email address. You should receive an email within the next few minutes with a link. Once your email has been confirmed you will have free access to Vendly's demo platform.
+							</p>
+							<div class="form-group input-group-lg" style="width: 100%">
+								<input type="email" class="form-control blue" value="austin@vendly.com">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-outline blue" type="button"> Update &amp; Resend Email </button>					
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- END CONFIRM EMAIL MODAL CONTENT -->
+</div>

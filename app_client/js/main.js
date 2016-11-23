@@ -289,6 +289,24 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 }]
             }
         })
+        // Confirm Email
+        .state('confirm_email', {
+            url: "/confirm_email",
+            templateUrl: "views/confirm_email.html",
+            data: {pageTitle: 'Confirm Email'},
+            controller: "LoginController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'MetronicApp',
+                        insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+                        files: [
+                            'js/controllers/LoginController.js'
+                        ]
+                    });
+                }]
+            }
+        })
         // Calendar
         .state('calendar', {
             url: "/calendar",

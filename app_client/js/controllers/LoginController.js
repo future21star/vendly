@@ -46,4 +46,9 @@ angular.module('MetronicApp').controller('LoginController', ['$location', 'authe
         keyboard: false
     }).modal('show');
     
+    $('#confirmEmailModal').modal({
+        backdrop: 'static',
+        keyboard: false
+    }).modal('show');
+    
 }]);
