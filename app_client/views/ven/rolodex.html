@@ -12,7 +12,7 @@
 </div>
 <!-- END PAGE HEADER-->
 <!-- BEGIN MAIN CONTENT -->
-<div class="row" ng-controller="RolodexController">
+<div class="row">
   <div class="col-md-12">
     <!-- BEGIN: ACCORDION DEMO -->
     <div class="portlet light">
@@ -45,7 +45,7 @@
   </div>
 
   <div class="col-md-12">
-    <div ng-controller="RolodexController" class="portlet light">
+    <div class="portlet light">
       <table class="table table-bordered  table-hover">
         <th> # </th>
         <th>Name</th>
@@ -110,7 +110,7 @@
         </div>
         <div class="modal-footer">
           <button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
-          <a type="button" class="btn blue" href="#/client_details">View Full Details</a>
+          <a type="button" id="viewfulldetails" class="btn blue" href="#/client_details">View Full Details</a>
         </div>
       </div>
     </div>
@@ -128,7 +128,7 @@
         <div class="modal-body">
           <div class="portlet light form no-margin">
             <!-- BEGIN FORM-->
-            <form ng-submit="onSubmit()" class="form-horizontal">
+            <form ng-submit="onContactSubmit()" class="form-horizontal">
               <div class="form-body">
                 <div class="form-group">
                   <div class="row">
@@ -171,10 +171,11 @@
                 </uib-accordion>
               </div>
               <div class="modal-footer">
-                <button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
-                <input class="btn blue" data-dismiss="modal" type="submit" value="Add Client" id="addClient" />
+                  <button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
+                  <input class="btn blue" type="submit" value="Add Client" />
               </div>
             </form>
+
           </div>
         </div>
       </div>
@@ -184,31 +185,15 @@
 
 </div>
 
-<!-- BEGIN MAIN JS-->
-<script type="text/javascript">
-  $(document).on('click', '#addClient', function(evt) {
-    evt.preventDefault();
-    toastr.success('An invitation email has been sent to them to access your handbook.', 'Client Added');
-  });
-</script>
-<script type="text/javascript">
-  /**
-   * @param {Object} $scope
-   * @return {undefined}
-   */
-  function AccordionDemoCtrl($scope)
-  {
-    /** @type {boolean} */
-    $scope.oneAtATime = true;
-    /** @type {Array} */
-    $scope.status = {
-      isCustomHeaderOpen: false,
-      isFirstOpen: false,
-      isFirstDisabled: false
-    };
-  }
-</script>
 <script>
-  ComponentsDateTimePickers.init(); // init todo page
+    function AccordionDemoCtrl($scope) {
+        /** @type {boolean} */
+        $scope.oneAtATime = true;
+        /** @type {Array} */
+        $scope.status = {
+            isCustomHeaderOpen: false,
+            isFirstOpen: false,
+            isFirstDisabled: false
+        };
+    }
 </script>
-<!-- BEGIN MAIN JS -->
