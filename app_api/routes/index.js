@@ -19,6 +19,7 @@ router.post('/saveContact', auth, ctrlProfile.saveContact);
 // calendar
 router.get('/calendar', auth, ctrlProfile.calendarRead);
 router.post('/saveEvent', auth, ctrlProfile.saveEvent);
+router.put('/updateEvent', auth, ctrlProfile.updateEvent);
 
 // authentication
 router.post('/register', ctrlAuth.register);

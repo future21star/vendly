@@ -199,6 +199,14 @@ MetronicApp.service('meanData', ['$http', 'authentication',
             });
         };
 
+        var updateEvent = function (event) {
+            return $http.put('/api/updateEvent', event, {
+                headers: {
+                    Authorization: 'Bearer '+ authentication.getToken()
+                }
+            });
+        }
+
         var getBooklets = function () {
             return $http.get('/api/booklets', {
                 headers: {
@@ -245,6 +253,7 @@ MetronicApp.service('meanData', ['$http', 'authentication',
           saveContact: saveContact,
           getCalendar: getCalendar,
           saveEvent  : saveEvent,
+          updateEvent: updateEvent,
           getBooklets: getBooklets,
           saveBooklet: saveBooklet,
           updateBooklet: updateBooklet,

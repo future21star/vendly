@@ -180,6 +180,34 @@ module.exports.saveEvent = function(req, res) {
     
 };
 
+module.exports.updateEvent = function(req, res) {
+
+    if (!req.payload._id) {
+        res.status(401).json({
+            "message" : "UnauthorizedError: private profile"
+        });
+    } else {
+        Event.findOneAndUpdate(
+            {
+                _id: req.body._id
+            },
+            {
+                title: req.body.title,
+                start: req.body.start,
+                end: req.body.end,
+                description: req.body.description
+            },
+            function(err, event) {
+                if (err) {
+                    res.status(409).json({
+                        "message" : err
+                    });
+                }
+            }
+        );
+    }
+};
+
 module.exports.bookletRead = function(req, res) {
 
   if (!req.payload._id) {
