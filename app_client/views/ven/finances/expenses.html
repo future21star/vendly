@@ -57,7 +57,7 @@
             <span class="caption-subject bold uppercase">Recent Expenses</span>
           </div>
           <div class="actions">
-            <a class="btn btn-circle btn-default">
+            <a class="btn btn-circle btn-default" data-target="#addExpense" data-toggle="modal">
               <i class="fa fa-plus"></i> Add Expense
             </a>
           </div>
@@ -231,8 +231,54 @@
     </div>
   </div>
 <!-- END Recent Payment Table -->
-
 </div>
+
+<!-- BEGIN Vendly Venue Modal -->
+<div id="addExpense" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #7FA8D7; color: #FFFFFF;">
+        <h4 class="modal-title bold" align="center">
+          Add Expense
+        </h4>
+      </div>
+      <form ng-submit="onSubmit()" class="form-horizontal">
+        <div class="portlet light form no-margin">
+          <div class="modal-body">
+            <div class="form-body" style="padding-bottom: 0;">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <span class="help-block"> Line Item </span>
+                    <input class="form-control" type="text" required="required" ng-model=""/>
+                  </div>
+                  <div class="padding-bottom-10 padding-top-10"></div>
+                  <div class="col-xs-12 col-md-6">
+                    <span class="help-block"> Amount </span>
+                    <input class="form-control" type="text" required="required" ng-model=""/>
+                  </div>
+                <div class="col-xs-12 col-md-6">
+                  <span class="help-block"> Expense Date </span>
+                  <input class="form-control date-picker" type="text" value="" required="required"/>
+                </div>
+                <div class="col-xs-12">
+                  <span class="help-block"> Description </span>
+                  <input class="form-control" type="email" required="required" ng-model=""/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn default" data-dismiss="modal" aria-hidden="true">Cancel</button>
+          <input class="btn blue" data-dismiss="modal" type="submit" value="Add Expense" id="" />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- END Vendly Venue Modal -->
+
 <!-- END MAIN CONTENT -->
 
 <!-- BEGIN MAIN JS-->
