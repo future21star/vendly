@@ -1,3 +1,4 @@
+// TODO: pull these out into separate files
 var mongoose = require('mongoose');
 var nodemailer = require('nodemailer');
 var mg = require('nodemailer-mailgun-transport');

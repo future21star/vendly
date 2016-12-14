@@ -709,10 +709,10 @@ $.widget("ui.plupload", {
 	},
 
 	/**
-	Return array of files currently in the queue.
+	Return array of files.js currently in the queue.
 	
 	@method getFiles
-	@return {Array} Array of files in the queue represented by plupload.File objects
+	@return {Array} Array of files.js in the queue represented by plupload.File objects
 	*/
 	getFiles: function() {
 		return this.uploader.files;

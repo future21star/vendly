@@ -1875,11 +1875,11 @@ plupload.Uploader = function(options) {
 		/**
 		 * Adds file to the queue programmatically. Can be native file, instance of Plupload.File,
 		 * instance of mOxie.File, input[type="file"] element, or array of these. Fires FilesAdded, 
-		 * if any files were added to the queue. Otherwise nothing happens.
+		 * if any files.js were added to the queue. Otherwise nothing happens.
 		 *
 		 * @method addFile
 		 * @since 2.0
-		 * @param {plupload.File|mOxie.File|File|Node|Array} file File or files to add to the queue.
+		 * @param {plupload.File|mOxie.File|File|Node|Array} file File or files.js to add to the queue.
 		 * @param {String} [fileName] If specified, will be used as a name for the file
 		 */
 		addFile : function(file, fileName) {
@@ -1995,12 +1995,12 @@ plupload.Uploader = function(options) {
 		},
 
 		/**
-		 * Removes part of the queue and returns the files removed. This will also trigger the FilesRemoved and QueueChanged events.
+		 * Removes part of the queue and returns the files.js removed. This will also trigger the FilesRemoved and QueueChanged events.
 		 *
 		 * @method splice
 		 * @param {Number} start (Optional) Start index to remove from.
 		 * @param {Number} length (Optional) Lengh of items to remove.
-		 * @return {Array} Array of files that was removed.
+		 * @return {Array} Array of files.js that was removed.
 		 */
 		splice : function(start, length) {
 			// Splice and trigger events

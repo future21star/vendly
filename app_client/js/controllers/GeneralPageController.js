@@ -20,7 +20,7 @@ angular.module('MetronicApp')
     });
 }])
 
-.controller('GeneralPageController', ['$rootScope', '$scope', 'settings', 'meanData', function($rootScope, $scope, settings, meanData) {
+.controller('GeneralPageController', ['$rootScope', '$scope', 'settings', 'meanData', 'amazons3', function($rootScope, $scope, settings, meanData, amazons3) {
     $scope.$on('$viewContentLoaded', function() {
         // initialize core components
         App.initAjax();
@@ -58,5 +58,16 @@ angular.module('MetronicApp')
                 $('#add_privilege_user').modal('hide');
             });
     };
+
+    $scope.uploadImage = function() {
+        var file = $('#avatarImg')[0].files[0];
+        if (!file) return;
+        amazons3.uploadImage(file);
+    };
+    
+    $('#avatarImg').change(function () {
+        var file = $(this)[0].files[0];
+        $('#preview').attr('src', URL.createObjectURL(file));
+    });
 
 }]);

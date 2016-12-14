@@ -1,9 +1,9 @@
 /* Jcrop Demo Site CSS - 2012 Tapmodo Interactive LLC - MIT License
    Not required to run Jcrop - contains twitter bootstrap code */
-/* To build these CSS files you must have LESS and run
+/* To build these CSS files.js you must have LESS and run
  * $ git submodule init
  * $ git submodule update
- * ...to pull in the Twitter bootstrap files
+ * ...to pull in the Twitter bootstrap files.js
  */
 .clearfix {
   *zoom: 1;
