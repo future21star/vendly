@@ -19,7 +19,7 @@
 
     <ul class="nav navbar-nav pull-right">
       <!-- BEGIN INBOX DROPDOWN -->
-      <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
+      <li class="hidden dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
         <a href="#" class="dropdown-toggle" dropdown-menu-hover data-toggle="dropdown" data-close-others="true">
           <i class="fa fa-envelope-o"></i>
           <span class="badge badge-default"> 4 </span>
@@ -83,7 +83,7 @@
       <!-- END INBOX DROPDOWN -->
 
       <!-- BEGIN Calendar DROPDOWN -->
-      <li class="dropdown dropdown-extended dropdown-notification" id="header_task_bar">
+      <li class="hidden dropdown dropdown-extended dropdown-notification" id="header_task_bar">
         <a href="#" class="dropdown-toggle" dropdown-menu-hover data-toggle="dropdown" data-close-others="true">
           <i class="fa fa-calendar"></i>
           <span class="badge badge-default"> 3 </span>
@@ -202,26 +202,9 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-default">
               <li>
-                  <a href="#/account/settings">
-                      <i class="fa fa-user"></i> My Account </a>
+                <a href="#/account/settings">
+                  <i class="fa fa-user"></i> My Account </a>
               </li>
-              <li>
-                  <a href="#/calendar">
-                      <i class="fa fa-calendar-o"></i> My Calendar </a>
-              </li>
-              <li>
-                  <a href="#">
-                      <i class="fa fa-envelope-o"></i> My Inbox
-                      <span class="badge badge-default"> 3 </span>
-                  </a>
-              </li>
-              <li>
-                  <a href="#/todo">
-                      <i class="fa fa-list-ul"></i> My Tasks
-                      <span class="badge badge-default"> 7 </span>
-                  </a>
-              </li>
-              <li class="divider"> </li>
               <li>
                 <a href="">
                   <i class="fa fa-question"></i> FAQ
@@ -232,6 +215,7 @@
                   <i class="fa fa-life-ring"></i> Contact Us
                 </a>
               </li>
+              <li class="divider"> </li>
               <li>
                 <a href="#/logout">
                 <i class="fa fa-sign-out"></i> Log Out
