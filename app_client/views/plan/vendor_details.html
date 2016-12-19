@@ -13,14 +13,12 @@
 <!-- END PAGE HEADER-->
 <!-- BEGIN MAIN CONTENT -->
 <div class="row" ng-controller="GeneralPageController">
-  <div class="col-md-12">
+  <div class="col-xs-12">
       <div class="portlet light no-margin">
         <div class="portlet-title">
           <div class="page-title">
             My Vendors
-            <p uib-popover="This is a tooltip" popover-trigger="mouseenter" class="inline hidden">
-              <i class="fa fa-question-circle font-grey-salt" style="font-size: 16px;"></i>
-            </p>
+            <i class="fa fa-question-circle font-grey-salt hidden" style="font-size: 16px;" data-toggle="tooltip" data-placement="top" title="Tooltip on left"></i>
           </div>
           <div class="actions">
             <a class="btn btn-circle btn-default hidden" href="#"> <!-- TBD what to display within settings -->
@@ -168,56 +166,64 @@
         </li>
       </div>
     </div>
+    <div class="portlet box border border-grey">
+      <div class="portlet-title">
+        <div class="caption text-muted">
+          Vendly Preferred Vendors<br>
+          <span class="h6">Click to learn more</span>
+        </div>
+      </div>
+      <div class="portlet-body media-list">
+        <li>
+          <a class="text-muted" data-target="#vendly_vendor" data-toggle="modal">
+            <i class="fa fa-mobile-phone"></i> PeepSqueeze
+          </a>
+        </li>
+      </div>
+    </div>
   </div>
 </div>
 <!-- END MAIN CONTENT -->
 
 <!-- BEGIN Vendor Details Modal -->
-<div id="vendor_details" class="modal fade" role="dialog" aria-labelledby="myModalLabel10" aria-hidden="true">
-  <div class="modal-dialog">
+<div id="vendor_details" class="modal fade" role="dialog">
+  <div class="modal-dialog" style="width:100%; max-width: 800px">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title bold">The Three Men &amp; A Cook &nbsp;
-          <a class="btn btn-circle btn-default border-blue btn-small font-blue" style="float: right;">
-            <i class="fa fa-wrench"></i>
-            Edit
-          </a>
-        </h4>
+        <h4 class="modal-title bold">The Three Men &amp; A Cook</h4>
       </div>
-      <div class="modal-body">
-        <div class="portlet light scroller vendor-detail-modal" style="height: 55vh;">
+      <div class="modal-body" style="height: 55vh; overflow-y: scroll;">
+        <div class="vendor-detail-modal">
           <dl>
-            <h3 style="font-size: 16px; text-align: right; color: #777777; font-style: italic; border-bottom: 1px dotted #777777; margin: 20px 0 5px;">Ceremony Details</h3>
-            <dt>List all those on your decorating team you have assigned to setup your ceremony decor:</dt>
-            <dd>Aaron Jackson, Jodie Dosier, Brenda Clements, Star Daniels</dd>
-            <dt>Will you be having a Unity Candle or Unity Sand Ceremony?</dt>
-            <dd>Unity Candle</dd>
-            <dt>Would you like to borrow our silver complimentary unity candle stand?</dt>
-            <dd>No</dd>
-            <dt>Would you like to borrow our complimentary granite-top table for the unity sand?</dt>
-            <dd>Yes</dd>
-            <dt>Are you planning on having your programs in a basket or are the ushers handing them out?</dt>
-            <dd>Users handing them out</dd>
-            <h3 style="font-size: 16px; text-align: right; color: #777777; font-style: italic; border-bottom: 1px dotted #777777; margin: 20px 0 5px;">Preferred Florist / Wedding Design</h3>
-            <dt>Name of florist you booked</dt>
-            <dd>Rose's Roses &amp; Arrangements</dd>
-            <dt>Did you order fresh rose petals for the aisle?</dt>
-            <dd>No</dd>
-            <dt>Brief description of how are you planning on having the ceremony site decorated:</dt>
-            <dd>Typical wedding decoration with an aisle runner and flower arrangements at the end of every row. We will have a back table with a guess book, along with users passing out the programs.</dd>
-            <h3 style="font-size: 16px; text-align: right; color: #777777; font-style: italic; border-bottom: 1px dotted #777777; margin: 20px 0 5px;">Dressing Rooms</h3>
-            <dt>One hour complimentary use of the dressing rooms before the start of your Lindsay Lakes Ceremony begins at:</dt>
-            <dd>2:45pm</dd>
-            <dt>Name of the person you have assigned to collect forgotten items in the dressing rooms:</dt>
-            <dd>Matilda Ramsay</dd>
-            <h3 style="font-size: 16px; text-align: right; color: #777777; font-style: italic; border-bottom: 1px dotted #777777; margin: 20px 0 5px;">Bottled Water</h3>
-            <dt>Would you like to add the bottled water service at $1 per person for your ceremony?</dt>
-            <dd>No</dd>
+            <h3 style="font-size: 16px; text-align: right; color: #777777; font-style: italic; border-bottom: 1px dotted #777777; margin: 20px 0 5px;">
+              General
+            </h3>
+              <dt>How many guests are you estimating to feed?</dt>
+              <dd>220</dd>
+              <dt>Do you prefer buffet style or guests being served?</dt>
+              <dd>Buffet Style</dd>
+              <dt>Are there any dietary restrictions?</dt>
+              <dd>No</dd>
+              <dt>If yes, what type?</dt>
+              <dd>N/A</dd>
+              <dt>Will you be providing the plates and silverware?</dt>
+              <dd>Yes</dd>
+            <h3 style="font-size: 16px; text-align: right; color: #777777; font-style: italic; border-bottom: 1px dotted #777777; margin: 20px 0 5px;">
+              Food Options
+            </h3>
+              <dt>Would you like salad options to be available?</dt>
+              <dd>Yes</dd>
+              <dt>What type of items would you like served in the main course?</dt>
+              <dd>Lasagna, spagetti and meatballs, breaded chicken</dd>
+              <dt>Would you like rolls served with the meal?</dt>
+              <dd>Yes</dd>
+              <dt>What drink options would you like available?</dt>
+              <dd>None</dd>
           </dl>
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn default" data-dismiss="modal">Close</button>
         <button class="btn blue" href="#/vendor/handbook">Access Handbook</button>
       </div>
     </div>
@@ -226,7 +232,7 @@
 <!-- END Vendor Details Modal -->
 
 <!-- BEGIN Accept Preferred Vendor Modal -->
-  <div id="add_preferred_vendor" class="modal fade" role="dialog" aria-labelledby="myModalLabel10" aria-hidden="true">
+  <div id="add_preferred_vendor" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -248,6 +254,40 @@
   </div>
 <!-- END Accept Preferred Vendor Modal -->
 
+<!-- BEGIN Peepsqueeze Modal -->
+  <div id="vendly_vendor" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #7FA8D7; color: #FFFFFF;">
+          <h4 class="modal-title bold" align="center">
+            PeepSqueeze
+          </h4>
+        </div>
+        <div class="modal-body hidden">
+          <img src="assets/layouts/layout/img/peepsqueeze.jpg" alt="" width="100%">
+        </div>
+        <div class="embed-responsive embed-responsive-16by9" style="background-color: #000000;">
+          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/PJL_2S_zIhM" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="modal-body">
+          <h4 style="margin-bottom: 0;">
+            Details:
+          </h4>
+          <hr style="margin: 0 25px 0 0;">
+          <p style="margin: 5px 0 0;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam voluptate natus ab illo, est, omnis dolorem error doloremque sint, necessitatibus impedit, animi minus aspernatur modi tempore. Facere totam in necessitatibus!
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-default" data-dismiss="modal">Close</button>
+          <button class="btn blue" data-dismiss="modal">Download App</button> <!-- Redirects to app store -->
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- END Peepsqueeze Modal -->
+
+
 <!-- BEGIN MAIN JS-->
 <script type="text/javascript">
   $(document).on('click', '#acceptVendor', function(evt) {
@@ -255,6 +295,12 @@
     toastr.warning('Pending approval to access their handbook.', 'Vendor Added');
   });
 </script>
+<script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
 <script>
   ComponentsSelect2.init(); // init todo page
   ComponentsBootstrapSelect.init(); // init todo page

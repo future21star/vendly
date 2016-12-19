@@ -1274,11 +1274,11 @@ var out = {
     /**
      * Add a file to the zip file, or search a file.
      * @param   {string|RegExp} name The name of the file to add (if data is defined),
-     * the name of the file to find (if no data) or a regex to match files.js.
+     * the name of the file to find (if no data) or a regex to match files.
      * @param   {String|ArrayBuffer|Uint8Array|Buffer} data  The file data, either raw or base64 encoded
      * @param   {Object} o     File options
      * @return  {JSZip|Object|Array} this JSZip object (when adding a file),
-     * a file (when searching by string) or an array of files.js (when searching by regex).
+     * a file (when searching by string) or an array of files (when searching by regex).
      */
     file: function(name, data, o) {
         if (arguments.length === 1) {
@@ -4958,8 +4958,8 @@ function deflate_huff(s, flush) {
 
 /* Values for max_lazy_match, good_match and max_chain_length, depending on
  * the desired pack level (0..9). The values given below have been tuned to
- * exclude worst case performance for pathological files.js. Better values may be
- * found for specific files.js.
+ * exclude worst case performance for pathological files. Better values may be
+ * found for specific files.
  */
 var Config = function (good_length, max_lazy, nice_length, max_chain, func) {
   this.good_length = good_length;

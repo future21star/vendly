@@ -13,7 +13,7 @@
 <!-- END PAGE HEADER-->
 <!-- BEGIN MAIN CONTENT -->
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-xs-12">
     <!-- BEGIN: ACCORDION DEMO -->
     <div class="portlet light">
       <div class="portlet-title">
@@ -35,7 +35,7 @@
 
 <!-- Client Rolodex -->
 <div class="row hidden-xs">
-  <div class="col-md-12">
+  <div class="col-xs-12">
     <form class="form-inline well-sm">
       <div class="form-control">
         <span class="fa fa-search font-blue" style="opacity: .45;"></span>
@@ -44,7 +44,7 @@
     </form>
   </div>
 
-  <div class="col-md-12">
+  <div class="col-xs-12">
     <div class="portlet light">
       <table class="table table-bordered  table-hover">
         <th> # </th>
@@ -71,15 +71,15 @@
 
   </div>
 </div>
-<div class="h2 visible-xs-block">
+<div class="h2 visible-xs">
   <h2 align="center" class="bold font-grey-salt padding-20">
-    This content is only visible on desktop and tablet devices.
+    This content is not visible on mobile devices.
   </h2>
 </div>
 <!-- END MAIN CONTENT -->
 
 <!-- BEGIN Client Details Modal -->
-  <div id="client_details" class="modal fade" role="dialog" aria-labelledby="myModalLabel10" aria-hidden="true">
+  <div id="client_details" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -93,7 +93,7 @@
         <div class="modal-body">
           <div class="portlet light">
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-xs-6">
                 <dl>
                   <dt>Email</dt>
                   <dd class="padding-bottom-10" id="clientemail"></dd>
@@ -118,7 +118,7 @@
 <!-- END Client Details Modal -->
 
 <!-- BEGIN Add Client Modal -->
-  <div id="add_client" class="modal fade" role="dialog" aria-labelledby="myModalLabel10" aria-hidden="true">
+  <div id="add_client" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -156,7 +156,7 @@
               </div>
               <div ng-controller="AccordionDemoCtrl">
                 <uib-accordion close-others="oneAtATime">
-                  <uib-accordion-group heading="+ Additional Options" style="text-align: right;">
+                  <uib-accordion-group heading="+ Additional Options" style="text-align: left;">
                     <div class="row" style="text-align: left;">
                       <div class="col-md-6">
                         <span class="help-block"> Phone Number </span>

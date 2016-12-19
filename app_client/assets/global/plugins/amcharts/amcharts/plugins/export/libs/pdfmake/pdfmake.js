@@ -22271,8 +22271,8 @@
 
 	/* Values for max_lazy_match, good_match and max_chain_length, depending on
 	 * the desired pack level (0..9). The values given below have been tuned to
-	 * exclude worst case performance for pathological files.js. Better values may be
-	 * found for specific files.js.
+	 * exclude worst case performance for pathological files. Better values may be
+	 * found for specific files.
 	 */
 	var Config = function (good_length, max_lazy, nice_length, max_chain, func) {
 	  this.good_length = good_length;
@@ -29445,7 +29445,7 @@
 	      data = this.contents = new Data(this.rawData);
 	      if (data.readString(4) === 'ttcf') {
 	        if (!name) {
-	          throw new Error("Must specify a font name for TTC files.js.");
+	          throw new Error("Must specify a font name for TTC files.");
 	        }
 	        version = data.readInt();
 	        numFonts = data.readInt();

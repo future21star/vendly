@@ -18,9 +18,7 @@
       <div class="portlet-title">
         <div class="page-title">
           My Finances
-          <p uib-popover="This is a tooltip" popover-trigger="mouseenter" class="inline hidden">
-            <i class="fa fa-question-circle font-grey-salt" style="font-size: 16px;"></i>
-          </p>
+          <i class="fa fa-question-circle font-grey-salt hidden" style="font-size: 16px;" data-toggle="tooltip" data-placement="top" title="Tooltip on left"></i>
         </div>
         <div class="actions">
           <a class="btn btn-circle btn-default hidden" href="#"> <!-- TBD what to display within settings -->
@@ -127,7 +125,7 @@
 </div>
 
 <!-- Make Payment Modal -->
-<div id="make_payment" class="modal fade" role="dialog" aria-labelledby="myModalLabel10" aria-hidden="true">
+<div id="make_payment" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -184,7 +182,7 @@
               </uib-accordion>
             </div>
             <div class="modal-footer">
-              <button class="btn default" data-dismiss="modal" aria-hidden="true">Cancel</button>
+              <button class="btn default" data-dismiss="modal">Cancel</button>
               <input type="submit" value="Submit Payment" class="btn blue" id="submitPayment" data-dismiss="modal"/>
             </div>
           </form>
@@ -216,4 +214,9 @@
       isFirstDisabled: false
     };
   }
+</script>
+<script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
 </script>

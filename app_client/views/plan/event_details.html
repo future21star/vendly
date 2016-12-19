@@ -1,0 +1,293 @@
+<!-- BEGIN PAGE HEADER-->
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+      <li>
+        <a href="#/client/dashboard">Dashboard</a>
+        <i class="fa fa-circle"></i>
+      </li>
+      <li>
+        <span> Vendly Venue </span>
+        <i class="fa fa-circle"></i>
+      </li>
+      <li>
+        <span> Event Handbook </span>
+      </li>
+    </ul>
+</div>
+<!-- END PAGE HEADER-->
+
+<!-- BEGIN MAIN CONTENT -->
+<div class="row" ng-controller="GeneralPageController">
+  <div class="col-xs-12">
+    <div class="portlet light no-margin">
+      <div class="portlet-title">
+        <div class="page-title">
+          Vendly Venue Handbook
+          <i class="fa fa-question-circle font-grey-salt hidden" style="font-size: 16px;" data-toggle="tooltip" data-placement="top" title="Tooltip on left"></i>
+        </div>
+        <div style="float: right;">
+          <button ng-click="saveHandbook()" class="btn blue SaveEdits">Save Changes</button>
+          <a onclick="window.history.back()" class="btn text-muted">Cancel</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+  <div class="form-group padding-bottom-15">
+    <label for="question1" class="h4">
+      Example question
+      <small class="help-block">Help text</small>
+    </label>
+    <input type="text" class="form-control" id="question1">
+  </div>
+  <div class="form-group">
+    <div class="h4">
+      Example question
+    </div>
+    <label class="form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
+    </label>
+    <label class="form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
+    </label>
+    <label class="form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
+    </label>
+  </div>
+-->
+
+<div class="row">
+  <div class="col-xs-12 col-sm-9">
+    <div class="portlet light bordered" style="padding-top: 0; padding-right: 0; padding-bottom: 55px;">
+      <div class="potlet-body" style="max-height: 90vh; overflow-y: scroll">
+        <form class="" action="" method="post">
+          <div class="form-body">
+            <h3 class="text-center">Introduction</h3>
+              <p>
+                Thank you for booking your Wedding at Lindsay Lakes! Our dedicated team strives to make every wedding flow as smoothly as possible and we feel that the information in this handbook will certainly do the trick. Our wedding coordinators will work with you to make your dream wedding a reality.
+              </p>
+              <hr>
+              <h3 class="text-center">After Booking</h3>
+              <p>
+                Once you have decided that Lindsay Lakes is the perfect venue for you, we will secure all of the vendors that were included in your contract, setup your Lindsay Lakes account and then transfer your account to the coordination department. Vendors will be contacting you within the next few months to go over their services, however, you do not have to wait for vendors to contact you.  You are now in the hands of our wonderful wedding coordinators and you will surely adore them! Most Brides schedule their first appointment within a few weeks of booking their Wedding. Per your paperwork 3 meetings are offered. The coordination department can be reached at 281.373.1800 or weddingcoordinator@lindsaylakes.com
+              </p>
+              <hr>
+              <h3 class="text-center">Rehearsal Guidelines</h3>
+              <div class="form-group" id="Q1">
+                Have you told your Bridal Party that it is customary for all of them to take the day before the Wedding off from work to assist the Bride and Groom with last minute errands and to attend the rehearsal?<br>
+                <label class="form-radio-inline">
+                  <input class="form-radio-input" type="radio" name="Q1" value="Yes" checked> Yes
+                </label>
+                <label class="form-radio-inline">
+                  <input class="form-radio-input" type="radio" name="Q1" value="Not_Yet"> Not Yet
+                </label>
+              </div>
+              <p>
+                Complimentary rehearsals will be scheduled by your coordinator at the final meeting and are available 1-2 days before your Wedding.
+              </p>
+              <div class="form-group" id="Q2">
+                <label>Scheduled Rehearsal Time (1 hour):<br>
+                  <input class="" type="text" name="name" value="2:30pm">
+                </label>
+              </div>
+              <p>
+                Who should attend the Rehearsal? Everyone who will be walking down the aisle as part of the processional should attend the rehearsal. This includes bridesmaids, groomsmen, parents, grandparents and ushers.<br><br>
+                We ask that you limit your rehearsal to the ceremony venue selected as it may be another Bride's Big Day in progress!
+              </p>
+              <hr>
+              <h3 class="text-center">Decorations</h3>
+              <p>
+                As the contract states, Lindsay Lakes does not include decorations and is not responsible for the setup of decorations. All decor you will be providing needs to be setup by your decorating team including the unity candle, unity sand, ceremony seating reserved signs, aisle runner etc.<br><br>
+                The Gazebo dimensions for decorating purposes are approximately 10ft high by about 20ft wide. The length from the Gazebo to the end of the aisle is approximately 70 feet.
+              </p>
+              <div class="form-group" id="Q3">
+                <label>Time the ceremony site will be available for your decorating team to get started:<br>
+                  <input type="text" name="name" value="">
+                </label>
+              </div>
+              <div class="form-group" id="Q4">
+                <label>List all those on your decorating team you have assigned to setup your ceremony decor:<br>
+                  <input type="text" name="name" value="">
+                </label>
+              </div>
+              <p>
+                We recommend you don't assign Bridal party or family participating in the ceremony to setup your decorations. All of those lovely people should be captured by the photographer at that time!
+              </p>
+              <div class="form-group" id="Q5">
+                Will you be having a Unity Candle or Unity Sand Ceremony?
+                <small class="help-block">Provided by bride. Sand is recommended because the Unity Candle will not light on a windy day.</small>
+                <label class="form-radio-inline">
+                  <input class="form-radio-input" type="radio" name="Q5" value="Unity Candle"> Unity Candle
+                </label>
+                <label class="form-radio-inline">
+                  <input class="form-radio-input" type="radio" name="Q5" value="Unity Sand"> Unity Sand
+                </label>
+              </div>
+              <div class="form-group" id="Q6">
+                Would you like to borrow our silver complimentary unity candle stand?
+                <small class="help-block">Candles not provided.</small>
+                <label class="form-radio-inline">
+                  <input class="form-radio-input" type="radio" name="Q6" value="Yes"> Yes
+                </label>
+                <label class="form-radio-inline">
+                  <input class="form-radio-input" type="radio" name="Q6" value="No"> No
+                </label>
+              </div>
+              <div class="form-group" id="Q7">
+                Would you like to borrow our complimentary granite-top table for the unity sand?<br>
+                <label class="form-radio-inline">
+                  <input class="form-radio-input" type="radio" name="Q7" value="Yes"> Yes
+                </label>
+                <label class="form-radio-inline">
+                  <input class="form-radio-input" type="radio" name="Q7" value="No"> No
+                </label>
+              </div>
+              <div class="form-group" id="Q8">
+                <label>Are you planning on having your programs in a basket or are the ushers handing them out?<br>
+                  <input type="text" name="name" value="">
+                </label>
+              </div>
+<!--
+            Preferred Florists / Wedding Design
+            The Senterpiece:          www.thesenterpiece.com          www.senterpiecerentals.com          thesenterpiece@aol.com          Donna Senter          281.861.8525
+
+            VIP:                           vidrioinspiredproductions.com                           mikevidrio@gmail.com                           Mike Vidrio                           832.880.3181
+
+            As the contract states, all outside vendors must be approved before you book them, so be sure to contact Lindsay Lakes for approval.
+
+            Name of florist you booked (Arrival time is 2 hours before start of ceremony): _____________________________________________________________________
+            Was the waiver turned in by the 2 week deadline?      Circle One:      Yes      Not Yet      or      Not needed for preferred vendor
+
+            Did you order fresh rose petals for the aisle? If you are using the Chapel only white fresh rose petals are allowed.____________________________________
+
+            Brief description of how are you planning on having the ceremony site decorated: ___________________________________________________________________
+
+            ____________________________________________________________________________________________________________________________
+
+
+            Hair and Make up
+            We strongly suggest that the Bride and all ladies in the Bridal Party arrive with hair and makeup already done to allow plenty of time for pre-ceremony pictures. The more time you have for pre-ceremony pictures the sooner you can join your guests at your reception.
+
+            Dressing Rooms
+            One hour complimentary use of the dressing rooms before the start of your Lindsay Lakes Ceremony begins at: _______________________________________________
+            Before the ceremony begins, everyone that used the dressing rooms needs to secure their belongings in their vehicles. Lindsay Lakes is not responsible for any items left in the dressing rooms at any time.
+            Name of the person you have assigned to collect forgotten items in the dressing rooms: ________________________________________________________________
+            If anyone calls Lindsay Lakes the next day asking for any lost items left behind they will be given the name of the person above. Smoking is not allowed in the lake house or inside any building.
+            Bottled Water
+
+            Would you like to add the bottled water service at $1 per person for your ceremony? _____________________________________________________________
+            This service is recommended for May-September outdoor ceremonies because of the sometimes extreme Houston temperatures. With the purchase of the bottled water service, Lindsay Lakes provides a large stainless steel container of chilled water bottles for your guests to enjoy before and during the ceremony. The bottled water service will be ready 30 minutes before the ceremony begins as your guests are arriving. Lindsay Lakes must provide all bottled water.
+-->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="hidden-xs col-sm-3">
+    <div class="portlet light bordered">
+      <div class="portlet-title">
+        <div class="note no-margin note-info">
+          <h5>Legend:
+            <span class="close" data-close="note"></span>
+          </h5>
+          <p>
+            <i class="fa fa-circle text-success"> Completed Question</i><br>
+            <i class="fa fa-circle-o text-danger"> Due within the next month</i><br>
+            <i class="fa fa-circle-o text-warning"> Due in the next 2 weeks</i><br>
+            <i class="fa fa-circle-o font-grey-salt"> Completed Question</i><br>
+          </p>
+        </div>
+        <h3>Navigation</h3>
+      </div>
+      <div class="portlet-body scroller" style="height: 500px">
+        <table class="table table-hover" style="table-layout: fixed; cursor: pointer;">
+          <tr>
+            <td style="width: 16px; border-top: transparent;">
+              <i class="fa fa-circle text-success"></i>
+            </td>
+            <td style="border-top: transparent;">
+              Have you told your Bridal Party that it is customary for all of them to take the day before the Wedding off from work to assist the Bride and Groom with last minute errands and to attend the rehearsal?
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 16px; border-top: transparent;">
+              <i class="fa fa-circle text-success"></i>
+            </td>
+            <td style="border-top: transparent;">
+              Scheduled Rehearsal Time (1 hour):
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <h5 class="bold" style="width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                Decorations
+              </h5>
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 16px; border-top: transparent;">
+              <i class="fa fa-circle-o text-warning"></i>
+            </td>
+            <td style="border-top: transparent;">
+              Time the ceremony site will be available for your decorating team to get started:
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 16px; border-top: transparent;">
+              <i class="fa fa-circle-o text-danger"></i>
+            </td>
+            <td style="border-top: transparent;">
+              List all those on your decorating team you have assigned to setup your ceremony decor:
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 16px; border-top: transparent;">
+              <i class="fa fa-circle-o font-grey-salt"></i>
+            </td>
+            <td style="border-top: transparent;">
+              Will you be having a Unity Candle or Unity Sand Ceremony?
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 16px; border-top: transparent;">
+              <i class="fa fa-circle-o font-grey-salt"></i>
+            </td>
+            <td style="border-top: transparent;">
+              Would you like to borrow our silver complimentary unity candle stand?
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 16px; border-top: transparent;">
+              <i class="fa fa-circle-o font-grey-salt"></i>
+            </td>
+            <td style="border-top: transparent;">
+              Would you like to borrow our complimentary granite-top table for the unity sand?
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 16px; border-top: transparent;">
+              <i class="fa fa-circle-o font-grey-salt"></i>
+            </td>
+            <td style="border-top: transparent;">
+              Are you planning on having your programs in a basket or are the ushers handing them out?
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).on('click', '.SaveEdits', function(evt) {
+    evt.preventDefault();
+    toastr.success('Your event details have been updated.', 'Saved');
+  });
+</script>
+<script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>

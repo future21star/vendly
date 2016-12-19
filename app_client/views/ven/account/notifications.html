@@ -1,4 +1,4 @@
-<!-- BEGIN PAGE HEADER-->
+<!-- BEGIN PAGE BAR -->
 <div class="page-bar">
   <ul class="page-breadcrumb">
     <li>
@@ -6,262 +6,309 @@
       <i class="fa fa-circle"></i>
     </li>
     <li>
-      <a href="#/settings/account">Account</a>
-      <i class="fa fa-circle"></i>
+      <a href="#/account/settings">Account</a>
+			<i class="fa fa-circle"></i>
     </li>
-    <li>
-      <span> Notifications </span>
+		<li>
+			<span>Employees</span>
     </li>
   </ul>
 </div>
+<!-- END PAGE BAR -->
 <!-- END PAGE HEADER-->
-<!-- BEGIN MAIN CONTENT -->
 <div class="row" ng-controller="GeneralPageController">
-  <div class="col-md-12">
-    <!-- BEGIN: ACCORDION DEMO -->
-    <div class="portlet light no-margin">
-      <div class="portlet-title">
-        <div class="page-title">
-          My Notifications
+  <div class="col-xs-12">
+    <!-- BEGIN PROFILE SIDEBAR -->
+    <div class="profile-sidebar">
+      <!-- PORTLET MAIN -->
+      <div class="portlet light profile-sidebar-portlet ">
+	      <!-- SIDEBAR USERPIC -->
+        <div class="profile-userpic">
+	        <img src="{{settings.layoutPath}}/img/avatar.png" class="img-responsive" alt="Vendly Venue" style="max-width: 130px;">
+        </div>
+	      <!-- END SIDEBAR USERPIC -->
+
+        <!-- SIDEBAR USER TITLE -->
+        <div class="profile-usertitle">
+          <div class="profile-usertitle-name"> Vendly Venue </div>
+        </div>
+        <!-- END SIDEBAR USER TITLE -->
+
+        <!-- SIDEBAR MENU -->
+        <div class="profile-usermenu">
+          <ul class="nav">
+            <li>
+              <a href="#/account/settings">
+                <i class="fa fa-home"></i> Account
+              </a>
+            </li>
+            <li>
+              <a href="#/account/employees">
+                <i class="fa fa-user"></i> Employees
+              </a>
+            </li>
+            <li>
+              <a href="#/account/preferred">
+                <i class="fa fa-building"></i> Preferred Businesses
+              </a>
+            </li>
+            <li class="active">
+              <a href="#/account/notifications">
+                <i class="fa fa-bell"></i> Notifications
+              </a>
+            </li>
+            <li>
+              <a href="#/account/payments">
+                <i class="fa fa-credit-card"></i> Payments &amp; Subscription
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- END MENU -->
+      </div>
+      <!-- END PORTLET MAIN -->
+    </div>
+    <!-- END BEGIN PROFILE SIDEBAR -->
+		<div class="profile-content">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="portlet light ">
+            <form action="#">
+              <table class="table table-light table-hover">
+                <th class="no-border-top border-bottom-default border-bottom" style="text-align: center;"> </th>
+                <th class="no-border-top border-bottom-default border-bottom" style="text-align: center"> Email </th>
+                <th class="no-border-top border-bottom-default border-bottom" style="text-align: center"> In-App </th>
+                <th class="no-border-top border-bottom-default border-bottom" style="text-align: center"> None </th>
+                <th class="no-border-top border-bottom-default border-bottom" style="text-align: center"> Push Alerts
+                  <i class="fa fa-question-circle font-grey-salt" style="font-size: 16px;" data-toggle="tooltip" data-placement="left" title="Desktop Notifications"></i>
+                </th>
+
+                <tr>
+                  <td>
+                    <h4>Upcoming Deadlines</h4>
+                  </td>
+                  <td align="center">
+                    <label class="mt-radio">
+                      <input type="radio" name="optionsRadios1" value="email" checked />
+                      <span></span>
+                    </label>
+                  </td>
+                  <td align="center">
+                    <label class="mt-radio">
+                      <input type="radio" name="optionsRadios1" value="inapp" />
+                      <span></span>
+                    </label>
+                  </td>
+                  <td align="center">
+                    <label class="mt-radio">
+                      <input type="radio" name="optionsRadios1" value="none" />
+                      <span></span>
+                    </label>
+                  </td>
+                  <td align="center">
+                    <label class="mt-checkbox">
+                      <input type="checkbox" name="optionsRadios1" value="push" />
+                      <span></span>
+                    </label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h4>Granted Access to Handbook</h4>
+                  </td>
+                  <td align="center">
+                    <label class="mt-radio">
+                      <input type="radio" name="optionsRadios2" value="email" checked />
+                      <span></span>
+                    </label>
+                  </td>
+                  <td align="center">
+                    <label class="mt-radio">
+                      <input type="radio" name="optionsRadios2" value="inapp" />
+                      <span></span>
+                    </label>
+                  </td>
+                  <td align="center">
+                    <label class="mt-radio">
+                      <input type="radio" name="optionsRadios2" value="none" />
+                      <span></span>
+                    </label>
+                  </td>
+                  <td align="center">
+                    <label class="mt-checkbox">
+                      <input type="checkbox" name="optionsRadios2" value="push" />
+                      <span></span>
+                    </label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h4>Event Details Changed</h4>
+                  </td>
+                  <td align="center">
+                    <label class="mt-radio">
+                      <input type="radio" name="optionsRadios3" value="email" checked />
+                      <span></span>
+                    </label>
+                  </td>
+                  <td align="center">
+                    <label class="mt-radio">
+                      <input type="radio" name="optionsRadios3" value="inapp" />
+                      <span></span>
+                    </label>
+                  </td>
+                  <td align="center">
+                    <label class="mt-radio">
+                      <input type="radio" name="optionsRadios3" value="none" />
+                      <span></span>
+                    </label>
+                  </td>
+                  <td align="center">
+                    <label class="mt-checkbox">
+                      <input type="checkbox" name="optionsRadios3" value="push" />
+                      <span></span>
+                    </label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h4>Payment Notifications</h4>
+                  </td>
+                  <td align="center">
+                    <label class="mt-radio">
+                      <input type="radio" name="optionsRadios4" value="email" checked />
+                      <span></span>
+                    </label>
+                  </td>
+                  <td align="center">
+                    <label class="mt-radio">
+                      <input type="radio" name="optionsRadios4" value="inapp" />
+                      <span></span>
+                    </label>
+                  </td>
+                  <td align="center">
+                    <label class="mt-radio">
+                      <input type="radio" name="optionsRadios4" value="none" />
+                      <span></span>
+                    </label>
+                  </td>
+                  <td align="center">
+                    <label class="mt-checkbox">
+                      <input type="checkbox" name="optionsRadios4" value="push" />
+                      <span></span>
+                    </label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h4>New Message</h4>
+                  </td>
+                  <td align="center">
+                    <label class="mt-radio">
+                      <input type="radio" name="optionsRadios5" value="email" checked />
+                      <span></span>
+                    </label>
+                  </td>
+                  <td align="center">
+                    <label class="mt-radio">
+                      <input type="radio" name="optionsRadios5" value="inapp" />
+                      <span></span>
+                    </label>
+                  </td>
+                  <td align="center">
+                    <label class="mt-radio">
+                      <input type="radio" name="optionsRadios5" value="none" />
+                      <span></span>
+                    </label>
+                  </td>
+                  <td align="center">
+                    <label class="mt-checkbox">
+                      <input type="checkbox" name="optionsRadios5" value="push" />
+                      <span></span>
+                    </label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h4>Product Updates</h4>
+                  </td>
+                  <td align="center">
+                    <label class="mt-radio">
+                      <input type="radio" name="optionsRadios6" value="email" checked />
+                      <span></span>
+                    </label>
+                  </td>
+                  <td align="center">
+                    <label class="mt-radio">
+                      <input type="radio" name="optionsRadios6" value="inapp" />
+                      <span></span>
+                    </label>
+                  </td>
+                  <td align="center">
+                    <label class="mt-radio">
+                      <input type="radio" name="optionsRadios6" value="none" />
+                      <span></span>
+                    </label>
+                  </td>
+                  <td align="center">
+                    <label class="mt-checkbox">
+                      <input type="checkbox" name="optionsRadios6" value="push" />
+                      <span></span>
+                    </label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h4>Messages from Trusted 3rd Parties</h4>
+                  </td>
+                  <td align="center">
+                    <label class="mt-radio">
+                      <input type="radio" name="optionsRadios7" value="email" checked />
+                      <span></span>
+                    </label>
+                  </td>
+                  <td align="center">
+                    <label class="mt-radio">
+                      <input type="radio" name="optionsRadios7" value="inapp" />
+                      <span></span>
+                    </label>
+                  </td>
+                  <td align="center">
+                    <label class="mt-radio">
+                      <input type="radio" name="optionsRadios7" value="none" />
+                      <span></span>
+                    </label>
+                  </td>
+                  <td align="center">
+                    <label class="mt-checkbox">
+                      <input type="checkbox" name="optionsRadios7" value="push" disabled />
+                      <span></span>
+                    </label>
+                  </td>
+                </tr>
+
+
+              </table>
+              <!--end profile-settings-->
+              <div class="margin-top-10">
+                  <a href="javascript:;" class="btn blue"> Save Changes </a>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-<!-- END PAGE HEADER-->
-
-<!-- BEGIN MAIN CONTENT -->
-<!-- BEGIN Subscriptions -->
-  <div class="row">
-    <div class="col-md-12">
-      <form action="#">
-          <table class="table table-light table-hover">
-            <th class="no-border-top border-bottom-default border-bottom" style="text-align: center;"> </th>
-            <th class="no-border-top border-bottom-default border-bottom" style="text-align: center"> Email </th>
-            <th class="no-border-top border-bottom-default border-bottom" style="text-align: center"> In-App </th>
-            <th class="no-border-top border-bottom-default border-bottom" style="text-align: center"> None </th>
-            <th class="no-border-top border-bottom-default border-bottom" style="text-align: center"> Push Alerts
-              <p uib-popover="This is a tooltip" popover-trigger="mouseenter" class="inline">
-                <i class="fa fa-question-circle font-grey-salt" style="font-size: 16px;" title="Desktop Notifications"></i>
-              </p>
-            </th>
-
-            <tr>
-              <td>
-                <h4>Upcoming Deadlines</h4>
-              </td>
-              <td align="center">
-                <label class="mt-radio">
-                  <input type="radio" name="optionsRadios1" value="email" checked />
-                  <span></span>
-                </label>
-              </td>
-              <td align="center">
-                <label class="mt-radio">
-                  <input type="radio" name="optionsRadios1" value="inapp" />
-                  <span></span>
-                </label>
-              </td>
-              <td align="center">
-                <label class="mt-radio">
-                  <input type="radio" name="optionsRadios1" value="none" />
-                  <span></span>
-                </label>
-              </td>
-              <td align="center">
-                <label class="mt-checkbox">
-                  <input type="checkbox" name="optionsRadios1" value="push" />
-                  <span></span>
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h4>Granted Access to Handbook</h4>
-              </td>
-              <td align="center">
-                <label class="mt-radio">
-                  <input type="radio" name="optionsRadios2" value="email" checked />
-                  <span></span>
-                </label>
-              </td>
-              <td align="center">
-                <label class="mt-radio">
-                  <input type="radio" name="optionsRadios2" value="inapp" />
-                  <span></span>
-                </label>
-              </td>
-              <td align="center">
-                <label class="mt-radio">
-                  <input type="radio" name="optionsRadios2" value="none" />
-                  <span></span>
-                </label>
-              </td>
-              <td align="center">
-                <label class="mt-checkbox">
-                  <input type="checkbox" name="optionsRadios2" value="push" />
-                  <span></span>
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h4>Event Details Changed</h4>
-              </td>
-              <td align="center">
-                <label class="mt-radio">
-                  <input type="radio" name="optionsRadios3" value="email" checked />
-                  <span></span>
-                </label>
-              </td>
-              <td align="center">
-                <label class="mt-radio">
-                  <input type="radio" name="optionsRadios3" value="inapp" />
-                  <span></span>
-                </label>
-              </td>
-              <td align="center">
-                <label class="mt-radio">
-                  <input type="radio" name="optionsRadios3" value="none" />
-                  <span></span>
-                </label>
-              </td>
-              <td align="center">
-                <label class="mt-checkbox">
-                  <input type="checkbox" name="optionsRadios3" value="push" />
-                  <span></span>
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h4>Payment Notifications</h4>
-              </td>
-              <td align="center">
-                <label class="mt-radio">
-                  <input type="radio" name="optionsRadios4" value="email" checked />
-                  <span></span>
-                </label>
-              </td>
-              <td align="center">
-                <label class="mt-radio">
-                  <input type="radio" name="optionsRadios4" value="inapp" />
-                  <span></span>
-                </label>
-              </td>
-              <td align="center">
-                <label class="mt-radio">
-                  <input type="radio" name="optionsRadios4" value="none" />
-                  <span></span>
-                </label>
-              </td>
-              <td align="center">
-                <label class="mt-checkbox">
-                  <input type="checkbox" name="optionsRadios4" value="push" />
-                  <span></span>
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h4>New Message</h4>
-              </td>
-              <td align="center">
-                <label class="mt-radio">
-                  <input type="radio" name="optionsRadios5" value="email" checked />
-                  <span></span>
-                </label>
-              </td>
-              <td align="center">
-                <label class="mt-radio">
-                  <input type="radio" name="optionsRadios5" value="inapp" />
-                  <span></span>
-                </label>
-              </td>
-              <td align="center">
-                <label class="mt-radio">
-                  <input type="radio" name="optionsRadios5" value="none" />
-                  <span></span>
-                </label>
-              </td>
-              <td align="center">
-                <label class="mt-checkbox">
-                  <input type="checkbox" name="optionsRadios5" value="push" />
-                  <span></span>
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h4>Product Updates</h4>
-              </td>
-              <td align="center">
-                <label class="mt-radio">
-                  <input type="radio" name="optionsRadios6" value="email" checked />
-                  <span></span>
-                </label>
-              </td>
-              <td align="center">
-                <label class="mt-radio">
-                  <input type="radio" name="optionsRadios6" value="inapp" />
-                  <span></span>
-                </label>
-              </td>
-              <td align="center">
-                <label class="mt-radio">
-                  <input type="radio" name="optionsRadios6" value="none" />
-                  <span></span>
-                </label>
-              </td>
-              <td align="center">
-                <label class="mt-checkbox">
-                  <input type="checkbox" name="optionsRadios6" value="push" />
-                  <span></span>
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h4>Messages from Trusted 3rd Parties</h4>
-              </td>
-              <td align="center">
-                <label class="mt-radio">
-                  <input type="radio" name="optionsRadios7" value="email" checked />
-                  <span></span>
-                </label>
-              </td>
-              <td align="center">
-                <label class="mt-radio">
-                  <input type="radio" name="optionsRadios7" value="inapp" />
-                  <span></span>
-                </label>
-              </td>
-              <td align="center">
-                <label class="mt-radio">
-                  <input type="radio" name="optionsRadios7" value="none" />
-                  <span></span>
-                </label>
-              </td>
-              <td align="center">
-                <label class="mt-checkbox">
-                  <input type="checkbox" name="optionsRadios7" value="push" disabled />
-                  <span></span>
-                </label>
-              </td>
-            </tr>
-
-
-          </table>
-          <!--end profile-settings-->
-          <div class="margin-top-10">
-              <a href="javascript:;" class="btn blue"> Save Changes </a>
-          </div>
-      </form>
     </div>
   </div>
 <!-- END MAIN CONTENT -->
 </div>
 
 <!-- BEGIN MAIN JS-->
+<script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
 <script>
   ComponentsBootstrapSelect.init(); // init todo page
   ComponentsSelect2.init(); // init todo page

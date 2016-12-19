@@ -13,14 +13,12 @@
 <!-- END PAGE HEADER-->
 <!-- BEGIN MAIN CONTENT -->
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-xs-12">
       <div class="portlet light no-margin">
         <div class="portlet-title">
           <div class="page-title">
             My Handbooks
-            <p uib-popover="This is a tooltip" popover-trigger="mouseenter" class="inline hidden">
-              <i class="fa fa-question-circle font-grey-salt" style="font-size: 16px;"></i>
-            </p>
+            <i class="fa fa-question-circle font-grey-salt hidden" style="font-size: 16px;" data-toggle="tooltip" data-placement="top" title="This is a tooltip"></i>
           </div>
           <div class="actions">
             <a class="btn btn-circle btn-default" href="#/newhandbook">
@@ -35,14 +33,16 @@
 
 <!-- BEGIN MAIN CONTENT -->
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-xs-12">
     <div class="portlet light">
       <table class="table table-bordered table-hover">
+        <th class="text-center" style="width: 7%;"><small>Active</small></th>
         <th class="text-center" style="width: 7%;"><small>Edit</small></th>
-        <th style="width: 65%">Title</th>
-        <th style="width: 28%">Updated</th>
+        <th style="width: 64%">Title</th>
+        <th style="width: 22%">Updated</th>
 
         <tr ng-repeat= "handbook in handbooks" >
+          <td class="text-center"><input type="radio" name="defaultHandbook" value="default"></td>
           <td class="text-center">
             <a href="#/handbook_editor/{{handbook._id}}">
               <i class="fa fa-pencil-square-o font-blue"></i>
@@ -61,5 +61,8 @@
 
 <!-- BEGIN MAIN JS-->
 <script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
 </script>
 <!-- BEGIN MAIN JS -->
