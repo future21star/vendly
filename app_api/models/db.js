@@ -50,3 +50,4 @@ require('./users');
 require('./contacts');
 require('./events');
 require('./booklets');
+require('./files');

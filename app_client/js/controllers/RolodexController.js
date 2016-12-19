@@ -9,10 +9,8 @@ angular.module('MetronicApp').controller('RolodexController', ['$rootScope', '$s
         $rootScope.settings.layout.pageSidebarClosed = false;
     });
     
-    var vm = this;
-
     $scope.clients = {};
-    
+
     loadRolodex = function () {
         meanData.getRolodex()
             .success(function(data) {
@@ -25,18 +23,20 @@ angular.module('MetronicApp').controller('RolodexController', ['$rootScope', '$s
     };
     
     loadRolodex();
-      
-    $scope.onSubmit = function () {
+
+    $scope.contact = {};
+    $scope.onContactSubmit = function () {
         $scope.contact.name = $scope.firstname + ' ' + $scope.lastname;
         console.log('Submitting contact ' + $scope.contact.name);
         meanData.saveContact($scope.contact)
-        .error(function(e){
-            console.log(e);
-        })
-        .then(function(){
-            $('#add_client').modal('hide');
-            loadRolodex();
-        });
+            .error(function(e){
+                console.log(e);
+            })
+            .then(function(){
+                $('#add_client').modal('hide');
+                toastr.success('An invitation email has been sent to them to access your handbook.', 'Client Added');
+                loadRolodex();
+            });
     };
     
     $scope.viewContact = function(client) {
@@ -47,4 +47,9 @@ angular.module('MetronicApp').controller('RolodexController', ['$rootScope', '$s
         $('#clientbalancedue').html(client.balanceDue);
     };
     
+    $('#viewfulldetails').click(function () {
+        $('.modal-backdrop').remove();
+    });
+
+    ComponentsDateTimePickers.init(); // init todo page
 }]);

@@ -130,7 +130,7 @@
             return this._processing;
         },
 
-        // Processes the files given as files property of the data parameter,
+        // Processes the files.js given as files.js property of the data parameter,
         // returns a Promise object that allows to bind callbacks:
         process: function (data) {
             var that = this,

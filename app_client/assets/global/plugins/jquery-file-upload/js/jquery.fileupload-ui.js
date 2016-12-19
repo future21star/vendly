@@ -62,7 +62,7 @@
             // The container for the list of files. If undefined, it is set to
             // an element with class "files" inside of the widget element:
             filesContainer: undefined,
-            // By default, files are appended to the files container.
+            // By default, files.js are appended to the files.js container.
             // Set the following option to true, to prepend files instead:
             prependFiles: false,
             // The expected data type of the upload response, sets the dataType

@@ -20,7 +20,7 @@
         <div class="portlet light profile-sidebar-portlet ">
             <!-- SIDEBAR USERPIC -->
             <div class="profile-userpic">
-                <img src="{{settings.layoutPath}}/img/avatar.png" class="img-responsive" alt="Jane Doe"> </div>
+                <img src="{{user_settings.avatar}}" class="img-responsive"> </div>
             <!-- END SIDEBAR USERPIC -->
             <!-- SIDEBAR USER TITLE -->
             <div class="profile-usertitle">
@@ -111,21 +111,21 @@
                         <div class="form-group">
                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                 <div class="fileinput-new thumbnail" style="width: 200px; height: 200px;">
-                                  <img src="{{settings.layoutPath}}/img/avatar.png" alt="Vendly Venue" height="100%" width="100%" />
+                                  <img id="preview" src="{{settings.layoutPath}}/img/avatar.png" alt="Vendly Venue" height="100%" width="100%" />
                                 </div>
                                 <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 200px;"> </div>
                                 <div>
                                   <span class="btn default btn-file">
                                     <span class="fileinput-new"> Select image </span>
                                     <span class="fileinput-exists"> Change </span>
-                                    <input type="file" name="..." />
+                                    <input type="file" id="avatarImg" />
                                   </span>
                                   <a href="javascript:;" class="btn default fileinput-exists" data-dismiss="fileinput"> Remove </a>
                                 </div>
                             </div>
                         </div>
                         <div class="margin-top-10">
-                            <a href="javascript:;" class="btn blue"> Save Changes </a>
+                            <a href="javascript:;" class="btn blue" ng-click="uploadImage()"> Save Changes </a>
                             <a href="javascript:;" class="btn default"> Cancel </a>
                         </div>
                     </form>

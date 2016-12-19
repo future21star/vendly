@@ -16,7 +16,7 @@
 <!-- END PAGE BAR -->
 
 <!-- BEGIN MAIN CONTENT -->
-<div class="row" ng-controller="CalendarController">
+<div class="row">
   <div class="col-md-12">
     <!-- BEGIN: ACCORDION DEMO -->
     <div class="portlet light" style="padding-bottom: 0;">
@@ -55,9 +55,9 @@
                       </p>
                       <h4 style="text-decoration: underline; font-style: italic;">Upcoming Events:</h4>
                         <ul style="list-style: none; padding: 0;">
-                          <li>
-                            <span style="background-color: #EEEEEE;">[Date]</span> Launching Vendly! <!-- Needs restyling. Basic list of 10 upcoming events -->
-                          </li>
+                            <li ng-repeat= "nextevent in comingevents">
+                                <span style="background-color: #EEEEEE;">[{{nextevent.start}}]</span> - {{nextevent.title}} <!-- Needs restyling. Basic list of 10 upcoming events -->
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
   </div>
     
     <!-- BEGIN Add Event Modal -->
-  <div id="add_event" class="modal fade" role="dialog" aria-labelledby="myModalLabel10" aria-hidden="true">
+    <div id="add_event" class="modal fade" role="dialog" aria-labelledby="myModalLabel10" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -110,8 +110,10 @@
                             </span>
                         </div>
                     </div>
+
                   </div>
                 </div>
+
               </div>
               <div class="modal-footer">
                 <button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
@@ -123,48 +125,70 @@
       </div>
     </div>
   </div>
-<!-- END Add Event Modal -->
+    <!-- END Add Event Modal -->
     
-<!-- Start view event modal -->
-<div id="fullCalModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
-                <h2 id="modalTitle" class="modal-title"></h2>
-            </div>
-            <div id="modalBody" class="modal-body">
-        
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="eventtitle">Event Name</label>
-                            <input type="text" class="form-control" id="eventtitle">
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="eventstart">Event Start</label>
-                            <input type='text' class="form-control" id="eventstart">
-                        </div>
+    <!-- Start view event modal -->
+    <div id="edit_event" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+                    <h2 id="modalTitle" class="modal-title"> Edit Event </h2>
+                </div>
+                <div class="modal-body">
+                    <div class="portlet light form no-margin">
+                        <!-- BEGIN FORM-->
+                        <form ng-submit="onEditSubmit()" class="form-horizontal">
+                            <div class="form-body">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <span class="help-block"> Event Name </span>
+                                            <input class="form-control" type="text" required="required" id="eventtitle" ng-model="event.title"/>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span class="help-block"> Description </span>
+                                            <input class="form-control" type="text" required="required" id="description" ng-model="event.description"/>
+                                        </div>
+                                    </div>
+                                    <div class="padding-bottom-10 padding-top-10"></div>
+                                    <input type="hidden" id="eventId" ng-model="event._id" />
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <span class="help-block"> Event Start </span>
+                                            <div class='input-group date' id='eventstartpicker'>
+                                                <input type='text' class="form-control" placeholder="Enter date start" id="eventstart" ng-model="event.start">
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span class="help-block"> Event End </span>
+                                            <div class='input-group date' id='eventendpicker'>
+                                                <input type='text' class="form-control" placeholder="Enter date end" id="eventend" ng-model="event.end">
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
 
-                        <div class="col-md-6">
-                            <label for="eventend">Event End</label>
-                            <input type='text' class="form-control" id="eventend">
-                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
+                                <input class="btn blue" type="submit" value="Save Changes" />
+                            </div>
+                        </form>
                     </div>
-            
+                </div>
             </div>
-<!--
-            <div class="modal-footer">
-            </div>
--->
         </div>
     </div>
-</div>
-<!-- End view event modal -->
- 
-    
+    <!-- End view event modal -->
+
 </div>
 
 <script src="../assets/global/plugins/moment.min.js" type="text/javascript"></script>

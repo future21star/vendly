@@ -199,7 +199,7 @@
             // once for each file selection.
             //
             // The upload starts when the submit method is invoked on the data parameter.
-            // The data object contains a files property holding the added files
+            // The data object contains a files.js property holding the added files.js
             // and allows you to override plugin options as well as define ajax settings.
             //
             // Listeners for this callback can also be bound the following way:

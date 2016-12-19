@@ -14,7 +14,8 @@ angular.module('MetronicApp')
     
     var vm = this;
     vm.event = {};
-    
+
+    $scope.comingevents = {};
     loadCalendar = function() {
 
         meanData.getCalendar()
@@ -28,39 +29,43 @@ angular.module('MetronicApp')
                     },
                     timezone: 'local',
                     eventClick: function(event, jsEvent, view) {
-                        $('#modalTitle').html(event.title);
+                        // $('#modalTitle').html(event.title);
+                        $('#eventId').val(event._id);
                         $('#eventtitle').val(event.title);
-                        $('#eventstart').val(event.start); //.format('LLL'));  TODO - fix formatting
-                        $('#eventend').val(event.end); //.format('LLL'));
-    //                    $('#modalBody').html(event.description);
+                        $('#description').val(event.description);
+                        $('#eventstartpicker').data("DateTimePicker").date(event.start._d);
+                        $('#eventendpicker').data("DateTimePicker").date(event.end._d);
 
-                        $('#fullCalModal').modal();
+                        $('#edit_event').modal();
                     }
+                });
+
+                $scope.comingevents = $.grep(data, function(e){
+                    var now = new Date().getTime();
+                    var thisdate = new Date(e.start).getTime();
+                    return thisdate > now;
+                });
+
+                $scope.comingevents.forEach(function(part, i, events) {
+                    events[i].start = moment(events[i].start).format('MM/DD ha');
                 });
             })
             .error(function (e) {
                 console.log(e);
             });
-    
+
     };
       
     $('#neweventbutton').click(function(){
         $('#neweventmodal').modal();
     });
-    
-    $('#starttimepicker')
-        .datetimepicker()
-        .on("dp.change", function() {
-        // TODO - come back and fix these
-            //$scope.event.start = $('#starttimepicker > input').val();
-        });
-      
-    $('#endtimepicker')
-        .datetimepicker()
-        .on("dp.change", function() {
-            //$scope.event.end = $('#endtimepicker > input').val();
-        });
-    
+
+    $('#eventstartpicker').datetimepicker();
+    $('#eventendpicker').datetimepicker();
+
+    $('#starttimepicker').datetimepicker();
+    $('#endtimepicker').datetimepicker();
+
     loadCalendar();
       
     $scope.onAddSubmit = function () {
@@ -77,6 +82,24 @@ angular.module('MetronicApp')
                 loadCalendar();
             });
     };
-   
+
+    $scope.event = {};
+    $scope.onEditSubmit = function () {
+        $scope.event.title = $('#eventtitle').val();
+        console.log('Editing event ' + $scope.event.title);
+        $scope.event.description = $('#description').val();
+        $scope.event.start = moment.utc($("#eventstartpicker").data("DateTimePicker").date()).valueOf();
+        $scope.event.end = moment.utc($("#eventendpicker").data("DateTimePicker").date()).valueOf();
+        $scope.event._id = $('#eventId').val();
+        meanData.updateEvent($scope.event)
+            .error(function (e) {
+                console.log(e);
+            })
+            .then(function () {
+                $('#edit_event').modal('hide');
+                loadCalendar();
+            })
+    };
+
 
 }]);
