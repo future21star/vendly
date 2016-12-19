@@ -1,7 +1,8 @@
+var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var File = mongoose.model('File');
 
-module.exports.saveFileName = function (req, res) {
+module.exports.saveFile = function (req, res) {
 
     if (!req.payload._id) {
         res.status(401).json({"message" : "UnauthorizedError: private profile"});

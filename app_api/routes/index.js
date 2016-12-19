@@ -9,10 +9,12 @@ var auth = jwt({
 var ctrlProfile = require('../controllers/profile');
 var ctrlAuth = require('../controllers/authentication');
 var amazons3 = require('../controllers/amazons3');
+var files = require('../controllers/files');
 
 // file upload
-router.get('/sign', amazons3.getSignedURL);
-router.get('/getImage', amazons3.getImage);
+router.get('/sign', auth, amazons3.getSignedURL);
+router.get('/getImage', auth, amazons3.getImage);
+router.post('/saveFile', auth, files.saveFile);
 
 // profile
 router.get('/profile', auth, ctrlProfile.profileRead);

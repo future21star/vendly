@@ -70,4 +70,14 @@ angular.module('MetronicApp')
         $('#preview').attr('src', URL.createObjectURL(file));
     });
 
+    $scope.user_settings = {};
+    meanData.getProfile()
+        .success(function(user) {
+            // TODO - make more secure
+            $scope.user_settings.avatar = 'https://ourstory-vendly.s3.amazonaws.com/' + user._id + '/avatar.png';
+        })
+        .error(function (e) {
+            console.log(e);
+        });
+
 }]);
