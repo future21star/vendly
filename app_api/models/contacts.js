@@ -5,7 +5,6 @@ var contactSchema = new mongoose.Schema({
     _owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     email: {
         type: String,
-        //unique: true,
         required: true
     },
     name: {

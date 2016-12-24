@@ -16,7 +16,7 @@ angular.module('MetronicApp')
     vm.event = {};
 
     $scope.comingevents = {};
-    loadCalendar = function() {
+    var loadCalendar = function() {
 
         meanData.getCalendar()
             .success(function(data) {
@@ -40,12 +40,19 @@ angular.module('MetronicApp')
                     }
                 });
 
+                // pulling out dates after today
                 $scope.comingevents = $.grep(data, function(e){
                     var now = new Date().getTime();
                     var thisdate = new Date(e.start).getTime();
                     return thisdate > now;
                 });
 
+                // sorting dates in order
+                $scope.comingevents.sort(function(x, y){
+                    return new Date(x.start).getTime() - new Date(y.start).getTime();
+                });
+
+                // formatting the dates
                 $scope.comingevents.forEach(function(part, i, events) {
                     events[i].start = moment(events[i].start).format('MM/DD ha');
                 });
@@ -73,13 +80,14 @@ angular.module('MetronicApp')
         $scope.event.start = moment.utc($("#starttimepicker").data("DateTimePicker").date()).valueOf();
         $scope.event.end = moment.utc($("#endtimepicker").data("DateTimePicker").date()).valueOf();
         meanData.saveEvent($scope.event)
+            .success(function () {
+                toastr.success('Event added successfully.', 'Event Added');
+                $('#calendar').fullCalendar( 'destroy' );
+                loadCalendar();
+                $('#add_event').modal('hide');
+            })
             .error(function(e){
                 console.log(e);
-            })
-            .then(function(){
-                $('#add_event').modal('hide');
-                // TODO - calendar reload not working
-                loadCalendar();
             });
     };
 
@@ -95,7 +103,9 @@ angular.module('MetronicApp')
             .error(function (e) {
                 console.log(e);
             })
-            .then(function () {
+            .success(function () {
+                toastr.success('Event updated successfully.', 'Event Updated');
+                $('#calendar').fullCalendar( 'destroy' );
                 $('#edit_event').modal('hide');
                 loadCalendar();
             })

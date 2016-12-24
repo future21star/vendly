@@ -203,8 +203,9 @@ module.exports.saveEvent = function(req, res) {
                     res.status(409).json({
                         "message" : err
                     });
+                } else {
+                    res.status(200).json(user);
                 }
-                res.send(user);
             });
             
         });
@@ -235,6 +236,8 @@ module.exports.updateEvent = function(req, res) {
                     res.status(409).json({
                         "message" : err
                     });
+                } else {
+                    res.status(200).json();
                 }
             }
         );

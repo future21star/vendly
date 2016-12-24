@@ -128,25 +128,28 @@
                   <uib-accordion-group heading="+ Invite Others" style="text-align: left;">
                     <div class="row" style="text-align: left;">
                       <div class="col-xs-12 margin-bottom-15">
-                        <input type="text" class="form-control" name="name" placeholder="Enter a name, business, or email address">
+                        <!--<input type="text" class="form-control" name="name" placeholder="Enter a name, business, or email address">-->
+                          <input type="text" class="form-control" name="name" placeholder="Enter an email address">
                       </div>
-                      <div class="col-xs-12">
-                        <button class="btn grey-gallery btn-outline btn-circle btn-small invite-btn">
-                          <img src="../assets/layouts/layout/img/avatar9.jpg" alt="" class="img-circle" style="height: 30px;"/>
-                          No Response
-                          <span>x</span>
-                        </button>
-                        <button class="btn red btn-outline btn-circle btn-small invite-btn">
-                          <img src="../assets/layouts/layout/img/avatar6.jpg" alt="" class="img-circle" style="height: 30px;"/>
-                          Rejected
-                          <span>x</span>
-                        </button>
-                        <button class="btn green-jungle btn-outline btn-circle btn-small invite-btn">
-                          <img src="../assets/layouts/layout/img/avatar11.jpg" alt="" class="img-circle" style="height: 30px;"/>
-                          Confirmed
-                          <span>x</span>
-                        </button>
-                      </div>
+
+                        <!--TODO: set up for invitations-->
+                      <!--<div class="col-xs-12">-->
+                        <!--<button class="btn grey-gallery btn-outline btn-circle btn-small invite-btn">-->
+                          <!--<img src="../assets/layouts/layout/img/avatar9.jpg" alt="" class="img-circle" style="height: 30px;"/>-->
+                          <!--No Response-->
+                          <!--<span>x</span>-->
+                        <!--</button>-->
+                        <!--<button class="btn red btn-outline btn-circle btn-small invite-btn">-->
+                          <!--<img src="../assets/layouts/layout/img/avatar6.jpg" alt="" class="img-circle" style="height: 30px;"/>-->
+                          <!--Rejected-->
+                          <!--<span>x</span>-->
+                        <!--</button>-->
+                        <!--<button class="btn green-jungle btn-outline btn-circle btn-small invite-btn">-->
+                          <!--<img src="../assets/layouts/layout/img/avatar11.jpg" alt="" class="img-circle" style="height: 30px;"/>-->
+                          <!--Confirmed-->
+                          <!--<span>x</span>-->
+                        <!--</button>-->
+                      <!--</div>-->
                     </div>
                   </uib-accordion-group>
                 </uib-accordion>
@@ -257,26 +260,26 @@
                                     </div>
                                     <div class="padding-bottom-10 padding-top-10"></div>
                                     <input type="hidden" id="eventId" ng-model="event._id" />
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <span class="help-block"> Event Start </span>
-                                            <div class='input-group date' id='eventstartpicker'>
-                                                <input type='text' class="form-control" placeholder="Enter date start" id="eventstart" ng-model="event.start">
-                                                <span class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-calendar"></span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <span class="help-block"> Event End </span>
-                                            <div class='input-group date' id='eventendpicker'>
-                                                <input type='text' class="form-control" placeholder="Enter date end" id="eventend" ng-model="event.end">
-                                                <span class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-calendar"></span>
-                                                </span>
-                                            </div>
-                                        </div>
 
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <span class="help-block"> Starts </span>
+                                            <div class="input-group date" id='eventstartpicker' style="width: 100%; display: table;">
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </span>
+                                                <input type='text' class="form-control" required placeholder="Enter date start" id="eventstart" ng-model="event.start">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <span class="help-block"> Ends </span>
+                                            <div class="input-group date" id='eventendpicker' style="width: 100%; display: table;">
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </span>
+                                                <input type='text' class="form-control" required placeholder="Enter date end" id="eventend" ng-model="event.end">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
