@@ -51,5 +51,23 @@ angular.module('MetronicApp').controller('RolodexController', ['$rootScope', '$s
         $('.modal-backdrop').remove();
     });
 
+    // Date toggle current and past customers
+    var currentClients = function(wedding, today) {
+        return wedding >= today;
+    };
+    var pastClients = function(wedding, today) {
+        return wedding < today;
+    };
+    $scope.dateFilterFunction = currentClients;
+    $scope.dateFilter = function (client) {
+        return $scope.dateFilterFunction(new Date(client.weddingdate).getDate(), new Date().getDate());
+    };
+    $scope.toggleCurrentClients = function () {
+        if ($scope.dateFilterFunction === pastClients)
+            $scope.dateFilterFunction = currentClients;
+        else
+            $scope.dateFilterFunction = pastClients;
+    };
+
     ComponentsDateTimePickers.init(); // init todo page
 }]);
