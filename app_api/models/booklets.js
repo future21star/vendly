@@ -7,7 +7,8 @@ var bookletSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    content: Object
+    content: Object,
+    updated_date: Date
 });
 
 mongoose.model('Booklet', bookletSchema);

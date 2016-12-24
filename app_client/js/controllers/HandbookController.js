@@ -35,6 +35,7 @@ angular.module('MetronicApp').controller('HandbookController', ['$rootScope', '$
 
                     formbuilder.on('save', function(payload){
                         $scope.handbook.content = payload;
+                        $scope.handbook.updated_date = moment.utc();
                         meanData.updateBooklet($scope.handbook)
                             .error(function(e){
                                 console.log(e);
