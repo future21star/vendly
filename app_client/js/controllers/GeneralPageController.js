@@ -75,6 +75,14 @@ angular.module('MetronicApp')
         .success(function(user) {
             // TODO - make more secure
             $scope.user_settings.avatar = 'https://ourstory-vendly.s3.amazonaws.com/' + user._id + '/avatar.png';
+            $scope.user_settings.name = user.name;
+            $scope.user_settings.email = user.email;
+            $scope.user_settings.phone = user.phone;
+            $scope.user_settings.website = user.website;
+            $scope.user_settings.bus_name = user.bus_name;
+
+            $scope.items = [{name: 'Venue'}, {name: 'Vendor'}, {name: 'Planner'}];  // TODO - have this info come from DB
+            $scope.item = {name: user.usertype};
         })
         .error(function (e) {
             console.log(e);

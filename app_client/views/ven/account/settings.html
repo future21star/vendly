@@ -90,27 +90,27 @@
                   <form action="#" role="form">
                     <div class="form-group col-xs-12">
                       <label class="control-label">Business</label>
-                      <input type="text" value="Vendly Venue" class="form-control" />
+                      <input type="text" value="{{user_settings.bus_name}}" class="form-control" />
                     </div>
                     <div class="form-group col-xs-12 col-md-6">
                       <label class="control-label">Primary Contact</label>
-                      <input type="email" value="Austin Teague" class="form-control" />
+                      <input type="email" value="{{user_settings.name}}" class="form-control" />
                     </div>
                     <div class="form-group col-xs-12 col-md-6">
                       <label class="control-label">Primary Email</label>
-                      <input type="email" value="info@vendly.com" class="form-control" />
+                      <input type="email" value="{{user_settings.email}}" class="form-control" />
                     </div>
                     <div class="form-group col-xs-12 col-md-6">
                       <label class="control-label">Phone Number</label>
-                      <input type="text" value="012-345-6789" class="form-control" />
+                      <input type="text" value="{{user_settings.phone}}" class="form-control" />
                     </div>
                     <div class="form-group col-xs-12 col-md-6">
                         <label class="control-label">Website</label>
-                        <input type="text" value="vendly.com" class="form-control" />
+                        <input type="text" value="{{user_settings.website}}" class="form-control" />
                       </div>
                     <div class="form-group col-xs-12">
-                      <label class="control-label">Business Type</label>
-                      <input type="text" value="Event Venue" class="form-control date-picker"   data-date-start-date="+0d" />
+                        <label class="control-label">Business Type</label>
+                        <select ng-model="item" ng-options="item.name for item in items track by item.name" class="form-control"></select>
                     </div>
                     <div class="margiv-top-10">
                       <a href="javascript:;" class="btn blue"> Save Changes </a>
@@ -147,10 +147,6 @@
                             <a href="javascript:;" class="btn default"> Cancel </a>
                         </div>
                       </div>
-                    </div>
-                    <div class="margin-top-10">
-                      <a href="javascript:;" class="btn blue"> Save Changes </a>
-                      <a href="javascript:;" class="btn default"> Cancel </a>
                     </div>
                   </form>
                 </div>
