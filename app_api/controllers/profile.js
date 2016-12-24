@@ -38,6 +38,38 @@ module.exports.profileRead = function(req, res) {
 
 };
 
+module.exports.updateProfile = function(req, res) {
+
+    if (!req.payload._id) {
+        res.status(401).json({
+            "message" : "UnauthorizedError: private profile"
+        });
+    } else {
+        User.findOneAndUpdate(
+            {
+                _id: req.payload._id
+            },
+            {
+                name: req.body.name,
+                email: req.body.email,
+                usertype: req.body.usertype,
+                phone: req.body.phone,
+                bus_name: req.body.bus_name,
+                website: req.body.website
+            },
+            function(err, user) {
+                if (err) {
+                    res.status(409).json({
+                        "message" : err
+                    });
+                } else {
+                    res.status(200).json();
+                }
+            }
+        );
+    }
+};
+
 module.exports.rolodexRead = function(req, res) {
 
   if (!req.payload._id) {

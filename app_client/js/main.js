@@ -167,6 +167,14 @@ MetronicApp.service('meanData', ['$http', 'authentication',
             });
         };
 
+        var updateProfile = function (profile) {
+            return $http.put('/api/updateProfile', profile, {
+                headers: {
+                    Authorization: 'Bearer ' + authentication.getToken()
+                }
+            });
+        };
+
         var getRolodex = function () {
             return $http.get('/api/rolodex', {
                 headers: {
@@ -249,6 +257,7 @@ MetronicApp.service('meanData', ['$http', 'authentication',
 
         return {
             getProfile: getProfile,
+            updateProfile: updateProfile,
             getRolodex: getRolodex,
             saveContact: saveContact,
             getCalendar: getCalendar,

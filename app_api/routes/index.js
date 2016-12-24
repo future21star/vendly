@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 var jwt = require('express-jwt');
 var auth = jwt({
-  secret: 'MY_SECRET', // TODO - put this in a config file
-  userProperty: 'payload'
+    secret: 'MY_SECRET', // TODO - put this in a config file
+    userProperty: 'payload'
 });
 
 var ctrlProfile = require('../controllers/profile');
@@ -18,6 +18,7 @@ router.post('/saveFile', auth, files.saveFile);
 
 // profile
 router.get('/profile', auth, ctrlProfile.profileRead);
+router.put('/updateProfile', auth, ctrlProfile.updateProfile);
 
 // rolodex contacts
 router.get('/rolodex', auth, ctrlProfile.rolodexRead);

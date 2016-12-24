@@ -90,30 +90,34 @@
                   <form action="#" role="form">
                     <div class="form-group col-xs-12">
                       <label class="control-label">Business</label>
-                      <input type="text" value="{{user_settings.bus_name}}" class="form-control" />
+                      <input type="text" ng-model="user_settings.bus_name" class="form-control" />
                     </div>
                     <div class="form-group col-xs-12 col-md-6">
                       <label class="control-label">Primary Contact</label>
-                      <input type="email" value="{{user_settings.name}}" class="form-control" />
+                      <input type="text" ng-model="user_settings.name" class="form-control" />
                     </div>
                     <div class="form-group col-xs-12 col-md-6">
                       <label class="control-label">Primary Email</label>
-                      <input type="email" value="{{user_settings.email}}" class="form-control" />
+                      <input type="email" ng-model="user_settings.email" class="form-control" />
                     </div>
                     <div class="form-group col-xs-12 col-md-6">
                       <label class="control-label">Phone Number</label>
-                      <input type="text" value="{{user_settings.phone}}" class="form-control" />
+                      <input type="text" ng-model="user_settings.phone" class="form-control" />
                     </div>
                     <div class="form-group col-xs-12 col-md-6">
                         <label class="control-label">Website</label>
-                        <input type="text" value="{{user_settings.website}}" class="form-control" />
+                        <input type="text" ng-model="user_settings.website" class="form-control" />
                       </div>
                     <div class="form-group col-xs-12">
                         <label class="control-label">Business Type</label>
-                        <select ng-model="item" ng-options="item.name for item in items track by item.name" class="form-control"></select>
+                        <select id="usertypeSelect" ng-model="user_settings.usertype" class="form-control">
+                            <option>Venue</option>
+                            <option>Vendor</option>
+                            <option>Planner</option>
+                        </select>
                     </div>
                     <div class="margiv-top-10">
-                      <a href="javascript:;" class="btn blue"> Save Changes </a>
+                      <a href="javascript:;" class="btn blue" ng-click="updateProfile()"> Save Changes </a>
                       <a href="javascript:;" class="btn default"> Cancel </a>
                     </div>
                   </form>

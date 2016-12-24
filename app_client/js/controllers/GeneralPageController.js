@@ -80,12 +80,26 @@ angular.module('MetronicApp')
             $scope.user_settings.phone = user.phone;
             $scope.user_settings.website = user.website;
             $scope.user_settings.bus_name = user.bus_name;
-
-            $scope.items = [{name: 'Venue'}, {name: 'Vendor'}, {name: 'Planner'}];  // TODO - have this info come from DB
-            $scope.item = {name: user.usertype};
+            $scope.user_settings.usertype = user.usertype;
+            $('#usertypeSelect').val(user.usertype);
         })
         .error(function (e) {
             console.log(e);
         });
 
+    $scope.updateProfile = function() {
+        for (var key in $scope.user_settings) {
+            var obj = $scope.user_settings[key];
+            if (typeof obj === 'undefined')
+                $scope.user_settings[key] = '';
+        }
+
+        meanData.updateProfile($scope.user_settings)
+            .success(function() {
+                toastr.success('Your profile info was successfully changed.', 'Settings Changed');
+            })
+            .error(function(e) {
+                toastr.error(e.message, 'Error');
+            });
+    };
 }]);
