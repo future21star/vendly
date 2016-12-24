@@ -10,6 +10,7 @@ var ctrlProfile = require('../controllers/profile');
 var ctrlAuth = require('../controllers/authentication');
 var amazons3 = require('../controllers/amazons3');
 var files = require('../controllers/files');
+var handbook = require('../controllers/handbook');
 
 // file upload
 router.get('/sign', auth, amazons3.getSignedURL);
@@ -34,9 +35,11 @@ router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
 
 // booklet
-router.get('/booklets', auth, ctrlProfile.bookletRead);
-router.post('/saveBooklet', auth, ctrlProfile.saveBooklet);
-router.put('/updateBooklet', auth, ctrlProfile.updateBooklet);
+router.get('/booklets', auth, handbook.bookletRead);
+router.post('/saveBooklet', auth, handbook.saveBooklet);
+router.put('/updateBooklet', auth, handbook.updateBooklet);
+router.put('/setActiveHandbook', auth, handbook.setActiveHandbook);
+router.get('/getActiveHandbook', auth, handbook.getActiveHandbook);
 
 // email
 router.post('/sendEmail', auth, ctrlProfile.sendEmail);

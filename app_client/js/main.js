@@ -159,100 +159,66 @@ MetronicApp.service('authentication', ['$http', '$window',
 MetronicApp.service('meanData', ['$http', 'authentication',
     function ($http, authentication) {
 
+        var auth = {
+            headers: {
+                Authorization: 'Bearer ' + authentication.getToken()
+            }
+        };
+
         var getProfile = function () {
-            return $http.get('/api/profile', {
-                headers: {
-                    Authorization: 'Bearer ' + authentication.getToken()
-                }
-            });
+            return $http.get('/api/profile', auth);
         };
 
         var updateProfile = function (profile) {
-            return $http.put('/api/updateProfile', profile, {
-                headers: {
-                    Authorization: 'Bearer ' + authentication.getToken()
-                }
-            });
+            return $http.put('/api/updateProfile', profile, auth);
         };
 
         var getRolodex = function () {
-            return $http.get('/api/rolodex', {
-                headers: {
-                    Authorization: 'Bearer ' + authentication.getToken()
-                }
-            });
+            return $http.get('/api/rolodex', auth);
         };
 
         var saveContact = function (contact) {
-            return $http.post('/api/saveContact', contact, {
-                headers: {
-                    Authorization: 'Bearer ' + authentication.getToken()
-                }
-            });
+            return $http.post('/api/saveContact', contact, auth);
         };
 
         var getCalendar = function () {
-            return $http.get('/api/calendar', {
-                headers: {
-                    Authorization: 'Bearer ' + authentication.getToken()
-                }
-            });
+            return $http.get('/api/calendar', auth);
         };
 
         var saveEvent = function (event) {
-            return $http.post('/api/saveEvent', event, {
-                headers: {
-                    Authorization: 'Bearer ' + authentication.getToken()
-                }
-            });
+            return $http.post('/api/saveEvent', event, auth);
         };
 
         var updateEvent = function (event) {
-            return $http.put('/api/updateEvent', event, {
-                headers: {
-                    Authorization: 'Bearer ' + authentication.getToken()
-                }
-            });
-        }
+            return $http.put('/api/updateEvent', event, auth);
+        };
 
         var getBooklets = function () {
-            return $http.get('/api/booklets', {
-                headers: {
-                    Authorization: 'Bearer ' + authentication.getToken()
-                }
-            });
+            return $http.get('/api/booklets', auth);
         };
 
         var saveBooklet = function (booklet) {
-            return $http.post('/api/saveBooklet', booklet, {
-                headers: {
-                    Authorization: 'Bearer ' + authentication.getToken()
-                }
-            });
+            return $http.post('/api/saveBooklet', booklet, auth);
         };
 
         var updateBooklet = function (booklet) {
-            return $http.put('/api/updateBooklet', booklet, {
-                headers: {
-                    Authorization: 'Bearer ' + authentication.getToken()
-                }
-            });
-        }
+            return $http.put('/api/updateBooklet', booklet, auth);
+        };
+
+        var setActiveHandbook = function (booklet) {
+            return $http.put('/api/setActiveHandbook', booklet, auth);
+        };
+
+        var getActiveHandbook = function () {
+            return $http.get('/api/getActiveHandbook', auth);
+        };
 
         var sendNewUserInviteEmail = function (user) {
-            return $http.post('/api/sendNewUserInviteEmail', user, {
-                headers: {
-                    Authorization: 'Bearer ' + authentication.getToken()
-                }
-            });
+            return $http.post('/api/sendNewUserInviteEmail', user, auth);
         };
 
         var sendEmail = function (email, subject, content) {
-            return $http.post('/api/sendEmail', user, {
-                headers: {
-                    Authorization: 'Bearer ' + authentication.getToken()
-                }
-            });
+            return $http.post('/api/sendEmail', user, auth);
         };
 
         return {
@@ -266,6 +232,8 @@ MetronicApp.service('meanData', ['$http', 'authentication',
             getBooklets: getBooklets,
             saveBooklet: saveBooklet,
             updateBooklet: updateBooklet,
+            getActiveHandbook: getActiveHandbook,
+            setActiveHandbook: setActiveHandbook,
             sendNewUserInviteEmail: sendNewUserInviteEmail,
             sendEmail: sendEmail
         };

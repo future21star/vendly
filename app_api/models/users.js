@@ -21,6 +21,7 @@ var userSchema = new mongoose.Schema({
     website: String,
     contacts: [{type: mongoose.Schema.Types.ObjectId, ref: 'Contact'}],
     events: [{type: mongoose.Schema.Types.ObjectId, ref: 'Event'}],
+    active_booklet: {type: mongoose.Schema.Types.ObjectId, ref: 'Booklet'},
     booklets: [{type: mongoose.Schema.Types.ObjectId, ref: 'Booklet'}],
     files: [{type: mongoose.Schema.Types.ObjectId, ref: 'Files'}],
     hash: String,

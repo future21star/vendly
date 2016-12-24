@@ -54,10 +54,28 @@ angular.module('MetronicApp').controller('HandbookController', ['$rootScope', '$
     formbuilder.on('save', function(payload){
         $scope.handbook.content = payload;
         meanData.saveBooklet($scope.handbook)
-        .error(function(e){
-            console.log(e);
-        })
-        .then(function(){
-        });
+            .error(function(e){
+                console.log(e);
+            })
+            .then(function(){
+            });
     });
+
+    meanData.getActiveHandbook()
+        .success(function(active_booklet) {
+            $scope.active_booklet = active_booklet._id;
+        })
+        .error(function (e) {
+            console.log(e);
+        });
+
+    $scope.setActiveBooklet = function (handbook) {
+        meanData.setActiveHandbook(handbook)
+            .success(function () {
+
+            })
+            .error(function (e) {
+                console.log(e);
+            });
+    };
 }]);
