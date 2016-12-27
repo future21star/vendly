@@ -90,7 +90,7 @@
                   <form action="#" role="form">
                     <div class="form-group col-xs-12">
                       <label class="control-label">Business</label>
-                      <input type="text" ng-model="user_settings.bus_name" class="form-control" />
+                      <input type="text" ng-model="user_settings.bus_name" value="{{user_settings.bus_name}}" class="form-control" />
                     </div>
                     <div class="form-group col-xs-12 col-md-6">
                       <label class="control-label">Primary Contact</label>
@@ -102,11 +102,11 @@
                     </div>
                     <div class="form-group col-xs-12 col-md-6">
                       <label class="control-label">Phone Number</label>
-                      <input type="text" ng-model="user_settings.phone" class="form-control" />
+                      <input type="text" ng-model="user_settings.phone" value="{{user_settings.phone}}" class="form-control" />
                     </div>
                     <div class="form-group col-xs-12 col-md-6">
                         <label class="control-label">Website</label>
-                        <input type="text" ng-model="user_settings.website" class="form-control" />
+                        <input type="text" ng-model="user_settings.website" value="{{user_settings.website}}" class="form-control" />
                       </div>
                     <div class="form-group col-xs-12">
                         <label class="control-label">Business Type</label>
@@ -150,9 +150,7 @@
                             <a href="javascript:;" class="btn blue" ng-click="uploadImage()"> Save Changes </a>
                             <a href="javascript:;" class="btn default"> Cancel </a>
                         </div>
-                      </div>
-                    </div>
-                  </form>
+                    </form>
                 </div>
                 <!-- END CHANGE AVATAR TAB -->
 
@@ -161,15 +159,15 @@
                   <form action="#">
                     <div class="form-group">
                       <label class="control-label">Current Password</label>
-                      <input type="password" class="form-control" /> </div>
+                      <input ng-model="user_settings.password" type="password" class="form-control" /> </div>
                     <div class="form-group">
                       <label class="control-label">New Password</label>
-                      <input type="password" class="form-control" /> </div>
+                      <input ng-model="user_settings.newPassword" type="password" class="form-control" /> </div>
                     <div class="form-group">
                       <label class="control-label">Re-type New Password</label>
                       <input type="password" class="form-control" /> </div>
                     <div class="margin-top-10">
-                      <a href="javascript:;" class="btn blue"> Change Password </a>
+                      <a href="javascript:;" ng-click="changePassword()" class="btn blue"> Change Password </a>
                       <a href="javascript:;" class="btn default"> Cancel </a>
                     </div>
                   </form>

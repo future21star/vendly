@@ -128,20 +128,24 @@ MetronicApp.service('authentication', ['$http', '$window',
             }
         };
 
-        register = function (user) {
+        var register = function (user) {
             return $http.post('/api/register', user).success(function (data) {
                 saveToken(data.token);
             });
         };
 
-        login = function (user) {
+        var login = function (user) {
             return $http.post('/api/login', user).success(function (data) {
                 saveToken(data.token);
             });
         };
 
-        logout = function () {
+        var logout = function () {
             clearToken();
+        };
+
+        var changePassword = function (user) {
+            return $http.put('/api/changePassword', user);
         };
 
         return {
@@ -151,7 +155,8 @@ MetronicApp.service('authentication', ['$http', '$window',
             isLoggedIn: isLoggedIn,
             register: register,
             login: login,
-            logout: logout
+            logout: logout,
+            changePassword: changePassword
         };
     }
 ]);

@@ -20,7 +20,8 @@ angular.module('MetronicApp')
     });
 }])
 
-.controller('GeneralPageController', ['$rootScope', '$scope', 'settings', 'meanData', 'amazons3', function($rootScope, $scope, settings, meanData, amazons3) {
+.controller('GeneralPageController', ['$rootScope', '$scope', 'settings', 'meanData', 'amazons3', 'authentication',
+function($rootScope, $scope, settings, meanData, amazons3, authentication) {
     $scope.$on('$viewContentLoaded', function() {
         // initialize core components
         App.initAjax();
@@ -99,6 +100,16 @@ angular.module('MetronicApp')
                 toastr.success('Your profile info was successfully changed.', 'Settings Changed');
             })
             .error(function(e) {
+                toastr.error(e.message, 'Error');
+            });
+    };
+
+    $scope.changePassword = function () {
+        authentication.changePassword($scope.user_settings)
+            .success(function () {
+                toastr.success('Your password was successfully changed.', 'Password Changed');
+            })
+            .error(function (e) {
                 toastr.error(e.message, 'Error');
             });
     };

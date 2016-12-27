@@ -1,43 +1,42 @@
-angular.module('MetronicApp').controller('LoginController', ['$location', 'authentication', '$scope', '$rootScope',  function($location, authentication, $scope, $rootScope) {
-    $scope.$on('$viewContentLoaded', function() {   
-    	// initialize core components
-    	App.initAjax();
+angular.module('MetronicApp').controller('LoginController', ['$location', 'authentication', '$scope', '$rootScope', function ($location, authentication, $scope, $rootScope) {
+    $scope.$on('$viewContentLoaded', function () {
+        // initialize core components
+        App.initAjax();
 
-    	// set default layout mode
-    	$rootScope.settings.layout.pageContentWhite = true;
+        // set default layout mode
+        $rootScope.settings.layout.pageContentWhite = true;
         $rootScope.settings.layout.pageBodySolid = false;
         $rootScope.settings.layout.pageSidebarClosed = false;
-        
-        
-        
+
+
     });
 
     $scope.onSubmit = function () {
-      authentication
-        .login($scope.credentials)
-        .error(function(err){
-          alert('Error: ' + err.message);
-        })
-        .then(function(){
-          $('.modal-backdrop').remove();
-          $location.path('dashboard');
-        });
+        authentication
+            .login($scope.credentials)
+            .error(function (err) {
+                toastr.error(err.message, 'Error');
+            })
+            .then(function () {
+                $('.modal-backdrop').remove();
+                $location.path('dashboard');
+            });
     };
-    
+
     $scope.onRegisterSubmit = function () {
         console.log('Submitting registration');
         authentication
             .register($scope.register)
-            .error(function(err){
-                alert(err);
+            .error(function (err) {
+                toastr.error(err, 'Error');
             })
-            .then(function(){
+            .then(function () {
                 $('.modal-backdrop').remove();
                 $location.path('/account/settings');
             });
     };
 
-    $('#registerButton').click(function(){
+    $('#registerButton').click(function () {
         $('#registerModal').modal('show');
     });
 
@@ -45,10 +44,10 @@ angular.module('MetronicApp').controller('LoginController', ['$location', 'authe
         backdrop: 'static',
         keyboard: false
     }).modal('show');
-    
+
     $('#confirmEmailModal').modal({
         backdrop: 'static',
         keyboard: false
     }).modal('show');
-    
+
 }]);

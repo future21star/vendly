@@ -34,6 +34,7 @@ router.put('/updateEvent', auth, ctrlProfile.updateEvent);
 // authentication
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
+router.put('/changePassword', ctrlAuth.changePassword);
 
 // booklet
 router.get('/booklets', auth, handbook.bookletRead);
