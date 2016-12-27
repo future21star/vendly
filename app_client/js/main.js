@@ -144,8 +144,10 @@ MetronicApp.service('authentication', ['$http', '$window',
             clearToken();
         };
 
-        var changePassword = function (user) {
-            return $http.put('/api/changePassword', user);
+        var changePassword = function () {
+            return $http.post('/api/changePassword', user).success(function (data) {
+                saveToken(data.token);
+            });
         };
 
         return {
@@ -322,7 +324,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProv
 
     $stateProvider
 
-    // Log out
+        // Log out
         .state('logout', {
             url: "/logout",
             templateUrl: "views/login.html",
@@ -451,7 +453,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProv
             url: "/dashboard",
             templateUrl: "views/ven/dashboard.html",
             data: {pageTitle: 'Dashboard'},
-            controller: "DashboardController",
+            // controller: "DashboardController",
             resolve: {
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load({
@@ -463,7 +465,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProv
                             '../assets/global/plugins/morris/raphael-min.js',
 
                             '../assets/pages/scripts/dashboard.min.js',
-                            'js/controllers/DashboardController.js',
+                            'js/controllers/DashboardController.js'
                         ]
                     });
                 }]
@@ -913,33 +915,27 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProv
 }]);
 
 /* Init global settings and run the app */
-MetronicApp.run(["$rootScope", "settings", "$state", "authentication", "$location", "editableOptions", function ($rootScope, settings, $state, authentication, $location, editableOptions, theme) {
-    $rootScope.$on('$locationChangeStart', function (event, nextRoute, currentRoute) {
-        if (!authentication.isLoggedIn()) {
-            // TODO fix this so it isn't logging in automatically
-            $location.path('/login');
+MetronicApp.run(["$rootScope", "settings", "$state", "authentication", "$location", "editableOptions", "meanData",
+    function ($rootScope, settings, $state, authentication, $location, editableOptions, meanData) {
+        $rootScope.$on('$locationChangeStart', function (event, nextRoute, currentRoute) {
+            if (!authentication.isLoggedIn()) {
+                $location.path('/login');
+            } else {
+                meanData.getProfile()
+                    .success(function(data) {
+                        $rootScope.userlogintype = data.usertype;
+                    })
+                    .error(function (e) {
+                        console.log(e);
+                    });
+            }
 
-//            var creds = {
-//                email : "seth@vendly.com",
-//                password : "seth"
-//            };
+            if ($location.path() === '' && authentication.isLoggedIn())
+                $location.path('/dashboard');
+        });
 
-//            authentication
-//                .login(creds)
-//                .error(function(err){
-//                  alert('Error: ' + err.message);
-//                })
-//                .then(function(){
-//                  $location.path('dashboard');
-//                });
-        }
-
-        if ($location.path() === '' && authentication.isLoggedIn()) {
-            $location.path('/dashboard');
-        }
-    });
-
-    $rootScope.$state = $state; // state to be accessed from view
-    $rootScope.$settings = settings; // state to be accessed from view
-    editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
-}]);
+        $rootScope.$state = $state; // state to be accessed from view
+        $rootScope.$settings = settings; // state to be accessed from view
+        editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+    }]
+);
