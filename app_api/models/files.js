@@ -6,7 +6,8 @@ var fileSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
-    }
+    },
+    uploaded: Date
 });
 
 mongoose.model('File', fileSchema);

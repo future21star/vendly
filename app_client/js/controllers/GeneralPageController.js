@@ -62,7 +62,7 @@ angular.module('MetronicApp')
     $scope.uploadImage = function() {
         var file = $('#avatarImg')[0].files[0];
         if (!file) return;
-        amazons3.uploadImage(file);
+        amazons3.uploadAvatar(file);
     };
     
     $('#avatarImg').change(function () {

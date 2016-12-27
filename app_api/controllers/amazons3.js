@@ -35,6 +35,6 @@ module.exports.getSignedURL = function (req, res) {
     }
 };
 
-module.exports.getImage = function (req, res) {
+module.exports.getFilePath = function (req, res) {
     return 'https://' + S3_BUCKET + '.s3.amazonaws.com/' + req.body.filename;
 };

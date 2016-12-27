@@ -23,7 +23,7 @@ var userSchema = new mongoose.Schema({
     events: [{type: mongoose.Schema.Types.ObjectId, ref: 'Event'}],
     active_booklet: {type: mongoose.Schema.Types.ObjectId, ref: 'Booklet'},
     booklets: [{type: mongoose.Schema.Types.ObjectId, ref: 'Booklet'}],
-    files: [{type: mongoose.Schema.Types.ObjectId, ref: 'Files'}],
+    files: [{type: mongoose.Schema.Types.ObjectId, ref: 'File'}],
     hash: String,
     salt: String
 });

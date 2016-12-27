@@ -12,10 +12,11 @@ var amazons3 = require('../controllers/amazons3');
 var files = require('../controllers/files');
 var handbook = require('../controllers/handbook');
 
-// file upload
+// files
 router.get('/sign', auth, amazons3.getSignedURL);
-router.get('/getImage', auth, amazons3.getImage);
+router.get('/getFilePath', auth, amazons3.getFilePath);
 router.post('/saveFile', auth, files.saveFile);
+router.get('/getFiles', auth, files.getFiles);
 
 // profile
 router.get('/profile', auth, ctrlProfile.profileRead);

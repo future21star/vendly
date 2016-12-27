@@ -221,6 +221,14 @@ MetronicApp.service('meanData', ['$http', 'authentication',
             return $http.post('/api/sendEmail', user, auth);
         };
 
+        var getDocuments = function () {
+            return $http.get('/api/getFiles', auth);
+        };
+
+        var saveDocument = function (document) {
+            return $http.post('/api/saveFile', document, auth);
+        };
+
         return {
             getProfile: getProfile,
             updateProfile: updateProfile,
@@ -235,15 +243,25 @@ MetronicApp.service('meanData', ['$http', 'authentication',
             getActiveHandbook: getActiveHandbook,
             setActiveHandbook: setActiveHandbook,
             sendNewUserInviteEmail: sendNewUserInviteEmail,
-            sendEmail: sendEmail
+            sendEmail: sendEmail,
+            getDocuments: getDocuments,
+            saveDocument: saveDocument
         };
     }
 ]);
 
 MetronicApp.service('amazons3', ['$http', 'authentication',
     function ($http, authentication) {
-        var uploadImage = function (file) {
+        var uploadFile = function (file) {
             sign_request(file).success(function (response) {
+                upload(file.file, response.signed_request, response.url, function () {
+                    // document.getElementById("preview").src = response.url
+                });
+            });
+        };
+
+        var uploadAvatar = function (file) {
+            sign_avatar(file).success(function (response) {
                 upload(file, response.signed_request, response.url, function () {
                     document.getElementById("preview").src = response.url
                 });
@@ -268,6 +286,14 @@ MetronicApp.service('amazons3', ['$http', 'authentication',
         }
 
         function sign_request(file) {
+            return $http.get("/api/sign?file_name=" + file.name + "&file_type=" + file.file.type, {
+                headers: {
+                    Authorization: 'Bearer ' + authentication.getToken()
+                }
+            });
+        }
+
+        function sign_avatar(file) {
             // TODO remove avatar naming and change to file.name
             return $http.get("/api/sign?file_name=" + 'avatar.png' + "&file_type=" + file.type, {
                 headers: {
@@ -277,7 +303,8 @@ MetronicApp.service('amazons3', ['$http', 'authentication',
         }
 
         return {
-            uploadImage: uploadImage,
+            uploadFile: uploadFile,
+            uploadAvatar: uploadAvatar,
             getImage: getImage
         };
     }
@@ -362,14 +389,14 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProv
             url: "/documents",
             templateUrl: "views/documents.html",
             data: {pageTitle: 'Uploaded Documents'},
-            controller: "GeneralPageController",
+            controller: "DocumentsController",
             resolve: {
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
                         insertBefore: '#ng_load_plugins_before', // load the above css files.js before a LINK element with this ID. Dynamic CSS files.js must be loaded between core and theme css files.js
                         files: [
-                            'js/controllers/GeneralPageController.js'
+                            'js/controllers/DocumentsController.js'
                         ]
                     });
                 }]

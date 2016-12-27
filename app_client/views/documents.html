@@ -1,190 +1,124 @@
 <!-- BEGIN PAGE HEADER-->
 <div class="page-bar">
-  <ul class="page-breadcrumb">
-      <li>
-          <a href="#/dashboard">Dashboard</a>
-          <i class="fa fa-circle"></i>
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="#/dashboard">Dashboard</a>
+            <i class="fa fa-circle"></i>
         </li>
-      <li>
-          <span> Documents </span>
+        <li>
+            <span> Documents </span>
         </li>
     </ul>
 </div>
 <!-- END PAGE HEADER-->
+
 <!-- BEGIN MAIN CONTENT -->
-<div class="row" ng-controller="GeneralPageController">
-  <div class="col-xs-12">
-    <!-- BEGIN: ACCORDION DEMO -->
-    <div class="portlet light">
-      <div class="portlet-title">
-        <div class="page-title">
-          My Documents
+<div class="row">
+    <div class="col-xs-12">
+        <!-- BEGIN: ACCORDION DEMO -->
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="page-title">
+                    My Documents
+                </div>
+                <div class="actions">
+                    <a class="btn btn-circle btn-default" data-target="#add_doc" data-toggle="modal">
+                        <i class="fa fa-cloud-upload"></i>
+                        Upload Document
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="actions">
-          <a class="btn btn-circle btn-default" data-target="#add_client" data-toggle="modal">
-            <i class="fa fa-cloud-upload"></i>
-            Upload Document
-          </a>
-        </div>
-      </div>
     </div>
-  </div>
 </div>
 
-<!-- Client Rolodex -->
 <div class="row">
-  <div class="col-xs-12">
-    <form class="form-inline well-sm">
-      <div class="form-control">
-        <span class="fa fa-search font-blue" style="opacity: .45;"></span>
-        <input type="text" style="border: transparent;" placeholder="Search...">
-      </div>
-    </form>
-  </div>
-
-  <div class="col-xs-12">
-    <div ng-controller="GeneralPageController" class="portlet light">
-      <table class="table table-bordered table-hover">
-        <th class="text-center" style="width: 7%;"><small>View</small></th>
-        <th style="width: 35%">Title</th>
-        <th style="width: 58%">Notes</th>
-
-        <tr>
-          <td class="text-center">
-            <a data-target="#client_details" data-toggle="modal" ng-click="viewDocument(document)">
-              <i class="fa fa-external-link font-blue"></i>
-            </a>
-          </td>
-          <td>Vendly Venue Document</td>
-          <td><a href="#" editable-text="documents.note" e-label="">{{ documents.note || 'Add a short description about this document' }}</a></td>
-        <!-- <tr ng-repeat= "document in documents" >
-          <td class="text-center">
-            <a data-target="#client_details" data-toggle="modal" ng-click="viewDocument(document)">
-              <i class="fa fa-external-link font-blue"></i>
-            </a>
-          </td>
-          <td>{{ document.name }}</td>
-          <td>{{ document.upload_date | date:"longDate" }}</td> -->
-        </tr>
-      </table>
+    <div class="col-xs-12">
+        <form class="form-inline well-sm">
+            <div class="form-control">
+                <span class="fa fa-search font-blue" style="opacity: .45;"></span>
+                <input type="text" style="border: transparent;" ng-model="searchText" placeholder="Search...">
+            </div>
+        </form>
     </div>
 
-  </div>
+    <div class="col-xs-12">
+        <div class="portlet light">
+            <table class="table table-bordered table-hover">
+                <th class="text-center" style="width: 7%;">
+                    <small>View</small>
+                </th>
+                <th style="width: 35%">Title</th>
+                <th style="width: 58%">Uploaded</th>
+
+                <tr>
+                <tr ng-repeat="document in documents | filter:searchText">
+                    <td class="text-center">
+                        <a data-target="#client_details" data-toggle="modal" ng-click="viewDocument(document)">
+                            <i class="fa fa-external-link font-blue"></i>
+                        </a>
+                    </td>
+                    <td>{{ document.name }}</td>
+                    <td>{{ document.uploaded | date:"longDate" }}</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
 </div>
 <!-- END MAIN CONTENT -->
 
-<!-- BEGIN Add Client Modal -->
-  <div id="add_client" class="modal fade" role="dialog">
+<!-- BEGIN Add doc Modal -->
+<div id="add_doc" class="modal fade" role="dialog">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title bold">
-            Upload Document
-          </h4>
-        </div>
-        <div class="modal-body">
-          <div class="portlet light form no-margin">
-            <div class="portal-body">
-              <div class="row padding-bottom-20">
-                <div class="col-xs-12">
-                  <span class="help-block"> Title </span>
-                  <input class="form-control" type="text" required="required"/>
-                </div>
-              </div>
-              <div class="row padding-bottom-20" ng-controller="FileUploadCtrl" nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter">
-                <div class="col-xs-12 hidden-xs hidden-sm">
-                  <div ng-show="uploader.isHTML5">
-                    <!-- 3. nv-file-over uploader="link" over-class="className" -->
-                    <div class="file-drop-zone margin-bottom-20 hidden" nv-file-over="" uploader="uploader" over-class="file-drop-zone-over"> Base drop zone </div>
-                    <!-- Example: nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" -->
-                    <div nv-file-drop="" uploader="uploader" options="{ url: '/foo' }">
-                        <div nv-file-over="" uploader="uploader" over-class="file-drop-zone-over" class="file-drop-zone margin-bottom-20">
-                          <strong>Drop File Here</strong>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title bold">
+                    Upload Document
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="portlet light form no-margin">
+                    <div class="portal-body">
+                        <div class="row padding-bottom-20">
+                            <div class="col-xs-12">
+                                <span class="help-block"> Title </span>
+                                <input ng-model="document.filename" class="form-control" type="text"
+                                       required="required"/>
+                            </div>
+                        </div>
+                        <div class="row padding-bottom-20" nv-file-drop="" uploader="uploader"
+                             filters="queueLimit, customFilter">
+                            <div class="col-xs-12 hidden-xs hidden-sm">
+                                <div ng-show="uploader.isHTML5">
+                                    <!-- 3. nv-file-over uploader="link" over-class="className" -->
+                                    <div class="file-drop-zone margin-bottom-20 hidden" nv-file-over=""
+                                         uploader="uploader" over-class="file-drop-zone-over"> Base drop zone
+                                    </div>
+                                    <!-- Example: nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" -->
+                                    <div nv-file-drop="" uploader="uploader" options="{ url: '/foo' }">
+                                        <div nv-file-over="" uploader="uploader" over-class="file-drop-zone-over"
+                                             class="file-drop-zone margin-bottom-20">
+                                            <strong>Drop File Here</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
+                                Browse For File:
+                                <input id="newDoc" type="file" nv-file-select="" uploader="uploader"
+                                       style="width: 100%;"/>
+                            </div>
                         </div>
                     </div>
-                  </div>
                 </div>
-                <div class="col-xs-12">
-                  <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
-                  Browse For File:
-                  <input type="file" nv-file-select="" uploader="uploader" style="width: 100%;" />
-                </div>
-              </div>
             </div>
-          </div>
+            <div class="modal-footer">
+                <button class="btn default" data-dismiss="modal">Cancel</button>
+                <button class="btn blue" type="button" ng-click="uploadDocument()">Upload</button>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button class="btn default" data-dismiss="modal" ng-click="item.cancel()" ng-disabled="!item.isUploading">Cancel</button>
-          <button class="btn blue" type="button" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">Upload</button>
-        </div>
-      </div>
     </div>
-  </div>
-<!-- END Add Client Modal -->
-
-<!-- BEGIN MAIN JS-->
-<script type="text/javascript">
-  function FileUploadCtrl($scope, FileUploader)
-  {
-      var uploader = $scope.uploader = new FileUploader(
-      {
-        url: '../assets/global/plugins/angularjs/plugins/angular-file-upload/upload.php'
-      });
-      // FILTERS
-      uploader.filters.push(
-      {
-          name: 'customFilter',
-          fn: function(item /*{File|FileLikeObject}*/ , options)
-          {
-            return this.queue.length < 10;
-          }
-      });
-      // CALLBACKS
-      uploader.onWhenAddingFileFailed = function(item /*{File|FileLikeObject}*/ , filter, options)
-      {
-        console.info('onWhenAddingFileFailed', item, filter, options);
-      };
-      uploader.onAfterAddingFile = function(fileItem)
-      {
-        console.info('onAfterAddingFile', fileItem);
-      };
-      uploader.onAfterAddingAll = function(addedFileItems)
-      {
-        console.info('onAfterAddingAll', addedFileItems);
-      };
-      uploader.onBeforeUploadItem = function(item)
-      {
-        console.info('onBeforeUploadItem', item);
-      };
-      uploader.onProgressItem = function(fileItem, progress)
-      {
-        console.info('onProgressItem', fileItem, progress);
-      };
-      uploader.onProgressAll = function(progress)
-      {
-        console.info('onProgressAll', progress);
-      };
-      uploader.onSuccessItem = function(fileItem, response, status, headers)
-      {
-        console.info('onSuccessItem', fileItem, response, status, headers);
-      };
-      uploader.onErrorItem = function(fileItem, response, status, headers)
-      {
-        console.info('onErrorItem', fileItem, response, status, headers);
-      };
-      uploader.onCancelItem = function(fileItem, response, status, headers)
-      {
-        console.info('onCancelItem', fileItem, response, status, headers);
-      };
-      uploader.onCompleteItem = function(fileItem, response, status, headers)
-      {
-        console.info('onCompleteItem', fileItem, response, status, headers);
-      };
-      uploader.onCompleteAll = function()
-      {
-        console.info('onCompleteAll');
-      };
-      console.info('uploader', uploader);
-  };
-</script>
-<!-- BEGIN MAIN JS -->
+</div>
+<!-- END Add doc Modal -->
