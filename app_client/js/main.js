@@ -236,6 +236,10 @@ MetronicApp.service('meanData', ['$http', 'authentication',
             return $http.post('/api/saveFile', document, auth);
         };
 
+        var signUpUser = function (user) {
+            return $http.post('/api/signUpUser', user, auth);
+        };
+
         return {
             getProfile: getProfile,
             updateProfile: updateProfile,
@@ -252,7 +256,8 @@ MetronicApp.service('meanData', ['$http', 'authentication',
             sendNewUserInviteEmail: sendNewUserInviteEmail,
             sendEmail: sendEmail,
             getDocuments: getDocuments,
-            saveDocument: saveDocument
+            saveDocument: saveDocument,
+            signUpUser: signUpUser
         };
     }
 ]);

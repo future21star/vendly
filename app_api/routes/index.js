@@ -11,6 +11,7 @@ var ctrlAuth = require('../controllers/authentication');
 var amazons3 = require('../controllers/amazons3');
 var files = require('../controllers/files');
 var handbook = require('../controllers/handbook');
+var emails = require('../controllers/emails');
 
 // files
 router.get('/sign', auth, amazons3.getSignedURL);
@@ -44,7 +45,8 @@ router.put('/setActiveHandbook', auth, handbook.setActiveHandbook);
 router.get('/getActiveHandbook', auth, handbook.getActiveHandbook);
 
 // email
-router.post('/sendEmail', auth, ctrlProfile.sendEmail);
-router.post('/sendNewUserInviteEmail', auth, ctrlProfile.sendNewUserInviteEmail);
+router.post('/sendEmail', auth, emails.sendEmail);
+router.post('/sendNewUserInviteEmail', auth, emails.sendNewUserInviteEmail);
+router.post('/signUpUser', auth, emails.signUpUser);
 
 module.exports = router;

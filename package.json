@@ -44,7 +44,8 @@
     "nodemailer-mailgun-transport": "^1.2.2",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "superagent": "^3.3.1"
   },
   "devDependencies": {
     "glob": "^4.3.1"
