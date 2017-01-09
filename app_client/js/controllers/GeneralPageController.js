@@ -48,18 +48,6 @@ function($rootScope, $scope, settings, meanData, amazons3, authentication) {
       name: 'Untitled'
     };
     
-    $scope.onNewProvilegeUserSubmit = function () {
-        // save user data
-        
-        meanData.sendNewUserInviteEmail($scope.user)
-            .error(function(e){
-                console.log(e);
-            })
-            .then(function(){
-                $('#add_privilege_user').modal('hide');
-            });
-    };
-
     $scope.uploadImage = function() {
         var file = $('#avatarImg')[0].files[0];
         if (!file) return;
@@ -108,6 +96,35 @@ function($rootScope, $scope, settings, meanData, amazons3, authentication) {
         authentication.changePassword($scope.user_settings)
             .success(function () {
                 toastr.success('Your password was successfully changed.', 'Password Changed');
+            })
+            .error(function (e) {
+                toastr.error(e.message, 'Error');
+            });
+    };
+
+    $scope.myEmployees = {};
+    meanData.getEmployees()
+        .success(function (employees) {
+            $scope.myEmployees = employees;
+        })
+        .error(function (e) {
+            console.log(e);
+        });
+
+    $scope.saveEmployee = function () {
+        meanData.saveEmployee($scope.employee)
+            .success(function () {
+                toastr.success('Employee saved successfully.', 'Employee Saved');
+            })
+            .error(function (e) {
+                toastr.error(e.message, 'Error');
+            });
+    };
+
+    $scope.updateEmployees = function () {
+        meanData.updateEmployees($scope.employeeChanges)
+            .success(function () {
+                toastr.success('Employee settings changed successfully.', 'Changes Saved');
             })
             .error(function (e) {
                 toastr.error(e.message, 'Error');

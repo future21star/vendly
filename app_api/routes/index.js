@@ -12,6 +12,7 @@ var amazons3 = require('../controllers/amazons3');
 var files = require('../controllers/files');
 var handbook = require('../controllers/handbook');
 var emails = require('../controllers/emails');
+var employee = require('../controllers/employee');
 
 // files
 router.get('/sign', auth, amazons3.getSignedURL);
@@ -48,5 +49,9 @@ router.get('/getActiveHandbook', auth, handbook.getActiveHandbook);
 router.post('/sendEmail', auth, emails.sendEmail);
 router.post('/sendNewUserInviteEmail', auth, emails.sendNewUserInviteEmail);
 router.post('/signUpUser', auth, emails.signUpUser);
+
+// employee
+router.post('/saveEmployee', auth, employee.saveEmployee);
+router.get('/getEmployees', auth, employee.getEmployees);
 
 module.exports = router;
