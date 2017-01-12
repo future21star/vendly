@@ -241,6 +241,18 @@ MetronicApp.service('meanData', ['$http', 'authentication',
             return $http.post('/api/signUpUser', user, auth);
         };
 
+        var saveEmployee = function (employee) {
+            return $http.post('/api/saveEmployee', employee, auth);
+        };
+
+        var updateEmployees = function (employee) {
+            return $http.put('/api/updateEmployees', employee, auth);
+        };
+
+        var getEmployees = function () {
+            return $http.get('/api/getEmployees', auth);
+        };
+
         return {
             getProfile: getProfile,
             updateProfile: updateProfile,
@@ -258,7 +270,10 @@ MetronicApp.service('meanData', ['$http', 'authentication',
             sendEmail: sendEmail,
             getDocuments: getDocuments,
             saveDocument: saveDocument,
-            signUpUser: signUpUser
+            signUpUser: signUpUser,
+            saveEmployee: saveEmployee,
+            updateEmployees: updateEmployees,
+            getEmployees: getEmployees
         };
     }
 ]);
