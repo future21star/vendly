@@ -2,13 +2,13 @@ var passport = require('passport');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
-var sendJSONresponse = function (res, status, content) {
+var sendJSONresponse = function(res, status, content) {
     res.status(status);
     res.json(content);
 };
 
-module.exports.changePassword = function (req, res) {
-    passport.authenticate('local', function (err, user, info) {
+module.exports.changePassword = function(req, res) {
+    passport.authenticate('local', function(err, user, info) {
         if (err) {
             res.status(404).json(err);
             return;
@@ -17,15 +17,13 @@ module.exports.changePassword = function (req, res) {
         if (user) {
             user.setPassword(req.body.newPassword);
 
-            User.findOneAndUpdate(
-                { _id:user._id },
-                {
+            User.findOneAndUpdate({ _id: user._id }, {
                     salt: user.salt,
                     hash: user.hash
                 },
-                function (err) {
+                function(err) {
                     if (err)
-                        res.status(409).json({"message" : err});
+                        res.status(409).json({ "message": err });
                     else
                         res.status(200).json();
                 }
@@ -36,7 +34,9 @@ module.exports.changePassword = function (req, res) {
     })(req, res);
 };
 
-module.exports.register = function (req, res) {
+module.exports.register = function(req, res) {
+
+    console.log(`FROM AUTH`);
 
     // if(!req.body.name || !req.body.email || !req.body.password) {
     //   sendJSONresponse(res, 400, {
@@ -53,7 +53,7 @@ module.exports.register = function (req, res) {
 
     user.setPassword(req.body.password);
 
-    user.save(function (err) {
+    user.save(function(err) {
         if (err) {
             res.status(409).json(err.message);
             return;
@@ -69,7 +69,7 @@ module.exports.register = function (req, res) {
 
 };
 
-module.exports.login = function (req, res) {
+module.exports.login = function(req, res) {
 
     // if(!req.body.email || !req.body.password) {
     //   sendJSONresponse(res, 400, {
@@ -78,7 +78,7 @@ module.exports.login = function (req, res) {
     //   return;
     // }
 
-    passport.authenticate('local', function (err, user, info) {
+    passport.authenticate('local', function(err, user, info) {
         var token;
 
         // If Passport throws/catches an error

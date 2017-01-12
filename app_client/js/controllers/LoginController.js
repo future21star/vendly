@@ -1,6 +1,6 @@
 angular.module('MetronicApp').controller('LoginController', ['$location', 'authentication', '$scope', '$rootScope', 'meanData',
-    function ($location, authentication, $scope, $rootScope, meanData) {
-        $scope.$on('$viewContentLoaded', function () {
+    function($location, authentication, $scope, $rootScope, meanData) {
+        $scope.$on('$viewContentLoaded', function() {
             // initialize core components
             App.initAjax();
 
@@ -12,35 +12,35 @@ angular.module('MetronicApp').controller('LoginController', ['$location', 'authe
 
         });
 
-        $scope.onSubmit = function () {
+        $scope.onSubmit = function() {
             authentication
                 .login($scope.credentials)
-                .error(function (err) {
+                .error(function(err) {
                     toastr.error(err.message, 'Error');
                 })
-                .then(function () {
+                .then(function() {
                     $('.modal-backdrop').remove();
                     $location.path('dashboard');
                 });
         };
 
-        $scope.onRegisterSubmit = function () {
+        $scope.onRegisterSubmit = function() {
             console.log('Submitting registration');
             authentication
                 .register($scope.register)
-                .error(function (err) {
+                .error(function(err) {
                     toastr.error(err, 'Error');
                 })
-                .then(function () {
+                .then(function() {
                     meanData.signUpUser($scope.register)
-                        .success(function () {
+                        .success(function() {
                             $('.modal-backdrop').remove();
                             $location.path('/account/settings');
                         });
                 });
         };
 
-        $('#registerButton').click(function () {
+        $('#registerButton').click(function() {
             $('#registerModal').modal('show');
         });
 

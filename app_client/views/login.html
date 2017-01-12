@@ -1,28 +1,28 @@
 <style>
-.modal-backdrop.in {
-   opacity: 1;
-}
-.pac-container {
-    z-index: 100000 !important;
-}
+    .modal-backdrop.in {
+        opacity: 1;
+    }
+    
+    .pac-container {
+        z-index: 100000 !important;
+    }
 </style>
 
 <div ng-controller="LoginController">
-    
+
     <!-- BEGIN LOGIN MODAL CONTENT -->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                  <h4 class="modal-title bold">Welcome to Vendly</h4>
+                    <h4 class="modal-title bold">Welcome to Vendly</h4>
                 </div>
                 <div class="modal-body">
                     <div id="loginbody" class="row centerdiv">
                         <div class="col-xs-12">
-
                             <form ng-submit="onSubmit()">
                                 <div class="form-group">
-                                    <label for="email">Email address</label>
+                                    <label for="email">Email Address</label>
                                     <input type="email" class="form-control" id="email" placeholder="Email" ng-model="credentials.email">
                                 </div>
                                 <div class="form-group">
@@ -37,47 +37,47 @@
 
                         </div>
                     </div>
-                   
+
                 </div>
             </div>
         </div>
     </div>
     <!-- END LOGIN MODAL CONTENT -->
-    
+
     <!-- BEGIN REGISTER MODAL CONTENT -->
     <div class="modal fade" id="registerModal" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                  <h4 class="modal-title bold">Welcome to Vendly</h4>
+                    <h4 class="modal-title bold">Welcome to Vendly</h4>
                 </div>
                 <div class="modal-body">
                     <div id="loginbody" class="row centerdiv">
                         <div class="col-xs-12">
 
                             <form ng-submit="onRegisterSubmit()">
-                                
+
                                 <div class="form-group">
-                                    
+
                                     <div class="row">
                                         <div class="col-md-6">
                                             <span class="help-block"> First Name </span>
-                                            <input class="form-control" type="text" required="required" ng-model="register.firstname"/>
+                                            <input class="form-control" type="text" required="required" ng-model="register.firstname" />
                                         </div>
                                         <div class="col-md-6">
                                             <span class="help-block"> Last Name </span>
-                                            <input class="form-control" type="text" required="required" ng-model="register.lastname"/>
+                                            <input class="form-control" type="text" required="required" ng-model="register.lastname" />
                                         </div>
                                     </div>
                                     <div class="padding-bottom-10 padding-top-10"></div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <span class="help-block"> Email </span>
-                                            <input class="form-control" type="email" required="required" ng-model="register.email"/>
+                                            <input class="form-control" type="email" required="required" ng-model="register.email" />
                                         </div>
                                         <div class="col-md-6">
                                             <span class="help-block"> Password </span>
-                                            <input class="form-control" type="password" required="required" ng-model="register.password"/>
+                                            <input class="form-control" type="password" required="required" ng-model="register.password" />
                                         </div>
                                     </div>
                                     <div class="padding-bottom-10 padding-top-10"></div>
@@ -99,23 +99,23 @@
                                             <input ng-model="address" class="form-control" google-place/>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
-                                
+
                                 <div class="modal-footer">
                                     <button type="button" class="btn-default btn" data-dismiss="modal">Close</button>
                                     <button type="submit" class="btn btn-primary">Sign up</button>
                                 </div>
-                                
+
                             </form>
 
                         </div>
                     </div>
-                   
+
                 </div>
             </div>
         </div>
     </div>
     <!-- END REGISTER MODAL CONTENT -->
-    
+
 </div>
