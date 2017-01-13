@@ -37,25 +37,25 @@ app.use('/api', routesApi);
 // Otherwise render the index.html page for the Angular SPA
 // This means we don't have to map all of the SPA routes in Express
 app.use(function(req, res) {
-  res.sendFile(path.join(__dirname, 'app_client', 'index.html'));
+    res.sendFile(path.join(__dirname, 'app_client', 'index.html'));
 });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
 
 // error handlers
 
 // Catch unauthorised errors
-app.use(function (err, req, res, next) {
-  if (err.name === 'UnauthorizedError') {
-    res.status(401);
-    res.json({"message" : err.name + ": " + err.message});
-  }
+app.use(function(err, req, res, next) {
+    if (err.name === 'UnauthorizedError') {
+        res.status(401);
+        res.json({ "message": err.name + ": " + err.message });
+    }
 });
 
 // development error handler
@@ -73,11 +73,11 @@ if (app.get('env') === 'development') {
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: {}
+    });
 });
 
 module.exports = app;
