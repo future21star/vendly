@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
+var config = require('../config/config');
+var secret = config.MY_SECRET;
 
 var userSchema = new mongoose.Schema({
     email: {
@@ -19,26 +21,26 @@ var userSchema = new mongoose.Schema({
     phone: String,
     bus_name: String,
     website: String,
-    contacts: [{type: mongoose.Schema.Types.ObjectId, ref: 'Contact'}],
-    events: [{type: mongoose.Schema.Types.ObjectId, ref: 'Event'}],
-    active_booklet: {type: mongoose.Schema.Types.ObjectId, ref: 'Booklet'},
-    booklets: [{type: mongoose.Schema.Types.ObjectId, ref: 'Booklet'}],
-    files: [{type: mongoose.Schema.Types.ObjectId, ref: 'File'}],
+    contacts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Contact' }],
+    events: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Event' }],
+    active_booklet: { type: mongoose.Schema.Types.ObjectId, ref: 'Booklet' },
+    booklets: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Booklet' }],
+    files: [{ type: mongoose.Schema.Types.ObjectId, ref: 'File' }],
     hash: String,
     salt: String
 });
 
-userSchema.methods.setPassword = function (password) {
+userSchema.methods.setPassword = function(password) {
     this.salt = crypto.randomBytes(16).toString('hex');
     this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex');
 };
 
-userSchema.methods.validPassword = function (password) {
+userSchema.methods.validPassword = function(password) {
     var hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex');
     return this.hash === hash;
 };
 
-userSchema.methods.generateJwt = function () {
+userSchema.methods.generateJwt = function() {
     var expiry = new Date();
     expiry.setDate(expiry.getDate() + 7);
 
@@ -47,7 +49,7 @@ userSchema.methods.generateJwt = function () {
         email: this.email,
         name: this.name,
         exp: parseInt(expiry.getTime() / 1000),
-    }, "MY_SECRET"); // DO NOT KEEP YOUR SECRET IN THE CODE!
+    }, secret); // DO NOT KEEP YOUR SECRET IN THE CODE!
 };
 
 mongoose.model('User', userSchema);

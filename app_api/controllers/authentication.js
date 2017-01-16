@@ -1,7 +1,7 @@
 var passport = require('passport');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
-var app = require('../index.js');
+var app = require('../routes/index.js');
 
 var sendJSONresponse = function(res, status, content) {
     res.status(status);
@@ -36,8 +36,6 @@ module.exports = {
         })(req, res);
     },
     register: function(req, res) {
-
-        console.log(`FROM AUTH`);
 
         // if(!req.body.name || !req.body.email || !req.body.password) {
         //   sendJSONresponse(res, 400, {
