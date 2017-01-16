@@ -1,12 +1,13 @@
 var aws = require('aws-sdk');
+var config = require('../config/config');
 
 // var ACCESS_KEY = process.env.AWS_ACCESS_KEY_ID;
 // var SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY;
 // var S3_BUCKET = process.env.S3_BUCKET;
 
-var ACCESS_KEY = 'AKIAJ3WSO3VJCXEIHZVA';
-var SECRET_ACCESS_KEY = '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';
-var S3_BUCKET = 'ourstory-vendly';
+var ACCESS_KEY = config.ACCESS_KEY;
+var SECRET_ACCESS_KEY = config.SECRET_ACCESS_KEY;
+var S3_BUCKET = config.S3_BUCKET;
 module.exports = {
 
     getSignedURL: function(req, res) {
