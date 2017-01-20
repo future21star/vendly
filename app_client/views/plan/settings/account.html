@@ -1,304 +1,284 @@
 <!-- BEGIN PAGE BAR -->
 <div class="page-bar">
-  <ul class="page-breadcrumb">
-      <li>
-          <a href="#/dashboard">Dashboard</a>
-          <i class="fa fa-circle"></i>
-      </li>
-      <li>
-          <span>Account</span>
-      </li>
-  </ul>
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="#/dashboard">Dashboard</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>Account</span>
+        </li>
+    </ul>
 </div>
 <!-- END PAGE BAR -->
 <!-- END PAGE HEADER-->
 <div class="row" ng-controller="GeneralPageController">
-  <div class="col-xs-12">
-    <!-- BEGIN PROFILE SIDEBAR -->
-    <div class="profile-sidebar">
-        <!-- PORTLET MAIN -->
-        <div class="portlet light profile-sidebar-portlet ">
-            <!-- SIDEBAR USERPIC -->
-            <div class="profile-userpic">
-                <img src="{{settings.layoutPath}}/img/photo2.jpg" class="img-responsive" alt="Jane Doe"> </div>
-            <!-- END SIDEBAR USERPIC -->
-            <!-- SIDEBAR USER TITLE -->
-            <div class="profile-usertitle">
-                <div class="profile-usertitle-name"> Jane Doe </div>
-            </div>
-            <!-- END SIDEBAR USER TITLE -->
-
-            <!-- SIDEBAR MENU -->
-            <div class="profile-usermenu">
-                <ul class="nav">
-                    <li class="active">
-                        <a href="#settings/account">
-                            <i class="fa fa-home"></i> Account </a>
-                    </li>
-                    <li>
-                        <a href="#/settings/notifications">
-                          <i class="fa fa-bell"></i> Notifications
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#/finances">
-                          <i class="fa fa-credit-card"></i> Finances
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <!-- END MENU -->
-        </div>
-        <!-- END PORTLET MAIN -->
-    </div>
-    <!-- END BEGIN PROFILE SIDEBAR -->
-    <!-- BEGIN PROFILE CONTENT -->
-    <div class="profile-content">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="portlet light ">
-            <div class="portlet-title tabbable-line">
-              <ul class="nav nav-tabs">
-                <li class="active">
-                  <a href="#" data-target="#tab_1" data-toggle="tab">Profile Info</a>
-                </li>
-                <li>
-                  <a href="#" data-target="#tab_2" data-toggle="tab">Change Avatar</a>
-                </li>
-                <li>
-                  <a href="#" data-target="#tab_3" data-toggle="tab">Change Password</a>
-                </li>
-                <li>
-                  <a href="#" data-target="#tab_4" data-toggle="tab">Privileges</a>
-                </li>
-              </ul>
-            </div>
-
-            <div class="portlet-body">
-              <div class="tab-content">
-                <!-- PERSONAL INFO TAB -->
-                <div class="tab-pane" id="tab_1">
-                    <form action="#" role="form">
-                        <div class="form-group">
-                            <label class="control-label">First Name</label>
-                            <input type="text" value="Jane" class="form-control" /> </div>
-                        <div class="form-group">
-                            <label class="control-label">Last Name</label>
-                            <input type="text" value="Doe" class="form-control" /> </div>
-                        <div class="form-group">
-                            <label class="control-label">Email</label>
-                            <input type="email" value="jane.doe@vendly.com" class="form-control" /> </div>
-                        <div class="form-group">
-                            <label class="control-label">Phone Number</label>
-                            <input type="text" value="012-345-6789" class="form-control" /> </div>
-                        <div class="form-group">
-                            <label class="control-label">Event Date</label>
-                            <input type="text" value="June 11, 2017" class="form-control date-picker" data-date-start-date="+0d" /> </div>
-                        <div class="margiv-top-10">
-                            <a href="javascript:;" class="btn blue"> Save Changes </a>
-                            <a href="javascript:;" class="btn default"> Cancel </a>
-                        </div>
-                    </form>
+    <div class="col-xs-12">
+        <!-- BEGIN PROFILE SIDEBAR -->
+        <div class="profile-sidebar">
+            <!-- PORTLET MAIN -->
+            <div class="portlet light profile-sidebar-portlet ">
+                <!-- SIDEBAR USERPIC -->
+                <div class="profile-userpic">
+                    <img src="{{settings.layoutPath}}/img/photo2.jpg" class="img-responsive" alt="Jane Doe"> </div>
+                <!-- END SIDEBAR USERPIC -->
+                <!-- SIDEBAR USER TITLE -->
+                <div class="profile-usertitle">
+                    <div class="profile-usertitle-name"> Jane Doe </div>
                 </div>
-                <!-- END PERSONAL INFO TAB -->
-
-                <!-- CHANGE AVATAR TAB -->
-                <div class="tab-pane " id="tab_2">
-                    <p>
-                      Description of dimensions and file size limit.
-                    </p>
-                    <form action="#" role="form">
-                        <div class="form-group">
-                            <div class="fileinput fileinput-new" data-provides="fileinput">
-                                <div class="fileinput-new thumbnail" style="width: 200px; height: 200px;">
-                                  <img src="{{settings.layoutPath}}/img/photo2.jpg" alt="Jane Doe" height="100%" width="100%" />
+                <!-- END SIDEBAR USER TITLE -->
+                <!-- SIDEBAR MENU -->
+                <div class="profile-usermenu">
+                    <ul class="nav">
+                        <li class="active">
+                            <a href="#settings/account">
+                                <i class="fa fa-home"></i> Account </a>
+                        </li>
+                        <li>
+                            <a href="#/settings/notifications">
+                                <i class="fa fa-bell"></i> Notifications </a>
+                        </li>
+                        <li>
+                            <a href="#/finances">
+                                <i class="fa fa-credit-card"></i> Finances </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END MENU -->
+            </div>
+            <!-- END PORTLET MAIN -->
+        </div>
+        <!-- END BEGIN PROFILE SIDEBAR -->
+        <!-- BEGIN PROFILE CONTENT -->
+        <div class="profile-content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="portlet light ">
+                        <div class="portlet-title tabbable-line">
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#" data-target="#tab_1" data-toggle="tab">Profile Info</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-target="#tab_2" data-toggle="tab">Change Avatar</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-target="#tab_3" data-toggle="tab">Change Password</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-target="#tab_4" data-toggle="tab">Privileges</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="tab-content">
+                                <!-- PERSONAL INFO TAB -->
+                                <div class="tab-pane" id="tab_1">
+                                    <form action="#" role="form">
+                                        <div class="form-group">
+                                            <label class="control-label">First Name</label>
+                                            <input type="text" value="Jane" class="form-control" /> </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Last Name</label>
+                                            <input type="text" value="Doe" class="form-control" /> </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Email</label>
+                                            <input type="email" value="jane.doe@vendly.com" class="form-control" /> </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Phone Number</label>
+                                            <input type="text" value="012-345-6789" class="form-control" /> </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Event Date</label>
+                                            <input type="text" value="June 11, 2017" class="form-control date-picker" data-date-start-date="+0d" /> </div>
+                                        <div class="margiv-top-10">
+                                            <a href="javascript:;" class="btn blue"> Save Changes </a>
+                                            <a href="javascript:;" class="btn default"> Cancel </a>
+                                        </div>
+                                    </form>
                                 </div>
-                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 200px;"> </div>
-                                <div>
-                                  <span class="btn default btn-file">
-                                    <span class="fileinput-new"> Select image </span>
-                                    <span class="fileinput-exists"> Change </span>
-                                    <input type="file" name="..." />
-                                  </span>
-                                  <a href="javascript:;" class="btn default fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                                <!-- END PERSONAL INFO TAB -->
+                                <!-- CHANGE AVATAR TAB -->
+                                <div class="tab-pane " id="tab_2">
+                                    <p> Description of dimensions and file size limit. </p>
+                                    <form action="#" role="form">
+                                        <div class="form-group">
+                                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                <div class="fileinput-new thumbnail" style="width: 200px; height: 200px;">
+                                                    <img src="{{settings.layoutPath}}/img/photo2.jpg" alt="Jane Doe" height="100%" width="100%" /> </div>
+                                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 200px;"> </div>
+                                                <div>
+                                                    <span class="btn default btn-file">
+                                                        <span class="fileinput-new"> Select image </span>
+                                                        <span class="fileinput-exists"> Change </span>
+                                                        <input type="file" name="..." /> </span>
+                                                    <a href="javascript:;" class="btn default fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="margin-top-10">
+                                            <a href="javascript:;" class="btn blue"> Save Changes </a>
+                                            <a href="javascript:;" class="btn default"> Cancel </a>
+                                        </div>
+                                    </form>
                                 </div>
+                                <!-- END CHANGE AVATAR TAB -->
+                                <!-- CHANGE PASSWORD TAB -->
+                                <div class="tab-pane " id="tab_3">
+                                    <form action="#">
+                                        <div class="form-group">
+                                            <label class="control-label">Current Password</label>
+                                            <input type="password" class="form-control" /> </div>
+                                        <div class="form-group">
+                                            <label class="control-label">New Password</label>
+                                            <input type="password" class="form-control" /> </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Re-type New Password</label>
+                                            <input type="password" class="form-control" /> </div>
+                                        <div class="margin-top-10">
+                                            <a href="javascript:;" class="btn blue"> Change Password </a>
+                                            <a href="javascript:;" class="btn default"> Cancel </a>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- END CHANGE PASSWORD TAB -->
+                                <!-- PRIVACY SETTINGS TAB -->
+                                <div class="tab-pane active" id="tab_4">
+                                    <form action="#">
+                                        <table class="table table-light table-hover">
+                                            <th class="no-border-top border-bottom border-bottom-default"> </th>
+                                            <th class="no-border-top border-bottom border-bottom-default"> Submit Changes </th>
+                                            <th class="no-border-top border-bottom border-bottom-default"> Make Suggestions </th>
+                                            <th class="no-border-top border-bottom border-bottom-default"> View Details </th>
+                                            <tr>
+                                                <td> Jack Nicoles
+                                                    <br>
+                                                    <span class="small font-blue"> Groom </span>
+                                                </td>
+                                                <td align="center">
+                                                    <label class="mt-radio">
+                                                        <input type="radio" name="optionsRadios1" value="submit" checked />
+                                                        <span></span>
+                                                    </label>
+                                                </td>
+                                                <td align="center">
+                                                    <label class="mt-radio">
+                                                        <input type="radio" name="optionsRadios1" value="suggest" />
+                                                        <span></span>
+                                                    </label>
+                                                </td>
+                                                <td align="center">
+                                                    <label class="mt-radio">
+                                                        <input type="radio" name="optionsRadios1" value="view" />
+                                                        <span></span>
+                                                    </label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td> Ashley Teague
+                                                    <br>
+                                                    <span class="small font-blue"> Wedding Coordinator </span>
+                                                </td>
+                                                <td align="center">
+                                                    <label class="mt-radio">
+                                                        <input type="radio" name="optionsRadios2" value="submit" />
+                                                        <span></span>
+                                                    </label>
+                                                </td>
+                                                <td align="center">
+                                                    <label class="mt-radio">
+                                                        <input type="radio" name="optionsRadios2" value="suggest" checked />
+                                                        <span></span>
+                                                    </label>
+                                                </td>
+                                                <td align="center">
+                                                    <label class="mt-radio">
+                                                        <input type="radio" name="optionsRadios2" value="view" />
+                                                        <span></span>
+                                                    </label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td> Hannah Doe
+                                                    <br>
+                                                    <span class="small font-blue"> Mother </span>
+                                                </td>
+                                                <td align="center">
+                                                    <label class="mt-radio">
+                                                        <input type="radio" name="optionsRadios3" value="submit" />
+                                                        <span></span>
+                                                    </label>
+                                                </td>
+                                                <td align="center">
+                                                    <label class="mt-radio">
+                                                        <input type="radio" name="optionsRadios3" value="suggest" />
+                                                        <span></span>
+                                                    </label>
+                                                </td>
+                                                <td align="center">
+                                                    <label class="mt-radio">
+                                                        <input type="radio" name="optionsRadios3" value="view" checked />
+                                                        <span></span>
+                                                    </label>
+                                                </td>
+                                        </table>
+                                        <!--end profile-settings-->
+                                        <div class="margin-top-10 pull-right">
+                                            <a class="btn blue" data-toggle="modal" data-target="#addPrivilege">
+                                                <i class="fa fa-user-plus"></i> Add Individual </a>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- END PRIVACY SETTINGS TAB -->
                             </div>
                         </div>
-                        <div class="margin-top-10">
-                            <a href="javascript:;" class="btn blue"> Save Changes </a>
-                            <a href="javascript:;" class="btn default"> Cancel </a>
-                        </div>
-                    </form>
+                    </div>
                 </div>
-                <!-- END CHANGE AVATAR TAB -->
-
-                <!-- CHANGE PASSWORD TAB -->
-                <div class="tab-pane " id="tab_3">
-                    <form action="#">
-                        <div class="form-group">
-                            <label class="control-label">Current Password</label>
-                            <input type="password" class="form-control" /> </div>
-                        <div class="form-group">
-                            <label class="control-label">New Password</label>
-                            <input type="password" class="form-control" /> </div>
-                        <div class="form-group">
-                            <label class="control-label">Re-type New Password</label>
-                            <input type="password" class="form-control" /> </div>
-                        <div class="margin-top-10">
-                            <a href="javascript:;" class="btn blue"> Change Password </a>
-                            <a href="javascript:;" class="btn default"> Cancel </a>
-                        </div>
-                    </form>
-                </div>
-                <!-- END CHANGE PASSWORD TAB -->
-
-                <!-- PRIVACY SETTINGS TAB -->
-                <div class="tab-pane active" id="tab_4">
-                    <form action="#">
-                      <table class="table table-light table-hover">
-                        <th class="no-border-top border-bottom border-bottom-default"> </th>
-                        <th class="no-border-top border-bottom border-bottom-default"> Submit Changes </th>
-                        <th class="no-border-top border-bottom border-bottom-default"> Make Suggestions </th>
-                        <th class="no-border-top border-bottom border-bottom-default"> View Details </th>
-                        <tr>
-                          <td>
-                            Jack Nicoles<br>
-                            <span class="small font-blue"> Groom </span>
-                          </td>
-                          <td align="center">
-                            <label class="mt-radio">
-                              <input type="radio" name="optionsRadios1" value="submit" checked />
-                              <span></span>
-                            </label>
-                          </td>
-                          <td align="center">
-                            <label class="mt-radio">
-                              <input type="radio" name="optionsRadios1" value="suggest" />
-                              <span></span>
-                            </label>
-                          </td>
-                          <td align="center">
-                            <label class="mt-radio">
-                              <input type="radio" name="optionsRadios1" value="view" />
-                              <span></span>
-                            </label>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Ashley Teague<br>
-                            <span class="small font-blue"> Wedding Coordinator </span>
-                          </td>
-                          <td align="center">
-                            <label class="mt-radio">
-                              <input type="radio" name="optionsRadios2" value="submit" />
-                              <span></span>
-                            </label>
-                          </td>
-                          <td align="center">
-                            <label class="mt-radio">
-                              <input type="radio" name="optionsRadios2" value="suggest" checked />
-                              <span></span>
-                            </label>
-                          </td>
-                          <td align="center">
-                            <label class="mt-radio">
-                              <input type="radio" name="optionsRadios2" value="view" />
-                              <span></span>
-                            </label>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Hannah Doe<br>
-                            <span class="small font-blue"> Mother </span>
-                          </td>
-                          <td align="center">
-                            <label class="mt-radio">
-                              <input type="radio" name="optionsRadios3" value="submit" />
-                              <span></span>
-                            </label>
-                          </td>
-                          <td align="center">
-                            <label class="mt-radio">
-                              <input type="radio" name="optionsRadios3" value="suggest" />
-                              <span></span>
-                            </label>
-                          </td>
-                          <td align="center">
-                            <label class="mt-radio">
-                              <input type="radio" name="optionsRadios3" value="view" checked />
-                              <span></span>
-                            </label>
-                          </td>
-                      </table>
-                      <!--end profile-settings-->
-                      <div class="margin-top-10 pull-right">
-                        <a class="btn blue" data-toggle="modal" data-target="#addPrivilege">
-                          <i class="fa fa-user-plus"></i>
-                          Add Individual
-                        </a>
-                      </div>
-                    </form>
-                </div>
-                <!-- END PRIVACY SETTINGS TAB -->
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-    <!-- END PROFILE CONTENT -->
-    <div class="modal fade" id="addPrivilege" tabindex="-1" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title bold">Add New Individual
-            </h4>
-          </div>
-          <div class="modal-body">
-            <div class="portlet light bordered form">
-              <!-- BEGIN FORM-->
-              <form action="#" class="form-horizontal form-bordered">
-                <div class="form-body">
-                  <div class="form-group">
-                    <div class="col-xs-12 col-sm-6" style="border-left: 0px;">
-                      <input class="form-control" type="text" placeholder="Name" required />
+        <!-- END PROFILE CONTENT -->
+        <div class="modal fade" id="addPrivilege" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title bold">Add New Individual </h4>
                     </div>
-                    <div class="col-xs-12 col-sm-6" style="border-left: 0px;">
-                      <input class="form-control" type="text" placeholder="Role" required />
+                    <div class="modal-body">
+                        <div class="portlet light bordered form">
+                            <!-- BEGIN FORM-->
+                            <form action="#" class="form-horizontal form-bordered">
+                                <div class="form-body">
+                                    <div class="form-group">
+                                        <div class="col-xs-12 col-sm-6" style="border-left: 0px;">
+                                            <input class="form-control" type="text" placeholder="Name" required /> </div>
+                                        <div class="col-xs-12 col-sm-6" style="border-left: 0px;">
+                                            <input class="form-control" type="text" placeholder="Role" required /> </div>
+                                        <div class="col-xs-12" style="border: 0;">
+                                            <input class="form-control" type="text" placeholder="Email Address" required /> </div>
+                                        <div class="col-xs-12" style="border: 0;">
+                                            <label class="mt-radio">
+                                                <input type="radio" name="optionsModal" value="submit" /> Submit Changes
+                                                <span></span>
+                                            </label>
+                                            <label class="mt-radio">
+                                                <input type="radio" name="optionsModal" value="suggest" /> Make Suggestions
+                                                <span></span>
+                                            </label>
+                                            <label class="mt-radio">
+                                                <input type="radio" name="optionsModal" value="view" /> View Details
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div class="col-xs-12" style="border: 0;">
-                      <input class="form-control" type="text" placeholder="Email Address" required />
+                    <div class="modal-footer">
+                        <button class="btn default" data-dismiss="modal">Close</button>
+                        <button class="btn blue" data-dismiss="modal" id="addVenue">Add Individual</button>
                     </div>
-                    <div class="col-xs-12" style="border: 0;">
-                      <label class="mt-radio">
-                        <input type="radio" name="optionsModal" value="submit" />
-                        Submit Changes
-                        <span></span>
-                      </label>
-                      <label class="mt-radio">
-                        <input type="radio" name="optionsModal" value="suggest" />
-                        Make Suggestions
-                        <span></span>
-                      </label>
-                      <label class="mt-radio">
-                        <input type="radio" name="optionsModal" value="view" />
-                        View Details
-                        <span></span>
-                      </label>
-                    </div>
-                  </div>
                 </div>
-              </form>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button class="btn default" data-dismiss="modal">Close</button>
-            <button class="btn blue" data-dismiss="modal" id="addVenue">Add Individual</button>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>

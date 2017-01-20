@@ -17,14 +17,10 @@
         <!-- BEGIN: ACCORDION DEMO -->
         <div class="portlet light">
             <div class="portlet-title">
-                <div class="page-title">
-                    My Clients
-                </div>
+                <div class="page-title"> My Clients </div>
                 <div class="actions">
                     <a class="btn btn-circle btn-default" data-target="#add_client" data-toggle="modal">
-                        <i class="fa fa-user-plus"></i>
-                        Add Client
-                    </a>
+                        <i class="fa fa-user-plus"></i> Add Client </a>
                     <a class="btn btn-circle btn-icon-only btn-default" ng-click="toggleCurrentClients()">
                         <i class="fa fa-cog"></i>
                     </a>
@@ -32,18 +28,15 @@
             </div>
         </div>
     </div>
-
     <!-- Client Rolodex -->
     <div class="row hidden-xs">
         <div class="col-xs-12">
             <form class="form-inline well-sm">
                 <div class="form-control">
                     <span class="fa fa-search font-blue" style="opacity: .45;"></span>
-                    <input type="text" ng-model="searchText" style="border: transparent;" placeholder="Search...">
-                </div>
+                    <input type="text" ng-model="searchText" style="border: transparent;" placeholder="Search..."> </div>
             </form>
         </div>
-
         <div class="col-xs-12">
             <div class="portlet light">
                 <table class="table table-bordered table-hover">
@@ -53,7 +46,6 @@
                     <th>Phone</th>
                     <th>Event Date</th>
                     <th>Balance Due</th>
-
                     <tr ng-repeat="client in clients | filter:searchText | filter:dateFilter">
                         <td class="text-center">
                             <a data-target="#client_details" data-toggle="modal" ng-click="viewContact(client)">
@@ -71,22 +63,18 @@
         </div>
     </div>
     <div class="h2 visible-xs">
-        <h2 align="center" class="bold font-grey-salt padding-20">
-            This content is not visible on mobile devices.
-        </h2>
+        <h2 align="center" class="bold font-grey-salt padding-20"> This content is not visible on mobile devices. </h2>
     </div>
     <!-- END MAIN CONTENT -->
-
     <!-- BEGIN Client Details Modal -->
     <div id="client_details" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title bold"><span id="clientname"></span> &nbsp;
+                    <h4 class="modal-title bold">
+                        <span id="clientname"></span> &nbsp;
                         <a class="btn btn-circle btn-default border-blue btn-small font-blue" style="float: right;">
-                            <i class="fa fa-wrench"></i>
-                            Edit
-                        </a>
+                            <i class="fa fa-wrench"></i> Edit </a>
                     </h4>
                 </div>
                 <div class="modal-body">
@@ -115,14 +103,12 @@
         </div>
     </div>
     <!-- END Client Details Modal -->
-
     <!-- BEGIN Add Client Modal -->
     <div id="add_client" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title bold">Add New Client
-                    </h4>
+                    <h4 class="modal-title bold">Add New Client </h4>
                 </div>
                 <div class="modal-body">
                     <div class="portlet light form no-margin">
@@ -133,28 +119,19 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <span class="help-block"> First Name </span>
-                                            <input class="form-control" type="text" required="required"
-                                                   ng-model="firstname"/>
-                                        </div>
+                                            <input class="form-control" type="text" required="required" ng-model="firstname" /> </div>
                                         <div class="col-md-6">
                                             <span class="help-block"> Last Name </span>
-                                            <input class="form-control" type="text" required="required"
-                                                   ng-model="lastname"/>
-                                        </div>
+                                            <input class="form-control" type="text" required="required" ng-model="lastname" /> </div>
                                     </div>
                                     <div class="padding-bottom-10 padding-top-10"></div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <span class="help-block"> Email </span>
-                                            <input class="form-control" type="email" required="required"
-                                                   ng-model="contact.email"/>
-                                        </div>
+                                            <input class="form-control" type="email" required="required" ng-model="contact.email" /> </div>
                                         <div class="col-md-6">
                                             <span class="help-block"> Event Date </span>
-                                            <input class="form-control date-picker" size="16" type="text" value=""
-                                                   data-date-start-date="+0d" required="required"
-                                                   ng-model="contact.weddingdate"/>
-                                        </div>
+                                            <input class="form-control date-picker" size="16" type="text" value="" data-date-start-date="+0d" required="required" ng-model="contact.weddingdate" /> </div>
                                     </div>
                                 </div>
                             </div>
@@ -164,33 +141,28 @@
                                         <div class="row" style="text-align: left;">
                                             <div class="col-md-6">
                                                 <span class="help-block"> Phone Number </span>
-                                                <input class="form-control" type="text" ng-model="contact.phone"/>
-                                            </div>
+                                                <input class="form-control" type="text" ng-model="contact.phone" /> </div>
                                             <div class="col-md-6">
                                                 <span class="help-block"> Balance Due </span>
-                                                <input class="form-control" type="text" ng-model="contact.balanceDue"/>
-                                            </div>
+                                                <input class="form-control" type="text" ng-model="contact.balanceDue" /> </div>
                                         </div>
                                     </uib-accordion-group>
                                 </uib-accordion>
                             </div>
                             <div class="modal-footer">
                                 <button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
-                                <input class="btn blue" type="submit" value="Add Client"/>
-                            </div>
+                                <input class="btn blue" type="submit" value="Add Client" /> </div>
                         </form>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- END Add Client Modal -->
-
 </div>
-
 <script>
-    function AccordionDemoCtrl($scope) {
+    function AccordionDemoCtrl($scope)
+    {
         /** @type {boolean} */
         $scope.oneAtATime = true;
         /** @type {Array} */
