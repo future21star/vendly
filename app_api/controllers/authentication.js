@@ -1,6 +1,7 @@
 var passport = require('passport');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
+var Notification = mongoose.model('Notification');
 
 var sendJSONresponse = function (res, status, content) {
     res.status(status);
@@ -59,14 +60,38 @@ module.exports.register = function (req, res) {
             return;
         }
 
+        var notifications = new Notification({
+            _owner: user._id,
+            deadlines: 'email',
+            push_deadlines: false,
+            handbook_access: 'email',
+            push_handbook_access: false,
+            events_changed: 'email',
+            push_events_changed: false,
+            payments: 'email',
+            push_payments: false,
+            messages: 'email',
+            push_messages: false,
+            product_updates: 'email',
+            push_product_updates: false,
+            third_party_msg: 'email',
+            push_third_party_msg: false,
+            created_at: new Date(),
+            updated_at: new Date()
+        });
+
+        notifications.save(function (err) {
+            if (err) {
+                res.status(409).json(err.message);
+                return;
+            }
+        });
+
         var token;
         token = user.generateJwt();
         res.status(200);
-        res.json({
-            "token": token
-        });
+        res.json({"token": token});
     });
-
 };
 
 module.exports.login = function (req, res) {

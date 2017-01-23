@@ -8,7 +8,7 @@ angular.module('MetronicApp').controller('RolodexController', ['$rootScope', '$s
         $rootScope.settings.layout.pageBodySolid = false;
         $rootScope.settings.layout.pageSidebarClosed = false;
     });
-    
+
     $scope.clients = {};
 
     loadRolodex = function () {

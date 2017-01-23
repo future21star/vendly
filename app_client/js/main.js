@@ -252,6 +252,14 @@ MetronicApp.service('meanData', ['$http', 'authentication',
             return $http.get('/api/getEmployees', auth);
         };
 
+        var getNotifications = function () {
+            return $http.get('/api/getNotifications', auth);
+        };
+
+        var updateNotifications = function (notifications) {
+            return $http.put('/api/updateNotifications', notifications, auth);
+        };
+
         return {
             getProfile: getProfile,
             updateProfile: updateProfile,
@@ -272,7 +280,9 @@ MetronicApp.service('meanData', ['$http', 'authentication',
             signUpUser: signUpUser,
             saveEmployee: saveEmployee,
             updateEmployees: updateEmployees,
-            getEmployees: getEmployees
+            getEmployees: getEmployees,
+            getNotificationSettings: getNotifications,
+            updateNotificationSettings: updateNotifications
         };
     }
 ]);
@@ -757,14 +767,14 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProv
             url: "/account/notifications",
             templateUrl: "views/ven/account/notifications.html",
             data: {pageTitle: 'Notifications'},
-            controller: "GeneralPageController",
+            controller: "NotificationsController",
             resolve: {
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
                         insertBefore: '#ng_load_plugins_before', // load the above css files.js before a LINK element with this ID. Dynamic CSS files.js must be loaded between core and theme css files.js
                         files: [
-                            'js/controllers/GeneralPageController.js'
+                            'js/controllers/NotificationsController.js'
                         ]
                     });
                 }]

@@ -53,3 +53,4 @@ require('./booklets');
 require('./files');
 require('./event_invites');
 require('./employees');
+require('./notifications');
