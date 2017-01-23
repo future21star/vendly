@@ -1,19 +1,18 @@
 'use strict';
 
 // sass compile
-import gulp from 'gulp';
-import sass from 'gulp-sass';
-import prettify from 'gulp-prettify';
-import minifyCss from "gulp-minify-css";
-import rename from "gulp-rename";
-import uglify from "gulp-uglify";
-import rtlcss from "gulp-rtlcss";
-import connect from 'gulp-connect';
-import concat from 'gulp-concat';
-import babel from 'gulp-babel';
-import autoprefixer from 'gulp-autoprefixer';
-import plumber from 'gulp-plumber';
-
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var prettify = require('gulp-prettify');
+var minifyCss = require("gulp-minify-css");
+var rename = require("gulp-rename");
+var uglify = require("gulp-uglify");
+var rtlcss = require("gulp-rtlcss");
+var connect = require('gulp-connect');
+var concat = require('gulp-concat');
+var babel = require('gulp-babel');
+var autoprefixer = require('gulp-autoprefixer');
+var plumber = require('gulp-plumber');
 
 //*** Localhost server tast
 gulp.task('localhost', function() {
@@ -26,43 +25,31 @@ gulp.task('localhost-live', function() {
     });
 });
 
-//*** JS compiler task ES6 -> ES5
-gulp.task('frontjs', () => {
-    return gulp.src(["./app_client/js/main.js", "./app_client/js/directives.js", "!./app_client/assets/global/", "./app_client/js/**/*"])
-        .pipe(plumber())
-        .pipe(babel({
-            presets: ["es2015"]
-        }))
-        .pipe(concat('bundle.js'))
-        .pipe(gulp.dest("./app_client/compiled"));
-});
-
-
 //*** SASS compiler task
 gulp.task('sass', function() {
     // bootstrap compilation
-    gulp.src('./sass/bootstrap.scss').pipe(sass()).pipe(gulp.dest('./assets/global/plugins/bootstrap/css/'));
+    gulp.src('./app_client/sass/bootstrap.scss').pipe(sass()).pipe(gulp.dest('./app_client/assets/global/plugins/bootstrap/css/'));
 
     // select2 compilation using bootstrap variables
-    gulp.src('./assets/global/plugins/select2/sass/select2-bootstrap.min.scss').pipe(sass({ outputStyle: 'compressed' })).pipe(gulp.dest('./assets/global/plugins/select2/css/'));
+    gulp.src('./app_client/assets/global/plugins/select2/sass/select2-bootstrap.min.scss').pipe(sass({ outputStyle: 'compressed' })).pipe(gulp.dest('./app_client/assets/global/plugins/select2/css/'));
 
     // global theme stylesheet compilation
-    gulp.src('./sass/global/*.scss').pipe(sass()).pipe(gulp.dest('./assets/global/css'));
-    gulp.src('./sass/apps/*.scss').pipe(sass()).pipe(gulp.dest('./assets/apps/css'));
-    gulp.src('./app_client/sass/pages/*.scss').pipe(autoprefixer({
+    // gulp.src('./app_client/sass/global/*.scss').pipe(sass()).pipe(gulp.dest('./app_client/assets/global/css'));
+    // gulp.src('./app_client/sass/apps/*.scss').pipe(sass()).pipe(gulp.dest('./app_client/assets/apps/css'));
+    gulp.src('./app_client/sass/pages/*.scss').pipe(sass({ includePaths: ['./app_client/sass'] })).pipe(autoprefixer({
         browsers: ['last 8 versions'],
         cascade: false
-    })).pipe(sass()).pipe(concat('styles.css')).pipe(gulp.dest('./app_client/compiled'));
+    })).pipe(gulp.dest('./app_client/assets/pages/css'));
 
     // theme layouts compilation
-    gulp.src('./sass/layouts/layout/*.scss').pipe(sass()).pipe(gulp.dest('./assets/layouts/layout/css'));
-    gulp.src('./sass/layouts/layout/themes/*.scss').pipe(sass()).pipe(gulp.dest('./assets/layouts/layout/css/themes'));
+    // gulp.src('./app_client/sass/layouts/layout/*.scss').pipe(sass()).pipe(gulp.dest('./app_client/assets/layouts/layout/css'));
+    // gulp.src('./app_client/sass/layouts/layout/themes/*.scss').pipe(sass()).pipe(gulp.dest('./app_client/assets/layouts/layout/css/themes'));
 
 });
 
 //*** SASS watch(realtime) compiler task
 gulp.task('sass:watch', function() {
-    gulp.watch('./sass/**/*.scss', ['sass']);
+    gulp.watch('./app_client/sass/**/*.scss', ['sass']);
 });
 
 //*** CSS & JS minify task
@@ -136,6 +123,8 @@ gulp.task('prettify', function() {
     })).
     pipe(gulp.dest('./'));
 });
+
+gulp.task('default', ['sass:watch']);
 
 
 

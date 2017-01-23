@@ -36,8 +36,6 @@ Anout Us Page
 .card-icon i {
   font-size: 50px;
   border: 1px solid #ecf0f4;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
   border-radius: 50%;
   padding: 47px 30px;
   margin: 30px 0 30px 0; }
@@ -119,8 +117,6 @@ Anout Us Page
   margin: 30px auto;
   width: 130px;
   height: 130px;
-  -webkit-border-radius: 50% !important;
-  -moz-border-radius: 50% !important;
   border-radius: 50% !important; }
 
 .stories-cont .title {

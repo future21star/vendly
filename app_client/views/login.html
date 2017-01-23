@@ -1,6 +1,7 @@
 <style>
     .modal-backdrop.in {
         opacity: 1;
+        background: linear-gradient(180deg, #455A64 0%, #333333 100%);
     }
     
     .pac-container {
@@ -10,32 +11,48 @@
 <div>
     <!-- BEGIN LOGIN MODAL CONTENT -->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
+        <div class="col-sm-12 login-header img-responsive">
+            <img src="../assets/global/img/vendly.png" alt="">
+        </div>
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title bold">Welcome to Vendly</h4>
-                </div>
                 <div class="modal-body">
-                    <div id="loginbody" class="row centerdiv">
-                        <div class="col-xs-12">
+                    <div id="loginbody">
+                        <div class="col-xs-6 login-content">
+                            <h1 class='title text-center'>Collaborate with 10,000+ wedding venues & vendors</h1>
+                            <div class="img-container">
+                                <img class="img-circle img-responsive" src="../assets/pages/img/avatars/team1.jpg" alt="">
+                                <img class="img-circle img-responsive" src="../assets/pages/img/avatars/team2.jpg" alt="">
+                                <img class="img-circle img-responsive" src="../assets/pages/img/avatars/team3.jpg" alt="">
+                                <img class="img-circle img-responsive" src="../assets/pages/img/avatars/team4.jpg" alt="">
+                                <img class="img-circle img-responsive" src="../assets/pages/img/avatars/team5.jpg" alt="">
+                            </div>
+                            <div class="create-container text-center">
+                                <button class="create-CTA" id="registerButton">CREATE ACCOUNT</button>
+                            </div>
+                            <hr class="breaker">
+                            <h1 class="title text-center">Already Have An Account?</h1>
                             <form ng-submit="onSubmit()">
-                                <div class="form-group">
-                                    <label for="email">Email Address</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Email" ng-model="credentials.email">
+                                <div class="group">
+                                    <input type="email" id="email" placeholder="Email Address" ng-model="credentials.email">
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
                                 </div>
-                                <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password" placeholder="Password" ng-model="credentials.password">
+                                <div class="group">
+                                    <input type="password" id="password" placeholder="Password" ng-model="credentials.password">
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <span class="forgot">Forgot?</span>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn-primary btn">Log in</button>
-                                    <button type="button" id="registerButton" class="btn btn-default">Sign up</button>
+                                <div class="login-button-container text-center">
+                                    <button type="submit" class="login-CTA">LOGIN</button>
                                 </div>
                             </form>
-
+                        </div>
+                        <div class="col-xs-6 login-side-div">
+                            <img class='img-responsive' src="./assets/global/img/placeholder-images/5wuut2ndjwi-anne-edgar-compressor.jpg" alt="">
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
