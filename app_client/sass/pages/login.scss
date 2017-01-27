@@ -85,6 +85,7 @@ Login page
 
 form {
     width: 95%;
+    margin-top: 10px;
 }
 
 .breaker {
@@ -475,7 +476,7 @@ $bg-color: #364150;
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 440px) {
     .img-container img:nth-child(even) {
         display: none;
     }
@@ -498,6 +499,9 @@ $bg-color: #364150;
     }
     .login-header {
         margin-top: 25px;
+    }
+    form {
+        margin: 0 auto;
     }
 }
 

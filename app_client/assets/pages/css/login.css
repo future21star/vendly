@@ -98,7 +98,8 @@ Login page
       box-shadow: 0px 2px 10px #777; }
 
 form {
-  width: 95%; }
+  width: 95%;
+  margin-top: 10px; }
 
 .breaker {
   width: 256px;
@@ -421,7 +422,7 @@ input:focus ~ .highlight {
   .modal-content {
     width: 70vw; } }
 
-@media (max-width: 400px) {
+@media (max-width: 440px) {
   .img-container img:nth-child(even) {
     display: none; }
   .group {
@@ -437,7 +438,9 @@ input:focus ~ .highlight {
     .login-button-container .login-CTA {
       margin: 0 auto; }
   .login-header {
-    margin-top: 25px; } }
+    margin-top: 25px; }
+  form {
+    margin: 0 auto; } }
 
 @media (max-width: 330px) {
   .modal-content {
