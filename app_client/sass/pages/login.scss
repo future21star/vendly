@@ -23,6 +23,7 @@ Login page
     background-color: #FFFFFF;
     box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.22), 0 24px 24px 0 rgba(0, 0, 0, 0.3);
     border-radius: 2px;
+    margin: 0 auto;
     .modal-body {
         padding: 0;
         height: 100%;
@@ -35,17 +36,21 @@ Login page
 
 .login-content {
     padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     .title {
         font-family: $font-family-nav;
         font-size: 20px;
         font-weight: 500;
         color: rgba(0, 0, 0, 0.87);
         line-height: 28px;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
     .img-container {
         display: flex;
         align-items: center;
+        width: 90%;
         justify-content: space-between;
         padding: 0 10px;
         img {
@@ -59,7 +64,7 @@ Login page
         font-weight: 500;
         line-height: 16px;
         font-size: 14px;
-        margin: 25px 0;
+        margin: 20px 0;
         .create-CTA {
             width: 154px;
             height: 36px;
@@ -78,11 +83,15 @@ Login page
     }
 }
 
+form {
+    width: 95%;
+}
+
 .breaker {
     width: 256px;
     height: 1px;
     background-color: #979797;
-    margin: 25px auto;
+    margin: 10px auto;
 }
 
 .modal-content {
@@ -103,7 +112,7 @@ Login page
     font-weight: 500;
     line-height: 16px;
     font-size: 14px;
-    margin: 5px 0;
+    margin: 5px auto;
     color: #4A90E2;
     .login-CTA {
         width: 73px;
@@ -143,9 +152,9 @@ Login page
 
 input {
     font-size: 16px;
-    padding: 0px 0px 3px 0px;
+    padding: 0px 0px 8px 2px;
     display: block;
-    width: 300px;
+    width: 100%;
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
@@ -154,13 +163,26 @@ input:focus {
     outline: none;
 }
 
+label {
+    color: #999;
+    font-size: 14px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
 
 /* BOTTOM BARS */
 
 .bar {
     position: relative;
     display: block;
-    width: 300px;
+    width: 100%;
 }
 
 .bar:before,
@@ -198,7 +220,7 @@ input:focus~.bar:after {
 .highlight {
     position: absolute;
     height: 60%;
-    width: 100px;
+    width: 100%;
     top: 25%;
     left: 0;
     pointer-events: none;
@@ -210,6 +232,16 @@ input:focus~.bar:after {
 
 input:focus~.highlight {
     animation: inputHighlighter 0.3s ease;
+}
+
+
+/* active state */
+
+.inputMaterial:focus~label,
+.inputMaterial:valid~label {
+    top: -20px;
+    font-size: 14px;
+    color: #5264AE;
 }
 
 
@@ -431,29 +463,47 @@ $bg-color: #364150;
     font-size: 13px;
 }
 
-@media (max-width: 440px) {
-    /***
-  Login page
-  ***/
-    .login .logo {
-        margin-top: 10px;
+@media (max-width: 768px) {
+    .login-side-div {
+        display: none;
     }
-    .login .content {
-        width: 280px;
-        margin-top: 10px;
+    .login-content {
+        width: 100%;
     }
-    .login .content h3 {
-        font-size: 22px;
+    .modal-content {
+        width: 70vw;
     }
-    .forget-password {
-        display: inline-block;
-        margin-top: 20px;
+}
+
+@media (max-width: 400px) {
+    .img-container img:nth-child(even) {
+        display: none;
     }
-    .login-options .social-icons {
-        float: left;
-        padding-top: 3px;
+    .group {
+        margin-bottom: 20px;
     }
-    .login .checkbox {
+    .title {
         font-size: 13px;
+        margin: 10px auto;
+    }
+    .breaker {
+        margin: 10px auto;
+        width: 90%;
+    }
+    .login-button-container {
+        margin: 20px auto;
+        .login-CTA {
+            margin: 0 auto;
+        }
+    }
+    .login-header {
+        margin-top: 25px;
+    }
+}
+
+@media (max-width: 330px) {
+    .modal-content {
+        width: 95%;
+        height: 440px;
     }
 }

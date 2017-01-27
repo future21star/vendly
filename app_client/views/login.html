@@ -34,15 +34,17 @@
                             <h1 class="title text-center">Already Have An Account?</h1>
                             <form ng-submit="onSubmit()">
                                 <div class="group">
-                                    <input type="email" id="email" placeholder="Email Address" ng-model="credentials.email">
+                                    <input type="email" id="email" class="inputMaterial" ng-model="credentials.email" required>
                                     <span class="highlight"></span>
                                     <span class="bar"></span>
+                                    <label>Email Address</label>
                                 </div>
                                 <div class="group">
-                                    <input type="password" id="password" placeholder="Password" ng-model="credentials.password">
+                                    <input type="password" id="password" class="inputMaterial" ng-model="credentials.password" required>
                                     <span class="highlight"></span>
                                     <span class="bar"></span>
                                     <span class="forgot">Forgot?</span>
+                                    <label>Password</label>
                                 </div>
                                 <div class="login-button-container text-center">
                                     <button type="submit" class="login-CTA">LOGIN</button>
@@ -132,12 +134,3 @@
     </div>
     <!-- END REGISTER MODAL CONTENT -->
 </div>
-<!--<section id='login'>
-    <div class="logo-container">
-        <img class="logo" src="../assets/global/img/vendly.png" alt=""> </div>
-    <div class="container-fluid">
-        <div class="login-content col-sm-2"> </div>
-        <div class="login-img-container col-sm-2">
-            <img src="../assets/global/img/placeholder-images/40hklfyaoeg-sweet-ice-cream-photography-compressor.jpg" alt=""> </div>
-    </div>
-</section>-->
