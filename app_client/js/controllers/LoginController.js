@@ -40,7 +40,15 @@ angular.module('MetronicApp').controller('LoginController', ['$location', 'authe
                 });
         };
 
+        $('#registerModal').on('hide.bs.modal', function() {
+            $('#loginModal').modal({
+                backdrop: 'static',
+                keyboard: 'false'
+            }).modal('show');
+        });
+
         $('#registerButton').click(function() {
+            $('#loginModal').modal('hide');
             $('#registerModal').modal('show');
         });
 
@@ -54,5 +62,21 @@ angular.module('MetronicApp').controller('LoginController', ['$location', 'authe
             keyboard: false
         }).modal('show');
 
+        $(document).ready(function() {
+            console.log('SHOW MODAL');
+            $('#email').on('blur', function() {
+                console.log('EMAIL')
+                if ($('#email').hasClass('ng-invalid-email')) {
+                    $('.email-confirmation-alert').removeClass('hidden');
+                }
+            });
+
+            $('#email').on('keyup', function() {
+                console.log('HELLO WORLD#@#$@#$@#');
+                if ($('#email').hasClass('ng-valid-email')) {
+                    $('.email-confirmation-alert').addClass('hidden');
+                }
+            });
+        });
     }
 ]);
