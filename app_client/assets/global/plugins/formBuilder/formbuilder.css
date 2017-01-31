@@ -19,6 +19,9 @@
   border-left:1px solid #ddd;
   padding-right: 15px;
 }
+.fb-main-field{
+  min-height: 2em !important;
+}
 /*End of Custom CSS */
 
 .fb-button{display:inline-block;margin:0;padding:.563rem .844rem;border:0 none;background:#7fa8d7;color:#fff;text-align:center;text-decoration:none;font-size:12px;line-height:1.5;cursor:pointer;border-radius:.125rem;border:thin solid #7fa8d7;border-bottom:2px solid #7fa8d7}
@@ -56,8 +59,12 @@
 .edit-response-field input,.edit-response-field textarea,.edit-response-field select{border:thin solid #ddd;border-radius:.25em;padding:.5em;display:inline-block;height:auto;}
 .edit-response-field input:focus,.edit-response-field textarea:focus,.edit-response-field select:focus{outline:none;border:thin solid #1abc9c}
 .edit-response-field select{font-size:14px}
-.fb-field-wrapper .actions-wrapper a.js-duplicate,.fb-edit-field-wrapper .js-add-option{background-color:#7fa8d7;border:none}
-.fb-field-wrapper .actions-wrapper a.js-clear,.fb-edit-field-wrapper .js-remove-option{background-color:#e74c3c;border:none}
+.fb-field-wrapper .actions-wrapper a.js-duplicate,.fb-edit-field-wrapper .js-add-option{background-color:#fff; color: #7fa8d7; border: thin solid #7fa8d7}
+.fb-field-wrapper .actions-wrapper a.js-duplicate:hover{background-color: #7fa8d7 !important;}
+.fb-field-wrapper .actions-wrapper a.js-duplicate:hover i {color: #fff;}
+.fb-field-wrapper .actions-wrapper a.js-clear,.fb-edit-field-wrapper .js-remove-option{background-color:#fff; color: #e74c3c ;border: thin solid #e74c3c;}
+.fb-field-wrapper .actions-wrapper a.js-clear:hover{background-color: #e74c3c !important;}
+.fb-field-wrapper .actions-wrapper a.js-clear:hover i {color: #fff;}
 .fb-field-wrapper .subtemplate-wrapper{border:1px dashed transparent;margin-bottom:10px;padding:10px 0 0;position:relative}
 .fb-field-wrapper .subtemplate-wrapper .cover{position:absolute;top:0;left:0;height:100%;width:100%;z-index:2}
 .fb-field-wrapper .subtemplate-wrapper > label{display:block;padding-bottom:0;margin-bottom:0}
