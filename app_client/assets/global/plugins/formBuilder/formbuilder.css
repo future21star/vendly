@@ -12,6 +12,13 @@
   line-height: normal !important;
   font-size: 14px;
 }
+.fb-right{
+}
+.fb-field-options{
+  position: fixed;
+  border-left:1px solid #ddd;
+  padding-right: 15px;
+}
 /*End of Custom CSS */
 
 .fb-button{display:inline-block;margin:0;padding:.563rem .844rem;border:0 none;background:#7fa8d7;color:#fff;text-align:center;text-decoration:none;font-size:12px;line-height:1.5;cursor:pointer;border-radius:.125rem;border:thin solid #7fa8d7;border-bottom:2px solid #7fa8d7}
@@ -24,16 +31,10 @@
     min-height:100%;
     overflow:hidden
 }
-.fb-right{
-    float:right;
-    width:320px;
-    border-left:1px solid #ddd;
-    padding-top: 15px;
-}
 .fb-no-response-fields{color:#999}
 .fb-tabs{list-style:none;margin:0 0 20px 0;padding:0 0 0 20px;border-bottom:1px solid #ccc}
 .fb-tabs li{display:inline-block}
-.fb-tabs li a{display:block;padding:10px;border-radius:5px 5px 0 0;font-size:13px;cursor:pointer;border-left:1px solid transparent;border-right:1px solid transparent}
+.fb-tabs li a{display:block;padding:10px;border-radius:5px 5px 0 0;font-size:13px;cursor:pointer;border-left:1px solid transparent;border-right:1px solid transparent;text-decoration: none}
 .fb-tabs li.active a{border:1px solid #ccc;margin-bottom:-1px;border-bottom-color:#fff}
 .fb-tab-content .fb-tab-pane{padding:0 20px;display:none}
 .fb-tab-content .fb-tab-pane.active{display:block}
