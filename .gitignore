@@ -4,3 +4,4 @@ app_client/app.min.js
 app_client/app.min.js.map
 npm-debug.log
 .idea/
+app_api/config/config.js
