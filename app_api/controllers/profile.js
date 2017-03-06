@@ -1,7 +1,6 @@
 // TODO: pull these out into separate files
 var mongoose = require('mongoose');
 var hbs = require('nodemailer-express-handlebars');
-var config = require('../config/config');
 var User = mongoose.model('User');
 var Contact = mongoose.model('Contact');
 var Event = mongoose.model('Event');
@@ -9,8 +8,8 @@ var Booklet = mongoose.model('Booklet');
 
 var auth = {
     auth: {
-        api_key: config.api_key,
-        domain: config.domain
+        api_key: process.env.MAILGUN_API_KEY,
+        domain: process.env.MAILGUN_DOMAIN
     }
 };
 

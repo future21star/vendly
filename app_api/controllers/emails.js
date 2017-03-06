@@ -2,11 +2,9 @@
 // var nodemailerMailgun = nodemailer.createTransport(mg(auth));
 // var mg = require('nodemailer-mailgun-transport');
 var superagent = require('superagent');
-var config = require('../config/config');
-
-var mailchimpInstance = config.mailchimpInstance,
-    listUniqueId = config.listUniqueId,
-    mailchimpApiKey = config.mailchimpApiKey;
+var mailchimpInstance = process.env.MAILCHIMP_INSTANCE,
+    listUniqueId = process.env.LIST_UNIQUE_ID,
+    mailchimpApiKey = process.env.MAILCHIMP_API_KEY;
 
 module.exports = {
 
