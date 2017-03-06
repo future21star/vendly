@@ -1,7 +1,7 @@
 <!-- BEGIN PAGE HEADER-->
 <div class="note no-margin note-info">
     <h3>Welcome to Vendly!
-      <span class="close" data-close="note"></span>
+        <span class="close" data-close="note"></span>
     </h3>
     <p>The aim of our platform is to help minimize the stress eveyone involved in planning and executing an event deal with on a daily basis. At the end of the day we want everyone involved to leave with more memories than frustrations.</p>
     <br>
@@ -10,587 +10,561 @@
 </div>
 <h3 class="page-title padding-bottom-10"> Welcome Back Vendly Venue! </h3>
 <!-- END PAGE HEADER-->
-
 <!-- BEGIN MAIN CONTENT -->
 <div ng-controller="DashboardController">
-  <div class="row">
-    <!-- Begin Approval Feature -->
-    <div class="portlet light bordered">
-      <div class="portlet-title tabbable-line">
-        <div class="caption">
-          <span class="caption-subject font-blue bold uppercase">Pending Approvals</span>
-        </div>
-        <div class="tools">
-          <a href="javascript:;" class="collapse"> </a>
-          <a href="javascript:;" class="reload"> </a>
-        </div>
-      </div>
-      <div class="portlet-body">
-        <div class="tab-content">
-          <div class="tab-pane active" id="tab_actions_pending">
-            <!-- BEGIN: Actions -->
-            <div class="mt-actions">
-              <div class="mt-action" id="approval1">
-                  <div class="mt-action-img">
-                      <img src="../assets/pages/media/users/avatar10.jpg" /> </div>
-                  <div class="mt-action-body">
-                      <div class="mt-action-row">
-                        <div class="mt-action-info ">
-                          <div class="mt-action-details ">
-                            <a class="mt-action-author" data-target=".request_permission" data-toggle="modal">
-                              Taylor Christine
-                            </a>
-                            <p class="mt-action-desc">Requests access to your handbook</p>
-                          </div>
-                        </div>
-                        <div class="mt-action-datetime ">
-                          <span class="mt-action-date">June 2</span>
-                          <span class="">@</span>
-                          <span class="mt=action-time">1:02pm</span>
-                        </div>
-                        <div class="mt-action-buttons ">
-                          <div class="btn-group btn-group-circle">
-                            <button type="button" class="btn btn-outline blue btn-sm" onclick="hide('approval1')">Approve</button>
-                            <button type="button" class="btn btn-outline red btn-sm" onclick="hide('approval1')">Reject</button>
-                          </div>
-                        </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="mt-action" id="approval2">
-                <div class="mt-action-img">
-                  <img src="../assets/pages/media/users/avatar3.jpg" />
+    <div class="row">
+        <!-- Begin Approval Feature -->
+        <div class="portlet light bordered">
+            <div class="portlet-title tabbable-line">
+                <div class="caption">
+                    <span class="caption-subject font-blue bold uppercase">Pending Approvals</span>
                 </div>
-                <div class="mt-action-body">
-                  <div class="mt-action-row">
-                    <div class="mt-action-info ">
-                      <div class="mt-action-details ">
-                        <a class="mt-action-author" data-target=".request_permission" data-toggle="modal">
-                          Gavin Bond
-                        </a>
-                        <p class="mt-action-desc">Requests access to your handbook</p>
-                      </div>
-                    </div>
-                    <div class="mt-action-datetime ">
-                      <span class="mt-action-date">June 2</span>
-                      <span class="">@</span>
-                      <span class="mt=action-time">7:32pm</span>
-                    </div>
-                    <div class="mt-action-buttons ">
-                      <div class="btn-group btn-group-circle">
-                        <button type="button" class="btn btn-outline blue btn-sm" onclick="hide('approval2')">Approve</button>
-                        <button type="button" class="btn btn-outline red btn-sm" onclick="hide('approval2')">Reject</button>
-                      </div>
-                    </div>
-                  </div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse"> </a>
+                    <a href="javascript:;" class="reload"> </a>
                 </div>
-              </div>
-              <div class="mt-action" id="approval3">
-                <div class="mt-action-img">
-                  <img src="../assets/pages/media/users/avatar2.jpg" />
-                </div>
-                <div class="mt-action-body">
-                  <div class="mt-action-row">
-                    <div class="mt-action-info ">
-                      <div class="mt-action-details ">
-                        <a class="mt-action-author" data-target=".request_permission" data-toggle="modal">
-                          Diana Berri
-                        </a>
-                        <p class="mt-action-desc">Requests access to your handbook</p>
-                      </div>
-                    </div>
-                      <div class="mt-action-datetime ">
-                          <span class="mt-action-date">June 3</span>
-                          <span class="">@</span>
-                          <span class="mt=action-time">8:46am</span>
-                      </div>
-                      <div class="mt-action-buttons ">
-                          <div class="btn-group btn-group-circle">
-                              <button type="button" class="btn btn-outline blue btn-sm" onclick="hide('approval3')">Approve</button>
-                              <button type="button" class="btn btn-outline red btn-sm" onclick="hide('approval3')">Reject</button>
-                          </div>
-                      </div>
-                  </div>
-                </div>
-              </div>
-              <div class="mt-action" id="approval4">
-                <div class="mt-action-img">
-                  <img src="../assets/pages/media/users/avatar7.jpg" />
-                </div>
-                <div class="mt-action-body">
-                  <div class="mt-action-row">
-                    <div class="mt-action-info ">
-                      <div class="mt-action-details ">
-                        <a class="mt-action-author" data-target=".request_permission" data-toggle="modal">
-                          John Clark
-                        </a>
-                        <p class="mt-action-desc">Requests access to your handbook</p>
-                      </div>
-                    </div>
-                    <div class="mt-action-datetime ">
-                      <span class="mt-action-date">June 3</span>
-                      <span class="">@</span>
-                      <span class="mt=action-time">9:21am</span>
-                    </div>
-                    <div class="mt-action-buttons ">
-                      <div class="btn-group btn-group-circle">
-                        <button type="button" class="btn btn-outline blue btn-sm" onclick="hide('approval4')">Approve</button>
-                        <button type="button" class="btn btn-outline red btn-sm" onclick="hide('approval4')">Reject</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
-            <!-- END: Actions -->
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Approval Feature -->
-  </div>
-
-  <div class="row">
-    <div class="col-md-6 col-sm-12">
-      <!-- BEGIN Recent Activities -->
-      <div class="portlet light bordered ">
-        <div class="portlet-title">
-          <div class="caption">
-            <span class="caption-subject font-blue bold uppercase">Recent Activities</span>
-          </div>
-          <div class="actions">
-            <div class="btn-group">
-              <a class="btn btn-sm btn-default btn-circle" href="#" data-toggle="dropdown" dropdown-menu-hover data-close-others="true"> Filter
-                <i class="fa fa-angle-down"></i>
-              </a>
-              <div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
-                <label>
-                  <input type="checkbox" checked="" value="clients"/> Clients
-                </label>
-                <label>
-                  <input type="checkbox" checked="" value="finances"/> Finances
-                </label>
-                <label>
-                  <input type="checkbox" checked="" value="internal"/> Internal
-                </label>
-              </div>
+            <div class="portlet-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_actions_pending">
+                        <!-- BEGIN: Actions -->
+                        <div class="mt-actions">
+                            <div class="mt-action" id="approval1">
+                                <div class="mt-action-img">
+                                    <img src="../assets/pages/media/users/avatar10.jpg" /> </div>
+                                <div class="mt-action-body">
+                                    <div class="mt-action-row">
+                                        <div class="mt-action-info ">
+                                            <div class="mt-action-details ">
+                                                <a class="mt-action-author" data-target=".request_permission" data-toggle="modal"> Taylor Christine </a>
+                                                <p class="mt-action-desc">Requests access to your handbook</p>
+                                            </div>
+                                        </div>
+                                        <div class="mt-action-datetime ">
+                                            <span class="mt-action-date">June 2</span>
+                                            <span class="">@</span>
+                                            <span class="mt=action-time">1:02pm</span>
+                                        </div>
+                                        <div class="mt-action-buttons ">
+                                            <div class="btn-group btn-group-circle">
+                                                <button type="button" class="btn btn-outline blue btn-sm" onclick="hide('approval1')">Approve</button>
+                                                <button type="button" class="btn btn-outline red btn-sm" onclick="hide('approval1')">Reject</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-action" id="approval2">
+                                <div class="mt-action-img">
+                                    <img src="../assets/pages/media/users/avatar3.jpg" /> </div>
+                                <div class="mt-action-body">
+                                    <div class="mt-action-row">
+                                        <div class="mt-action-info ">
+                                            <div class="mt-action-details ">
+                                                <a class="mt-action-author" data-target=".request_permission" data-toggle="modal"> Gavin Bond </a>
+                                                <p class="mt-action-desc">Requests access to your handbook</p>
+                                            </div>
+                                        </div>
+                                        <div class="mt-action-datetime ">
+                                            <span class="mt-action-date">June 2</span>
+                                            <span class="">@</span>
+                                            <span class="mt=action-time">7:32pm</span>
+                                        </div>
+                                        <div class="mt-action-buttons ">
+                                            <div class="btn-group btn-group-circle">
+                                                <button type="button" class="btn btn-outline blue btn-sm" onclick="hide('approval2')">Approve</button>
+                                                <button type="button" class="btn btn-outline red btn-sm" onclick="hide('approval2')">Reject</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-action" id="approval3">
+                                <div class="mt-action-img">
+                                    <img src="../assets/pages/media/users/avatar2.jpg" /> </div>
+                                <div class="mt-action-body">
+                                    <div class="mt-action-row">
+                                        <div class="mt-action-info ">
+                                            <div class="mt-action-details ">
+                                                <a class="mt-action-author" data-target=".request_permission" data-toggle="modal"> Diana Berri </a>
+                                                <p class="mt-action-desc">Requests access to your handbook</p>
+                                            </div>
+                                        </div>
+                                        <div class="mt-action-datetime ">
+                                            <span class="mt-action-date">June 3</span>
+                                            <span class="">@</span>
+                                            <span class="mt=action-time">8:46am</span>
+                                        </div>
+                                        <div class="mt-action-buttons ">
+                                            <div class="btn-group btn-group-circle">
+                                                <button type="button" class="btn btn-outline blue btn-sm" onclick="hide('approval3')">Approve</button>
+                                                <button type="button" class="btn btn-outline red btn-sm" onclick="hide('approval3')">Reject</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-action" id="approval4">
+                                <div class="mt-action-img">
+                                    <img src="../assets/pages/media/users/avatar7.jpg" /> </div>
+                                <div class="mt-action-body">
+                                    <div class="mt-action-row">
+                                        <div class="mt-action-info ">
+                                            <div class="mt-action-details ">
+                                                <a class="mt-action-author" data-target=".request_permission" data-toggle="modal"> John Clark </a>
+                                                <p class="mt-action-desc">Requests access to your handbook</p>
+                                            </div>
+                                        </div>
+                                        <div class="mt-action-datetime ">
+                                            <span class="mt-action-date">June 3</span>
+                                            <span class="">@</span>
+                                            <span class="mt=action-time">9:21am</span>
+                                        </div>
+                                        <div class="mt-action-buttons ">
+                                            <div class="btn-group btn-group-circle">
+                                                <button type="button" class="btn btn-outline blue btn-sm" onclick="hide('approval4')">Approve</button>
+                                                <button type="button" class="btn btn-outline red btn-sm" onclick="hide('approval4')">Reject</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END: Actions -->
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-        <div class="portlet-body">
-          <div class="scroller" style="height: 265px;" data-always-visible="1" data-rail-visible="0">
-            <ul class="feeds">
-              <li>
-                <div class="col1">
-                  <div class="cont">
-                    <div class="desc"> Taylor Christine paid $875 </div>
-                  </div>
+        <!-- End Approval Feature -->
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <!-- BEGIN Recent Activities -->
+            <div class="portlet light bordered ">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <span class="caption-subject font-blue bold uppercase">Recent Activities</span>
+                    </div>
+                    <div class="actions">
+                        <div class="btn-group">
+                            <a class="btn btn-sm btn-default btn-circle" href="#" data-toggle="dropdown" dropdown-menu-hover data-close-others="true"> Filter
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+                                <label>
+                                    <input type="checkbox" checked="" value="clients" /> Clients </label>
+                                <label>
+                                    <input type="checkbox" checked="" value="finances" /> Finances </label>
+                                <label>
+                                    <input type="checkbox" checked="" value="internal" /> Internal </label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col2">
-                  <div class="date"> 2 hours </div>
+                <div class="portlet-body">
+                    <div class="scroller" style="height: 265px;" data-always-visible="1" data-rail-visible="0">
+                        <ul class="feeds">
+                            <li>
+                                <div class="col1">
+                                    <div class="cont">
+                                        <div class="desc"> Taylor Christine paid $875 </div>
+                                    </div>
+                                </div>
+                                <div class="col2">
+                                    <div class="date"> 2 hours </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="col1">
+                                    <div class="cont">
+                                        <div class="desc"> John Clark requested access to your handbook </div>
+                                    </div>
+                                </div>
+                                <div class="col2">
+                                    <div class="date"> 3 hours </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="col1">
+                                    <div class="cont">
+                                        <div class="desc"> Erin Hursh answered 12 questions </div>
+                                    </div>
+                                </div>
+                                <div class="col2">
+                                    <div class="date"> 3 hours </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="col1">
+                                    <div class="cont">
+                                        <div class="desc"> Diana Berri requested access to your handbook </div>
+                                    </div>
+                                </div>
+                                <div class="col2">
+                                    <div class="date"> 4 hours </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="col1">
+                                    <div class="cont">
+                                        <div class="desc"> Erin Hursh answered 4 questions </div>
+                                    </div>
+                                </div>
+                                <div class="col2">
+                                    <div class="date"> 5 hours </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="col1">
+                                    <div class="cont">
+                                        <div class="desc"> Erin Hursh is connected to your handbook </div>
+                                    </div>
+                                </div>
+                                <div class="col2">
+                                    <div class="date"> 5 hours </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="col1">
+                                    <div class="cont">
+                                        <div class="desc"> Gavin Bond requested access to your handbook </div>
+                                    </div>
+                                </div>
+                                <div class="col2">
+                                    <div class="date"> 16 hours </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="col1">
+                                    <div class="cont">
+                                        <div class="desc"> Jordan Johnson paid $1,600 </div>
+                                    </div>
+                                </div>
+                                <div class="col2">
+                                    <div class="date"> 16 hours </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="col1">
+                                    <div class="cont">
+                                        <div class="desc"> Jordan Johnson answered 13 questions </div>
+                                    </div>
+                                </div>
+                                <div class="col2">
+                                    <div class="date"> 16 hours </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="col1">
+                                    <div class="cont">
+                                        <div class="desc"> Natasha Kim requested access to your handbook </div>
+                                    </div>
+                                </div>
+                                <div class="col2">
+                                    <div class="date"> 22 hours </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="scroller-footer">
+                        <div class="pull-right">
+                            <a href="javascript:;" class="font-grey-gallery" style="font-size: 75%;">View More
+                                <i class="fa fa-eye"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-              </li>
-              <li>
-                <div class="col1">
-                  <div class="cont">
-                    <div class="desc"> John Clark requested access to your handbook </div>
-                  </div>
-                </div>
-                <div class="col2">
-                  <div class="date"> 3 hours </div>
-                </div>
-              </li>
-              <li>
-                <div class="col1">
-                  <div class="cont">
-                    <div class="desc"> Erin Hursh answered 12 questions </div>
-                  </div>
-                </div>
-                <div class="col2">
-                  <div class="date"> 3 hours </div>
-                </div>
-              </li>
-              <li>
-                <div class="col1">
-                  <div class="cont">
-                    <div class="desc"> Diana Berri requested access to your handbook </div>
-                  </div>
-                </div>
-                <div class="col2">
-                  <div class="date"> 4 hours </div>
-                </div>
-              </li>
-              <li>
-                <div class="col1">
-                  <div class="cont">
-                    <div class="desc"> Erin Hursh answered 4 questions </div>
-                  </div>
-                </div>
-                <div class="col2">
-                  <div class="date"> 5 hours </div>
-                </div>
-              </li>
-              <li>
-                <div class="col1">
-                  <div class="cont">
-                    <div class="desc"> Erin Hursh is connected to your handbook </div>
-                  </div>
-                </div>
-                <div class="col2">
-                  <div class="date"> 5 hours </div>
-                </div>
-              </li>
-              <li>
-                <div class="col1">
-                  <div class="cont">
-                    <div class="desc"> Gavin Bond requested access to your handbook </div>
-                  </div>
-                </div>
-                <div class="col2">
-                  <div class="date"> 16 hours </div>
-                </div>
-              </li>
-              <li>
-                <div class="col1">
-                  <div class="cont">
-                    <div class="desc"> Jordan Johnson paid $1,600 </div>
-                  </div>
-                </div>
-                <div class="col2">
-                  <div class="date"> 16 hours </div>
-                </div>
-              </li>
-              <li>
-                <div class="col1">
-                  <div class="cont">
-                    <div class="desc"> Jordan Johnson answered 13 questions </div>
-                  </div>
-                </div>
-                <div class="col2">
-                  <div class="date"> 16 hours </div>
-                </div>
-              </li>
-              <li>
-                <div class="col1">
-                  <div class="cont">
-                    <div class="desc"> Natasha Kim requested access to your handbook </div>
-                  </div>
-                </div>
-                <div class="col2">
-                  <div class="date"> 22 hours </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="scroller-footer">
-            <div class="pull-right">
-              <a href="javascript:;" class="font-grey-gallery" style="font-size: 75%;">View More
-                <i class="fa fa-eye"></i>
-              </a>
             </div>
-          </div>
+            <!-- END Recent Activities -->
         </div>
-      </div>
-      <!-- END Recent Activities -->
-    </div>
-
-    <!-- BEGIN Tasks -->
-    <div class="col-md-6 col-sm-12">
-      <div class="portlet light bordered tasks-widget">
-        <div class="portlet-title">
-          <div class="caption caption-md">
-            <span class="caption-subject font-blue bold uppercase">TASKS</span>
-            <span class="caption-helper">7 pending</span>
-          </div>
-          <div class="actions">
-            <div class="btn-group">
-              <a class="btn btn-sm btn-default btn-circle" href="#" data-toggle="dropdown" dropdown-menu-hover data-close-others="true"> Filter
-                <i class="fa fa-angle-down"></i>
-              </a>
-              <div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
-                <label>
-                  <input type="checkbox" value="current-tasks" checked="checked" />
-                  Current Tasks
-                </label>
-                <label>
-                  <input type="checkbox" value="completed-tasks"/>
-                  Completed Tasks
-                </label>
-              </div>
-          </div>
-        </div>
-      </div>
-      <div class="portlet-body">
-        <div class="task-content">
-          <div class="scroller" style="height: 265px;" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2">
-            <!-- START TASK LIST -->
-            <ul class="task-list">
-                <li>
-                  <div class="task-checkbox">
-                    <input type="hidden" value="1" name="test" />
-                    <input type="checkbox" class="liChild" value="2" name="test" /> </div>
-                  <div class="task-title">
-                    <span class="task-title-sp"> Update Calendar with upcoming showings </span>
-                  </div>
-                  <div class="task-config">
-                    <div class="task-config-btn btn-group">
-                      <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
-                        <i class="fa fa-cog"></i>
-                        <i class="fa fa-angle-down"></i>
-                      </a>
-                      <ul class="dropdown-menu pull-right">
-                        <li>
-                          <a href="javascript:;">
-                            <i class="fa fa-check"></i> Complete </a>
-                        </li>
-                        <li>
-                          <a href="javascript:;">
-                            <i class="fa fa-pencil"></i> Edit </a>
-                        </li>
-                        <li>
-                          <a href="javascript:;">
-                            <i class="fa fa-trash-o"></i> Delete </a>
-                        </li>
-                      </ul>
+        <!-- BEGIN Tasks -->
+        <div class="col-md-6 col-sm-12">
+            <div class="portlet light bordered tasks-widget">
+                <div class="portlet-title">
+                    <div class="caption caption-md">
+                        <span class="caption-subject font-blue bold uppercase">TASKS</span>
+                        <span class="caption-helper">7 pending</span>
                     </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="task-checkbox">
-                    <input type="checkbox" class="liChild" value="" /> </div>
-                  <div class="task-title">
-                    <span class="task-title-sp"> Check marketing on TheKnot </span>
-                  </div>
-                  <div class="task-config">
-                    <div class="task-config-btn btn-group">
-                      <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
-                        <i class="fa fa-cog"></i>
-                        <i class="fa fa-angle-down"></i>
-                      </a>
-                      <ul class="dropdown-menu pull-right">
-                        <li>
-                          <a href="javascript:;">
-                            <i class="fa fa-check"></i> Complete
-                          </a>
-                        </li>
-                        <li>
-                          <a href="javascript:;">
-                            <i class="fa fa-pencil"></i> Edit
-                          </a>
-                        </li>
-                        <li>
-                          <a href="javascript:;">
-                            <i class="fa fa-trash-o"></i> Delete
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                    <div class="task-checkbox">
-                        <input type="checkbox" class="liChild" value="" /> </div>
-                    <div class="task-title">
-                        <span class="task-title-sp"> Follow up with Juan about venue upgrades </span>
-                    </div>
-                    <div class="task-config">
-                        <div class="task-config-btn btn-group">
-                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
-                                <i class="fa fa-cog"></i>
+                    <div class="actions">
+                        <div class="btn-group">
+                            <a class="btn btn-sm btn-default btn-circle" href="#" data-toggle="dropdown" dropdown-menu-hover data-close-others="true"> Filter
                                 <i class="fa fa-angle-down"></i>
                             </a>
-                            <ul class="dropdown-menu pull-right">
-                                <li>
-                                    <a href="javascript:;">
-                                        <i class="fa fa-check"></i> Complete </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <i class="fa fa-pencil"></i> Edit </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                </li>
-                            </ul>
+                            <div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+                                <label>
+                                    <input type="checkbox" value="current-tasks" checked="checked" /> Current Tasks </label>
+                                <label>
+                                    <input type="checkbox" value="completed-tasks" /> Completed Tasks </label>
+                            </div>
                         </div>
                     </div>
-                </li>
-                <li>
-                    <div class="task-checkbox">
-                        <input type="checkbox" class="liChild" value="" /> </div>
-                    <div class="task-title">
-                        <span class="task-title-sp"> Show Ashley how to use Vendly </span>
+                </div>
+                <div class="portlet-body">
+                    <div class="task-content">
+                        <div class="scroller" style="height: 265px;" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2">
+                            <!-- START TASK LIST -->
+                            <ul class="task-list">
+                                <li>
+                                    <div class="task-checkbox">
+                                        <input type="hidden" value="1" name="test" />
+                                        <input type="checkbox" class="liChild" value="2" name="test" /> </div>
+                                    <div class="task-title">
+                                        <span class="task-title-sp"> Update Calendar with upcoming showings </span>
+                                    </div>
+                                    <div class="task-config">
+                                        <div class="task-config-btn btn-group">
+                                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
+                                                <i class="fa fa-cog"></i>
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-check"></i> Complete </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-pencil"></i> Edit </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-trash-o"></i> Delete </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="task-checkbox">
+                                        <input type="checkbox" class="liChild" value="" /> </div>
+                                    <div class="task-title">
+                                        <span class="task-title-sp"> Check marketing on TheKnot </span>
+                                    </div>
+                                    <div class="task-config">
+                                        <div class="task-config-btn btn-group">
+                                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
+                                                <i class="fa fa-cog"></i>
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-check"></i> Complete </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-pencil"></i> Edit </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-trash-o"></i> Delete </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="task-checkbox">
+                                        <input type="checkbox" class="liChild" value="" /> </div>
+                                    <div class="task-title">
+                                        <span class="task-title-sp"> Follow up with Juan about venue upgrades </span>
+                                    </div>
+                                    <div class="task-config">
+                                        <div class="task-config-btn btn-group">
+                                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
+                                                <i class="fa fa-cog"></i>
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-check"></i> Complete </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-pencil"></i> Edit </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-trash-o"></i> Delete </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="task-checkbox">
+                                        <input type="checkbox" class="liChild" value="" /> </div>
+                                    <div class="task-title">
+                                        <span class="task-title-sp"> Show Ashley how to use Vendly </span>
+                                    </div>
+                                    <div class="task-config">
+                                        <div class="task-config-btn btn-group">
+                                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
+                                                <i class="fa fa-cog"></i>
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-check"></i> Complete </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-pencil"></i> Edit </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-trash-o"></i> Delete </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="task-checkbox">
+                                        <input type="checkbox" class="liChild" value="" /> </div>
+                                    <div class="task-title">
+                                        <span class="task-title-sp"> Balance month end budget </span>
+                                    </div>
+                                    <div class="task-config">
+                                        <div class="task-config-btn btn-group">
+                                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
+                                                <i class="fa fa-cog"></i>
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-check"></i> Complete </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-pencil"></i> Edit </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-trash-o"></i> Delete </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="task-checkbox">
+                                        <input type="checkbox" class="liChild" value="" /> </div>
+                                    <div class="task-title">
+                                        <span class="task-title-sp"> Add banking info to incorporate payment processing on Vendly </span>
+                                    </div>
+                                    <div class="task-config">
+                                        <div class="task-config-btn btn-group">
+                                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
+                                                <i class="fa fa-cog"></i>
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-check"></i> Complete </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-pencil"></i> Edit </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-trash-o"></i> Delete </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="last-line">
+                                    <div class="task-checkbox">
+                                        <input type="checkbox" class="liChild" value="" /> </div>
+                                    <div class="task-title">
+                                        <span class="task-title-sp"> Reach out to Austin regarding marketing </span>
+                                    </div>
+                                    <div class="task-config">
+                                        <div class="task-config-btn btn-group">
+                                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
+                                                <i class="fa fa-cog"></i>
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-check"></i> Complete </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-pencil"></i> Edit </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-trash-o"></i> Delete </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <!-- END START TASK LIST -->
+                        </div>
                     </div>
-                    <div class="task-config">
-                        <div class="task-config-btn btn-group">
-                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
-                                <i class="fa fa-cog"></i>
-                                <i class="fa fa-angle-down"></i>
+                    <div class="task-footer">
+                        <div class="pull-right">
+                            <a href="javascript:;" class="font-grey-gallery" style="font-size: 75%;">Add Task
+                                <i class="fa fa-plus"></i>
                             </a>
-                            <ul class="dropdown-menu pull-right">
-                                <li>
-                                    <a href="javascript:;">
-                                        <i class="fa fa-check"></i> Complete </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <i class="fa fa-pencil"></i> Edit </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                </li>
-                            </ul>
                         </div>
                     </div>
-                </li>
-                <li>
-                    <div class="task-checkbox">
-                        <input type="checkbox" class="liChild" value="" /> </div>
-                    <div class="task-title">
-                        <span class="task-title-sp"> Balance month end budget </span>
-                    </div>
-                    <div class="task-config">
-                        <div class="task-config-btn btn-group">
-                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
-                                <i class="fa fa-cog"></i>
-                                <i class="fa fa-angle-down"></i>
-                            </a>
-                            <ul class="dropdown-menu pull-right">
-                                <li>
-                                    <a href="javascript:;">
-                                        <i class="fa fa-check"></i> Complete </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <i class="fa fa-pencil"></i> Edit </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="task-checkbox">
-                        <input type="checkbox" class="liChild" value="" /> </div>
-                    <div class="task-title">
-                        <span class="task-title-sp"> Add banking info to incorporate payment processing on Vendly </span>
-                    </div>
-                    <div class="task-config">
-                        <div class="task-config-btn btn-group">
-                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
-                                <i class="fa fa-cog"></i>
-                                <i class="fa fa-angle-down"></i>
-                            </a>
-                            <ul class="dropdown-menu pull-right">
-                                <li>
-                                    <a href="javascript:;">
-                                        <i class="fa fa-check"></i> Complete </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <i class="fa fa-pencil"></i> Edit </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-                <li class="last-line">
-                    <div class="task-checkbox">
-                        <input type="checkbox" class="liChild" value="" /> </div>
-                    <div class="task-title">
-                        <span class="task-title-sp"> Reach out to Austin regarding marketing </span>
-                    </div>
-                    <div class="task-config">
-                        <div class="task-config-btn btn-group">
-                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
-                                <i class="fa fa-cog"></i>
-                                <i class="fa fa-angle-down"></i>
-                            </a>
-                            <ul class="dropdown-menu pull-right">
-                                <li>
-                                    <a href="javascript:;">
-                                        <i class="fa fa-check"></i> Complete </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <i class="fa fa-pencil"></i> Edit </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <!-- END START TASK LIST -->
-          </div>
-        </div>
-          <div class="task-footer">
-            <div class="pull-right">
-              <a href="javascript:;" class="font-grey-gallery" style="font-size: 75%;">Add Task
-                <i class="fa fa-plus"></i>
-              </a>
+                </div>
             </div>
-          </div>
-      </div>
+            <!-- END Tasks -->
+        </div>
     </div>
-      <!-- END Tasks -->
-    </div>
-  </div>
 </div>
 <!-- END MAIN CONTENT -->
-
 <!-- BEGIN Client Details Modal -->
-  <div class="modal fade request_permission" role="dialog">
+<div class="modal fade request_permission" role="dialog">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title bold">
-            <img src="../assets/layouts/layout/img/avatar11.jpg" alt="Taylor Christine" class="img-circle">
-            <span id="clientname">Taylor Christine</span> &nbsp;
-          </h4>
-        </div>
-        <div class="modal-body">
-          <div class="portlet light">
-            <div class="row">
-              <div class="col-md-6">
-                <dl>
-                  <dt>Email</dt>
-                  <dd class="padding-bottom-10" id="clientemail">taylor.christine@gmail.com</dd>
-                  <dt>Phone Number</dt>
-                  <dd class="padding-bottom-10" id="clientphone">123-456-7890</dd>
-                  <dt>Event Date</dt>
-                  <dd class="padding-bottom-10" id="clientweddingdate">December 8, 2016</dd>
-                </dl>
-              </div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title bold">
+                    <img src="../assets/layouts/layout/img/avatar11.jpg" alt="Taylor Christine" class="img-circle">
+                    <span id="clientname">Taylor Christine</span> &nbsp; </h4>
             </div>
-          </div>
+            <div class="modal-body">
+                <div class="portlet light">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <dl>
+                                <dt>Email</dt>
+                                <dd class="padding-bottom-10" id="clientemail">taylor.christine@gmail.com</dd>
+                                <dt>Phone Number</dt>
+                                <dd class="padding-bottom-10" id="clientphone">123-456-7890</dd>
+                                <dt>Event Date</dt>
+                                <dd class="padding-bottom-10" id="clientweddingdate">December 8, 2016</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn default" data-dismiss="modal">Close</button>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button class="btn default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
 <!-- END Client Details Modal -->
-
-
 <!-- BEGIN MAIN JS & CSS -->
 <script>
-  Dashboard.init();
-  function hide(target) {
-    document.getElementById(target).style.display = 'none';
+    Dashboard.init();
+
+    function hide(target)
+    {
+        document.getElementById(target).style.display = 'none';
     }
 </script>
 <!-- BEGIN MAIN JS & CSS -->

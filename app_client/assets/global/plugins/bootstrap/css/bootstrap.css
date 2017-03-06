@@ -3436,6 +3436,7 @@ tbody.collapse.in {
 
 .input-group {
   position: relative;
+  display: table;
   border-collapse: separate; }
   .input-group[class*="col-"] {
     float: none;
@@ -4691,7 +4692,7 @@ button.list-group-item-danger {
 
 .panel {
   margin-bottom: 20px;
-  background-color: transparent;
+  background-color: #fff;
   border: 1px solid transparent;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -4706,7 +4707,7 @@ button.list-group-item-danger {
     clear: both; }
 
 .panel-heading {
-  padding: 10px 15px 0;
+  padding: 10px 15px;
   border-bottom: 1px solid transparent;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px; }
@@ -4891,7 +4892,7 @@ button.list-group-item-danger {
   margin-bottom: 0; }
 
 .panel-group {
-  margin-bottom: 0px; }
+  margin-bottom: 20px; }
   .panel-group .panel {
     margin-bottom: 0;
     border-radius: 4px; }
@@ -4908,11 +4909,11 @@ button.list-group-item-danger {
       border-bottom: 1px solid #ddd; }
 
 .panel-default {
-  border-color: transparent;; }
+  border-color: #ddd; }
   .panel-default > .panel-heading {
     color: #333333;
-    background-color: transparent;;
-    border-color: transparent; }
+    background-color: #f5f5f5;
+    border-color: #ddd; }
     .panel-default > .panel-heading + .panel-collapse > .panel-body {
       border-top-color: #ddd; }
     .panel-default > .panel-heading .badge {
@@ -5142,7 +5143,7 @@ button.close {
 
 .modal-body {
   position: relative;
-  padding: 0 15px; }
+  padding: 15px; }
 
 .modal-footer {
   padding: 15px;

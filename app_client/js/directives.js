@@ -21,7 +21,7 @@ MetronicApp.directive('ngSpinnerBar', ['$rootScope',
                     $('body').removeClass('page-on-load'); // remove page loading indicator
                     Layout.setSidebarMenuActiveLink('match'); // activate selected link in the sidebar menu
                     // auto scorll to page top
-                    setTimeout(function () {
+                    setTimeout(function() {
                         App.scrollTop(); // scroll to the top on content load
                     }, $rootScope.settings.layout.pageAutoScrollOnLoad);
                 });
@@ -38,7 +38,7 @@ MetronicApp.directive('ngSpinnerBar', ['$rootScope',
             }
         };
     }
-])
+]);
 
 // Handle global LINK click
 MetronicApp.directive('a', function() {
@@ -55,12 +55,12 @@ MetronicApp.directive('a', function() {
 });
 
 // Handle Dropdown Hover Plugin Integration
-MetronicApp.directive('dropdownMenuHover', function () {
-  return {
-    link: function (scope, elem) {
-      elem.dropdownHover();
-    }
-  };
+MetronicApp.directive('dropdownMenuHover', function() {
+    return {
+        link: function(scope, elem) {
+            elem.dropdownHover();
+        }
+    };
 });
 
 // Handle Google Places Autocomplete
@@ -90,3 +90,36 @@ MetronicApp.directive('googlePlace', ['$rootScope',
         };
     }
 ]);
+
+// Password Authentication
+MetronicApp.directive('compareTo', function() {
+    return {
+        restrict: 'A',
+        require: "ngModel",
+        scope: {
+            otherValue: "=compareTo"
+        },
+        link: function(scope, element, attrs, ngModel) {
+            $(document).ready(function() {
+                console.log('LINKED');
+            });
+            ngModel.$validators.compareTo = function(modelValue) {
+                return modelValue == scope.otherValue;
+            };
+            scope.$watch("otherValue", function() {
+                ngModel.$validate();
+            });
+            element.on('blur', function() {
+                if (element.hasClass('ng-invalid')) {
+                    $('.password-confirmation-alert').removeClass('hidden');
+                }
+            });
+            element.on('keyup', function() {
+                if (element.hasClass('ng-valid')) {
+                    $('.password-confirmation-alert').addClass('hidden');
+                }
+            });
+
+        }
+    };
+});
