@@ -7,7 +7,9 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 
 // pull vars for dev environment
-require('dotenv').load();
+if (process.env.NODE_ENV != 'production') {
+    require('dotenv').load();
+}
 
 // Bring in the data model
 require('./app_api/models/db');
