@@ -67,6 +67,7 @@
     </div>
     <!-- END MAIN CONTENT -->
     <!-- BEGIN Client Details Modal -->
+
     <div id="client_details" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -78,22 +79,7 @@
                     </h4>
                 </div>
                 <div class="modal-body">
-                    <div class="portlet light">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <dl>
-                                    <dt>Email</dt>
-                                    <dd class="padding-bottom-10" id="clientemail"></dd>
-                                    <dt>Phone Number</dt>
-                                    <dd class="padding-bottom-10" id="clientphone"></dd>
-                                    <dt>Event Date</dt>
-                                    <dd class="padding-bottom-10" id="clientweddingdate"></dd>
-                                    <dt>Balance Due</dt>
-                                    <dd id="clientbalancedue"></dd>
-                                </dl>
-                            </div>
-                        </div>
-                    </div>
+                    <client-details client="viewingClient"></client-details>
                 </div>
                 <div class="modal-footer">
                     <button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
