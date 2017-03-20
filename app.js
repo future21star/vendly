@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 
 // pull vars for dev environment
-if (process.env.NODE_ENV != 'production') {
+if (process.env.NODE_ENV !== 'production') {
     require('dotenv').load();
 }
 
