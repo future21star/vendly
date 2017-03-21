@@ -27,6 +27,7 @@ router.put('/updateProfile', auth, ctrlProfile.updateProfile);
 // rolodex contacts
 router.get('/rolodex', auth, ctrlProfile.rolodexRead);
 router.post('/saveContact', auth, ctrlProfile.saveContact);
+router.put('/updateContact', auth, ctrlProfile.updateContact);
 
 // calendar
 router.get('/calendar', auth, ctrlProfile.calendarRead);

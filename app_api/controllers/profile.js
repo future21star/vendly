@@ -138,6 +138,34 @@ module.exports = {
 
     },
 
+    updateContact: function(req, res) {
+      if (!req.payload._id) {
+        res.status(401).json({
+          "message": "UnauthorizedError: private profile"
+        });
+      } else {
+            var contact = Contact.find({_id: req.body._id });
+            if (contact._owner._id != req.payload._id) {
+                res.status(401).json({
+                    "message": "Only the owner of the contact can update it"
+                })
+            } else {
+                // Can the email be updated?
+                Contact.findOneAndUpdate({ _id: req.body._id}, {
+                  name: req.body.name,
+                  weddingdate: req.body.weddingdate,
+                  balanceDue: req.body.balanceDue,
+                  phone: req.body.phone
+                }, function(err) {
+                  if (err)
+                    res.status(409).json({ "message": err });
+
+                  res.status(200).json();
+                })
+            }
+      }
+    },
+
     calendarRead: function(req, res) {
 
         if (!req.payload._id) {
