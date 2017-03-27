@@ -9,7 +9,7 @@ app.directive("clientDetails", function () {
     scope: {
       client: "=client",
     },
-    controller: ["$scope", function ($scope) {
+    controller: ["$scope", "meanData", function ($scope, meanData) {
 
       $scope.edit = function () {
         $scope.editedClient = angular.copy($scope.client);
@@ -21,7 +21,12 @@ app.directive("clientDetails", function () {
       };
 
       $scope.save = function() {
-
+        meanData.updateContact($scope.editedClient, function(response) {
+          $scope.client = response.data;
+          $scope.stopEditing()
+        }, function(response) {
+          $scope.error = response.message;
+        })
       };
 
     }]
