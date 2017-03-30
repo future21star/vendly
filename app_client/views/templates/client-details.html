@@ -4,6 +4,7 @@
             <span>{{ client.name }}</span> &nbsp;
 
             <a ng-click="edit()"
+               ng-if="!editing"
                class="btn btn-circle btn-default border-blue btn-small font-blue" style="float: right;">
                 <i class="fa fa-wrench"></i> Edit
             </a>
@@ -38,9 +39,7 @@
                                 {{ client.weddingdate | date:"fullDate" }}
                             </div>
                             <div ng-if="editing">
-                                <input class="form-control date-picker" size="16" type="text" value=""
-                                       data-date-start-date="+0d" required="required"
-                                       ng-model="editedClient.weddingdate"/>
+                                <input date-picker class="form-control" ng-model="editedClient.weddingdate"/>
                             </div>
                         </dd>
 
