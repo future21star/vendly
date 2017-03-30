@@ -56,7 +56,7 @@ angular.module('MetronicApp').controller('RolodexController', ['$rootScope', '$s
     };
     $scope.dateFilterFunction = currentClients;
     $scope.dateFilter = function (client) {
-        return $scope.dateFilterFunction(new Date(client.weddingdate).getDate(), new Date().getDate());
+        return $scope.dateFilterFunction(new Date(client.weddingdate), new Date());
     };
     $scope.toggleCurrentClients = function () {
         if ($scope.dateFilterFunction === pastClients)
