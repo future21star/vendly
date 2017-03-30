@@ -21,11 +21,12 @@ app.directive("clientDetails", function () {
       };
 
       $scope.save = function() {
+        $scope.error = null
         meanData.updateContact($scope.editedClient, function(response) {
           $scope.client = response.data;
           $scope.stopEditing()
         }, function(response) {
-          $scope.error = response.message;
+          $scope.error = response.data.message;
         })
       };
 

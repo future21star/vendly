@@ -147,6 +147,7 @@ module.exports = {
       Contact.findById(req.body._id, function (err, contact) {
         if (err) {
           res.status(500).json({"message": err})
+          return
         }
 
         if (contact._owner != req.payload._id) {
@@ -161,10 +162,11 @@ module.exports = {
             balanceDue: req.body.balanceDue,
             phone: req.body.phone
           }, function (err, contact) {
-            if (err)
+            if (err) {
               res.status(409).json({"message": err});
-
-            res.status(200).json(contact);
+            } else {
+              res.status(200).json(contact);
+            }
           })
         }
       });
