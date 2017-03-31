@@ -76,7 +76,7 @@
     <div class="modal-footer">
         <div ng-if="! editing">
             <button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
-            <a type="button" id="viewfulldetails" class="btn blue" href="#/client_details">View Full Details</a>
+            <a type="button" id="viewfulldetails" class="btn blue" ng-href="#/client_details?clientId={{ client._id }}">View Full Details</a>
         </div>
 
         <div ng-if="editing">
