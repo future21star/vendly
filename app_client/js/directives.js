@@ -123,16 +123,3 @@ MetronicApp.directive('compareTo', function () {
     }
   };
 });
-
-MetronicApp.directive('datePicker', function () {
-  return {
-    restrict: 'A',
-    scope: {
-      ngModel: '='
-    },
-    link: function(scope, element, attrs) {
-      $(element).datepicker({startDate: '+0d'});
-      $(element).datepicker('setDate', new Date(scope.ngModel));
-    }
-  }
-});
