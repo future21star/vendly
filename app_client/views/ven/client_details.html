@@ -16,11 +16,11 @@
 </div>
 <!-- END PAGE HEADER-->
 <!-- BEGIN MAIN CONTENT -->
-<div class="row" ng-controller="GeneralPageController">
+<div class="row" ng-controller="ClientDetailsController">
     <div class="col-xs-12">
         <div class="portlet light no-margin">
             <div class="portlet-title">
-                <div class="page-title"> Taylor Christine </div>
+                <div class="page-title">{{ client.name }}</div>
                 <div class="actions hidden-print">
                     <a class="btn btn-circle blue" onclick="javascript:window.print();">
                         <i class="fa fa-print"></i> Print </a>
@@ -29,9 +29,9 @@
             <table class="table text-muted">
                 <tbody>
                     <tr>
-                        <td style="border-top: transparent"> Event Date: December 8, 2016 </td>
-                        <td style="border-top: transparent"> Phone: 832-922-7104 </td>
-                        <td style="border-top: transparent"> Email: taylor.christine@gmail.com </td>
+                        <td style="border-top: transparent"> Event Date: {{ client.weddingdate | date }} </td>
+                        <td style="border-top: transparent"> Phone: {{ client.phone }} </td>
+                        <td style="border-top: transparent"> Email: {{ client.email }} </td>
                     </tr>
                 </tbody>
             </table>
