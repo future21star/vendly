@@ -27,8 +27,8 @@ router.put('/updateProfile', auth, ctrlProfile.updateProfile);
 
 // rolodex contacts
 router.get('/rolodex', auth, ctrlProfile.rolodexRead);
-router.post('/saveContact', auth, ctrlProfile.saveContact);
-router.put('/updateContact', auth, ctrlProfile.updateContact);
+router.post('/saveContact', auth, clients.createContact);
+router.put('/updateContact', auth, clients.updateContact);
 
 // calendar
 router.get('/calendar', auth, ctrlProfile.calendarRead);
@@ -57,6 +57,6 @@ router.post('/saveEmployee', auth, employee.saveEmployee);
 router.get('/getEmployees', auth, employee.getEmployees);
 
 //clients
-router.get('/clients/:clientId', auth, clients.getClient);
+router.get('/clients/:clientId', auth, clients.getContact);
 
 module.exports = router;
