@@ -1,6 +1,6 @@
 var app = angular.module("MetronicApp");
 
-app.service('UserInfo' ['$http', 'authentication',
+app.service('UserInfo', ['$http', 'authentication',
     function($http, authentication) {
         var auth = {
             headers: {

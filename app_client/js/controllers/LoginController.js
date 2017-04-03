@@ -32,11 +32,14 @@ angular.module('MetronicApp').controller('LoginController', ['$location', 'authe
                     toastr.error(err, 'Error');
                 })
                 .then(function() {
-                    meanData.signUpUser($scope.register)
-                        .success(function() {
-                            $('.modal-backdrop').remove();
-                            $location.path('/account/settings');
-                        });
+                    $('.modal-backdrop').remove();
+                    $location.path('/account/settings');
+                    // TODO : complete user sign up email
+                    // meanData.signUpUser($scope.register)
+                    //     .success(function() {
+                    //         $('.modal-backdrop').remove();
+                    //         $location.path('/account/settings');
+                    //     });
                 });
         };
 
