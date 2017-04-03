@@ -15,7 +15,7 @@ angular.module('MetronicApp').controller('DashboardController', ['$rootScope', '
     loadTasks = function () {
         UserInfo.getTasks()
             .success(function(data) {
-                alert(data);
+                //alert(data);
                 $scope.tasks = data;
             })
             .error(function (e) {
