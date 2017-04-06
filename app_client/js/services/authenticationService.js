@@ -48,7 +48,7 @@ app.service('authentication', ['$http', '$window',
 
         var register = function(user) {
             console.log(`User: ${JSON.stringify(user)}`);
-            return $http.post('/register', user).success(function(data) {
+            return $http.post('/api/register', user).success(function(data) {
                 saveToken(data.token);
             });
         };
