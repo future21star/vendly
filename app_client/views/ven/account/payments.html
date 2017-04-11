@@ -187,13 +187,13 @@
   <!-- END Membership -->
 
   <!-- BEGIN Payments Modal -->
-  <div id="update-cc" class="modal fade" role="dialog">
+  <div id="update-cc" class="modal fade" role="dialog" ng-controller="paymentController">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="padding-bottom-5 modal-body">
           <div class="padding-top-10 padding-right-20 padding-left-20 padding-bottom-5 light">
             <script src="node_modules/card/dist/card.js"></script>
-            <form action="#" class="form-horizontal">
+            <form stripe-form="stripeCallback" action="#" class="form-horizontal">
               <div class="form-body">
                 <div class="form-group">
                   <div class="card-wrapper padding-bottom-20"></div>

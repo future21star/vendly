@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "angular-route": "^1.5.5",
+    "angular-stripe": "^4.2.12",
     "aws-sdk": "^2.7.13",
     "body-parser": "~1.13.2",
     "bson": "^0.4.23",
