@@ -13,6 +13,7 @@ var files = require('../controllers/files');
 var handbook = require('../controllers/handbook');
 var emails = require('../controllers/emails');
 var employee = require('../controllers/employee');
+var clients = require('../controllers/clientController');
 var tasks = require('../controllers/tasks');
 
 // files
@@ -27,7 +28,8 @@ router.put('/updateProfile', auth, ctrlProfile.updateProfile);
 
 // rolodex contacts
 router.get('/rolodex', auth, ctrlProfile.rolodexRead);
-router.post('/saveContact', auth, ctrlProfile.saveContact);
+router.post('/saveContact', auth, clients.createContact);
+router.put('/updateContact', auth, clients.updateContact);
 
 // calendar
 router.get('/calendar', auth, ctrlProfile.calendarRead);
@@ -54,6 +56,9 @@ router.post('/signUpUser', auth, emails.signUpUser);
 // employee
 router.post('/saveEmployee', auth, employee.saveEmployee);
 router.get('/getEmployees', auth, employee.getEmployees);
+
+//clients
+router.get('/clients/:clientId', auth, clients.getContact);
 
 // tasks
 

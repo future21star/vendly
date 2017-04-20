@@ -9,7 +9,7 @@ angular.module('MetronicApp').controller('RolodexController', ['$rootScope', '$s
         $rootScope.settings.layout.pageSidebarClosed = false;
     });
     
-    $scope.clients = {};
+    $scope.clients = [];
 
     loadRolodex = function () {
         meanData.getRolodex()
@@ -40,11 +40,7 @@ angular.module('MetronicApp').controller('RolodexController', ['$rootScope', '$s
     };
     
     $scope.viewContact = function(client) {
-        $('#clientname').html(client.name);
-        $('#clientemail').html(client.email);
-        $('#clientphone').html(client.phone);
-        $('#clientweddingdate').html(new Date(client.weddingdate).toLocaleDateString());
-        $('#clientbalancedue').html(client.balanceDue);
+        $scope.viewingClient = client
     };
     
     $('#viewfulldetails').click(function () {
@@ -60,7 +56,7 @@ angular.module('MetronicApp').controller('RolodexController', ['$rootScope', '$s
     };
     $scope.dateFilterFunction = currentClients;
     $scope.dateFilter = function (client) {
-        return $scope.dateFilterFunction(new Date(client.weddingdate).getDate(), new Date().getDate());
+        return $scope.dateFilterFunction(new Date(client.weddingdate), new Date());
     };
     $scope.toggleCurrentClients = function () {
         if ($scope.dateFilterFunction === pastClients)

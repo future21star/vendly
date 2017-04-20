@@ -4,115 +4,120 @@
 var app = angular.module("MetronicApp");
 
 app.service('meanData', ['$http', 'authentication',
-    function($http, authentication) {
+  function ($http, authentication) {
 
-        var auth = {
-            headers: {
-                Authorization: 'Bearer ' + authentication.getToken()
-            }
-        };
+    auth = {
+      headers: {
+        Authorization: 'Bearer ' + authentication.getToken()
+      }
+    };
 
-        var getProfile = function() {
-            return $http.get('/api/profile', auth);
-        };
+    getProfile = function () {
+      return $http.get('/api/profile', auth);
+    };
 
-        var updateProfile = function(profile) {
-            return $http.put('/api/updateProfile', profile, auth);
-        };
+    updateProfile = function (profile) {
+      return $http.put('/api/updateProfile', profile, auth);
+    };
 
-        var getRolodex = function() {
-            return $http.get('/api/rolodex', auth);
-        };
+    getRolodex = function () {
+      return $http.get('/api/rolodex', auth);
+    };
 
-        var saveContact = function(contact) {
-            return $http.post('/api/saveContact', contact, auth);
-        };
+    saveContact = function (contact) {
+      return $http.post('/api/saveContact', contact, auth);
+    };
 
-        var getCalendar = function() {
-            return $http.get('/api/calendar', auth);
-        };
+    updateContact = function (contact, onSuccess, onFailure) {
+      $http.put('/api/updateContact', contact, auth).then(onSuccess, onFailure)
+    };
 
-        var saveEvent = function(event) {
-            return $http.post('/api/saveEvent', event, auth);
-        };
+    getCalendar = function () {
+      return $http.get('/api/calendar', auth);
+    };
 
-        var updateEvent = function(event) {
-            return $http.put('/api/updateEvent', event, auth);
-        };
+    saveEvent = function (event) {
+      return $http.post('/api/saveEvent', event, auth);
+    };
 
-        var getBooklets = function() {
-            return $http.get('/api/booklets', auth);
-        };
+    updateEvent = function (event) {
+      return $http.put('/api/updateEvent', event, auth);
+    };
 
-        var saveBooklet = function(booklet) {
-            return $http.post('/api/saveBooklet', booklet, auth);
-        };
+    getBooklets = function () {
+      return $http.get('/api/booklets', auth);
+    };
 
-        var updateBooklet = function(booklet) {
-            return $http.put('/api/updateBooklet', booklet, auth);
-        };
+    saveBooklet = function (booklet) {
+      return $http.post('/api/saveBooklet', booklet, auth);
+    };
 
-        var setActiveHandbook = function(booklet) {
-            return $http.put('/api/setActiveHandbook', booklet, auth);
-        };
+    updateBooklet = function (booklet) {
+      return $http.put('/api/updateBooklet', booklet, auth);
+    };
 
-        var getActiveHandbook = function() {
-            return $http.get('/api/getActiveHandbook', auth);
-        };
+    setActiveHandbook = function (booklet) {
+      return $http.put('/api/setActiveHandbook', booklet, auth);
+    };
 
-        var sendNewUserInviteEmail = function(user) {
-            return $http.post('/api/sendNewUserInviteEmail', user, auth);
-        };
+    getActiveHandbook = function () {
+      return $http.get('/api/getActiveHandbook', auth);
+    };
 
-        var sendEmail = function(email, subject, content) {
-            return $http.post('/api/sendEmail', user, auth);
-        };
+    sendNewUserInviteEmail = function (user) {
+      return $http.post('/api/sendNewUserInviteEmail', user, auth);
+    };
 
-        var getDocuments = function() {
-            return $http.get('/api/getFiles', auth);
-        };
+    sendEmail = function (email, subject, content) {
+      return $http.post('/api/sendEmail', user, auth);
+    };
 
-        var saveDocument = function(document) {
-            return $http.post('/api/saveFile', document, auth);
-        };
+    getDocuments = function () {
+      return $http.get('/api/getFiles', auth);
+    };
 
-        var signUpUser = function(user) {
-            return $http.post('/api/signUpUser', user, auth);
-        };
+    saveDocument = function (document) {
+      return $http.post('/api/saveFile', document, auth);
+    };
 
-        var saveEmployee = function(employee) {
-            return $http.post('/api/saveEmployee', employee, auth);
-        };
+    signUpUser = function (user) {
+      return $http.post('/api/signUpUser', user, auth);
+    };
 
-        var updateEmployees = function(employee) {
-            return $http.put('/api/updateEmployees', employee, auth);
-        };
+    saveEmployee = function (employee) {
+      return $http.post('/api/saveEmployee', employee, auth);
+    };
 
-        var getEmployees = function() {
-            return $http.get('/api/getEmployees', auth);
-        };
+    updateEmployees = function (employee) {
+      return $http.put('/api/updateEmployees', employee, auth);
+    };
 
-        return {
-            getProfile: getProfile,
-            updateProfile: updateProfile,
-            getRolodex: getRolodex,
-            saveContact: saveContact,
-            getCalendar: getCalendar,
-            saveEvent: saveEvent,
-            updateEvent: updateEvent,
-            getBooklets: getBooklets,
-            saveBooklet: saveBooklet,
-            updateBooklet: updateBooklet,
-            getActiveHandbook: getActiveHandbook,
-            setActiveHandbook: setActiveHandbook,
-            sendNewUserInviteEmail: sendNewUserInviteEmail,
-            sendEmail: sendEmail,
-            getDocuments: getDocuments,
-            saveDocument: saveDocument,
-            signUpUser: signUpUser,
-            saveEmployee: saveEmployee,
-            updateEmployees: updateEmployees,
-            getEmployees: getEmployees
-        };
-    }
+    getEmployees = function () {
+      return $http.get('/api/getEmployees', auth);
+    };
+
+    return {
+      getProfile: getProfile,
+      updateProfile: updateProfile,
+      getRolodex: getRolodex,
+      saveContact: saveContact,
+      updateContact: updateContact,
+      getCalendar: getCalendar,
+      saveEvent: saveEvent,
+      updateEvent: updateEvent,
+      getBooklets: getBooklets,
+      saveBooklet: saveBooklet,
+      updateBooklet: updateBooklet,
+      getActiveHandbook: getActiveHandbook,
+      setActiveHandbook: setActiveHandbook,
+      sendNewUserInviteEmail: sendNewUserInviteEmail,
+      sendEmail: sendEmail,
+      getDocuments: getDocuments,
+      saveDocument: saveDocument,
+      signUpUser: signUpUser,
+      saveEmployee: saveEmployee,
+      updateEmployees: updateEmployees,
+      getEmployees: getEmployees
+    };
+  }
 ]);

@@ -1,0 +1,88 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title bold">
+            <span>{{ client.name }}</span> &nbsp;
+
+            <a ng-click="edit()"
+               ng-if="!editing"
+               class="btn btn-circle btn-default border-blue btn-small font-blue" style="float: right;">
+                <i class="fa fa-wrench"></i> Edit
+            </a>
+
+        </h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="portlet light">
+
+            <div ng-if="error">
+                <div
+                    class="alert alert-danger alert-dismissable"
+                    role="alert"
+                >
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <span>{{ error }}</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6" ng-class="{'form-group': editing}">
+                    <dl>
+                        <dt>Email</dt>
+                        <dd class="padding-bottom-10">
+                            {{ client.email }}
+                        </dd>
+
+                        <dt>Phone Number</dt>
+                        <dd class="padding-bottom-10">
+                            <div ng-if="!editing">
+                                {{ client.phone }}
+                            </div>
+                            <div ng-if="editing">
+                                <input class="form-control" type="text" required="required"
+                                       ng-model="editedClient.phone"/>
+                            </div>
+                        </dd>
+
+                        <dt>Event Date</dt>
+                        <dd class="padding-bottom-10">
+                            <div ng-if="!editing">
+                                {{ client.weddingdate | date:"fullDate" }}
+                            </div>
+                            <div ng-if="editing">
+                                <input date-picker class="form-control" ng-model="editedClient.weddingdate"/>
+                            </div>
+                        </dd>
+
+                        <dt>Balance Due</dt>
+                        <dd id="clientbalancedue">
+                            <div ng-if="!editing">
+                                {{ client.balanceDue | currency }}
+                            </div>
+                            <div ng-if="editing">
+                                <input class="form-control" type="text" required="required"
+                                       ng-model="editedClient.balanceDue"/>
+                            </div>
+                        </dd>
+
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <div ng-if="! editing">
+            <button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
+            <a type="button" ng-click="goToClientDetails()" class="btn blue">View Full Details</a>
+        </div>
+
+        <div ng-if="editing">
+            <button class="btn red" ng-click="stopEditing()">Cancel</button>
+            <button class="btn blue" ng-click="save()">Save</button>
+        </div>
+    </div>
+
+</div>
