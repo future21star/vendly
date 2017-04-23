@@ -47,6 +47,7 @@ router.post('/saveBooklet', auth, handbook.saveBooklet);
 router.put('/updateBooklet', auth, handbook.updateBooklet);
 router.put('/setActiveHandbook', auth, handbook.setActiveHandbook);
 router.get('/getActiveHandbook', auth, handbook.getActiveHandbook);
+router.get('/handbooks/:handbookId', auth, handbook.getHandbook);
 
 // email
 router.post('/sendEmail', auth, emails.sendEmail);
