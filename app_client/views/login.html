@@ -1,121 +1,151 @@
 <style>
-.modal-backdrop.in {
-   opacity: 1;
-}
-.pac-container {
-    z-index: 100000 !important;
-}
-</style>
-
-<div ng-controller="LoginController">
+    .modal-backdrop.in {
+        opacity: 1;
+        background: linear-gradient(180deg, #455A64 0%, #333333 100%);
+    }
     
+    .pac-container {
+        z-index: 100001 !important;
+    }
+</style>
+<div class="modal-saver"></div>
+<div>
     <!-- BEGIN LOGIN MODAL CONTENT -->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
+        <div class="col-sm-12 login-header img-responsive">
+            <img src="../assets/global/img/vendly.png" alt="">
+        </div>
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title bold">Welcome to Vendly</h4>
-                </div>
                 <div class="modal-body">
-                    <div id="loginbody" class="row centerdiv">
-                        <div class="col-xs-12">
-
+                    <div id="loginbody">
+                        <div class="col-xs-6 login-content">
+                            <h1 class='title text-center'>Collaborate with 10,000+ wedding venues & vendors</h1>
+                            <div class="img-container">
+                                <img class="img-circle img-responsive" src="../assets/pages/img/avatars/team1.jpg" alt="">
+                                <img class="img-circle img-responsive" src="../assets/pages/img/avatars/team2.jpg" alt="">
+                                <img class="img-circle img-responsive" src="../assets/pages/img/avatars/team3.jpg" alt="">
+                                <img class="img-circle img-responsive" src="../assets/pages/img/avatars/team4.jpg" alt="">
+                                <img class="img-circle img-responsive" src="../assets/pages/img/avatars/team5.jpg" alt="">
+                            </div>
+                            <div class="create-container text-center">
+                                <button class="create-CTA" id="registerButton">CREATE ACCOUNT</button>
+                            </div>
+                            <hr class="breaker">
+                            <h1 class="title text-center">Already Have An Account?</h1>
                             <form ng-submit="onSubmit()">
-                                <div class="form-group">
-                                    <label for="email">Email address</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Email" ng-model="credentials.email">
+                                <div class="group">
+                                    <input type="email" id="email" class="inputMaterial" ng-model="credentials.email" required>
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label>Email Address</label>
                                 </div>
-                                <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password" placeholder="Password" ng-model="credentials.password">
+                                <div class="group">
+                                    <input type="password" id="password" class="inputMaterial" ng-model="credentials.password" required>
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <span class="forgot">Forgot?</span>
+                                    <label>Password</label>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn-primary btn">Log in</button>
-                                    <button type="button" id="registerButton" class="btn btn-default">Sign up</button>
+                                <div class="login-button-container text-center">
+                                    <button type="submit" class="login-CTA">LOGIN</button>
                                 </div>
                             </form>
-
+                        </div>
+                        <div class="col-xs-6 login-side-div">
+                            <img class='img-responsive' src="./assets/global/img/placeholder-images/5wuut2ndjwi-anne-edgar-compressor.jpg" alt="">
                         </div>
                     </div>
-                   
                 </div>
             </div>
         </div>
     </div>
     <!-- END LOGIN MODAL CONTENT -->
-    
     <!-- BEGIN REGISTER MODAL CONTENT -->
+
     <div class="modal fade" id="registerModal" tabindex="-1" role="dialog">
+        <div class="col-sm-12 login-header img-responsive">
+            <img src="../assets/global/img/vendly.png" alt="">
+        </div>
         <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title bold">Welcome to Vendly</h4>
+            <div class="modal-content register-modal-content">
+                <div class="modal-title-container">
+                    <h4 class="modal-title bold register-title">Register For Vendly</h4>
                 </div>
                 <div class="modal-body">
-                    <div id="loginbody" class="row centerdiv">
+                    <div id="loginbody" class="centerdiv">
                         <div class="col-xs-12">
-
-                            <form ng-submit="onRegisterSubmit()">
-                                
-                                <div class="form-group">
-                                    
-                                    <div class="row">
+                            <form class="signup-form" ng-submit="onRegisterSubmit()">
+                                <div class="form-group signup-form-group">
+                                    <div class="row group-container">
                                         <div class="col-md-6">
-                                            <span class="help-block"> First Name </span>
-                                            <input class="form-control" type="text" required="required" ng-model="register.firstname"/>
+                                            <div class="group">
+                                                <input type="text" class="inputMaterial" ng-model="register.firstname" required>
+                                                <span class="highlight"></span>
+                                                <span class="bar"></span>
+                                                <label>First Name</label>
+                                            </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <span class="help-block"> Last Name </span>
-                                            <input class="form-control" type="text" required="required" ng-model="register.lastname"/>
+                                            <div class="group">
+                                                <input type="text" class="inputMaterial" ng-model="register.lastname" required>
+                                                <span class="highlight"></span>
+                                                <span class="bar"></span>
+                                                <label>Last Name</label>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="padding-bottom-10 padding-top-10"></div>
-                                    <div class="row">
+                                    <div class="row group-container">
                                         <div class="col-md-6">
-                                            <span class="help-block"> Email </span>
-                                            <input class="form-control" type="email" required="required" ng-model="register.email"/>
+                                            <div class="group">
+                                                <input type="email" id="email" class="inputMaterial" ng-model="register.email" required>
+                                                <span class="highlight"></span>
+                                                <span class="bar"></span>
+                                                <span class="hidden email-confirmation-alert">Please Enter A Valid Email</span>
+                                                <label>Email Address</label>
+                                            </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <span class="help-block"> Password </span>
-                                            <input class="form-control" type="password" required="required" ng-model="register.password"/>
+                                            <div class="group dropdown-container">
+                                                <span>I am a </span>
+                                                <select class="usertype-select" ng-model="register.usertype" autocomplete="off">
+                                                        <option selected disabled value="">User Type</option>
+                                                        <option>Wedding Venue</option>
+                                                        <option>Wedding Vendor</option>
+                                                        <option>Engaged Couple</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="padding-bottom-10 padding-top-10"></div>
-                                    <div class="row">
-                                        <div class="col-md-2" style="margin-right:-3em">
-                                            <h4>I am a </h4>
-                                        </div>
-                                        <div class="col-md-3" style="margin-right:-1em">
-                                            <select ng-model="register.usertype" class="form-control">
-                                                <option>Venue</option>
-                                                <option>Vendor</option>
-                                                <option>Planner</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-3" style="margin-right:-4em">
-                                            <h4> located at </h4>
+                                    <div class="row group-container">
+                                        <div class="col-md-6">
+                                            <div class="group">
+                                                <input type="password" id="password" class="inputMaterial" ng-model="register.password" required>
+                                                <span class="highlight"></span>
+                                                <span class="bar"></span>
+                                                <label>Password</label>
+                                            </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <input ng-model="address" class="form-control" google-place/>
+                                            <div class="group">
+                                                <input type="password" id="password" class="inputMaterial" compareTo="register.password" ng-model="register_password_confirm" required>
+                                                <span class="highlight"></span>
+                                                <span class="bar"></span>
+                                                <span class="hidden password-confirmation-alert">Passwords Must Match</span>
+                                                <label>Confirm Password</label>
+                                            </div>
                                         </div>
                                     </div>
-                                    
+                                    <div class="login-button-container text-right">
+                                        <button type="submit" class="register-CTA">REGISTER</button>
+                                    </div>
                                 </div>
-                                
-                                <div class="modal-footer">
-                                    <button type="button" class="btn-default btn" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Sign up</button>
-                                </div>
-                                
                             </form>
-
                         </div>
                     </div>
-                   
                 </div>
             </div>
         </div>
     </div>
     <!-- END REGISTER MODAL CONTENT -->
-    
 </div>

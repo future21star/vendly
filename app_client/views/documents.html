@@ -11,37 +11,29 @@
     </ul>
 </div>
 <!-- END PAGE HEADER-->
-
 <!-- BEGIN MAIN CONTENT -->
 <div class="row">
     <div class="col-xs-12">
         <!-- BEGIN: ACCORDION DEMO -->
         <div class="portlet light">
             <div class="portlet-title">
-                <div class="page-title">
-                    My Documents
-                </div>
+                <div class="page-title"> My Documents </div>
                 <div class="actions">
                     <a class="btn btn-circle btn-default" data-target="#add_doc" data-toggle="modal">
-                        <i class="fa fa-cloud-upload"></i>
-                        Upload Document
-                    </a>
+                        <i class="fa fa-cloud-upload"></i> Upload Document </a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <div class="row">
     <div class="col-xs-12">
         <form class="form-inline well-sm">
             <div class="form-control">
                 <span class="fa fa-search font-blue" style="opacity: .45;"></span>
-                <input type="text" style="border: transparent;" ng-model="searchText" placeholder="Search...">
-            </div>
+                <input type="text" style="border: transparent;" ng-model="searchText" placeholder="Search..."> </div>
         </form>
     </div>
-
     <div class="col-xs-12">
         <div class="portlet light">
             <table class="table table-bordered table-hover">
@@ -50,32 +42,27 @@
                 </th>
                 <th style="width: 35%">Title</th>
                 <th style="width: 58%">Uploaded</th>
-
                 <tr>
-                <tr ng-repeat="document in documents | filter:searchText">
-                    <td class="text-center">
-                        <a data-target="#client_details" data-toggle="modal" ng-click="viewDocument(document)">
-                            <i class="fa fa-external-link font-blue"></i>
-                        </a>
-                    </td>
-                    <td>{{ document.name }}</td>
-                    <td>{{ document.uploaded | date:"longDate" }}</td>
-                </tr>
+                    <tr ng-repeat="document in documents | filter:searchText">
+                        <td class="text-center">
+                            <a data-target="#client_details" data-toggle="modal" ng-click="viewDocument(document)">
+                                <i class="fa fa-external-link font-blue"></i>
+                            </a>
+                        </td>
+                        <td>{{ document.name }}</td>
+                        <td>{{ document.uploaded | date:"longDate" }}</td>
+                    </tr>
             </table>
         </div>
-
     </div>
 </div>
 <!-- END MAIN CONTENT -->
-
 <!-- BEGIN Add doc Modal -->
 <div id="add_doc" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title bold">
-                    Upload Document
-                </h4>
+                <h4 class="modal-title bold"> Upload Document </h4>
             </div>
             <div class="modal-body">
                 <div class="portlet light form no-margin">
@@ -83,33 +70,24 @@
                         <div class="row padding-bottom-20">
                             <div class="col-xs-12">
                                 <span class="help-block"> Title </span>
-                                <input ng-model="document.filename" class="form-control" type="text"
-                                       required="required"/>
-                            </div>
+                                <input ng-model="document.filename" class="form-control" type="text" required="required" /> </div>
                         </div>
-                        <div class="row padding-bottom-20" nv-file-drop="" uploader="uploader"
-                             filters="queueLimit, customFilter">
+                        <div class="row padding-bottom-20" nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter">
                             <div class="col-xs-12 hidden-xs hidden-sm">
                                 <div ng-show="uploader.isHTML5">
                                     <!-- 3. nv-file-over uploader="link" over-class="className" -->
-                                    <div class="file-drop-zone margin-bottom-20 hidden" nv-file-over=""
-                                         uploader="uploader" over-class="file-drop-zone-over"> Base drop zone
-                                    </div>
+                                    <div class="file-drop-zone margin-bottom-20 hidden" nv-file-over="" uploader="uploader" over-class="file-drop-zone-over"> Base drop zone </div>
                                     <!-- Example: nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" -->
                                     <div nv-file-drop="" uploader="uploader" options="{ url: '/foo' }">
-                                        <div nv-file-over="" uploader="uploader" over-class="file-drop-zone-over"
-                                             class="file-drop-zone margin-bottom-20">
+                                        <div nv-file-over="" uploader="uploader" over-class="file-drop-zone-over" class="file-drop-zone margin-bottom-20">
                                             <strong>Drop File Here</strong>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xs-12">
-                                <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
-                                Browse For File:
-                                <input id="newDoc" type="file" nv-file-select="" uploader="uploader"
-                                       style="width: 100%;"/>
-                            </div>
+                                <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->Browse For File:
+                                <input id="newDoc" type="file" nv-file-select="" uploader="uploader" style="width: 100%;" /> </div>
                         </div>
                     </div>
                 </div>

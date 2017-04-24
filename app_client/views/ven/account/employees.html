@@ -24,44 +24,35 @@
             <div class="portlet light profile-sidebar-portlet ">
                 <!-- SIDEBAR USERPIC -->
                 <div class="profile-userpic">
-                    <img src="{{user_settings.avatar}}" class="img-responsive" alt="Vendly Venue"
-                         style="max-width: 130px;">
-                </div>
+                    <img src="{{user_settings.avatar}}" class="img-responsive" alt="Vendly Venue" style="max-width: 130px;"> </div>
                 <!-- END SIDEBAR USERPIC -->
-
                 <!-- SIDEBAR USER TITLE -->
                 <div class="profile-usertitle">
                     <div class="profile-usertitle-name"> Vendly Venue</div>
                 </div>
                 <!-- END SIDEBAR USER TITLE -->
-
                 <!-- SIDEBAR MENU -->
                 <div class="profile-usermenu">
                     <ul class="nav">
                         <li>
                             <a href="#/account/settings">
-                                <i class="fa fa-home"></i> Account
-                            </a>
+                                <i class="fa fa-home"></i> Account </a>
                         </li>
                         <li class="active">
                             <a href="#/account/employees">
-                                <i class="fa fa-user"></i> Employees
-                            </a>
+                                <i class="fa fa-user"></i> Employees </a>
                         </li>
                         <li>
                             <a href="#/account/preferred">
-                                <i class="fa fa-building"></i> Preferred Businesses
-                            </a>
+                                <i class="fa fa-building"></i> Preferred Businesses </a>
                         </li>
                         <li>
                             <a href="#/account/notifications">
-                                <i class="fa fa-bell"></i> Notifications
-                            </a>
+                                <i class="fa fa-bell"></i> Notifications </a>
                         </li>
                         <li>
                             <a href="#/account/payments">
-                                <i class="fa fa-credit-card"></i> Payments &amp; Subscription
-                            </a>
+                                <i class="fa fa-credit-card"></i> Payments &amp; Subscription </a>
                         </li>
                     </ul>
                 </div>
@@ -77,53 +68,35 @@
                         <form action="#">
                             <table class="table table-light table-hover">
                                 <th class="no-border-top border-bottom border-bottom-default"></th>
-                                <th class="no-border-top border-bottom border-bottom-default text-center">
-                                    Admin
-                                    <i class="fa fa-question-circle font-grey-salt" style="font-size: 16px;"
-                                       data-toggle="tooltip" data-placement="bottom"
-                                       title="Manage Settings, Add Clients, and View Details"></i>
+                                <th class="no-border-top border-bottom border-bottom-default text-center"> Admin
+                                    <i class="fa fa-question-circle font-grey-salt" style="font-size: 16px;" data-toggle="tooltip" data-placement="bottom" title="Manage Settings, Add Clients, and View Details"></i>
                                 </th>
-                                <th class="no-border-top border-bottom border-bottom-default text-center">
-                                    Manager
-                                    <i class="fa fa-question-circle font-grey-salt" style="font-size: 16px;"
-                                       data-toggle="tooltip" data-placement="bottom"
-                                       title="Add Clients and View Details"></i>
+                                <th class="no-border-top border-bottom border-bottom-default text-center"> Manager
+                                    <i class="fa fa-question-circle font-grey-salt" style="font-size: 16px;" data-toggle="tooltip" data-placement="bottom" title="Add Clients and View Details"></i>
                                 </th>
-                                <th class="no-border-top border-bottom border-bottom-default text-center">
-                                    Overseer
-                                    <i class="fa fa-question-circle font-grey-salt" style="font-size: 16px;"
-                                       data-toggle="tooltip" data-placement="bottom" title="Only View Details"></i>
+                                <th class="no-border-top border-bottom border-bottom-default text-center"> Overseer
+                                    <i class="fa fa-question-circle font-grey-salt" style="font-size: 16px;" data-toggle="tooltip" data-placement="bottom" title="Only View Details"></i>
                                 </th>
-
                                 <tr ng-repeat="emp in myEmployees">
-                                    <td>
-                                        {{ emp.employee.name }}<br>
+                                    <td> {{ emp.employee.name }}
+                                        <br>
                                         <span class="small font-blue"> {{ emp.title }} </span>
                                     </td>
                                     <td align="center">
                                         <label class="mt-radio">
-                                            <input type="radio"
-                                                   ng-checked="(emp.permission == 'edit')"
-                                                   name="optionsRadio{{$index}}"
-                                                   value="edit"/>
+                                            <input type="radio" ng-checked="(emp.permission == 'edit')" name="optionsRadio{{$index}}" value="edit" />
                                             <span></span>
                                         </label>
                                     </td>
                                     <td align="center">
                                         <label class="mt-radio">
-                                            <input type="radio"
-                                                   ng-checked="(emp.permission == 'add')"
-                                                   name="optionsRadio{{$index}}"
-                                                   value="add"/>
+                                            <input type="radio" ng-checked="(emp.permission == 'add')" name="optionsRadio{{$index}}" value="add" />
                                             <span></span>
                                         </label>
                                     </td>
                                     <td align="center">
                                         <label class="mt-radio">
-                                            <input type="radio"
-                                                   ng-checked="(emp.permission == 'view')"
-                                                   name="optionsRadio{{$index}}"
-                                                   value="view"/>
+                                            <input type="radio" ng-checked="(emp.permission == 'view')" name="optionsRadio{{$index}}" value="view" />
                                             <span></span>
                                         </label>
                                     </td>
@@ -133,15 +106,13 @@
                             <div class="margin-top-10">
                                 <a href="javascript:;" class="btn blue"> Save Changes </a>
                                 <a href="javascript:;" class="btn default"> Cancel </a>
-                                <a class="btn btn-default pull-right" data-target="#add_privilege_user"
-                                   data-toggle="modal"> Add Employee </a>
+                                <a class="btn btn-default pull-right" data-target="#add_privilege_user" data-toggle="modal"> Add Employee </a>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-
         <!-- start add employee modal -->
         <div id="add_privilege_user" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -157,27 +128,19 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <span class="help-block"> First Name </span>
-                                            <input class="form-control" type="text" required="required"
-                                                   ng-model="employee.firstname"/>
-                                        </div>
+                                            <input class="form-control" type="text" required="required" ng-model="employee.firstname" /> </div>
                                         <div class="col-md-6">
                                             <span class="help-block"> Last Name </span>
-                                            <input class="form-control" type="text" required="required"
-                                                   ng-model="employee.lastname"/>
-                                        </div>
+                                            <input class="form-control" type="text" required="required" ng-model="employee.lastname" /> </div>
                                     </div>
                                     <div class="padding-bottom-10 padding-top-10"></div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <span class="help-block"> Title </span>
-                                            <input class="form-control" type="text" required="required"
-                                                   ng-model="employee.title"/>
-                                        </div>
+                                            <input class="form-control" type="text" required="required" ng-model="employee.title" /> </div>
                                         <div class="col-md-6">
                                             <span class="help-block"> Email Address </span>
-                                            <input class="form-control date-picker" type="text"
-                                                   ng-model="employee.email"/>
-                                        </div>
+                                            <input class="form-control date-picker" type="text" ng-model="employee.email" /> </div>
                                     </div>
                                     <div class="padding-bottom-10 padding-top-10"></div>
                                     <div class="row">
@@ -204,9 +167,9 @@
         <!-- end add employee modal -->
     </div>
 </div>
-
 <script>
-    $(function () {
+    $(function()
+    {
         $('[data-toggle="tooltip"]').tooltip()
     })
 </script>

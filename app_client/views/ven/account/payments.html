@@ -1,251 +1,232 @@
 <!-- BEGIN PAGE HEADER-->
 <div class="page-bar">
-  <ul class="page-breadcrumb">
-    <li>
-      <a href="#/dashboard">Dashboard</a>
-      <i class="fa fa-circle"></i>
-    </li>
-    <li>
-      <a href="#/account/settings">Account</a>
-      <i class="fa fa-circle"></i>
-    </li>
-    <li>
-      <span> Payments &amp; Membership </span>
-    </li>
-  </ul>
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="#/dashboard">Dashboard</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="#/account/settings">Account</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span> Payments &amp; Membership </span>
+        </li>
+    </ul>
 </div>
 <!-- END PAGE HEADER-->
 <!-- BEGIN MAIN CONTENT -->
 <div class="row" ng-controller="PaymentPageController">
-  <div class="col-xs-12">
-    <!-- BEGIN: ACCORDION DEMO -->
-    <div class="portlet light no-margin">
-      <div class="portlet-title">
-        <div class="page-title">
-          My Payments &amp; Membership
+    <div class="col-xs-12">
+        <!-- BEGIN: ACCORDION DEMO -->
+        <div class="portlet light no-margin">
+            <div class="portlet-title">
+                <div class="page-title"> My Payments &amp; Membership </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-<!-- END PAGE HEADER-->
-
-<!-- BEGIN MAIN CONTENT -->
-  <!-- BEGIN Billing -->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT -->
+    <!-- BEGIN Billing -->
     <div class="row">
-      <div class="col-xs-12">
-        <div class="portlet light bordered">
-          <div class="portlet-title">
-            <div class="caption font-blue-sharp">
-              <span class="caption-subject bold uppercase">Your Billing Info</span>
-            </div>
-            <div class="tools">
-              <a href="javascript:;" class="collapse"> </a>
-              <a href="javascript:;" class="reload"> </a>
-            </div>
-          </div>
-          <div class="portlet-body">
-            <div class="row">
-              <div class="col-xs-12 col-md-6">
-                <div class="padding-bottom-20">
-                  <dl class="col-xs-12 col-md-6">
-                    <dt>Name</dt>
-                      <dd class="padding-bottom-15"> Austin Teague </dt>
-                      <!-- <dd class="padding-bottom-15"> {{ user.billing.name }} </dt> -->
-                    <dt>Billing Email</dt>
-                      <dd class="padding-bottom-15"> austin@vendly.com </dt>
-                      <!-- <dd class="padding-bottom-15"> {{ user.billing.email }} </dt> -->
-                  </dl>
-                  <dl class="col-xs-12 col-md-6">
-                    <dt>Payment Method</dt>
-                      <dd class="padding-bottom-15"> Visa: xxxx xxxx xxxx 1234 </dt>
-                        <!-- <dd class="padding-bottom-15"> {{ user.billing.token.card }} </dt> -->
-                    <dt>Expires</dt>
-                      <dd class="padding-bottom-15"> 01/2017 </dt>
-                      <!-- <dd class="padding-bottom-15"> {{ user.billing.token.expires }} </dt> -->
-                  </dl>
-                  <p>
-                    <strong>Bank Account:</strong> JP Morgan Chase Bank &nbsp;•&nbsp;  Ending in 1234
-                  </p>
-                  <a class="btn btn-circle bg-white border-blue font-blue" data-target="#update-bank" data-toggle="modal">
-                    <i class="fa fa-credit-card"></i>
-                    Update Bank Information
-                  </a>
-                  <a class="btn btn-circle bg-white border-blue font-blue" data-target="#update-cc" data-toggle="modal">
-                    <i class="fa fa-credit-card"></i>
-                    Update Credit Card
-                  </a>
+        <div class="col-xs-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-blue-sharp">
+                        <span class="caption-subject bold uppercase">Your Billing Info</span>
+                    </div>
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse"> </a>
+                        <a href="javascript:;" class="reload"> </a>
+                    </div>
                 </div>
-              </div>
-              <div class="col-xs-12 col-md-6">
-                <div ng-controller="RolodexController">
-                  <table class="table table-light table-hover">
-                    <th> Invoice </th>
-                    <th> Date </th>
-                    <th> Total </th>
-                    <th> Invoice </th>
-                    
-                    <tr>
-                      <td> #1423 </td>
-                      <td> July 1, 2016</td>
-                      <td> $60 </td>
-                      <td>
-                        <a href="#/account/invoice" data-toggle="modal" style="text-decoration: none;" class="font-blue" target="_blank">
-                          <i class="fa fa-external-link font-blue"></i>&nbsp; View
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td> #1256 </td>
-                      <td> June 1, 2016</td>
-                      <td> $60 </td>
-                      <td>
-                        <a href="#/account/invoice" data-toggle="modal" style="text-decoration: none;" class="font-blue" target="_blank">
-                          <i class="fa fa-external-link font-blue"></i>&nbsp; View
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td> #984 </td>
-                      <td> May 1, 2016</td>
-                      <td> $60 </td>
-                      <td>
-                        <a href="#/account/invoice" data-toggle="modal" style="text-decoration: none;" class="font-blue" target="_blank">
-                          <i class="fa fa-external-link font-blue"></i>&nbsp; View
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td> #830 </td>
-                      <td> April 1, 2016</td>
-                      <td> $60 </td>
-                      <td>
-                        <a href="#/account/invoice" data-toggle="modal" style="text-decoration: none;" class="font-blue" target="_blank">
-                          <i class="fa fa-external-link font-blue"></i>&nbsp; View
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colspan="4" style="text-align: right; font-style: italic;">
-                        <a class="font-grey-salt small" data-target="#view-invoices" data-toggle="modal">
-                          View More
-                        </a>
-                      </td>
-                    </tr>
-                  </table>
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <div class="padding-bottom-20">
+                                <dl class="col-xs-12 col-md-6">
+                                    <dt>Name</dt>
+                                    <dd class="padding-bottom-15"> Austin Teague </dt>
+                                        <!-- <dd class="padding-bottom-15"> {{ user.billing.name }} </dt> -->
+                                        <dt>Billing Email</dt>
+                                        <dd class="padding-bottom-15"> austin@vendly.com </dt>
+                                            <!-- <dd class="padding-bottom-15"> {{ user.billing.email }} </dt> -->
+                                </dl>
+                                <dl class="col-xs-12 col-md-6">
+                                    <dt>Payment Method</dt>
+                                    <dd class="padding-bottom-15"> Visa: xxxx xxxx xxxx 1234 </dt>
+                                        <!-- <dd class="padding-bottom-15"> {{ user.billing.token.card }} </dt> -->
+                                        <dt>Expires</dt>
+                                        <dd class="padding-bottom-15"> 01/2017 </dt>
+                                            <!-- <dd class="padding-bottom-15"> {{ user.billing.token.expires }} </dt> -->
+                                </dl>
+                                <p>
+                                    <strong>Bank Account:</strong> JP Morgan Chase Bank &nbsp;•&nbsp; Ending in 1234 </p>
+                                <a class="btn btn-circle bg-white border-blue font-blue" data-target="#update-bank" data-toggle="modal">
+                                    <i class="fa fa-credit-card"></i> Update Bank Information </a>
+                                <a class="btn btn-circle bg-white border-blue font-blue" data-target="#update-cc" data-toggle="modal">
+                                    <i class="fa fa-credit-card"></i> Update Credit Card </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div ng-controller="RolodexController">
+                                <table class="table table-light table-hover">
+                                    <th> Invoice </th>
+                                    <th> Date </th>
+                                    <th> Total </th>
+                                    <th> Invoice </th>
+                                    <tr>
+                                        <td> #1423 </td>
+                                        <td> July 1, 2016</td>
+                                        <td> $60 </td>
+                                        <td>
+                                            <a href="#/account/invoice" data-toggle="modal" style="text-decoration: none;" class="font-blue" target="_blank">
+                                                <i class="fa fa-external-link font-blue"></i>&nbsp; View </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> #1256 </td>
+                                        <td> June 1, 2016</td>
+                                        <td> $60 </td>
+                                        <td>
+                                            <a href="#/account/invoice" data-toggle="modal" style="text-decoration: none;" class="font-blue" target="_blank">
+                                                <i class="fa fa-external-link font-blue"></i>&nbsp; View </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> #984 </td>
+                                        <td> May 1, 2016</td>
+                                        <td> $60 </td>
+                                        <td>
+                                            <a href="#/account/invoice" data-toggle="modal" style="text-decoration: none;" class="font-blue" target="_blank">
+                                                <i class="fa fa-external-link font-blue"></i>&nbsp; View </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> #830 </td>
+                                        <td> April 1, 2016</td>
+                                        <td> $60 </td>
+                                        <td>
+                                            <a href="#/account/invoice" data-toggle="modal" style="text-decoration: none;" class="font-blue" target="_blank">
+                                                <i class="fa fa-external-link font-blue"></i>&nbsp; View </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" style="text-align: right; font-style: italic;">
+                                            <a class="font-grey-salt small" data-target="#view-invoices" data-toggle="modal"> View More </a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  <!-- END Billing -->
-  
-  <!-- BEGIN Membership -->
+    <!-- END Billing -->
+    <!-- BEGIN Membership -->
     <div class="row">
-      <div class="col-xs-12">
-        <div class="portlet light bordered">
-          <div class="portlet-title">
-            <div class="caption font-blue-sharp">
-              <span class="caption-subject bold uppercase">Your Membership</span>
-            </div>
-            <div class="tools">
-              <a href="javascript:;" class="collapse"> </a>
-              <a href="javascript:;" class="reload"> </a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="portlet-body">
-              <div class="col-md-9 padding-bottom-20">
-                Your Current Membership is:
-                <strong> Basic Membership (Annual) </strong>
-                <!-- <strong> {{ user.subscription }} </strong> -->
-                <p class="no-margin">
-                  <input id="deactivate" type="checkbox" value="deactivate"/>
-                  <label for="deactivate" class="small font-grey-salt">Cancel Membership</label>
-                  <script type="text/javascript">
-                    $(document).ready(function(){
-                        $('input[type="checkbox"]').click(function(){
-                            if($(this).attr("value")=="deactivate"){
-                                $(".deactivate").toggle();
-                            }
-                        });
-                    });
-                  </script>
-                </p>
-              </div>
-              <div class="col-md-3">
-                <button style="display: none;" class="deactivate font-white inline small">
-                  Cancel Membership
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  <!-- END Membership -->
-
-  <!-- BEGIN Payments Modal -->
-  <div id="update-cc" class="modal fade" role="dialog" ng-controller="paymentController">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="padding-bottom-5 modal-body">
-          <div class="padding-top-10 padding-right-20 padding-left-20 padding-bottom-5 light">
-            <script src="node_modules/card/dist/card.js"></script>
-            <form stripe-form="stripeCallback" action="#" class="form-horizontal">
-              <div class="form-body">
-                <div class="form-group">
-                  <div class="card-wrapper padding-bottom-20"></div>
-                  <span class="help-block"> Card Number </span>
-                  <input class="form-control" type="text" name="number" placeholder="**** **** **** ****">
-                  <span class="help-block"> Full Name </span>
-                  <input class="form-control" type="text" name="name"  placeholder="Vendly Partners"/>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <span class="help-block"> Expiration Date </span>
-                      <input class="form-control" type="text" name="expiry" placeholder="**/****"/>
+        <div class="col-xs-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-blue-sharp">
+                        <span class="caption-subject bold uppercase">Your Membership</span>
                     </div>
-                    <div class="col-md-6">
-                      <span class="help-block"> CVC </span>
-                      <input class="form-control" type="text" name="cvc" placeholder="***"/>
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse"> </a>
+                        <a href="javascript:;" class="reload"> </a>
                     </div>
-                  </div>
                 </div>
-              </div>
-            </form>
-            <script>
-              var card = new Card({
-                form: 'form',
-                container: '.card-wrapper',
-                placeholders: {
-                    number: '**** **** **** ****',
-                    name: 'Vendly Partners',
-                    expiry: '**/****',
-                    cvc: '***'
-                }
-            });
-            </script>
-          </div>
-          <p class="small no-margin" style="font-style:italic;">
-            By clicking accept you agree to the terms set forth in the <a href="#/tos">Terms of Services</a>.
-          </p>
+                <div class="row">
+                    <div class="portlet-body">
+                        <div class="col-md-9 padding-bottom-20"> Your Current Membership is:
+                            <strong> Basic Membership (Annual) </strong>
+                            <!-- <strong> {{ user.subscription }} </strong> -->
+                            <p class="no-margin">
+                                <input id="deactivate" type="checkbox" value="deactivate" />
+                                <label for="deactivate" class="small font-grey-salt">Cancel Membership</label>
+                                <script type="text/javascript">
+                                    $(document).ready(function()
+                                    {
+                                        $('input[type="checkbox"]').click(function()
+                                        {
+                                            if ($(this).attr("value") == "deactivate")
+                                            {
+                                                $(".deactivate").toggle();
+                                            }
+                                        });
+                                    });
+                                </script>
+                            </p>
+                        </div>
+                        <div class="col-md-3">
+                            <button style="display: none;" class="deactivate font-white inline small"> Cancel Membership </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button class="btn btn-danger" data-dismiss="modal">Dismiss</button>
-          <button class="btn font-white bg-blue" data-dismiss="modal">Accept</button>
-        </div>
-      </div>
     </div>
-  </div>
-  <!-- END Payments Modal -->
+    <!-- END Membership -->
 
+    <!-- BEGIN Payments Modal -->
+    <div id="update-cc" class="modal fade" role="dialog" ng-controller="paymentController">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="padding-bottom-5 modal-body">
+                    <div class="padding-top-10 padding-right-20 padding-left-20 padding-bottom-5 light">
+                        <script src="node_modules/card/dist/card.js"></script>
+                        <form stripe-form="stripeCallback" action="#" class="form-horizontal">
+                            <div class="form-body">
+                                <div class="form-group">
+                                    <div class="card-wrapper padding-bottom-20"></div>
+                                    <span class="help-block"> Card Number </span>
+                                    <input class="form-control" type="text" name="number" placeholder="**** **** **** ****">
+                                    <span class="help-block"> Full Name </span>
+                                    <input class="form-control" type="text" name="name" placeholder="Vendly Partners" />
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <span class="help-block"> Expiration Date </span>
+                                            <input class="form-control" type="text" name="expiry" placeholder="**/****" /> </div>
+                                        <div class="col-md-6">
+                                            <span class="help-block"> CVC </span>
+                                            <input class="form-control" type="text" name="cvc" placeholder="***" /> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <script>
+                            var card = new Card(
+                            {
+                                form: 'form',
+                                container: '.card-wrapper',
+                                placeholders:
+                                {
+                                    number: '**** **** **** ****',
+                                    name: 'Vendly Partners',
+                                    expiry: '**/****',
+                                    cvc: '***'
+                                }
+                            });
+                        </script>
+                    </div>
+                    <p class="small no-margin" style="font-style:italic;"> By clicking accept you agree to the terms set forth in the
+                        <a href="#/tos">Terms of Services</a>. </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" data-dismiss="modal">Dismiss</button>
+                    <button class="btn font-white bg-blue" data-dismiss="modal">Accept</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END Payments Modal -->
 </div>
 <!-- END MAIN CONTENT -->
-
 <!-- BEGIN MAIN JS-->
 <script>
-  ComponentsSelect2.init(); // init todo page
-  ComponentsBootstrapSelect.init(); // init todo page
+    ComponentsSelect2.init(); // init todo page
+    ComponentsBootstrapSelect.init(); // init todo page
 </script>
 <!-- BEGIN MAIN JS -->

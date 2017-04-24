@@ -21,10 +21,6 @@ body {
   width: 510px;
   padding: 15px;
   background: url(../img/bg-white-lock.png) repeat;
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  -ms-border-radius: 7px;
-  -o-border-radius: 7px;
   border-radius: 7px; }
 
 .page-lock .page-body:after,

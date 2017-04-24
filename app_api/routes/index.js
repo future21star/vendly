@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var jwt = require('express-jwt');
 var auth = jwt({
-    secret: 'MY_SECRET', // TODO - put this in a config file
+    secret: process.env.MY_SECRET,
     userProperty: 'payload'
 });
 
@@ -13,6 +13,8 @@ var files = require('../controllers/files');
 var handbook = require('../controllers/handbook');
 var emails = require('../controllers/emails');
 var employee = require('../controllers/employee');
+var clients = require('../controllers/clientController');
+var tasks = require('../controllers/tasks');
 
 // files
 router.get('/sign', auth, amazons3.getSignedURL);
@@ -26,7 +28,8 @@ router.put('/updateProfile', auth, ctrlProfile.updateProfile);
 
 // rolodex contacts
 router.get('/rolodex', auth, ctrlProfile.rolodexRead);
-router.post('/saveContact', auth, ctrlProfile.saveContact);
+router.post('/saveContact', auth, clients.createContact);
+router.put('/updateContact', auth, clients.updateContact);
 
 // calendar
 router.get('/calendar', auth, ctrlProfile.calendarRead);
@@ -53,5 +56,11 @@ router.post('/signUpUser', auth, emails.signUpUser);
 // employee
 router.post('/saveEmployee', auth, employee.saveEmployee);
 router.get('/getEmployees', auth, employee.getEmployees);
+
+//clients
+router.get('/clients/:clientId', auth, clients.getContact);
+
+// tasks
+
 
 module.exports = router;

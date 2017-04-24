@@ -16,22 +16,17 @@
     <div class="col-xs-12">
         <div class="portlet light no-margin">
             <div class="portlet-title">
-                <div class="page-title">
-                    My Handbooks
-                    <i class="fa fa-question-circle font-grey-salt hidden" style="font-size: 16px;"
-                       data-toggle="tooltip" data-placement="top" title="This is a tooltip"></i>
+                <div class="page-title"> My Handbooks
+                    <i class="fa fa-question-circle font-grey-salt hidden" style="font-size: 16px;" data-toggle="tooltip" data-placement="top" title="This is a tooltip"></i>
                 </div>
                 <div class="actions">
                     <a class="btn btn-circle btn-default" href="#/newhandbook">
-                        <i class="fa fa-book"></i>
-                        Add Handbook
-                    </a>
+                        <i class="fa fa-book"></i> Add Handbook </a>
                 </div>
             </div>
         </div>
     </div>
     <!-- END PAGE HEADER-->
-
     <!-- BEGIN MAIN CONTENT -->
     <div class="row">
         <div class="col-xs-12">
@@ -45,15 +40,9 @@
                     </th>
                     <th style="width: 64%">Title</th>
                     <th style="width: 22%">Updated</th>
-
                     <tr ng-repeat="handbook in handbooks">
                         <td class="text-center">
-                            <input ng-model="active_booklet"
-                                   ng-value="handbook._id"
-                                   ng-checked="(active_booklet == handbook._id)"
-                                   ng-change="setActiveBooklet(handbook)"
-                                   type="radio" name="bookletRadio" />
-                        </td>
+                            <input ng-model="active_booklet" ng-value="handbook._id" ng-checked="(active_booklet == handbook._id)" ng-change="setActiveBooklet(handbook)" type="radio" name="bookletRadio" /> </td>
                         <td class="text-center">
                             <a href="#/handbook_editor/{{handbook._id}}">
                                 <i class="fa fa-pencil-square-o font-blue"></i>
@@ -64,14 +53,13 @@
                     </tr>
                 </table>
             </div>
-
         </div>
     </div>
     <!-- END MAIN CONTENT -->
-
     <!-- BEGIN MAIN JS-->
     <script>
-        $(function () {
+        $(function()
+        {
             $('[data-toggle="tooltip"]').tooltip()
         })
     </script>

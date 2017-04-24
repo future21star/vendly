@@ -1,101 +1,81 @@
 <!-- BEGIN PAGE HEADER-->
 <div class="page-bar">
-  <ul class="page-breadcrumb">
-    <li>
-        <a href="#/dashboard">Dashboard</a>
-        <i class="fa fa-circle"></i>
-      </li>
-      <li>
-        <a href="#/rolodex">Rolodex</a>
-        <i class="fa fa-circle"></i>
-      </li>
-      <li>
-          <span> Client Details </span>
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="#/dashboard">Dashboard</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="#/rolodex">Rolodex</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span> Client Details </span>
         </li>
     </ul>
 </div>
 <!-- END PAGE HEADER-->
 <!-- BEGIN MAIN CONTENT -->
-<div class="row" ng-controller="GeneralPageController">
-  <div class="col-xs-12">
-      <div class="portlet light no-margin">
-        <div class="portlet-title">
-          <div class="page-title">
-            Taylor Christine
-          </div>
-          <div class="actions hidden-print">
-            <a class="btn btn-circle blue" onclick="javascript:window.print();">
-              <i class="fa fa-print"></i>
-              Print
-            </a>
-          </div>
+<div class="row" ng-controller="ClientDetailsController">
+    <div class="col-xs-12">
+        <div class="portlet light no-margin">
+            <div class="portlet-title">
+                <div class="page-title">{{ client.name }}</div>
+                <div class="actions hidden-print">
+                    <a class="btn btn-circle blue" onclick="javascript:window.print();">
+                        <i class="fa fa-print"></i> Print </a>
+                </div>
+            </div>
+            <table class="table text-muted">
+                <tbody>
+                    <tr>
+                        <td style="border-top: transparent"> Event Date: {{ client.weddingdate | date }} </td>
+                        <td style="border-top: transparent"> Phone: {{ client.phone }} </td>
+                        <td style="border-top: transparent"> Email: {{ client.email }} </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <table class="table text-muted">
-          <tbody>
-            <tr>
-              <td style="border-top: transparent">
-                Event Date: December 8, 2016
-              </td>
-              <td style="border-top: transparent">
-                Phone: 832-922-7104
-              </td>
-              <td style="border-top: transparent">
-                Email: taylor.christine@gmail.com
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
     </div>
 </div>
-
 <div class="row">
     <div class="col-xs-12 client-details">
-      <h3>Section Title</h3>
-      <dl>
-        <dt>List all those on your decorating team you have assigned to setup your ceremony decor:</dt>
-        <dd>Josh Nathans, Ashley Rosely, Sarah Van Houssen</dd>
-
-        <dt>Will you be having a Unity Candle or Unity Sand Ceremony?</dt>
-        <dd>Unity Candle</dd>
-
-        <dt>Would you like to borrow our silver complimentary unity candle stand?</dt>
-        <dd>No</dd>
-
-        <dt>Would you like to borrow our complimentary granite-top table for the unity sand?</dt>
-        <dd>No</dd>
-
-        <dt>Are you planning on having your programs in a basket or are the ushers handing them out?</dt>
-        <dd>Yes</dd>
-      </dl>
-
-      <h3>Section Title</h3>
-      <dl>
-        <dt>Name of florist you booked:</dt>
-        <dd>Rose's Flowers and Decor</dd>
-
-        <dt>Was the waiver turned in by the 2 week deadline?</dt>
-        <dd>Yes - <span class="text-muted small" style="font-style: italic;">&lt;Uploaded July 12, 2016&gt;</span></dd>
-
-        <dt>Did you order fresh rose petals for the aisle?</dt>
-        <dd>Yes. Sky Blue</dd>
-
-        <dt>Brief description of how are you planning on having the ceremony site decorated:</dt>
-        <dd class="text-danger">&lt;Unanswered&gt;</dd>
-      </dl>
-
-      <h3>Section Title</h3>
-      <dl>
-        <dt>One hour complimentary use of the dressing rooms before the start of your Lindsay Lakes Ceremony begins at: </dt>
-        <dd>2:30pm</dd>
-
-        <dt>Name of the person you have assigned to collect forgotten items in the dressing rooms:</dt>
-        <dd>Julie Smith</dd>
-      </dl>
+        <h3>Section Title</h3>
+        <dl>
+            <dt>List all those on your decorating team you have assigned to setup your ceremony decor:</dt>
+            <dd>Josh Nathans, Ashley Rosely, Sarah Van Houssen</dd>
+            <dt>Will you be having a Unity Candle or Unity Sand Ceremony?</dt>
+            <dd>Unity Candle</dd>
+            <dt>Would you like to borrow our silver complimentary unity candle stand?</dt>
+            <dd>No</dd>
+            <dt>Would you like to borrow our complimentary granite-top table for the unity sand?</dt>
+            <dd>No</dd>
+            <dt>Are you planning on having your programs in a basket or are the ushers handing them out?</dt>
+            <dd>Yes</dd>
+        </dl>
+        <h3>Section Title</h3>
+        <dl>
+            <dt>Name of florist you booked:</dt>
+            <dd>Rose's Flowers and Decor</dd>
+            <dt>Was the waiver turned in by the 2 week deadline?</dt>
+            <dd>Yes -
+                <span class="text-muted small" style="font-style: italic;">&lt;Uploaded July 12, 2016&gt;</span>
+            </dd>
+            <dt>Did you order fresh rose petals for the aisle?</dt>
+            <dd>Yes. Sky Blue</dd>
+            <dt>Brief description of how are you planning on having the ceremony site decorated:</dt>
+            <dd class="text-danger">&lt;Unanswered&gt;</dd>
+        </dl>
+        <h3>Section Title</h3>
+        <dl>
+            <dt>One hour complimentary use of the dressing rooms before the start of your Lindsay Lakes Ceremony begins at: </dt>
+            <dd>2:30pm</dd>
+            <dt>Name of the person you have assigned to collect forgotten items in the dressing rooms:</dt>
+            <dd>Julie Smith</dd>
+        </dl>
     </div>
-  </div>
+</div>
 <!-- BEGIN MAIN JS -->
 <script>
-
 </script>
 <!-- END MAIN JS -->
