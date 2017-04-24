@@ -11,5 +11,15 @@ angular.module('MetronicApp').controller('GeneralPageController', ['$rootScope',
     });
 }]);
 angular.module('MetronicApp').config(function($window) {
-    $window.Stripe.setPublishableKey('YOUR-KEY-COMES-HERE');
+    $window.Stripe.setPublishableKey('pk_test_iCItT9AHVuBcIZipWBVAVcZw');
 });
+angular.module('MetronicApp', ['angularPayments'])
+    .controller('paymentController', function($scope){
+        $scope.stripeCallback = function (code, result) {
+			if (result.error) {
+				window.alert('it failed! error: ' + result.error.message);
+			} else {
+				window.alert('success! token: ' + result.id);
+			}
+		};
+    });
