@@ -1,0 +1,10 @@
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li ng-repeat="link in links">
+            <a ng-if="link.path" ng-href="#/{{ link.path }}">{{ link.label }}</a>
+            <span ng-if="!link.path">{{ link.label }}</span>
+            
+            <i ng-if="!$last" class="fa fa-circle"></i>
+        </li>
+    </ul>
+</div>

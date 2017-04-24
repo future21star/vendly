@@ -1,10 +1,6 @@
 /**
  * Created by Adam on 4/23/17.
  */
-
-/**
- * Created by Adam on 3/16/17.
- */
 app = angular.module("MetronicApp");
 
 app.directive("handbook", function () {
