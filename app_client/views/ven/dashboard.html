@@ -1,528 +1,227 @@
-<!-- BEGIN PAGE HEADER-->
-<div class="note no-margin note-info">
+<!-- BEGIN Notifications -->
+<div class="mdl-card mdl-shadow--4dp full-width m-b-1" style="margin-bottom: 15px;">
+  <div class="mdl-card__supporting-text full-width">
     <h3>Welcome to Vendly!
-        <span class="close" data-close="note"></span>
+      <span class="close" data-close="note"></span>
     </h3>
     <p>The aim of our platform is to help minimize the stress eveyone involved in planning and executing an event deal with on a daily basis. At the end of the day we want everyone involved to leave with more memories than frustrations.</p>
-    <br>
-    <span class="label label-danger">NOTE:</span> If you every have any questions feel free to reach out to us!</span>
-    </p>
+    <span class="label label-danger">NOTE:</span> If you every have any questions feel free to reach out to us!</span>    
+  </div>
 </div>
-<h3 class="page-title padding-bottom-10"> Welcome Back Vendly Venue! </h3>
-<!-- END PAGE HEADER-->
-<!-- BEGIN MAIN CONTENT -->
+<!-- END Notifications -->
+
 <div ng-controller="DashboardController">
-    <div class="row">
-        <!-- Begin Approval Feature -->
-        <div class="portlet light bordered">
-            <div class="portlet-title tabbable-line">
-                <div class="caption">
-                    <span class="caption-subject font-blue bold uppercase">Pending Approvals</span>
-                </div>
-                <div class="tools">
-                    <a href="javascript:;" class="collapse"> </a>
-                    <a href="javascript:;" class="reload"> </a>
-                </div>
-            </div>
-            <div class="portlet-body">
-                <div class="tab-content">
-                    <div class="tab-pane active" id="tab_actions_pending">
-                        <!-- BEGIN: Actions -->
-                        <div class="mt-actions">
-                            <div class="mt-action" id="approval1">
-                                <div class="mt-action-img">
-                                    <img src="../assets/pages/media/users/avatar10.jpg" /> </div>
-                                <div class="mt-action-body">
-                                    <div class="mt-action-row">
-                                        <div class="mt-action-info ">
-                                            <div class="mt-action-details ">
-                                                <a class="mt-action-author" data-target=".request_permission" data-toggle="modal"> Taylor Christine </a>
-                                                <p class="mt-action-desc">Requests access to your handbook</p>
-                                            </div>
-                                        </div>
-                                        <div class="mt-action-datetime ">
-                                            <span class="mt-action-date">June 2</span>
-                                            <span class="">@</span>
-                                            <span class="mt=action-time">1:02pm</span>
-                                        </div>
-                                        <div class="mt-action-buttons ">
-                                            <div class="btn-group btn-group-circle">
-                                                <button type="button" class="btn btn-outline blue btn-sm" onclick="hide('approval1')">Approve</button>
-                                                <button type="button" class="btn btn-outline red btn-sm" onclick="hide('approval1')">Reject</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-action" id="approval2">
-                                <div class="mt-action-img">
-                                    <img src="../assets/pages/media/users/avatar3.jpg" /> </div>
-                                <div class="mt-action-body">
-                                    <div class="mt-action-row">
-                                        <div class="mt-action-info ">
-                                            <div class="mt-action-details ">
-                                                <a class="mt-action-author" data-target=".request_permission" data-toggle="modal"> Gavin Bond </a>
-                                                <p class="mt-action-desc">Requests access to your handbook</p>
-                                            </div>
-                                        </div>
-                                        <div class="mt-action-datetime ">
-                                            <span class="mt-action-date">June 2</span>
-                                            <span class="">@</span>
-                                            <span class="mt=action-time">7:32pm</span>
-                                        </div>
-                                        <div class="mt-action-buttons ">
-                                            <div class="btn-group btn-group-circle">
-                                                <button type="button" class="btn btn-outline blue btn-sm" onclick="hide('approval2')">Approve</button>
-                                                <button type="button" class="btn btn-outline red btn-sm" onclick="hide('approval2')">Reject</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-action" id="approval3">
-                                <div class="mt-action-img">
-                                    <img src="../assets/pages/media/users/avatar2.jpg" /> </div>
-                                <div class="mt-action-body">
-                                    <div class="mt-action-row">
-                                        <div class="mt-action-info ">
-                                            <div class="mt-action-details ">
-                                                <a class="mt-action-author" data-target=".request_permission" data-toggle="modal"> Diana Berri </a>
-                                                <p class="mt-action-desc">Requests access to your handbook</p>
-                                            </div>
-                                        </div>
-                                        <div class="mt-action-datetime ">
-                                            <span class="mt-action-date">June 3</span>
-                                            <span class="">@</span>
-                                            <span class="mt=action-time">8:46am</span>
-                                        </div>
-                                        <div class="mt-action-buttons ">
-                                            <div class="btn-group btn-group-circle">
-                                                <button type="button" class="btn btn-outline blue btn-sm" onclick="hide('approval3')">Approve</button>
-                                                <button type="button" class="btn btn-outline red btn-sm" onclick="hide('approval3')">Reject</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-action" id="approval4">
-                                <div class="mt-action-img">
-                                    <img src="../assets/pages/media/users/avatar7.jpg" /> </div>
-                                <div class="mt-action-body">
-                                    <div class="mt-action-row">
-                                        <div class="mt-action-info ">
-                                            <div class="mt-action-details ">
-                                                <a class="mt-action-author" data-target=".request_permission" data-toggle="modal"> John Clark </a>
-                                                <p class="mt-action-desc">Requests access to your handbook</p>
-                                            </div>
-                                        </div>
-                                        <div class="mt-action-datetime ">
-                                            <span class="mt-action-date">June 3</span>
-                                            <span class="">@</span>
-                                            <span class="mt=action-time">9:21am</span>
-                                        </div>
-                                        <div class="mt-action-buttons ">
-                                            <div class="btn-group btn-group-circle">
-                                                <button type="button" class="btn btn-outline blue btn-sm" onclick="hide('approval4')">Approve</button>
-                                                <button type="button" class="btn btn-outline red btn-sm" onclick="hide('approval4')">Reject</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END: Actions -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Approval Feature -->
+  
+  <div class="mdl-card mdl-shadow--2dp full-width m-b-2" style="min-height: 0; margin-bottom: 30px;">
+    <div class="mdl-card__title p-b-0" style="padding-bottom: 0;">
+      <span class="mdl-card__title-text">
+        Pending Approvals
+      </span>
     </div>
+    <div class="mdl-card__supporting-text full-width p-y-0" style="padding-top: 0; padding-bottom: 0;">
+      <ul class="mdl-list">
+        <!-- if approvals loop through them (take out id - added for functionality display) -->
+        <li class="mdl-list__item mdl-list__item--three-line" id="approval1">
+          <div class="mdl-list__item-primary-content">
+            <div class="mdl-list__item-avatar" style="margin-right: 18px;">
+              <img src="../assets/pages/media/users/avatar1.jpg" style="border-radius: 5em; height: 50px; width: 50px;"/>
+            </div>
+            <div style="padding-top: 4px">{user.name}</div>
+            <span class="mdl-list__item-text-body">
+              Requested access to handbook on {date}
+            </span>
+          </div>
+          <div class="mdl-list__item-secondary-content">
+            <div class="mdl-list__item-secondary-action">
+              <a onclick="hide('approval1')" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                <i class="material-icons mdl-color-text--green">check</i>
+              </a>
+              <a onclick="hide('approval1')" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                <i class="material-icons mdl-color-text--red">close</i>
+              </a>
+            </div>
+          </div>
+        </li>
+        <hr style="margin: 5px auto;">
+        <li class="mdl-list__item mdl-list__item--three-line" id="approval2">
+          <div class="mdl-list__item-primary-content">
+            <div class="mdl-list__item-avatar" style="margin-right: 18px;">
+              <img src="../assets/pages/media/users/avatar2.jpg" style="border-radius: 5em; height: 50px; width: 50px;"/>
+            </div>
+            <div style="padding-top: 4px">{user.name}</div>
+            <span class="mdl-list__item-text-body">
+              Requested access to handbook on {date}
+            </span>
+          </div>
+          <div class="mdl-list__item-secondary-content">
+            <div class="mdl-list__item-secondary-action">
+              <a onclick="hide('approval2')" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                <i class="material-icons mdl-color-text--green">check</i>
+              </a>
+              <a onclick="hide('approval2')" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                <i class="material-icons mdl-color-text--red">close</i>
+              </a>
+            </div>
+          </div>
+        </li>
+        <!-- If no approvals needed -->
+        <!-- <h5 class="mdl-typography--title mdl-color-text--grey" style="font-weight: 300;">No actions required</h5> -->
+      </ul>
+    </div>
+  </div>
+  
     <div class="row">
-        <div class="col-md-6 col-sm-12">
-            <!-- BEGIN Recent Activities -->
-            <div class="portlet light bordered ">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <span class="caption-subject font-blue bold uppercase">Recent Activities</span>
-                    </div>
-                    <div class="actions">
-                        <div class="btn-group">
-                            <a class="btn btn-sm btn-default btn-circle" href="#" data-toggle="dropdown" dropdown-menu-hover data-close-others="true"> Filter
-                                <i class="fa fa-angle-down"></i>
-                            </a>
-                            <div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
-                                <label>
-                                    <input type="checkbox" checked="" value="clients" /> Clients </label>
-                                <label>
-                                    <input type="checkbox" checked="" value="finances" /> Finances </label>
-                                <label>
-                                    <input type="checkbox" checked="" value="internal" /> Internal </label>
-                            </div>
-                        </div>
-                    </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="mdl-card mdl-shadow--2dp full-width">
+          <div class="mdl-card__title mdl-card--border p-b-0" style="padding-bottom: 0;">
+            <span class="mdl-card__title-text">
+              Recent Activities
+            </span>
+          </div>
+          <div class="mdl-card__supporting-text full-width p-y-0" style="padding-top: 0; padding-bottom: 0;">
+            <ul class="mdl-list" style="max-height: 300px; overflow-y: scroll;">
+              <li class="mdl-list__item mdl-list__item--two-line">
+                <div class="mdl-list__item-primary-content">
+                  <span>Taylor Christine paid $875</span>
+                  <span class="mdl-list__item-sub-title">2 hours ago</span>
                 </div>
-                <div class="portlet-body">
-                    <div class="scroller" style="height: 265px;" data-always-visible="1" data-rail-visible="0">
-                        <ul class="feeds">
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <div class="desc"> Taylor Christine paid $875 </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date"> 2 hours </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <div class="desc"> John Clark requested access to your handbook </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date"> 3 hours </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <div class="desc"> Erin Hursh answered 12 questions </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date"> 3 hours </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <div class="desc"> Diana Berri requested access to your handbook </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date"> 4 hours </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <div class="desc"> Erin Hursh answered 4 questions </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date"> 5 hours </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <div class="desc"> Erin Hursh is connected to your handbook </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date"> 5 hours </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <div class="desc"> Gavin Bond requested access to your handbook </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date"> 16 hours </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <div class="desc"> Jordan Johnson paid $1,600 </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date"> 16 hours </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <div class="desc"> Jordan Johnson answered 13 questions </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date"> 16 hours </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <div class="desc"> Natasha Kim requested access to your handbook </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date"> 22 hours </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="scroller-footer">
-                        <div class="pull-right">
-                            <a href="javascript:;" class="font-grey-gallery" style="font-size: 75%;">View More
-                                <i class="fa fa-eye"></i>
-                            </a>
-                        </div>
-                    </div>
+              </li>
+              <hr style="margin: 0 auto;">
+              <li class="mdl-list__item mdl-list__item--two-line">
+                <div class="mdl-list__item-primary-content">
+                  <span>Taylor Christine paid $875</span>
+                  <span class="mdl-list__item-sub-title">2 hours ago</span>
                 </div>
-            </div>
-            <!-- END Recent Activities -->
+              </li>
+              <hr style="margin: 0 auto;">
+              <li class="mdl-list__item mdl-list__item--two-line">
+                <div class="mdl-list__item-primary-content">
+                  <span>Taylor Christine paid $875</span>
+                  <span class="mdl-list__item-sub-title">2 hours ago</span>
+                </div>
+              </li>
+              <hr style="margin: 0 auto;">
+              <li class="mdl-list__item mdl-list__item--two-line">
+                <div class="mdl-list__item-primary-content">
+                  <span>Taylor Christine paid $875</span>
+                  <span class="mdl-list__item-sub-title">2 hours ago</span>
+                </div>
+              </li>
+              <hr style="margin: 0 auto;">
+              <li class="mdl-list__item mdl-list__item--two-line">
+                <div class="mdl-list__item-primary-content">
+                  <span>Taylor Christine paid $875</span>
+                  <span class="mdl-list__item-sub-title">2 hours ago</span>
+                </div>
+              </li>
+              <hr style="margin: 0 auto;">
+              <li class="mdl-list__item mdl-list__item--two-line">
+                <div class="mdl-list__item-primary-content">
+                  <span>Taylor Christine paid $875</span>
+                  <span class="mdl-list__item-sub-title">2 hours ago</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="mdl-card_action p-y-0 p-x-1" style="padding: 0 15px;">
+            <a href="" class="mdl-typography--body-1 mdl-color-text--red-A100" style="float: right;"><em>
+              View All
+            </em></a>
+          </div>
+          <div class="mdl-card__menu">
+            <button type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--grey-400">
+              Filter
+              <i class="material-icons">keyboard_arrow_down</i>
+            </button>
+          </div>
         </div>
-        <!-- BEGIN Tasks -->
-        <div class="col-md-6 col-sm-12">
-            <div class="portlet light bordered tasks-widget">
-                <div class="portlet-title">
-                    <div class="caption caption-md">
-                        <span class="caption-subject font-blue bold uppercase">TASKS</span>
-                        <span class="caption-helper">7 pending</span>
-                    </div>
-                    <div class="actions">
-                        <div class="btn-group">
-                            <a class="btn btn-sm btn-default btn-circle" href="#" data-toggle="dropdown" dropdown-menu-hover data-close-others="true"> Filter
-                                <i class="fa fa-angle-down"></i>
-                            </a>
-                            <div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
-                                <label>
-                                    <input type="checkbox" value="current-tasks" checked="checked" /> Current Tasks </label>
-                                <label>
-                                    <input type="checkbox" value="completed-tasks" /> Completed Tasks </label>
-                            </div>
-                        </div>
-                    </div>
+      </div>
+      
+      <!-- Tasks -->
+      <div class="col-md-6 col-sm-12">
+        <div class="mdl-card mdl-shadow--2dp full-width">
+          <div class="mdl-card__title mdl-card--border p-b-0" style="padding-bottom: 0;">
+            <span class="mdl-card__title-text">
+              Tasks
+            </span>
+          </div>
+          <div class="mdl-card__supporting-text full-width p-y-0" style="padding-top: 0; padding-bottom: 0;">
+            <ul class="mdl-list" style="max-height: 300px; overflow-y: scroll;">
+              <li class="mdl-list__item mdl-list__item--two-line">
+                <div class="mdl-list__item-primary-content">
+                  <span>Update calendar with upcoming showings</span>
+                  <span class="mdl-list__item-sub-title">{dueDate}</span>
                 </div>
-                <div class="portlet-body">
-                    <div class="task-content">
-                        <div class="scroller" style="height: 265px;" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2">
-                            <!-- START TASK LIST -->
-                            <ul class="task-list">
-                                <li>
-                                    <div class="task-checkbox">
-                                        <input type="hidden" value="1" name="test" />
-                                        <input type="checkbox" class="liChild" value="2" name="test" /> </div>
-                                    <div class="task-title">
-                                        <span class="task-title-sp"> Update Calendar with upcoming showings </span>
-                                    </div>
-                                    <div class="task-config">
-                                        <div class="task-config-btn btn-group">
-                                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
-                                                <i class="fa fa-cog"></i>
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-check"></i> Complete </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="task-checkbox">
-                                        <input type="checkbox" class="liChild" value="" /> </div>
-                                    <div class="task-title">
-                                        <span class="task-title-sp"> Check marketing on TheKnot </span>
-                                    </div>
-                                    <div class="task-config">
-                                        <div class="task-config-btn btn-group">
-                                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
-                                                <i class="fa fa-cog"></i>
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-check"></i> Complete </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="task-checkbox">
-                                        <input type="checkbox" class="liChild" value="" /> </div>
-                                    <div class="task-title">
-                                        <span class="task-title-sp"> Follow up with Juan about venue upgrades </span>
-                                    </div>
-                                    <div class="task-config">
-                                        <div class="task-config-btn btn-group">
-                                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
-                                                <i class="fa fa-cog"></i>
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-check"></i> Complete </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="task-checkbox">
-                                        <input type="checkbox" class="liChild" value="" /> </div>
-                                    <div class="task-title">
-                                        <span class="task-title-sp"> Show Ashley how to use Vendly </span>
-                                    </div>
-                                    <div class="task-config">
-                                        <div class="task-config-btn btn-group">
-                                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
-                                                <i class="fa fa-cog"></i>
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-check"></i> Complete </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="task-checkbox">
-                                        <input type="checkbox" class="liChild" value="" /> </div>
-                                    <div class="task-title">
-                                        <span class="task-title-sp"> Balance month end budget </span>
-                                    </div>
-                                    <div class="task-config">
-                                        <div class="task-config-btn btn-group">
-                                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
-                                                <i class="fa fa-cog"></i>
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-check"></i> Complete </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="task-checkbox">
-                                        <input type="checkbox" class="liChild" value="" /> </div>
-                                    <div class="task-title">
-                                        <span class="task-title-sp"> Add banking info to incorporate payment processing on Vendly </span>
-                                    </div>
-                                    <div class="task-config">
-                                        <div class="task-config-btn btn-group">
-                                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
-                                                <i class="fa fa-cog"></i>
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-check"></i> Complete </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="last-line">
-                                    <div class="task-checkbox">
-                                        <input type="checkbox" class="liChild" value="" /> </div>
-                                    <div class="task-title">
-                                        <span class="task-title-sp"> Reach out to Austin regarding marketing </span>
-                                    </div>
-                                    <div class="task-config">
-                                        <div class="task-config-btn btn-group">
-                                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
-                                                <i class="fa fa-cog"></i>
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-check"></i> Complete </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-trash-o"></i> Delete </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <!-- END START TASK LIST -->
-                        </div>
-                    </div>
-                    <div class="task-footer">
-                        <div class="pull-right">
-                            <a href="javascript:;" class="font-grey-gallery" style="font-size: 75%;">Add Task
-                                <i class="fa fa-plus"></i>
-                            </a>
-                        </div>
-                    </div>
+                <div class="mdl-list__item-secondary-action">
+                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                    <input type="checkbox" class="mdl-checkbox__input" />
+                  </label>
                 </div>
-            </div>
-            <!-- END Tasks -->
+              </li>
+              <hr style="margin: 0 auto;">
+              <li class="mdl-list__item mdl-list__item--two-line">
+                <div class="mdl-list__item-primary-content">
+                  <span>Update calendar with upcoming showings</span>
+                  <span class="mdl-list__item-sub-title">{dueDate}</span>
+                </div>
+                <div class="mdl-list__item-secondary-action">
+                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                    <input type="checkbox" class="mdl-checkbox__input" />
+                  </label>
+                </div>
+              </li>
+              <hr style="margin: 0 auto;">
+              <li class="mdl-list__item mdl-list__item--two-line">
+                <div class="mdl-list__item-primary-content">
+                  <span>Update calendar with upcoming showings</span>
+                  <span class="mdl-list__item-sub-title">{dueDate}</span>
+                </div>
+                <div class="mdl-list__item-secondary-action">
+                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                    <input type="checkbox" class="mdl-checkbox__input" />
+                  </label>
+                </div>
+              </li>
+              <hr style="margin: 0 auto;">
+              <li class="mdl-list__item mdl-list__item--two-line">
+                <div class="mdl-list__item-primary-content">
+                  <span>Update calendar with upcoming showings</span>
+                  <span class="mdl-list__item-sub-title">{dueDate}</span>
+                </div>
+                <div class="mdl-list__item-secondary-action">
+                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                    <input type="checkbox" class="mdl-checkbox__input" />
+                  </label>
+                </div>
+              </li>
+              <hr style="margin: 0 auto;">
+              <li class="mdl-list__item mdl-list__item--two-line">
+                <div class="mdl-list__item-primary-content">
+                  <span>Update calendar with upcoming showings</span>
+                  <span class="mdl-list__item-sub-title">{dueDate}</span>
+                </div>
+                <div class="mdl-list__item-secondary-action">
+                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                    <input type="checkbox" class="mdl-checkbox__input" />
+                  </label>
+                </div>
+              </li>
+              <hr style="margin: 0 auto;">
+            </ul>
+          </div>
+          <div class="mdl-card_action p-y-0 p-x-1" style="padding: 0 15px;">
+            <a href="" class="mdl-typography--body-1 mdl-color-text--red-A100" style="float: right;"><em>
+              View All
+            </em></a>
+          </div>
+          <div class="mdl-card__menu">
+            <button type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--blue">
+              <i class="fa fa-plus"></i>
+              Add Task
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 </div>
 <!-- END MAIN CONTENT -->

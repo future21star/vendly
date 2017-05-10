@@ -1,8 +1,42 @@
+/* MAIN TEMPLATE STYLE CLASSES */
 .modal {
   z-index: 10050;
 }
+.mdl-layout__header-row {
+	padding: 0 24px;
+}
+.left-nav {
+	padding: 24px 24px 0;
+}
+.left-nav li {
+	list-style: none;
+	padding: 0 0 16px;
+}
+.app-content {
+	order: 2;
+	flex: 1;
+	padding: 24px;
+}
+.left-nav a {
+  text-decoration: none;
+}
+
+/* COMMON STYLE CLASSES  */
+a.no-underline {
+	text-decoration: none !important;
+}
+.full-width {
+	width: 100% !important;
+}
 
 
+/* DASHBOARD CUSTOM CSS */
+.mdl-list__item {
+  padding: 0 16px !important;
+}
+
+
+/* TODO Clean-up */
 .no-border-top {
   border-top: 0px !important;
 }
