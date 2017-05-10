@@ -8,7 +8,7 @@ var MetronicApp = angular.module("MetronicApp", [
     "ui.bootstrap",
     "oc.lazyLoad",
     "ngSanitize",
-    "angular-sir-trevor",
+    //"angular-sir-trevor",
     "xeditable"
 ]);
 
