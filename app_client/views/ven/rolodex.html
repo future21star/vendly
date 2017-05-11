@@ -1,142 +1,123 @@
-<!-- BEGIN PAGE HEADER-->
-<div class="page-bar">
-    <ul class="page-breadcrumb">
-        <li>
-            <a href="#/dashboard">Dashboard</a>
-            <i class="fa fa-circle"></i>
-        </li>
-        <li>
-            <span> Client Rolodex </span>
-        </li>
-    </ul>
+<div class="mdl-card full-width">
+  <div class="mdl-card__title">
+    <span class="mdl-card__title-text">
+      My Clients
+    </span>
+  </div>
+  <div class="mdl-card__supporting-text full-width p-a-0 hidden-xs-down" style="padding: 0;">
+    <form action="#">
+      <label class="mdl-button mdl-js-button mdl-button--icon" for="documentSearch">
+        <i class="material-icons">search</i>
+      </label>
+      <div class="mdl-textfield mdl-js-textfield">
+        <input class="mdl-textfield__input" type="text" id="clientSearch" ng-model="searchText">
+        <label class="mdl-textfield__label">Search...</label>
+      </div>
+    </form>
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width">
+      <thead>
+        <tr>
+          <th class="mdl-data-table__cell--non-numeric"></th>
+          <th class="mdl-data-table__cell--non-numeric">Name</th>
+          <th class="mdl-data-table__cell--non-numeric">Email</th>
+          <th class="mdl-data-table__cell--non-numeric">Phone #</th>
+          <th class="mdl-data-table__cell--non-numeric">Event Date</th>
+          <!-- <th class="mdl-data-table__cell--non-numeric">Balance Due</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="client in clients | filter:searchText | filter:dateFilter">
+          <td class="mdl-data-table__cell--non-numeric">
+            <a data-target="#client_details" data-toggle="modal" ng-click="viewContact(client)">
+                <i class="fa fa-external-link"></i>
+            </a>
+          </td>
+          <td class="mdl-data-table__cell--non-numeric"> {{ client.name }}</td>
+          <td class="mdl-data-table__cell--non-numeric"> {{ client.email }}</td>
+          <td class="mdl-data-table__cell--non-numeric"> {{ client.phone }}</td>
+          <td class="mdl-data-table__cell--non-numeric"> {{ client.weddingdate | date:"fullDate" }}</td>
+          <!-- <td class="mdl-data-table__cell--non-numeric"> {{ client.balanceDue | currency }}</td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="mdl-card__menu">
+    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-color-text--blue" data-target="#add_client" data-toggle="modal">
+      Add Client
+    </button>
+    <button ng-click="toggleCurrentClients()" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color-text--blue-grey-400" style="margin-left: 8px;">
+      <i class="material-icons">settings</i>
+    </button>
+  </div>
 </div>
-<!-- END PAGE HEADER-->
-<!-- BEGIN MAIN CONTENT -->
-<div class="row">
-    <div class="col-xs-12">
-        <!-- BEGIN: ACCORDION DEMO -->
-        <div class="portlet light">
-            <div class="portlet-title">
-                <div class="page-title"> My Clients</div>
-                <div class="actions">
-                    <a class="btn btn-circle btn-default" data-target="#add_client" data-toggle="modal">
-                        <i class="fa fa-user-plus"></i> Add Client </a>
-                    <a class="btn btn-circle btn-icon-only btn-default" ng-click="toggleCurrentClients()">
-                        <i class="fa fa-cog"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Client Rolodex -->
-    <div class="row hidden-xs">
-        <div class="col-xs-12">
-            <form class="form-inline well-sm">
-                <div class="form-control">
-                    <span class="fa fa-search font-blue" style="opacity: .45;"></span>
-                    <input type="text" ng-model="searchText" style="border: transparent;" placeholder="Search..."></div>
-            </form>
-        </div>
-        <div class="col-xs-12">
-            <div class="portlet light">
-                <table class="table table-bordered table-hover">
-                    <th> #</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Event Date</th>
-                    <th>Balance Due</th>
-                    <tr ng-repeat="client in clients | filter:searchText | filter:dateFilter">
-                        <td class="text-center">
-                            <a data-target="#client_details" data-toggle="modal" ng-click="viewContact(client)">
-                                <i class="fa fa-external-link font-blue"></i>
-                            </a>
-                        </td>
-                        <td> {{ client.name }}</td>
-                        <td> {{ client.email }}</td>
-                        <td> {{ client.phone }}</td>
-                        <td> {{ client.weddingdate | date:"fullDate" }}</td>
-                        <td> {{ client.balanceDue | currency }}</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="h2 visible-xs">
-        <h2 align="center" class="bold font-grey-salt padding-20"> This content is not visible on mobile devices. </h2>
-    </div>
-    <!-- END MAIN CONTENT -->
-    <!-- BEGIN Client Details Modal -->
 
-    <div id="client_details" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <client-details client="viewingClient" ></client-details>
-        </div>
-    </div>
-    <!-- END Client Details Modal -->
-    <!-- BEGIN Add Client Modal -->
-    <div id="add_client" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title bold">Add New Client </h4>
-                </div>
-                <div class="modal-body">
-                    <div class="portlet light form no-margin">
-                        <!-- BEGIN FORM-->
-                        <form ng-submit="onContactSubmit()" class="form-horizontal">
-                            <div class="form-body">
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <span class="help-block"> First Name </span>
-                                            <input class="form-control" type="text" required="required"
-                                                   ng-model="firstname"/></div>
-                                        <div class="col-md-6">
-                                            <span class="help-block"> Last Name </span>
-                                            <input class="form-control" type="text" required="required"
-                                                   ng-model="lastname"/></div>
-                                    </div>
-                                    <div class="padding-bottom-10 padding-top-10"></div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <span class="help-block"> Email </span>
-                                            <input class="form-control" type="email" required="required"
-                                                   ng-model="contact.email"/></div>
-                                        <div class="col-md-6">
-                                            <span class="help-block"> Event Date </span>
-                                            <input class="form-control date-picker" size="16" type="text" value=""
-                                                   data-date-start-date="+0d" required="required"
-                                                   ng-model="contact.weddingdate"/></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div ng-controller="AccordionDemoCtrl">
-                                <uib-accordion close-others="oneAtATime">
-                                    <uib-accordion-group heading="+ Additional Options" style="text-align: left;">
-                                        <div class="row" style="text-align: left;">
-                                            <div class="col-md-6">
-                                                <span class="help-block"> Phone Number </span>
-                                                <input class="form-control" type="text" ng-model="contact.phone"/></div>
-                                            <div class="col-md-6">
-                                                <span class="help-block"> Balance Due </span>
-                                                <input class="form-control" type="text" ng-model="contact.balanceDue"/>
-                                            </div>
-                                        </div>
-                                    </uib-accordion-group>
-                                </uib-accordion>
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn default" data-dismiss="modal" aria-hidden="true">Close</button>
-                                <input class="btn blue" type="submit" value="Add Client"/></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- END Add Client Modal -->
+
+<div class="h2 hidden-sm-up">
+  <h6 align="center" class="mdl-typography--headline mdl-color-text--blue-grey-600" style="font-weight: 300;">
+    Rotate mobile device sideways to view page content
+  </h6>
 </div>
+
+<!-- Client Details Modal -->
+<div id="client_details" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <client-details client="viewingClient" ></client-details>
+  </div>
+</div>
+
+<!-- Add Client Modal -->
+<div id="add_client" class="modal full-width" style="background-color: rgba(100, 100, 100, .35); position: fixed;" role="dialog">
+  <div class="mdl-card mdl-shadow--8dp full-width" style="margin: 150px auto; max-width: 650px;">
+    <div class="mdl-card__title mdl-card--border mdl-color--blue mdl-color-text--white">
+      <span class="mdl-card__title-text">Add Client</span>
+    </div>
+    <div class="mdl-card__supporting-text full-width">
+      <form ng-submit="onContactSubmit()">
+        <div style="display: flex;">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="order: 1; flex: 1; margin-right: 7px;">
+            <input class="mdl-textfield__input" type="text" ng-model="firstname">
+            <label class="mdl-textfield__label">First Name</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="order: 2; flex: 1; margin-left: 7px;">
+            <input class="mdl-textfield__input" type="text" ng-model="lastname" >
+            <label class="mdl-textfield__label">Last Name</label>
+          </div>
+        </div>
+        <div style="display: flex;">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="order: 1; flex: 1; margin-right: 7px;">
+            <input class="mdl-textfield__input" type="text" ng-model="contact.email">
+            <label class="mdl-textfield__label">Email Address</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="order: 2; flex: 1; margin-left: 7px;">
+            <input class="mdl-textfield__input" type="text" ng-model="contact.weddingdate" >
+            <label class="mdl-textfield__label">Event Date</label>
+            <!-- <input class="form-control date-picker" size="16" type="text" value="" data-date-start-date="+0d" required="required" ng-model="contact.weddingdate"/> -->
+          </div>
+        </div>
+        <div style="padding-bottom: 15px;">
+          <h6 style="margin: 15px 0 0;"><em>Additional Options</em></h6>
+          <hr style="margin: 0;">
+          <div style="display: flex;">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="order: 1; flex: 1; margin-right: 7px;">
+              <input class="mdl-textfield__input" type="text" ng-model="contact.phone">
+              <label class="mdl-textfield__label">Phone #</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="order: 2; flex: 1; margin-left: 7px;">
+              <input class="mdl-textfield__input" type="text" ng-model="contact.balanceDue" >
+              <label class="mdl-textfield__label">Balance Due</label>
+            </div>
+          </div>
+        </div>
+        <div style="float: right;">
+          <button data-dismiss="modal" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised" style="margin: 0 4px;">Cancel</button>
+          <button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-color--blue mdl-color-text--white" style="margin: 0 4px;">Add Client</button>                        
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- NOTE: Is this needed? -->
 <script>
   function AccordionDemoCtrl($scope) {
     /** @type {boolean} */
