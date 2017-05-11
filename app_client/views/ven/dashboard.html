@@ -1,14 +1,16 @@
-<!-- BEGIN Notifications -->
+<!-- Notifications -->
 <div class="mdl-card mdl-shadow--4dp full-width m-b-1" style="margin-bottom: 15px;">
   <div class="mdl-card__supporting-text full-width">
-    <h3>Welcome to Vendly!
-      <span class="close" data-close="note"></span>
-    </h3>
+    <h3 class="m-t-0" style="margin-top: 0;">Welcome to Vendly!</h3>
     <p>The aim of our platform is to help minimize the stress eveyone involved in planning and executing an event deal with on a daily basis. At the end of the day we want everyone involved to leave with more memories than frustrations.</p>
     <span class="label label-danger">NOTE:</span> If you every have any questions feel free to reach out to us!</span>    
   </div>
+  <div class="mdl-card__menu">
+    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color-text--red-200">
+      <i class="material-icons">close</i>      
+    </button>
+  </div>
 </div>
-<!-- END Notifications -->
 
 <div ng-controller="DashboardController">
   
@@ -78,7 +80,7 @@
               Recent Activities
             </span>
           </div>
-          <div class="mdl-card__supporting-text full-width p-y-0" style="padding-top: 0; padding-bottom: 0;">
+          <div class="mdl-card__supporting-text full-width p-a-0" style="padding: 0;">
             <ul class="mdl-list" style="max-height: 300px; overflow-y: scroll;">
               <li class="mdl-list__item mdl-list__item--two-line">
                 <div class="mdl-list__item-primary-content">
@@ -145,7 +147,7 @@
               Tasks
             </span>
           </div>
-          <div class="mdl-card__supporting-text full-width p-y-0" style="padding-top: 0; padding-bottom: 0;">
+          <div class="mdl-card__supporting-text full-width p-a-0" style="padding: 0;">
             <ul class="mdl-list" style="max-height: 300px; overflow-y: scroll;">
               <li class="mdl-list__item mdl-list__item--two-line">
                 <div class="mdl-list__item-primary-content">
@@ -224,15 +226,16 @@
       </div>
     </div>
 </div>
-<!-- END MAIN CONTENT -->
-<!-- BEGIN Client Details Modal -->
+
+<!-- Client Details Modal -->
 <div class="modal fade request_permission" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title bold">
-                    <img src="../assets/layouts/layout/img/avatar11.jpg" alt="Taylor Christine" class="img-circle">
-                    <span id="clientname">Taylor Christine</span> &nbsp; </h4>
+              <h4 class="modal-title bold">
+                <img src="../assets/layouts/layout/img/avatar11.jpg" alt="Taylor Christine" class="img-circle">
+                <span id="clientname">Taylor Christine</span> &nbsp;
+              </h4>
             </div>
             <div class="modal-body">
                 <div class="portlet light">
@@ -256,7 +259,7 @@
         </div>
     </div>
 </div>
-<!-- END Client Details Modal -->
+
 <!-- BEGIN MAIN JS & CSS -->
 <script>
     Dashboard.init();
@@ -266,4 +269,3 @@
         document.getElementById(target).style.display = 'none';
     }
 </script>
-<!-- BEGIN MAIN JS & CSS -->
