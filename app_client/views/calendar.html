@@ -1,79 +1,56 @@
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <link href="../assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
-<!-- BEGIN PAGE BAR -->
-<div class="page-bar">
-    <ul class="page-breadcrumb">
-        <li>
-            <a href="#/dashboard">Dashboard</a>
-            <i class="fa fa-circle"></i>
-        </li>
-        <li>
-            <span>Calendar</span>
-        </li>
-    </ul>
-</div>
-<!-- END PAGE BAR -->
-<!-- BEGIN MAIN CONTENT -->
-<div class="row">
-    <div class="col-xs-12">
-        <!-- BEGIN: ACCORDION DEMO -->
-        <div class="portlet light" style="padding-bottom: 0;">
-            <div class="portlet-title">
-                <div class="page-title"> My Calendar </div>
-                <div class="actions">
-                    <div class="dropdown">
-                        <button class="btn btn-default btn-circle dropdown-toggle" type="button" data-toggle="dropdown">
-                            <small> Options
-                                <span class="caret"></span>
-                            </small>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="">Import Calendar</a>
-                            </li>
-                            <li class="dropdown-header">Export Calendar</li>
-                            <li class="input-group">
-                                <input class="form-control" type="text" disabled value="https://vendly.com/calendar/subscribe/1j3kjlwk23lkjs"> </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="mdl-card full-width">
+  <div class="mdl-card__title">
+    <span class="mdl-card__title-text mdl-color-text--grey-600">
+      My Calendar
+    </span>
+  </div>
+  <div class="mdl-card__supporting-text full-width p-x-0" style="padding-left: 0; padding-right: 0;">
     <div class="row">
-        <div class="col-xs-12">
-            <div class="portlet light portlet-fit calendar">
-                <div class="portlet-body">
-                    <div class="row">
-                        <div class="col-md-7 margin-bottom-20">
-                            <div id="calendar" class="has-toolbar"> </div>
-                        </div>
-                        <div class="col-md-5">
-                            <p align="left">
-                                <a href="javascript:;" id="event_add" class="btn default margin-left-10" data-target="#add_event" data-toggle="modal">
-                                    <!-- Add event (Name, date, time, notes) -->
-                                    <i class="fa fa-calendar-plus-o"></i> Add Event </a>
-                            </p>
-                            <h4 style="text-decoration: underline; font-style: italic;">Upcoming Events:</h4>
-                            <ul style="list-style: none; padding: 0;">
-                                <li ng-repeat="nextevent in comingevents">
-                                    <span style="background-color: #EEEEEE;">[{{nextevent.start}}]</span> - {{nextevent.title}}
-                                    <!-- Needs restyling. Basic list of 10 upcoming events -->
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <div class="col-xs-12 col-md-8">
+        <div id="calendar" class="has-toolbar"> </div>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <h5 class="m-b-0" style="font-style: italic; margin-bottom: 0;">Upcoming Events:</h5>
+        <hr class="m-y-0" style="margin: 0;">
+        <ul style="list-style: none; padding: 0;">
+            <li ng-repeat="nextevent in comingevents">
+                <span style="background-color: #EEEEEE;">[{{nextevent.start}}]</span> - {{nextevent.title}}
+                <!-- Needs restyling. Basic list of 10 upcoming events -->
+            </li>
+        </ul>
+      </div>
     </div>
-    <!-- BEGIN Add Event Modal -->
-    <div id="add_event" class="modal fade" role="dialog" aria-labelledby="myModalLabel10" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title bold">Add New Event </h4>
-                </div>
+  </div>
+  <div class="mdl-card__menu">
+    <a href="javascript:;" id="event_add" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-color-text--blue no-underline" data-target="#add_event" data-toggle="modal">
+      Add Event
+    </a>
+    <button id="calendar_options" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+      Options
+      <i class="material-icons">keyboard_arrow_down</i>
+    </button>
+
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="calendar_options">
+      <a href="" class="mdl-menu__item mdl-menu__item--full-bleed-divider">Import Calendar</a>
+      <li disabled class="mdl-menu__item">Export Calendar</li>
+      <li class="p-x-1" style="padding: 0 15px;">
+        <input class="" type="text" disabled value="https://vendly.com/calendar/subscribe/1j3kjlwk23lkjs">
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="row">
+  <!-- BEGIN Add Event Modal -->
+  <div id="add_event" class="modal fade" role="dialog" style="z-index: 9999;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title bold">Add New Event </h4>
+        </div>
                 <div class="modal-body">
                     <div class="portlet light form no-margin">
                         <!-- BEGIN FORM-->
