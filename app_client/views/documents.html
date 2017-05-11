@@ -72,39 +72,3 @@
   </div>
 </div>
 
-<div id="add_do" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title bold"> Upload Document </h4>
-            </div>
-            <div class="modal-body">
-                <div class="portlet light form no-margin">
-                        <div class="row padding-bottom-20" nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter">
-                            <div class="col-xs-12 hidden-xs hidden-sm">
-                                <div ng-show="uploader.isHTML5">
-                                    <!-- 3. nv-file-over uploader="link" over-class="className" -->
-                                    <div class="file-drop-zone margin-bottom-20 hidden" nv-file-over="" uploader="uploader" over-class="file-drop-zone-over"> Base drop zone </div>
-                                    <!-- Example: nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" -->
-                                    <div nv-file-drop="" uploader="uploader" options="{ url: '/foo' }">
-                                        <div nv-file-over="" uploader="uploader" over-class="file-drop-zone-over" class="file-drop-zone margin-bottom-20">
-                                            <strong>Drop File Here</strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12">
-                                <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->Browse For File:
-                                <input id="newDoc" type="file" nv-file-select="" uploader="uploader" style="width: 100%;" /> </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn default" data-dismiss="modal">Cancel</button>
-                <button class="btn blue" type="button" ng-click="uploadDocument()">Upload</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- END Add doc Modal -->
