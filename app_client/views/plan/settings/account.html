@@ -2,11 +2,13 @@
   .pull-right { float: right; }
   .mdl-menu__item a { text-decoration: none; }
   .no-underline, .no-underline:hover { text-decoration: none !important; }
-  .mdl-tabs__tab.is-active { color: #455A64 !important; background-color: #BBDEFB; width: 100%; text-align: left; }
+  .mdl-tabs__tab.is-active { color: #455A64 !important; background-color: #E3F2FD; width: 100%; text-align: left; }
+  .mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:after { background: #FF8A80; }
   .mdl-tabs__tab-bar, .mdl-tabs__tab-bar a { display: block; text-align: left; }
   .mdl-data-table.vendly-no_border, .mdl-data-table.vendly-no_border th, .mdl-data-table.vendly-no_border td {border-color: transparent !important; padding-left: 8px !important; padding-bottom: 0 !important; padding-top: 0px !important;}
   .mdl-data-table, th, td { padding: 0 8px !important;}
   .mdl-switch__label { left: 16px; }
+  md-input-container { margin-bottom: 0; width: 100%; }
 </style>
 
 <div ng-controller="GeneralPageController" class="row p-t-2">
@@ -45,11 +47,90 @@
         <div class="mdl-card mdl-shadow--4dp card" style="width: 100%;">
           <img class="card-img full-width" src="http://vendly.com/assets/team/team-bg-1.jpg" alt="Team Background" style="height: 170px; border-radius: 0;">
           <div class="card-block p-t-0" style="padding-top: 0;">
-            <div class="team-picture">
-              <img class="card-img-top" src="http://vendly.com/assets/team/austin-teague.png" alt="Austin Teague" width="35%" style="margin-top: -60px; height: 120px; width: 120px; border-radius: 5em; border: 2px solid #FFF; box-shadow: 2px 4px 4px rgba(0, 0, 0, .35);">
+            <div class="vendly-avatar_container" style="position: relative;">
+              <img src={{user_settings.avatar}} class="card-img-top vendly-avatar" alt="" style="background-color: #EFEFEF;">
+              <div class="vendly-avatar_overlay">
+                <label class="vendly-avatar_upload">
+                  <i class="material-icons">camera_alt</i><br>
+                  Upload Image
+                  <input type="file" id="avatarImg" hidden/>
+                </label>
+              </div>
             </div>
-            <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-            </div>
+            <md-tabs md-dynamic-height md-border-bottom>
+              <md-tab label="Personal Info">
+                <md-content class="md-padding" style="background-color: white;">
+                  <form class="row">
+                    <div class="col-xs-12 col-md-6">
+                      <md-input-container>
+                        <label>First Name</label>
+                        <input ng-model="user_settings.name">
+                      </md-input-container>                      
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                      <md-input-container>
+                        <label>Last Name</label>
+                        <input ng-model="user_settings.name">
+                      </md-input-container>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                      <md-input-container>
+                        <label>Email</label>
+                        <input ng-model="user_settings.email">
+                      </md-input-container>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                      <md-input-container>
+                        <label>Phone #</label>
+                        <input ng-model="user_settings.phone">
+                      </md-input-container>
+                    </div>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-color--blue mdl-color-text--white pull-right" ng-click="updateProfile()"> Save Changes</button>
+                  </form>
+                </md-content>
+              </md-tab>
+              <md-tab label="Business Info">
+                <md-content class="md-padding" style="background-color: white;">
+                  <form class="row">
+                    <div class="col-xs-12 col-md-6">
+                      <md-input-container>
+                        <label>Company Email</label>
+                        <input ng-model="user_settings.bus_name">
+                      </md-input-container>                      
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                      <md-input-container>
+                        <label>Company Phone #</label>
+                        <input ng-model="user_settings.phone">
+                      </md-input-container>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                      <md-input-container>
+                        <label>Company Website</label>
+                        <input ng-model="user_settings.website">
+                      </md-input-container>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                      <md-input-container>
+                        <label>Location</label>
+                        <input ng-model="user_settings.location">
+                      </md-input-container>
+                    </div>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-color--blue mdl-color-text--white pull-right" ng-click="updateProfile()"> Save Changes</button>
+                  </form>
+                </md-content>
+              </md-tab>
+              <md-tab label="Disclaimer">
+                <md-content class="md-padding" style="background-color: white;">
+                  <form>
+                    <md-input-container class="md-block">
+                      <label>Write any legal disclaimers related to your company</label>
+                      <textarea ng-model="user.biography" rows="5" md-select-on-focus></textarea>
+                    </md-input-container>
+                  </form>
+                </md-content>
+              </md-tab>
+            </md-tabs>
           </div>
         </div>
 			</div>
