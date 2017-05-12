@@ -2,7 +2,6 @@
  Metronic AngularJS App Main Script
  ***/
 
-/* Metronic App */
 var MetronicApp = angular.module("MetronicApp", [
     "ui.router",
     "ui.bootstrap",
@@ -131,7 +130,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
                             'js/controllers/LoginController.js'
                         ]
@@ -149,7 +148,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files.js before a LINK element with this ID. Dynamic CSS files.js must be loaded between core and theme css files.js
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
                             '../assets/global/plugins/moment.min.js',
                             '../assets/global/plugins/fullcalendar/fullcalendar.min.js',
@@ -170,7 +169,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files.js before a LINK element with this ID. Dynamic CSS files.js must be loaded between core and theme css files.js
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
                             'js/controllers/DocumentsController.js'
                         ]
@@ -206,7 +205,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files.js before a LINK element with this ID. Dynamic CSS files.js must be loaded between core and theme css files.js
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
                             'js/controllers/GeneralPageController.js'
                         ]
@@ -227,7 +226,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files.js before a LINK element with this ID. Dynamic CSS files.js must be loaded between core and theme css files.js
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
                             '../assets/global/plugins/morris/morris.css',
                             '../assets/global/plugins/morris/morris.min.js',
@@ -250,7 +249,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files.js before a LINK element with this ID. Dynamic CSS files.js must be loaded between core and theme css files.js
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
                             '../assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css',
                             '../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js',
@@ -272,7 +271,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files.js before a LINK element with this ID. Dynamic CSS files.js must be loaded between core and theme css files.js
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
                             'js/controllers/HandbookController.js'
                         ]
@@ -290,7 +289,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files.js before a LINK element with this ID. Dynamic CSS files.js must be loaded between core and theme css files.js
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
                             'js/controllers/GeneralPageController.js'
                         ]
@@ -308,7 +307,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files.js before a LINK element with this ID. Dynamic CSS files.js must be loaded between core and theme css files.js
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
                             'js/controllers/HandbookController.js'
                         ]
@@ -338,13 +337,13 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
         .state('fin_overview', {
             url: "/finance/overview",
             templateUrl: "views/ven/finances/overview.html",
-            data: { pageTitle: 'Finances - Overview' },
+            data: { pageTitle: 'Finances' },
             controller: "GeneralPageController",
             resolve: {
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files.js before a LINK element with this ID. Dynamic CSS files.js must be loaded between core and theme css files.js
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
                             '../assets/global/plugins/morris/morris.css',
                             '../assets/global/plugins/morris/morris.js',
@@ -353,55 +352,6 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                             '../assets/pages/scripts/dashboard.js',
                             '../assets/pages/scripts/charts-morris.js',
                             'js/controllers/GeneralPageController.js'
-                        ]
-                    });
-                }]
-            }
-        })
-        // Finances - Revenue
-        .state('fin_revenue', {
-            url: "/finance/revenue",
-            templateUrl: "views/ven/finances/revenue.html",
-            data: { pageTitle: 'Finances - Revenue' },
-            controller: "GeneralPageController",
-            resolve: {
-                deps: ['$ocLazyLoad', function($ocLazyLoad) {
-                    return $ocLazyLoad.load({
-                        name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files.js before a LINK element with this ID. Dynamic CSS files.js must be loaded between core and theme css files.js
-                        files: [
-                            '../assets/global/plugins/morris/morris.css',
-                            '../assets/global/plugins/morris/morris.js',
-                            '../assets/global/plugins/morris/raphael-min.js',
-
-                            '../assets/pages/scripts/dashboard.js',
-                            '../assets/pages/scripts/charts-morris.js',
-                            'js/controllers/GeneralPageController.js'
-                        ]
-                    });
-                }]
-            }
-        })
-        // Finances - Expenses
-        .state('fin_expenses', {
-            url: "/finance/expenses",
-            templateUrl: "views/ven/finances/expenses.html",
-            data: { pageTitle: 'Finances - Expenses' },
-            controller: "GeneralPageController",
-            resolve: {
-                deps: ['$ocLazyLoad', function($ocLazyLoad) {
-                    return $ocLazyLoad.load({
-                        name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files.js before a LINK element with this ID. Dynamic CSS files.js must be loaded between core and theme css files.js
-                        files: [
-                            '../assets/global/plugins/morris/morris.css',
-                            '../assets/global/plugins/morris/morris.js',
-                            '../assets/global/plugins/morris/raphael-min.js',
-
-                            '../assets/pages/scripts/dashboard.js',
-                            '../assets/pages/scripts/charts-morris.js',
-                            'js/controllers/GeneralPageController.js',
-                            'js/controllers/RolodexController.js'
                         ]
                     });
                 }]
@@ -417,7 +367,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files.js before a LINK element with this ID. Dynamic CSS files.js must be loaded between core and theme css files.js
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
                             '../assets/pages/css/coming-soon.min.css',
 
@@ -428,7 +378,6 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 }]
             }
         })
-
     // Venue & Vendor Account Settings Page
     .state('ven_account', {
             url: "/account/settings",
@@ -439,7 +388,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files.js before a LINK element with this ID. Dynamic CSS files.js must be loaded between core and theme css files.js
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
                             'js/controllers/GeneralPageController.js'
                         ]
@@ -457,7 +406,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
                             'js/controllers/GeneralPageController.js'
                         ]
@@ -475,7 +424,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
                             'js/controllers/GeneralPageController.js'
                         ]
@@ -493,7 +442,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files.js before a LINK element with this ID. Dynamic CSS files.js must be loaded between core and theme css files.js
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
                             'js/controllers/GeneralPageController.js'
                         ]
@@ -511,7 +460,24 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files.js before a LINK element with this ID. Dynamic CSS files.js must be loaded between core and theme css files.js
+                        insertBefore: '#ng_load_plugins_before',
+                        files: [
+                            'js/controllers/GeneralPageController.js'
+                        ]
+                    });
+                }]
+            }
+        })
+        .state('business_settings', {
+            url: "/settings/business",
+            templateUrl: "views/ven/settings/business.html",
+            data: { pageTitle: 'Business Settings' },
+            controller: "GeneralPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'MetronicApp',
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
                             'js/controllers/GeneralPageController.js'
                         ]
@@ -529,7 +495,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files.js before a LINK element with this ID. Dynamic CSS files.js must be loaded between core and theme css files.js
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
                             'js/controllers/GeneralPageController.js'
                         ]
@@ -550,7 +516,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
                             '../assets/global/plugins/morris/morris.css',
                             '../assets/global/plugins/morris/morris.min.js',
@@ -573,7 +539,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files.js before a LINK element with this ID. Dynamic CSS files.js must be loaded between core and theme css files.js
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
                             'js/controllers/GeneralPageController.js'
                         ]
@@ -591,7 +557,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files.js before a LINK element with this ID. Dynamic CSS files.js must be loaded between core and theme css files.js
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
                             '../assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css',
                             '../assets/global/plugins/select2/css/select2.min.css',
@@ -619,7 +585,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
                             'js/controllers/GeneralPageController.js'
                         ]
@@ -637,7 +603,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files.js before a LINK element with this ID. Dynamic CSS files.js must be loaded between core and theme css files.js
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
                             'js/controllers/GeneralPageController.js'
                         ]
@@ -655,7 +621,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files.js before a LINK element with this ID. Dynamic CSS files.js must be loaded between core and theme css files.js
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
                             'js/controllers/GeneralPageController.js'
                         ]
@@ -673,7 +639,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before', // load the above css files.js before a LINK element with this ID. Dynamic CSS files.js must be loaded between core and theme css files.js
+                        insertBefore: '#ng_load_plugins_before',
                         files: [
                             'js/controllers/GeneralPageController.js'
                         ]
