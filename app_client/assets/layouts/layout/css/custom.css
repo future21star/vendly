@@ -40,7 +40,15 @@ label {
 
 /* DASHBOARD CUSTOM CSS */
 .mdl-list__item {
-  padding: 0 16px !important;
+  padding: 0 16px;
+}
+
+/* SETTINGS CUSTOM CSS */
+@media 
+only screen and (max-width: 760px) {
+  .vendly-responsive_table td {
+    display: block !important;
+  }
 }
 
 

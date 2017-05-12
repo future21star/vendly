@@ -1,24 +1,24 @@
 /* Setup general page controller */
 angular.module('MetronicApp')
 
-.config(['sirTrevorServiceProvider', function(sirTrevorServiceProvider) {
-    // set config
-    sirTrevorServiceProvider.setConfig({
-        "debug": false,
-        "scribeDebug": false,
-        "language": "en"
-    });
-
-    // set defaults
-    sirTrevorServiceProvider.setDefaults({
-        "iconUrl": "vendor/sir-trevor/src/icons/sir-trevor-icons.svg"
-    });
-
-    // set block options
-    sirTrevorServiceProvider.setBlockOptions({
-        /* put block options here */
-    });
-}])
+// .config(['sirTrevorServiceProvider', function(sirTrevorServiceProvider) {
+//     // set config
+//     sirTrevorServiceProvider.setConfig({
+//         "debug": false,
+//         "scribeDebug": false,
+//         "language": "en"
+//     });
+// 
+//     // set defaults
+//     sirTrevorServiceProvider.setDefaults({
+//         "iconUrl": "vendor/sir-trevor/src/icons/sir-trevor-icons.svg"
+//     });
+// 
+//     // set block options
+//     sirTrevorServiceProvider.setBlockOptions({
+//         /* put block options here */
+//     });
+// }])
 
 .controller('GeneralPageController', ['$rootScope', '$scope', 'settings', 'meanData', 'amazons3', 'authentication',
 function($rootScope, $scope, settings, meanData, amazons3, authentication) {
