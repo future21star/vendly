@@ -10,9 +10,9 @@ var MetronicApp = angular.module("MetronicApp", [
     //"angular-sir-trevor",
     "ngMaterial",
     "xeditable"
-])
+]);
 
-.config(function($mdThemingProvider) {
+MetronicApp.config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
     .primaryPalette('blue')
     .accentPalette('red');
