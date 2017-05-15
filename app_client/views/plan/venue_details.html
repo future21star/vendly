@@ -1,106 +1,179 @@
-<!-- BEGIN PAGE HEADER-->
-<div class="page-bar">
-    <ul class="page-breadcrumb">
-        <li>
-            <a href="#/dashboard">Dashboard</a>
-            <i class="fa fa-circle"></i>
-        </li>
-        <li>
-            <span> Venue Details </span>
-        </li>
-    </ul>
-</div>
-<!-- END PAGE HEADER-->
 <!-- BEGIN MAIN CONTENT -->
 <div class="row" ng-controller="GeneralPageController">
-    <div class="col-xs-12">
-        <div class="portlet light no-margin">
-            <div class="portlet-title">
-                <div class="page-title"> My Venues </div>
-                <div class="actions hidden">
-                    <!-- TBD what to display within settings -->
-                    <a class="btn btn-circle btn-default" href="#">
-                        <i class="fa fa-cog"></i> Settings </a>
-                </div>
-            </div>
-        </div>
+  <div class="mdl-card full-width">
+    <div class="mdl-card__title">
+      <span class="mdl-card__title-text">My Venues</span>
     </div>
-    <!-- END PAGE HEADER-->
-    <!-- BEGIN MAIN CONTENT -->
-    <div class="row" ng-controller="GeneralPageController">
-        <div class="col-xs-12">
-            <div class="portlet light bordered">
-                <div class="portlet-title">
-                    <div class="caption font-blue-sharp">
-                        <a class="caption-subject bold uppercase" data-target="#VendlyVenue" data-toggle="modal">Lindsay Lakes</a>
-                        <span class="caption-helper">Ceremony &amp; Reception</span>
-                    </div>
-                    <div class="actions">
-                        <a href="#/event_handbook" class="btn btn-circle btn-default">
-                            <i class="fa fa-book"></i> Access Handbook </a>
-                        <a class="btn btn-circle btn-icon-only btn-default hidden" href="">
-                            <i class="fa fa-envelope-o"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="portlet-body row">
-                    <div ng-controller="ProgressDemoCtrl" class="col-md-7">
-                        <h6>Progress:</h6>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width:65%"> 65% </div>
-                        </div>
-                    </div>
-                </div> Upcoming Deadlines:
-                <!-- When item is clicked the user is redirected to question within handbook -->
-                <ul class="list-unstyled">
-                    <li>
-                        <input type="checkbox" disabled checked>
-                        <!-- All boxes disabled. Checked means the event detail has an answer. -->
-                        <a> Name of florist you booked: </a>
-                    </li>
-                    <li>
-                        <input type="checkbox" disabled>
-                        <a> Did you order fresh rose petals for the aisle? </a>
-                    </li>
-                    <li>
-                        <input type="checkbox" disabled>
-                        <a> Are there any additional ceremony decorations you have planned? </a>
-                    </li>
-                </ul>
-            </div>
+    <div class="mdl-card__supporting-text full-width">
+      <div class="mdl-card mdl-shadow--2dp full-width">
+        <div class="mdl-card__title mdl-card--border">
+          <span class="mdl-card__title-text">Lindsay Lakes</span>
         </div>
-        <div class="col-xs-12">
-            <div class="portlet light bordered">
-                <div class="portlet-title">
-                    <div class="caption font-blue-sharp">
-                        <span class="caption-subject bold uppercase">Perry's Steakhouse</span>
-                        <!-- Modal with Business Contact Info (Name, Address, Email, Phone Number) -->
-                        <span class="caption-helper">Rehearsal Dinner</span>
-                    </div>
-                    <div class="actions">
-                        <a href="#/event_handbook" class="btn btn-circle btn-default">
-                            <i class="fa fa-book"></i> Access Handbook </a>
-                        <a class="btn btn-circle btn-icon-only btn-default hidden" href="">
-                            <i class="fa fa-envelope-o"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="portlet-body row">
-                    <div ng-controller="ProgressDemoCtrl" class="col-md-7">
-                        <h6>Progress:</h6>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:20%"> 20% </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="mdl-card__supporting-text full-width">
+          <h6 class="mdl-typography--subhead mdl-color-text--blue-grey">Upcoming Deadlines</h6>
+          <ul class="mdl-list">
+            <li class="mdl-list__item">
+              <div class="mdl-list__item-primary-content">
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-list__item-icon">
+                  <input type="checkbox" class="mdl-checkbox__input" disabled />
+                </label>
+                List of people in your set up team.
+              </div>
+            </li>
+            <hr style="margin: 0 auto;">
+            <li class="mdl-list__item">
+              <div class="mdl-list__item-primary-content">
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-list__item-icon">
+                  <input type="checkbox" class="mdl-checkbox__input" disabled checked />
+                </label>
+                Would you prefer to have the unity candle or unity sand ceremony?
+              </div>
+            </li>
+            <hr style="margin: 0 auto;">
+            <li class="mdl-list__item">
+              <div class="mdl-list__item-primary-content">
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-list__item-icon">
+                  <input type="checkbox" class="mdl-checkbox__input" disabled checked />
+                </label>
+                How many guests do you anticipate attending?
+              </div>
+            </li>
+            <hr style="margin: 0 auto;">
+            <li class="mdl-list__item">
+              <div class="mdl-list__item-primary-content">
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-list__item-icon">
+                  <input type="checkbox" class="mdl-checkbox__input" disabled checked />
+                </label>
+                How many attendees are under the age of 3 years old?
+              </div>
+            </li>
+            <hr style="margin: 0 auto;">
+            <li class="mdl-list__item">
+              <div class="mdl-list__item-primary-content">
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-list__item-icon">
+                  <input type="checkbox" class="mdl-checkbox__input" disabled checked />
+                </label>
+                How many attendees are under the age of 21 years old?
+              </div>
+            </li>
+            <hr style="margin: 0 auto;">
+            <li class="mdl-list__item">
+              <div class="mdl-list__item-primary-content">
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-list__item-icon">
+                  <input type="checkbox" class="mdl-checkbox__input" disabled />
+                </label>
+                Which drink package do you prefer?
+              </div>
+            </li>
+          </ul>
         </div>
-        <p align="center" class="no-margin">
-            <a class="btn btn-circle bg-blue font-white btn-large" data-target="#add_venue" data-toggle="modal">
-                <i class="fa fa-user-plus"></i> Add Venue </a>
-        </p>
+        <div class="mdl-card__actions mdl-card--border p-y-1 text-xs-center" style="padding: 15px 0;">
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-color--blue mdl-color-text--white" style="margin: 0 7px;">
+            Access Questionnaire
+          </button>
+          <a href="mailto:info@vendly.com" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-color-text--blue mdl-color--white no-underline" style="margin: 0 7px;">
+            Contact Venue
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="mdl-card__menu">
+      <button  data-target="#add_venue" data-toggle="modal" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-color-text--blue">Add Venue</button>
+    </div>
+  </div>
+
         <!-- Add Venue Modal -->
-        <div id="add_venue" class="modal fade" role="dialog" aria-labelledby="addVenue" aria-hidden="true">
+        <div id="add_venue" class="modal full-width" style="background-color: rgba(100, 100, 100, .35); position: fixed;" role="dialog">
+          <div class="mdl-card mdl-shadow--8dp full-width" style="margin: 150px auto; max-width: 650px;">
+            <div class="mdl-card__title mdl-card--border mdl-color--blue mdl-color-text--white">
+              <span class="mdl-card__title-text">Add Client</span>
+            </div>
+            <div class="mdl-card__supporting-text full-width">
+              <form ng-submit="onContactSubmit()">
+                <div class="row">
+                  <div class="col-xs-12 col-md-4">
+                    <md-input-container class="md-block" flex-gt-sm>
+                      <label>State</label>
+                      <md-select ng-model="user.state">
+                        <md-option value="" disabled selected>State</md-option>
+                        <md-option value="AL">Alabama</md-option>
+                        <md-option value="AK">Alaska</md-option>
+                        <md-option value="AZ">Arizona</md-option>
+                        <md-option value="AR">Arkansas</md-option>
+                        <md-option value="CA">California</md-option>
+                        <md-option value="CO">Colorado</md-option>
+                        <md-option value="CT">Connecticut</md-option>
+                        <md-option value="DE">Delaware</md-option>
+                        <md-option value="DC">District Of Columbia</md-option>
+                        <md-option value="FL">Florida</md-option>
+                        <md-option value="GA">Georgia</md-option>
+                        <md-option value="HI">Hawaii</md-option>
+                        <md-option value="ID">Idaho</md-option>
+                        <md-option value="IL">Illinois</md-option>
+                        <md-option value="IN">Indiana</md-option>
+                        <md-option value="IA">Iowa</md-option>
+                        <md-option value="KS">Kansas</md-option>
+                        <md-option value="KY">Kentucky</md-option>
+                        <md-option value="LA">Louisiana</md-option>
+                        <md-option value="ME">Maine</md-option>
+                        <md-option value="MD">Maryland</md-option>
+                        <md-option value="MA">Massachusetts</md-option>
+                        <md-option value="MI">Michigan</md-option>
+                        <md-option value="MN">Minnesota</md-option>
+                        <md-option value="MS">Mississippi</md-option>
+                        <md-option value="MO">Missouri</md-option>
+                        <md-option value="MT">Montana</md-option>
+                        <md-option value="NE">Nebraska</md-option>
+                        <md-option value="NV">Nevada</md-option>
+                        <md-option value="NH">New Hampshire</md-option>
+                        <md-option value="NJ">New Jersey</md-option>
+                        <md-option value="NM">New Mexico</md-option>
+                        <md-option value="NY">New York</md-option>
+                        <md-option value="NC">North Carolina</md-option>
+                        <md-option value="ND">North Dakota</md-option>
+                        <md-option value="OH">Ohio</md-option>
+                        <md-option value="OK">Oklahoma</md-option>
+                        <md-option value="OR">Oregon</md-option>
+                        <md-option value="PA">Pennsylvania</md-option>
+                        <md-option value="RI">Rhode Island</md-option>
+                        <md-option value="SC">South Carolina</md-option>
+                        <md-option value="SD">South Dakota</md-option>
+                        <md-option value="TN">Tennessee</md-option>
+                        <md-option value="TX">Texas</md-option>
+                        <md-option value="UT">Utah</md-option>
+                        <md-option value="VT">Vermont</md-option>
+                        <md-option value="VA">Virginia</md-option>
+                        <md-option value="WA">Washington</md-option>
+                        <md-option value="WV">West Virginia</md-option>
+                        <md-option value="WI">Wisconsin</md-option>
+                        <md-option value="WY">Wyoming</md-option>
+                      </md-select>
+                    </md-input-container>
+                  </div>
+                  <div class="col-md-8" style="border-left: 0px;">
+                    <md-input-container>
+                      <label>City</label>
+                      <input ng-model="">
+                    </md-input-container>
+                  </div>
+                  <div class="col-xs-12" style="border: 0px;">
+                    <!-- User must input city & state before searching -->
+                    <md-input-container>
+                      <label>Venue</label>
+                      <input ng-model="">
+                    </md-input-container>
+                  </div>
+                  <div class="col-xs-12" style="float: right;">
+                    <button data-dismiss="modal" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised" style="margin: 0 4px;">Cancel</button>
+                    <button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-color--blue mdl-color-text--white" style="margin: 0 4px;">Add Client</button>                        
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div id="add_venu" class="modal" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -186,6 +259,7 @@
                 </div>
             </div>
         </div>
+        
         <!-- BEGIN Vendly Venue Modal -->
         <div id="VendlyVenue" class="modal fade" role="dialog" aria-labelledby="myModalLabel10" aria-hidden="true">
             <div class="modal-dialog">

@@ -26,13 +26,13 @@
           <span style="font-weight: 400;">My Handbooks</span>
         </a>
       </li>
-      <li ng-show="userlogintype == 'Planner'">
+      <li ng-show="userlogintype != 'Planner'">
         <a href="#/venue_details" class="mdl-typography--subhead mdl-color-text--grey-600">
           <i class="fa fa-home" style="padding-right: 8px;"></i>
           <span style="font-weight: 400;">My Venues</span>
         </a>
       </li>
-      <li ng-show="userlogintype == 'Planner'">
+      <li ng-show="userlogintype != 'Planner'">
         <a href="#/vendor_details" class="mdl-typography--subhead mdl-color-text--grey-600">
           <i class="fa fa-cart-arrow-down" style="padding-right: 8px;"></i>
           <span style="font-weight: 400;">My Vendors</span>
