@@ -1,277 +1,176 @@
-<!-- BEGIN PAGE HEADER-->
-<div class="page-bar">
-    <ul class="page-breadcrumb">
-        <li>
-            <a href="#/dashboard">Dashboard</a>
-            <i class="fa fa-circle"></i>
-        </li>
-        <li>
-            <span> Vendor Details </span>
-        </li>
-    </ul>
+<div ng-controller="GeneralPageController">
+  <div class="mdl-card full-width">
+    <div class="mdl-card__title p-b-0" style="padding-bottom: 0;">
+      <span class="mdl-card__title-text">My Vendors</span>
+    </div>
+    <div class="mdl-card__supporting-text full-width">
+      <div class="row">
+        <div class="col-xs-12 col-md-8">
+          <form action="#">
+            <div layout="row">
+              <label class="mdl-button mdl-js-button mdl-button--icon" for="vendorSearch" style="margin-top: 18px;">
+                <i class="material-icons">search</i>
+              </label>
+              <md-input-container flex="33" style="min-width: 300px; margin-bottom: 0;">
+                <label>Search Clients...</label>
+                <input ng-model="searchText" type="text" id="vendorSearch">
+              </md-input-container>        
+            </div>
+          </form>
+          <table class="mdl-data-table mdl-js-data-table full-width" style="max-width: 650px;">
+            <thead>
+              <tr>
+                <th style="width: 25px;">Edit</th>
+                <th class="mdl-data-table__cell--non-numeric">Business Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <a class="material-icons mdl-color-text--blue-400 no-underline">library_books</a>
+                </td>
+                <td class="mdl-data-table__cell--non-numeric">{ business.vendor.name }</td>
+              </tr>
+            </tbody>
+          </table>        
+        </div>
+        <div class="col-md-4 hidden-sm-down m-t-2" style="margin-top: 30px;">
+          <div class="mdl-card mdl-shadow--2dp full-width" style="margin-bottom: 30px; min-height: 0;">
+            <div class="mdl-card__title mdl-card--border" style="padding-bottom: 0;">
+              <span class="mdl-card__title-text">Preferred Vendors</span>
+            </div>
+            <div class="mdl-card__supporting-text full-width" style="padding: 0;">
+              <li class="mdl-list__item">
+                <a class="mdl-list__item-primary-content mdl-color-text--grey-700">
+                  { business.vendor.name }
+                </a>
+              </li>          
+            </div>
+          </div>
+          <div class="mdl-card mdl-shadow--2dp full-width" style="min-height: 0;">
+            <div class="mdl-card__title mdl-card--border" style="padding-bottom: 0;">
+              <span class="mdl-card__title-text mdl-color-text--grey-400">Vendly Preferred Vendors</span>
+            </div>
+            <div class="mdl-card__supporting-text full-width" style="padding: 0;">
+              <li class="mdl-list__item">
+                <a class="mdl-list__item-primary-content mdl-color-text--blue-grey-200">
+                  { business.vendor.name }<sup>*</sup>
+                </a>
+              </li>          
+            </div>
+            <div class="mdl-card__actions full-width" style="padding: 0 10px 0; text-align: right;">
+              <span class="mdl-typography--caption mdl-color-text--grey"><em><sup>*</sup>Sponsored</em></span>
+            </div>
+          </div>
+        </div>
+      </div>      
+    </div>
+    <div class="mdl-card__menu">
+      <button data-target="#add_vendor" data-toggle="modal" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-color-text--blue">Add Vendor</button>
+    </div>
+  </div>
 </div>
-<!-- END PAGE HEADER-->
-<!-- BEGIN MAIN CONTENT -->
-<div class="row" ng-controller="GeneralPageController">
-    <div class="col-xs-12">
-        <div class="portlet light no-margin">
-            <div class="portlet-title">
-                <div class="page-title"> My Vendors
-                    <i class="fa fa-question-circle font-grey-salt hidden" style="font-size: 16px;" data-toggle="tooltip" data-placement="top" title="Tooltip on left"></i>
-                </div>
-                <div class="actions">
-                    <a class="btn btn-circle btn-default hidden" href="#">
-                        <!-- TBD what to display within settings -->
-                        <i class="fa fa-cog"></i> Settings </a>
-                </div>
-            </div>
+
+<!-- Add Vendor Modal -->
+<div id="add_vendor" class="modal full-width" style="background-color: rgba(100, 100, 100, .35); position: fixed;" role="dialog">
+      <div class="mdl-card mdl-shadow--8dp full-width" style="margin: 150px auto; max-width: 650px;">
+        <div class="mdl-card__title mdl-card--border mdl-color--blue mdl-color-text--white">
+          <span class="mdl-card__title-text">Add Vendor</span>
         </div>
+        <div class="mdl-card__supporting-text full-width">
+          <form ng-submit="onVendorSubmit()" style="padding-top: 10px;">
+            <div layout="row">
+              <md-input-container flex="40" style="margin-bottom: 0;">
+                <label>State</label>
+                <md-select ng-model="user.state">
+                  <md-option value="" disabled selected>State</md-option>
+                  <md-option value="AL">Alabama</md-option>
+                  <md-option value="AK">Alaska</md-option>
+                  <md-option value="AZ">Arizona</md-option>
+                  <md-option value="AR">Arkansas</md-option>
+                  <md-option value="CA">California</md-option>
+                  <md-option value="CO">Colorado</md-option>
+                  <md-option value="CT">Connecticut</md-option>
+                  <md-option value="DE">Delaware</md-option>
+                  <md-option value="DC">District Of Columbia</md-option>
+                  <md-option value="FL">Florida</md-option>
+                  <md-option value="GA">Georgia</md-option>
+                  <md-option value="HI">Hawaii</md-option>
+                  <md-option value="ID">Idaho</md-option>
+                  <md-option value="IL">Illinois</md-option>
+                  <md-option value="IN">Indiana</md-option>
+                  <md-option value="IA">Iowa</md-option>
+                  <md-option value="KS">Kansas</md-option>
+                  <md-option value="KY">Kentucky</md-option>
+                  <md-option value="LA">Louisiana</md-option>
+                  <md-option value="ME">Maine</md-option>
+                  <md-option value="MD">Maryland</md-option>
+                  <md-option value="MA">Massachusetts</md-option>
+                  <md-option value="MI">Michigan</md-option>
+                  <md-option value="MN">Minnesota</md-option>
+                  <md-option value="MS">Mississippi</md-option>
+                  <md-option value="MO">Missouri</md-option>
+                  <md-option value="MT">Montana</md-option>
+                  <md-option value="NE">Nebraska</md-option>
+                  <md-option value="NV">Nevada</md-option>
+                  <md-option value="NH">New Hampshire</md-option>
+                  <md-option value="NJ">New Jersey</md-option>
+                  <md-option value="NM">New Mexico</md-option>
+                  <md-option value="NY">New York</md-option>
+                  <md-option value="NC">North Carolina</md-option>
+                  <md-option value="ND">North Dakota</md-option>
+                  <md-option value="OH">Ohio</md-option>
+                  <md-option value="OK">Oklahoma</md-option>
+                  <md-option value="OR">Oregon</md-option>
+                  <md-option value="PA">Pennsylvania</md-option>
+                  <md-option value="RI">Rhode Island</md-option>
+                  <md-option value="SC">South Carolina</md-option>
+                  <md-option value="SD">South Dakota</md-option>
+                  <md-option value="TN">Tennessee</md-option>
+                  <md-option value="TX">Texas</md-option>
+                  <md-option value="UT">Utah</md-option>
+                  <md-option value="VT">Vermont</md-option>
+                  <md-option value="VA">Virginia</md-option>
+                  <md-option value="WA">Washington</md-option>
+                  <md-option value="WV">West Virginia</md-option>
+                  <md-option value="WI">Wisconsin</md-option>
+                  <md-option value="WY">Wyoming</md-option>
+                </md-select>
+              </md-input-container>
+              <md-input-container flex="60" style="margin-bottom: 0;">
+                <label>City</label>
+                <input ng-model="">
+              </md-input-container>
+              <!-- User must input city & state before searching -->
+            </div>
+            <div layout="row">
+              <md-autocomplete flex required
+                md-input-name="autocompleteField"
+                md-input-minlength="2"
+                md-no-cache="ctrl.noCache"
+                md-selected-item="ctrl.selectedItem"
+                md-search-text="ctrl.searchText"
+                md-items="item in ctrl.querySearch(ctrl.searchText)"
+                md-item-text="item.display"
+                md-require-match
+                md-floating-label="Vendor">
+              <md-item-template>
+                <span md-highlight-text="ctrl.searchText">{{item.display}}</span>
+              </md-item-template>
+              <md-not-found>
+                No vendors matching "{{ctrl.searchText}}" were found.
+                <a ng-click="ctrl.newVendor(ctrl.searchText)">Create a new one!</a>
+              </md-not-found>
+              <div ng-messages="searchForm.autocompleteField.$error" ng-if="searchForm.autocompleteField.$touched">
+                <div ng-message="required">You <b>must</b> select a vendor.</div>
+              </div>
+            </md-autocomplete>
+            </div>
+            <div style="float: right; padding: 30px 0 5px;">
+              <button data-dismiss="modal" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised" style="margin: 0 4px;">Cancel</button>
+              <button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-color--blue mdl-color-text--white" style="margin: 0 4px;">Add Vendor</button>                        
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-    <!-- END PAGE HEADER-->
-    <!-- BEGIN MAIN CONTENT -->
-    <div class="row">
-        <div class="col-md-8">
-            <div class="portlet-body form">
-                <!-- BEGIN FORM-->
-                <form action="index.html" class="form-horizontal form-row-seperated">
-                    <div class="form-body">
-                        <div class="form-group">
-                            <div class="col-md-8">
-                                <div class="input-group" id="vendorList">
-                                    <input placeholder="Start typing to search..." id="typeahead_example_2" name="typeahead_example_2" type="text" class="form-control typeahead" /> </div>
-                            </div>
-                            <div class="col-md-4 hidden-1024">
-                                <!-- Automatically deselect All when another option is selected -->
-                                <select placeholder="All" id="vendor-types" class="bs-select form-control" multiple data-selected-text-format="count > 2">
-                                    <option value="All" selected>All Vendor Types</option>
-                                    <option value="Band & DJ">Band &amp; DJ </option>
-                                    <option value="Catering">Catering</option>
-                                    <option value="Ceremony Music">Ceremony Music</option>
-                                    <option value="Dress & Attire">Dress &amp; Attire</option>
-                                    <option value="Event Rentals">Event Rentals</option>
-                                    <option value="Favors & Gifts">Favors &amp; Gifts</option>
-                                    <option value="Flowers">Flowers</option>
-                                    <option value="Guest Accommodations">Guest Accommodations</option>
-                                    <option value="Invitations">Invitations</option>
-                                    <option value="Lighting & Decor">Lighting &amp; Decor</option>
-                                    <option value="Men's Formal Wear">Men's Formal Wear</option>
-                                    <option value="Officiant">Officiant</option>
-                                    <option value="Photographer">Photographer</option>
-                                    <option value="Transportation">Transportation</option>
-                                    <option value="Travel">Travel</option>
-                                    <option value="Videography">Videography</option>
-                                    <option value="Wedding Cake">Wedding Cake</option>
-                                    <option value="Unique Services (Other)">Unique Services (Other)</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="portlet-body portlet light col-md-9" id="selectedVendors" style="cursor: default;">
-                <div class="padding-bottom-20" id="cater">
-                    <div class="border-bottom border-grey">
-                        <i class="fa fa-cutlery"></i> Catering </div>
-                    <div class="padding-20 padding-top-5 padding-bottom-5">
-                        <div class="vendor-tools">
-                            <p uib-popover="View Details" popover-trigger="mouseenter" class="inline">
-                                <a data-target="#vendor_details" data-toggle="modal" style="text-decoration: none;" class="padding-right-5">
-                                    <i class="fa fa-search font-grey-salt"></i>
-                                </a>
-                            </p>
-                            <p uib-popover="Edit Details" popover-trigger="mouseenter" class="inline">
-                                <a href="" style="text-decoration: none;">
-                                    <i class="fa fa-pencil-square-o font-grey-salt"></i>
-                                </a>
-                            </p>
-                        </div>
-                        <a href="" class="font-grey-gallery">
-                            <!-- Modal with Business Contact Info (Name, Address, Email, Phone Number) -->The Three Men &amp; A Cook </a>
-                    </div>
-                </div>
-                <div class="padding-bottom-20" id="accommodations">
-                    <div class="border-bottom border-grey">
-                        <i class="fa fa-bed"></i> Guest Accommodations </div>
-                    <div class="padding-20 padding-top-5 padding-bottom-5">
-                        <div class="vendor-tools">
-                            <p uib-popover="View Details" popover-trigger="mouseenter" class="inline">
-                                <a data-target="#vendor_details" data-toggle="modal" style="text-decoration: none;" class="padding-right-5">
-                                    <i class="fa fa-search font-grey-salt"></i>
-                                </a>
-                            </p>
-                            <p uib-popover="Edit Details" popover-trigger="mouseenter" class="inline">
-                                <a href="" style="text-decoration: none;">
-                                    <i class="fa fa-pencil-square-o font-grey-salt"></i>
-                                </a>
-                            </p>
-                        </div>
-                        <a href="" class="font-grey-gallery">
-                            <!-- Modal with Business Contact Info (Name, Address, Email, Phone Number) -->Motel 6 of Houston </a>
-                    </div>
-                    <div class="padding-20 padding-top-5 padding-bottom-5">
-                        <div class="vendor-tools">
-                            <p uib-popover="View Details" popover-trigger="mouseenter" class="inline">
-                                <a data-target="#vendor_details" data-toggle="modal" style="text-decoration: none;" class="padding-right-5">
-                                    <i class="fa fa-search font-grey-salt"></i>
-                                </a>
-                            </p>
-                            <p uib-popover="Edit Details" popover-trigger="mouseenter" class="inline">
-                                <a href="" style="text-decoration: none;">
-                                    <i class="fa fa-pencil-square-o font-grey-salt"></i>
-                                </a>
-                            </p>
-                        </div>
-                        <a href="" class="font-grey-gallery">
-                            <!-- Modal with Business Contact Info (Name, Address, Email, Phone Number) -->Hilton Garden &amp; Inn </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="portlet box blue border-blue">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="fa fa-check-circle-o"></i> Preferred Vendors </div>
-                    <div class="tools">
-                        <a href="javascript:;" class="collapse"> </a>
-                        <a href="javascript:;" class="reload hidden"> </a>
-                    </div>
-                </div>
-                <div class="portlet-body media-list" style="line-height: 26px;">
-                    <li>
-                        <a data-target="#add_preferred_vendor" data-toggle="modal">
-                            <i class="fa fa-camera"></i> Kandid.ly </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <i class="fa fa-hotel"></i> Home Town Bed &amp; Breakfast </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <i class="fa fa-glass"></i> AJ's Event Bartenders </a>
-                    </li>
-                </div>
-            </div>
-            <div class="portlet box border border-grey">
-                <div class="portlet-title">
-                    <div class="caption text-muted"> Vendly Preferred Vendors
-                        <br>
-                        <span class="h6">Click to learn more</span>
-                    </div>
-                </div>
-                <div class="portlet-body media-list">
-                    <li>
-                        <a class="text-muted" data-target="#vendly_vendor" data-toggle="modal">
-                            <i class="fa fa-mobile-phone"></i> PeepSqueeze </a>
-                    </li>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- END MAIN CONTENT -->
-    <!-- BEGIN Vendor Details Modal -->
-    <div id="vendor_details" class="modal fade" role="dialog">
-        <div class="modal-dialog" style="width:100%; max-width: 800px">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title bold">The Three Men &amp; A Cook</h4>
-                </div>
-                <div class="modal-body" style="height: 55vh; overflow-y: scroll;">
-                    <div class="vendor-detail-modal">
-                        <dl>
-                            <h3 style="font-size: 16px; text-align: right; color: #777777; font-style: italic; border-bottom: 1px dotted #777777; margin: 20px 0 5px;"> General </h3>
-                            <dt>How many guests are you estimating to feed?</dt>
-                            <dd>220</dd>
-                            <dt>Do you prefer buffet style or guests being served?</dt>
-                            <dd>Buffet Style</dd>
-                            <dt>Are there any dietary restrictions?</dt>
-                            <dd>No</dd>
-                            <dt>If yes, what type?</dt>
-                            <dd>N/A</dd>
-                            <dt>Will you be providing the plates and silverware?</dt>
-                            <dd>Yes</dd>
-                            <h3 style="font-size: 16px; text-align: right; color: #777777; font-style: italic; border-bottom: 1px dotted #777777; margin: 20px 0 5px;"> Food Options </h3>
-                            <dt>Would you like salad options to be available?</dt>
-                            <dd>Yes</dd>
-                            <dt>What type of items would you like served in the main course?</dt>
-                            <dd>Lasagna, spagetti and meatballs, breaded chicken</dd>
-                            <dt>Would you like rolls served with the meal?</dt>
-                            <dd>Yes</dd>
-                            <dt>What drink options would you like available?</dt>
-                            <dd>None</dd>
-                        </dl>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn default" data-dismiss="modal">Close</button>
-                    <button class="btn blue" href="#/vendor/handbook">Access Handbook</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- END Vendor Details Modal -->
-    <!-- BEGIN Accept Preferred Vendor Modal -->
-    <div id="add_preferred_vendor" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title bold" align="center"> Kandid.ly </h4>
-                </div>
-                <div class="modal-body">
-                    <div class="portlet light"> By clicking 'accept' you agree to... </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-danger" data-dismiss="modal">Dismiss</button>
-                    <button class="btn blue" data-dismiss="modal" id="acceptVendor">Accept</button>
-                    <!-- Sends a request to the vendor to approve access to handbook -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- END Accept Preferred Vendor Modal -->
-    <!-- BEGIN Peepsqueeze Modal -->
-    <div id="vendly_vendor" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header" style="background-color: #7FA8D7; color: #FFFFFF;">
-                    <h4 class="modal-title bold" align="center"> PeepSqueeze </h4>
-                </div>
-                <div class="modal-body hidden">
-                    <img src="assets/layouts/layout/img/peepsqueeze.jpg" alt="" width="100%"> </div>
-                <div class="embed-responsive embed-responsive-16by9" style="background-color: #000000;">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/PJL_2S_zIhM" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="modal-body">
-                    <h4 style="margin-bottom: 0;"> Details: </h4>
-                    <hr style="margin: 0 25px 0 0;">
-                    <p style="margin: 5px 0 0;"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam voluptate natus ab illo, est, omnis dolorem error doloremque sint, necessitatibus impedit, animi minus aspernatur modi tempore. Facere totam in necessitatibus! </p>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button class="btn blue" data-dismiss="modal">Download App</button>
-                    <!-- Redirects to app store -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- END Peepsqueeze Modal -->
-    <!-- BEGIN MAIN JS-->
-    <script type="text/javascript">
-        $(document).on('click', '#acceptVendor', function(evt)
-        {
-            evt.preventDefault();
-            toastr.warning('Pending approval to access their handbook.', 'Vendor Added');
-        });
-    </script>
-    <script>
-        $(function()
-        {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
-    </script>
-    <script>
-        ComponentsSelect2.init(); // init todo page
-        ComponentsBootstrapSelect.init(); // init todo page
-        ComponentsFormTools.init(); // init todo page
-    </script>
-    <!-- BEGIN MAIN JS -->

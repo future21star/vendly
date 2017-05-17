@@ -89,9 +89,9 @@
           <span class="mdl-card__title-text">Add Venue</span>
         </div>
         <div class="mdl-card__supporting-text full-width">
-          <form ng-submit="onContactSubmit()" style="padding-top: 10px;">
+          <form ng-submit="onVenueSubmit()" style="padding-top: 10px;">
             <div layout="row">
-              <md-input-container flex="40">
+              <md-input-container flex="40" style="margin-bottom: 0;">
                 <label>State</label>
                 <md-select ng-model="user.state">
                   <md-option value="" disabled selected>State</md-option>
@@ -148,7 +148,7 @@
                   <md-option value="WY">Wyoming</md-option>
                 </md-select>
               </md-input-container>
-              <md-input-container flex="60">
+              <md-input-container flex="60" style="margin-bottom: 0;">
                 <label>City</label>
                 <input ng-model="">
               </md-input-container>
@@ -197,14 +197,14 @@
         </div>
         <div class="mdl-card__supporting-text full-width">
           <md-tabs md-dynamic-height md-border-bottom>
-            <md-tab label="Venue Info">
+            <md-tab label="Venue Info" name="venueInfo">
               <md-content class="md-padding" style="background-color: white;">
                 <p>
                   {This is where the venue's disclaimer will go.}
                 </p>
               </md-content>
             </md-tab>
-            <md-tab label="Contact Info">
+            <md-tab label="Contact Info" name="contactInfo">
               <md-content class="md-padding" style="background-color: white;">
                 <dl class="">
                   <dt>Main Contact</dt>
@@ -225,12 +225,3 @@
         </div>
       </div>
     </div>
-
-    <script type="text/javascript">
-        $(document).on('click', '#addVenue', function(evt)
-        {
-            evt.preventDefault();
-            toastr.warning('Pending approval to access their handbook.', 'Venue Added');
-        });
-    </script>
-    <!-- BEGIN MAIN JS -->

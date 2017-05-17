@@ -6,12 +6,14 @@
   </div>
   <div class="mdl-card__supporting-text full-width p-a-0 hidden-xs-down" style="padding: 0;">
     <form action="#">
-      <label class="mdl-button mdl-js-button mdl-button--icon" for="documentSearch">
-        <i class="material-icons">search</i>
-      </label>
-      <div class="mdl-textfield mdl-js-textfield">
-        <input class="mdl-textfield__input" type="text" id="clientSearch" ng-model="searchText">
-        <label class="mdl-textfield__label">Search...</label>
+      <div layout="row">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="clientSearch" style="margin-top: 18px;">
+          <i class="material-icons">search</i>
+        </label>
+        <md-input-container flex="33" style="min-width: 300px; margin-bottom: 0;">
+          <label>Search Clients...</label>
+          <input ng-model="searchText" type="text" id="clientSearch">
+        </md-input-container>        
       </div>
     </form>
     <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width">
