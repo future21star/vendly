@@ -1,61 +1,119 @@
-<!-- BEGIN PAGE HEADER-->
-<div class="page-bar">
-    <ul class="page-breadcrumb">
-        <li>
-            <a href="#/dashboard">Dashboard</a>
-            <i class="fa fa-circle"></i>
-        </li>
-        <li>
-            <span>Finances</span>
-            <i class="fa fa-circle"></i>
-        </li>
-        <li>
-            <span> Overview </span>
-        </li>
-    </ul>
+<style>
+  svg { width: 100% !important; }
+</style>
+<div ng-controller="GeneralPageController">
+  <div class="mdl-card full-width">
+    <div class="mdl-card__title">
+      <span class="mdl-card__title-text">Finances</span>
+    </div>
+    <div class="mdl-card mdl-shadow--2dp full-width m-b-3" style="margin-bottom: 45px;">
+      <div class="mdl-card__supporting-text full-width p-b-0" style="padding-bottom: 0;">
+        <div class="col-xs-4">
+          <p align="center">
+            <span class="mdl-typography--subhead">Revenue</span><br>
+            <span class="mdl-typography--body-2">$ ##,###</span>
+          </p>
+        </div>
+        <div class="col-xs-4">
+          <p align="center">
+            <span class="mdl-typography--subhead">Expenses</span><br>
+            <span class="mdl-typography--body-2">$ ##,###</span>
+          </p>
+        </div>
+        <div class="col-xs-4">
+          <p align="center">
+            <span class="mdl-typography--subhead">Profit</span><br>
+            <span class="mdl-typography--body-2">$ ##,###</span>
+          </p>
+        </div>
+      </div>
+      <div class="mdl-card__supporting-text full-width p-t-0" style="padding-top: 0;">
+        <div id="sales_statistics" style="width: 100%;"> </div>
+      </div>
+    </div>
+    <div class="row m-b-2" style="margin-bottom: 30px;">
+      <div class="col-xs-12 col-md-6">
+        <div class="mdl-card mdl-shadow--2dp full-width" style="min-height: 0; max-height: 350px;">
+          <div class="mdl-card__title mdl-card--border p-b-0">
+            <span class="mdl-card__title-text">Revenue</span>
+          </div>
+          <div class="mdl-card__supporting-text full-width p-t-0" style="padding-top: 0;">
+            <md-list-item class="secondary-button-padding" ng-click="doPrimaryAction($event)">
+              <div class="md-list-item-text p-y-1" style="padding: 15px 0;">
+                <h6 class="mdl-color-text--grey-700">{ Title of revenue or Person paid }</h6>
+                <p class="m-b-0" style="margin-bottom: 0;">$ { amount }</p>
+              </div>
+              <md-button class="md-secondary md-icon-button" ng-click="doSecondaryAction($event)">
+                <i class="material-icons mdl-color-text--grey-400">info_outline</i>
+              </md-button>
+            </md-list-item>
+            <md-list-item class="secondary-button-padding" ng-click="doPrimaryAction($event)">
+              <div class="md-list-item-text p-y-1" style="padding: 15px 0;">
+                <h6 class="mdl-color-text--grey-700">{ Title of revenue or Person paid }</h6>
+                <p class="m-b-0" style="margin-bottom: 0;">$ { amount }</p>
+              </div>
+              <md-button class="md-secondary md-icon-button" ng-click="doSecondaryAction($event)">
+                <i class="material-icons mdl-color-text--grey-400">info_outline</i>
+              </md-button>
+            </md-list-item>
+            <md-list-item class="secondary-button-padding" ng-click="doPrimaryAction($event)">
+              <div class="md-list-item-text p-y-1" style="padding: 15px 0;">
+                <h6 class="mdl-color-text--grey-700">{ Title of revenue or Person paid }</h6>
+                <p class="m-b-0" style="margin-bottom: 0;">$ { amount }</p>
+              </div>
+              <md-button class="md-secondary md-icon-button" ng-click="doSecondaryAction($event)">
+                <i class="material-icons mdl-color-text--grey-400">info_outline</i>
+              </md-button>
+            </md-list-item>
+          </div>
+          <div class="mdl-card__menu">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--grey">Add Revenue</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="mdl-card mdl-shadow--2dp full-width" style="min-height: 0; max-height: 350px;">
+          <div class="mdl-card__title mdl-card--border p-b-0">
+            <span class="mdl-card__title-text">Expenses</span>
+          </div>
+          <div class="mdl-card__supporting-text full-width p-t-0" style="padding-top: 0;">
+            <md-list-item class="secondary-button-padding" ng-click="doPrimaryAction($event)">
+              <div class="md-list-item-text p-y-1" style="padding: 15px 0;">
+                <h6 class="mdl-color-text--grey-700">{ Title of expense }</h6>
+                <p class="m-b-0" style="margin-bottom: 0;">$ { amount }</p>
+              </div>
+              <md-button class="md-secondary md-icon-button" ng-click="doSecondaryAction($event)">
+                <i class="material-icons mdl-color-text--grey-400">info_outline</i>
+              </md-button>
+            </md-list-item>
+            <md-list-item class="secondary-button-padding" ng-click="doPrimaryAction($event)">
+              <div class="md-list-item-text p-y-1" style="padding: 15px 0;">
+                <h6 class="mdl-color-text--grey-700">{ Title of expense }</h6>
+                <p class="m-b-0" style="margin-bottom: 0;">$ { amount }</p>
+              </div>
+              <md-button class="md-secondary md-icon-button" ng-click="doSecondaryAction($event)">
+                <i class="material-icons mdl-color-text--grey-400">info_outline</i>
+              </md-button>
+            </md-list-item>
+            <md-list-item class="secondary-button-padding" ng-click="doPrimaryAction($event)">
+              <div class="md-list-item-text p-y-1" style="padding: 15px 0;">
+                <h6 class="mdl-color-text--grey-700">{ Title of expense }</h6>
+                <p class="m-b-0" style="margin-bottom: 0;">$ { amount }</p>
+              </div>
+              <md-button class="md-secondary md-icon-button" ng-click="doSecondaryAction($event)">
+                <i class="material-icons mdl-color-text--grey-400">info_outline</i>
+              </md-button>
+            </md-list-item>
+          </div>
+          <div class="mdl-card__menu">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--grey">Add Expense</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<!-- END PAGE HEADER-->
-<!-- BEGIN MAIN CONTENT -->
-<div class="row" ng-controller="GeneralPageController">
-    <div class="col-xs-12">
-        <!-- BEGIN: ACCORDION DEMO -->
-        <div class="portlet light no-margin">
-            <div class="portlet-title">
-                <div class="page-title"> Finances: Overview </div>
-            </div>
-        </div>
-    </div>
-    <!-- END PAGE HEADER-->
-    <!-- BEGIN MAIN CONTENT -->
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="portlet light" style="padding-top: 0;">
-                <div class="portlet-body" style="padding-top: 0;">
-                    <div class=" list-separated">
-                        <div class="col-md-3 col-sm-3 col-xs-6">
-                            <div class="font-grey-mint font-sm"> Profit </div>
-                            <div class="uppercase font-hg font-blue">
-                                <span class="font-lg font-grey-mint">$</span> 50,621.63 </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-6">
-                            <div class="font-grey-mint font-sm"> Revenue </div>
-                            <div class="uppercase font-hg font-grey-cascade">
-                                <span class="font-lg font-grey-mint">$</span> 140,760.35 </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-6">
-                            <div class="font-grey-mint font-sm"> Expenses </div>
-                            <div class="uppercase font-hg font-red">
-                                <span class="font-lg font-grey-mint">$</span> 90,138.72 </div>
-                        </div>
-                    </div>
-                    <div id="sales_statistics" class="portlet-body-morris-fit morris-chart" style="height: 300px"> </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- END MAIN CONTENT -->
-    <!-- BEGIN MAIN JS-->
-    <script>
-        Dashboard.init();
-    </script>
-    <!-- BEGIN MAIN JS -->
+
+<script>
+    Dashboard.init();
+</script>
