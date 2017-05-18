@@ -14,7 +14,6 @@ app.directive("formbuilder", function () {
       var formbuilder;
       $scope.$watch("content", function (content) {
         if (!!content) {
-          console.log(content);
 
           let formBuilderOptions = {
             formData: '[{"type":"text", "label":"Text Field", "className":"form-control"}]',
@@ -22,6 +21,7 @@ app.directive("formbuilder", function () {
               console.log(payload)
             },
             disableFields: ["autocomplete", "hidden", "file", "button"],
+            disabledAttrs: ["access", "name", "inline", "toggle"]
             //disabledActionButtons: ["data"]
           };
 
