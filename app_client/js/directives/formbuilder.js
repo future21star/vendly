@@ -15,16 +15,32 @@ app.directive("formbuilder", function () {
       $scope.$watch("content", function (content) {
         if (!!content) {
           console.log(content);
-          formbuilder = new Formbuilder({
-            selector: '#formbuilder',
-            bootstrapData: content
-          });
 
-          formbuilder.on('save', function (payload) {
-            if (!!scope.onSave) {
-              scope.onSave(payload);
+          let formBuilderOptions = {
+            formData: '[{"type":"text", "label":"Text Field", "className":"form-control"}]',
+            onSave: function (event, payload) {
+              console.log(payload)
+            },
+            disableFields: ["autocomplete", "hidden", "file", "button"],
+            //disabledActionButtons: ["data"]
+          };
+
+          allShownOptionTypes = ["checkbox-group", "date", "number", "radio-group", "select", "text", "textarea"]
+          typeUserAttrs = {}
+          for (var i = 0; i < allShownOptionTypes.length; i++) {
+            type = allShownOptionTypes[i]
+            typeUserAttrs[type] = {
+              deadline: {
+                label: "Deadline",
+                type: "date"
+              }
             }
-          });
+          }
+          formBuilderOptions.typeUserAttrs = typeUserAttrs
+
+          formbuilder = $("#formbuilder").formBuilder(formBuilderOptions);
+          console.log(formbuilder);
+
         }
 
       })
