@@ -31,8 +31,9 @@ app.directive("formbuilder", function () {
             type = allShownOptionTypes[i]
             typeUserAttrs[type] = {
               deadline: {
-                label: "Deadline",
-                type: "date"
+                label: "Deadline (number of days before event)",
+                type: "number",
+                description: "Set deadlines to remind clients you need certain event details before the event"
               }
             }
           }
