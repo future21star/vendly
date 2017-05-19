@@ -51,3 +51,4 @@ require('./files');
 require('./event_invites');
 require('./employees');
 require('./tasks');
+require('./notifications');

@@ -191,7 +191,7 @@
 						</span>
 					</div>
           <div class="mdl-card__supporting-text full-width">
-            <form>              
+            <form ng-submit="updateNotificationSettings()">              
               <table class="mdl-data-table mdl-js-data-table full-width">
                 <thead>
                   <tr>
@@ -206,35 +206,92 @@
                     <td class="mdl-data-table__cell--non-numeric">Upcoming Deadlines</td>
                     <td style="text-align: center">
                       <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
-                        <input type="radio" class="mdl-radio__button" name="upcomingDeadlines" value="email" checked />
+                        <input type="radio" class="mdl-radio__button" name="deadlines"
+                        ng-model="notificationSettings.deadlines"
+                        ng-checked="(notificationSettings.deadlines == 'email')" />
                       </label>
                     </td>
                     <td style="text-align: center">
                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
-                       <input type="radio" class="mdl-radio__button" name="upcomingDeadlines" value="inapp" />
+                       <input type="radio" class="mdl-radio__button" name="deadlines"
+                         ng-model="notificationSettings.deadlines"
+                         ng-checked="(notificationSettings.deadlines == 'inapp')" />
                      </label>
                    </td>
                    <td style="text-align: center">
                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
-                       <input type="radio" class="mdl-radio__button" name="upcomingDeadlines" value="none" />
+                       <input type="radio" class="mdl-radio__button" name="deadlines"
+                         ng-model="notificationSettings.deadlines"
+                         ng-checked="(notificationSettings.deadlines == 'none')" />
+                     </label>
+                   </td>
+                   <td style="text-align: center">
+                     <label class="mdl-checkbox mdl-js-radio mdl-js-ripple-effect">
+                       <input type="radio" class="mdl-checkbox_input"
+                         ng-model="notificationSettings.push_deadlines"
+                         ng-checked="(notificationSettings.push_deadlines == true)" />
                      </label>
                    </td>
                   </tr>
                   <tr>
-                    <td class="mdl-data-table__cell--non-numeric">Event Detail Changes</td>
+                    <td class="mdl-data-table__cell--non-numeric">Granted Access to Handbook</td>
                     <td style="text-align: center">
                       <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
-                        <input type="radio" class="mdl-radio__button" name="eventDetailChanges" value="email" checked />
+                        <input type="radio" class="mdl-radio__button" name="handbook_access"
+                        ng-model="notificationSettings.handbook_access"
+                        ng-checked="(notificationSettings.handbook_access == 'email')" />
                       </label>
                     </td>
                     <td style="text-align: center">
                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
-                       <input type="radio" class="mdl-radio__button" name="eventDetailChanges" value="inapp" />
+                       <input type="radio" class="mdl-radio__button" name="handbook_access"
+                         ng-model="notificationSettings.handbook_access"
+                         ng-checked="(notificationSettings.handbook_access == 'inapp')" />
                      </label>
                    </td>
                    <td style="text-align: center">
                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
-                       <input type="radio" class="mdl-radio__button" name="eventDetailChanges" value="none" />
+                       <input type="radio" class="mdl-radio__button" name="handbook_access"
+                         ng-model="notificationSettings.handbook_access"
+                         ng-checked="(notificationSettings.handbook_access == 'none')" />
+                     </label>
+                   </td>
+                   <td style="text-align: center">
+                     <label class="mdl-checkbox mdl-js-radio mdl-js-ripple-effect">
+                       <input type="radio" class="mdl-checkbox_input"
+                         ng-model="notificationSettings.push_handbook_access"
+                         ng-checked="(notificationSettings.push_handbook_access == true)" />
+                     </label>
+                   </td>
+                  </tr>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">Event Details Changes</td>
+                    <td style="text-align: center">
+                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                        <input type="radio" class="mdl-radio__button" name="events_changed"
+                        ng-model="notificationSettings.events_changed"
+                        ng-checked="(notificationSettings.events_changed == 'email')" />
+                      </label>
+                    </td>
+                    <td style="text-align: center">
+                     <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                       <input type="radio" class="mdl-radio__button" name="events_changed"
+                         ng-model="notificationSettings.events_changed"
+                         ng-checked="(notificationSettings.events_changed == 'inapp')" />
+                     </label>
+                   </td>
+                   <td style="text-align: center">
+                     <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                       <input type="radio" class="mdl-radio__button" name="events_changed"
+                         ng-model="notificationSettings.events_changed"
+                         ng-checked="(notificationSettings.events_changed == 'none')" />
+                     </label>
+                   </td>
+                   <td style="text-align: center">
+                     <label class="mdl-checkbox mdl-js-radio mdl-js-ripple-effect">
+                       <input type="radio" class="mdl-checkbox_input"
+                         ng-model="notificationSettings.push_events_changed"
+                         ng-checked="(notificationSettings.push_events_changed == true)" />
                      </label>
                    </td>
                   </tr>
@@ -242,53 +299,123 @@
                     <td class="mdl-data-table__cell--non-numeric">Payment Notifications</td>
                     <td style="text-align: center">
                       <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
-                        <input type="radio" class="mdl-radio__button" name="paymentNotifications" value="email" checked />
+                        <input type="radio" class="mdl-radio__button" name="payments"
+                        ng-model="notificationSettings.payments"
+                        ng-checked="(notificationSettings.payments == 'email')" />
                       </label>
                     </td>
                     <td style="text-align: center">
                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
-                       <input type="radio" class="mdl-radio__button" name="paymentNotifications" value="inapp" />
+                       <input type="radio" class="mdl-radio__button" name="payments"
+                         ng-model="notificationSettings.payments"
+                         ng-checked="(notificationSettings.payments == 'inapp')" />
                      </label>
                    </td>
                    <td style="text-align: center">
                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
-                       <input type="radio" class="mdl-radio__button" name="paymentNotifications" value="none" />
+                       <input type="radio" class="mdl-radio__button" name="payments"
+                         ng-model="notificationSettings.payments"
+                         ng-checked="(notificationSettings.payments == 'none')" />
+                     </label>
+                   </td>
+                   <td style="text-align: center">
+                     <label class="mdl-checkbox mdl-js-radio mdl-js-ripple-effect">
+                       <input type="radio" class="mdl-checkbox_input"
+                         ng-model="notificationSettings.push_payments"
+                         ng-checked="(notificationSettings.push_payments == true)" />
                      </label>
                    </td>
                   </tr>
                   <tr>
-                    <td class="mdl-data-table__cell--non-numeric">Vendly Product Updates</td>
+                    <td class="mdl-data-table__cell--non-numeric">New Message</td>
                     <td style="text-align: center">
                       <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
-                        <input type="radio" class="mdl-radio__button" name="productUpdates" value="email" checked />
+                        <input type="radio" class="mdl-radio__button" name="messages"
+                        ng-model="notificationSettings.messages"
+                        ng-checked="(notificationSettings.messages == 'email')" />
                       </label>
                     </td>
                     <td style="text-align: center">
                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
-                       <input type="radio" class="mdl-radio__button" name="productUpdates" value="inapp" />
+                       <input type="radio" class="mdl-radio__button" name="messages"
+                         ng-model="notificationSettings.messages"
+                         ng-checked="(notificationSettings.messages == 'inapp')" />
                      </label>
                    </td>
                    <td style="text-align: center">
                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
-                       <input type="radio" class="mdl-radio__button" name="productUpdates" value="none" />
+                       <input type="radio" class="mdl-radio__button" name="messages"
+                         ng-model="notificationSettings.messages"
+                         ng-checked="(notificationSettings.messages == 'none')" />
+                     </label>
+                   </td>
+                   <td style="text-align: center">
+                     <label class="mdl-checkbox mdl-js-radio mdl-js-ripple-effect">
+                       <input type="radio" class="mdl-checkbox_input"
+                         ng-model="notificationSettings.push_messages"
+                         ng-checked="(notificationSettings.push_messages == true)" />
                      </label>
                    </td>
                   </tr>
                   <tr>
-                    <td class="mdl-data-table__cell--non-numeric">Trusted Partners of Vendly</td>
+                    <td class="mdl-data-table__cell--non-numeric">Product Updates</td>
                     <td style="text-align: center">
                       <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
-                        <input type="radio" class="mdl-radio__button" name="trustedPartners" value="email" checked />
+                        <input type="radio" class="mdl-radio__button" name="product_updates"
+                        ng-model="notificationSettings.product_updates"
+                        ng-checked="(notificationSettings.product_updates == 'email')" />
                       </label>
                     </td>
                     <td style="text-align: center">
                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
-                       <input type="radio" class="mdl-radio__button" name="trustedPartners" value="inapp" />
+                       <input type="radio" class="mdl-radio__button" name="product_updates"
+                         ng-model="notificationSettings.product_updates"
+                         ng-checked="(notificationSettings.product_updates == 'inapp')" />
                      </label>
                    </td>
                    <td style="text-align: center">
                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
-                       <input type="radio" class="mdl-radio__button" name="trustedPartners" value="none" />
+                       <input type="radio" class="mdl-radio__button" name="product_updates"
+                         ng-model="notificationSettings.product_updates"
+                         ng-checked="(notificationSettings.product_updates == 'none')" />
+                     </label>
+                   </td>
+                   <td style="text-align: center">
+                     <label class="mdl-checkbox mdl-js-radio mdl-js-ripple-effect">
+                       <input type="radio" class="mdl-checkbox_input"
+                         ng-model="notificationSettings.push_product_updates"
+                         ng-checked="(notificationSettings.push_product_updates == true)" />
+                     </label>
+                   </td>
+                  </tr>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">Contact from Trusted 3<sup>rd</sup> Parties</td>
+                    <td style="text-align: center">
+                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                        <input type="radio" class="mdl-radio__button" name="third_party_msg"
+                        ng-model="notificationSettings.third_party_msg"
+                        ng-checked="(notificationSettings.third_party_msg == 'email')" />
+                      </label>
+                    </td>
+                    <td style="text-align: center">
+                     <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                       <input type="radio" class="mdl-radio__button" name="third_party_msg"
+                         ng-model="notificationSettings.third_party_msg"
+                         ng-checked="(notificationSettings.third_party_msg == 'inapp')" />
+                     </label>
+                   </td>
+                   <td style="text-align: center">
+                     <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                       <input type="radio" class="mdl-radio__button" name="third_party_msg"
+                         ng-model="notificationSettings.third_party_msg"
+                         ng-checked="(notificationSettings.third_party_msg == 'none')" />
+                     </label>
+                   </td>
+                   <td style="text-align: center">
+                     <label class="mdl-checkbox mdl-js-radio mdl-js-ripple-effect">
+                       <input type="radio" class="mdl-checkbox_input"
+                         ng-model="notificationSettings.push_third_party_msg"
+                         ng-checked="(notificationSettings.push_third_party_msg == true)" />
                      </label>
                    </td>
                   </tr>
