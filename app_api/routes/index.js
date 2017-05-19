@@ -70,4 +70,3 @@ router.get('/getNotifications', auth, notification.getNotifications);
 router.put('/updateNotifications', auth, notification.updateNotifications);
 
 module.exports = router;
->>>>>>> seth
