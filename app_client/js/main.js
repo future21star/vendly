@@ -41,10 +41,7 @@ MetronicApp.factory('settings', ['$rootScope', function($rootScope) {
     // supported languages
     var settings = {
         layout: {
-            pageSidebarClosed: false, // sidebar menu state
-            pageContentWhite: true, // set page content layout
-            pageBodySolid: false, // solid body color state
-            pageAutoScrollOnLoad: 1000 // auto scroll to top on page load
+          pageAutoScrollOnLoad: 1000 // auto scroll to top on page load
         },
         assetsPath: '../assets',
         globalPath: '../assets/global',
@@ -57,11 +54,25 @@ MetronicApp.factory('settings', ['$rootScope', function($rootScope) {
 }]);
 
 /* Setup App Main Controller */
-MetronicApp.controller('AppController', ['$scope', '$rootScope', function($scope, $rootScope) {
+MetronicApp.controller('AppController', ['$scope', '$rootScope', 'meanData', 'authentication', function($scope, $rootScope, meanData, authentication) {
     $scope.$on('$viewContentLoaded', function() {
-        //App.initComponents(); // init core components
-        //Layout.init(); //  Init entire layout(header, footer, sidebar, etc) on page load if the partials included in server side instead of loading with ng-include directive
+       App.initComponents();  //init core components
+       Layout.init();  //Init entire layout on page load if the partials included in server side instead of loading with ng-include directive
     });
+    $scope.user_settings = {};
+    meanData.getProfile()
+        .success(function(user) {
+            // TODO - make more secure
+            $scope.user_settings.avatar = 'https://ourstory-vendly.s3.amazonaws.com/' + user._id + '/avatar.png';
+            $scope.user_settings.id = user._id;
+            $scope.user_settings.name = user.name;
+            $scope.user_settings.email = user.email;
+            $scope.user_settings.usertype = user.usertype;
+        })
+        .error(function (e) {
+            console.log(e);
+        });
+        console.log($scope);
 }]);
 
 /***
@@ -69,16 +80,16 @@ MetronicApp.controller('AppController', ['$scope', '$rootScope', function($scope
  By default the partials are loaded through AngularJS ng-include directive. In case they loaded in server side(e.g: PHP include function) then below partial
  initialization can be disabled and Layout.init() should be called on page load complete as explained above.
  ***/
-
+  
 /* Setup Layout Part - Header */
-MetronicApp.controller('HeaderController', ['$scope', function($scope) {
+MetronicApp.controller('HeaderController', ['$scope', 'meanData', 'authentication', function($scope, meanData, authentication) {
     $scope.$on('$includeContentLoaded', function() {
         Layout.initHeader(); // init header
     });
 }]);
 
 /* Setup Layout Part - Sidebar */
-MetronicApp.controller('SidebarController', ['$scope', function($scope) {
+MetronicApp.controller('SidebarController', ['$scope', 'meanData', 'authentication', function($scope, meanData, authentication) {
     $scope.$on('$includeContentLoaded', function() {
         Layout.initSidebar(); // init sidebar
     });
@@ -407,6 +418,29 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 }]
             }
         })
+        // Dashboard
+        .state('dashboard', {
+            url: "/dashboard",
+            templateUrl: "views/dashboard.html",
+            data: { pageTitle: 'Dashboard' },
+            controller: "DashboardController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'MetronicApp',
+                        insertBefore: '#ng_load_plugins_before',
+                        files: [
+                            '../assets/global/plugins/morris/morris.css',
+                            '../assets/global/plugins/morris/morris.min.js',
+                            '../assets/global/plugins/morris/raphael-min.js',
+
+                            '../assets/pages/scripts/dashboard.min.js',
+                            'js/controllers/DashboardController.js'
+                        ]
+                    });
+                }]
+            }
+        })
         // Calendar
         .state('calendar', {
             url: "/calendar",
@@ -464,6 +498,60 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 }]
             }
         })
+        // Account Settings Page
+        .state('account', {
+            url: "/settings/account",
+            templateUrl: "views/settings/account.html",
+            data: { pageTitle: 'Account Settings' },
+            controller: "GeneralPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'MetronicApp',
+                        insertBefore: '#ng_load_plugins_before',
+                        files: [
+                            'js/controllers/GeneralPageController.js'
+                        ]
+                    });
+                }]
+            }
+        })
+        .state('business_settings', {
+            url: "/settings/business",
+            templateUrl: "views/settings/business.html",
+            data: { pageTitle: 'Business Settings' },
+            controller: "GeneralPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'MetronicApp',
+                        insertBefore: '#ng_load_plugins_before',
+                        files: [
+                            'js/controllers/GeneralPageController.js'
+                        ]
+                    });
+                }]
+            }
+        })
+        // Invoice Page
+        .state('invoice', {
+            url: "/account/invoice",
+            templateUrl: "views/ven/account/invoice.html",
+            data: { pageTitle: 'Invoice' },
+            controller: "GeneralPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'MetronicApp',
+                        insertBefore: '#ng_load_plugins_before',
+                        files: [
+                            'js/controllers/GeneralPageController.js'
+                        ]
+                    });
+                }]
+            }
+        })
+        
         // 404 Page
         .state('404', {
             url: "/404",
@@ -485,29 +573,6 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
 
 
     // Venue and Vendor Specific Controllers //
-    // Dashboard
-    .state('dashboard', {
-            url: "/dashboard",
-            templateUrl: "views/ven/dashboard.html",
-            data: { pageTitle: 'Dashboard' },
-            // controller: "DashboardController",
-            resolve: {
-                deps: ['$ocLazyLoad', function($ocLazyLoad) {
-                    return $ocLazyLoad.load({
-                        name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before',
-                        files: [
-                            '../assets/global/plugins/morris/morris.css',
-                            '../assets/global/plugins/morris/morris.min.js',
-                            '../assets/global/plugins/morris/raphael-min.js',
-
-                            '../assets/pages/scripts/dashboard.min.js',
-                            'js/controllers/DashboardController.js'
-                        ]
-                    });
-                }]
-            }
-        })
         // Client Rolodex
         .state('rolodex', {
             url: "/rolodex",
@@ -602,10 +667,10 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 }]
             }
         })
-        // Finances - Overview
+        // Finances
         .state('fin_overview', {
-            url: "/finance/overview",
-            templateUrl: "views/ven/finances/overview.html",
+            url: "/finances",
+            templateUrl: "views/ven/finances.html",
             data: { pageTitle: 'Finances' },
             controller: "GeneralPageController",
             resolve: {
@@ -647,157 +712,8 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 }]
             }
         })
-    // Venue & Vendor Account Settings Page
-    .state('ven_account', {
-            url: "/account/settings",
-            templateUrl: "views/ven/account/settings.html",
-            data: { pageTitle: 'Account Settings' },
-            controller: "GeneralPageController",
-            resolve: {
-                deps: ['$ocLazyLoad', function($ocLazyLoad) {
-                    return $ocLazyLoad.load({
-                        name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before',
-                        files: [
-                            'js/controllers/GeneralPageController.js'
-                        ]
-                    });
-                }]
-            }
-        })
-        // Employee Settings Page
-        .state('employees', {
-            url: "/account/employees",
-            templateUrl: "views/ven/account/employees.html",
-            data: { pageTitle: 'Employees' },
-            controller: "GeneralPageController",
-            resolve: {
-                deps: ['$ocLazyLoad', function($ocLazyLoad) {
-                    return $ocLazyLoad.load({
-                        name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before',
-                        files: [
-                            'js/controllers/GeneralPageController.js'
-                        ]
-                    });
-                }]
-            }
-        })
-        // Preferred Businesses Settings Page
-        .state('preferred_business', {
-            url: "/account/preferred",
-            templateUrl: "views/ven/account/preferred_business.html",
-            data: { pageTitle: 'Preferred Businesses' },
-            controller: "GeneralPageController",
-            resolve: {
-                deps: ['$ocLazyLoad', function($ocLazyLoad) {
-                    return $ocLazyLoad.load({
-                        name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before',
-                        files: [
-                            'js/controllers/GeneralPageController.js'
-                        ]
-                    });
-                }]
-            }
-        })
-        // Payment Settings Page
-        .state('payments', {
-            url: "/account/payments",
-            templateUrl: "views/ven/account/payments.html",
-            data: { pageTitle: 'Payments' },
-            controller: "PaymentPageController",
-            resolve: {
-                deps: ['$ocLazyLoad', function($ocLazyLoad) {
-                    return $ocLazyLoad.load({
-                        name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before',
-                        files: [
-                            'js/controllers/GeneralPageController.js'
-                        ]
-                    });
-                }]
-            }
-        })
-        // Venue & Vendor Notifications Page
-        .state('ven_notifications', {
-            url: "/account/notifications",
-            templateUrl: "views/ven/account/notifications.html",
-            data: {pageTitle: 'Notifications'},
-            controller: "NotificationsController",
-            resolve: {
-                deps: ['$ocLazyLoad', function($ocLazyLoad) {
-                    return $ocLazyLoad.load({
-                        name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before',
-                        files: [
-                            'js/controllers/GeneralPageController.js'
-                        ]
-                    });
-                }]
-            }
-        })
-        .state('business_settings', {
-            url: "/settings/business",
-            templateUrl: "views/ven/settings/business.html",
-            data: { pageTitle: 'Business Settings' },
-            controller: "GeneralPageController",
-            resolve: {
-                deps: ['$ocLazyLoad', function($ocLazyLoad) {
-                    return $ocLazyLoad.load({
-                        name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before',
-                        files: [
-                            'js/controllers/NotificationsController.js'
-                        ]
-                    });
-                }]
-            }
-        })
-        // Invoice Page
-        .state('invoice', {
-            url: "/account/invoice",
-            templateUrl: "views/ven/account/invoice.html",
-            data: { pageTitle: 'Invoice' },
-            controller: "GeneralPageController",
-            resolve: {
-                deps: ['$ocLazyLoad', function($ocLazyLoad) {
-                    return $ocLazyLoad.load({
-                        name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before',
-                        files: [
-                            'js/controllers/GeneralPageController.js'
-                        ]
-                    });
-                }]
-            }
-        })
-
 
     // Event Planner Specific Controllers //
-    // Dashboard
-    .state('plan_dashboard', {
-            url: "/dashboard-plan",
-            templateUrl: "views/plan/dashboard.html",
-            data: { pageTitle: 'Dashboard' },
-            controller: "DashboardController",
-            resolve: {
-                deps: ['$ocLazyLoad', function($ocLazyLoad) {
-                    return $ocLazyLoad.load({
-                        name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before',
-                        files: [
-                            '../assets/global/plugins/morris/morris.css',
-                            '../assets/global/plugins/morris/morris.min.js',
-                            '../assets/global/plugins/morris/raphael-min.js',
-
-                            '../assets/pages/scripts/dashboard.min.js',
-                            'js/controllers/DashboardController.js',
-                        ]
-                    });
-                }]
-            }
-        })
         // Venue Details
         .state('venuedetails', {
             url: "/venue_details",
@@ -862,11 +778,11 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 }]
             }
         })
-        // Finances
-        .state('finances', {
-            url: "/finances",
-            templateUrl: "views/plan/finances.html",
-            data: { pageTitle: 'Finances' },
+        // Payments
+        .state('budget', {
+            url: "/budget",
+            templateUrl: "views/plan/budget.html",
+            data: { pageTitle: 'Budget' },
             controller: "GeneralPageController",
             resolve: {
                 deps: ['$ocLazyLoad', function($ocLazyLoad) {
@@ -874,48 +790,19 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                         name: 'MetronicApp',
                         insertBefore: '#ng_load_plugins_before',
                         files: [
+                            '../assets/global/plugins/morris/morris.css',
+                            '../assets/global/plugins/morris/morris.js',
+                            '../assets/global/plugins/morris/raphael-min.js',
+
+                            '../assets/pages/scripts/dashboard.js',
+                            '../assets/pages/scripts/charts-morris.js',
                             'js/controllers/GeneralPageController.js'
                         ]
                     });
                 }]
             }
         })
-        // Account Settings Page
-        .state('account', {
-            url: "/settings/account",
-            templateUrl: "views/plan/settings/account.html",
-            data: { pageTitle: 'Account Settings' },
-            controller: "GeneralPageController",
-            resolve: {
-                deps: ['$ocLazyLoad', function($ocLazyLoad) {
-                    return $ocLazyLoad.load({
-                        name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before',
-                        files: [
-                            'js/controllers/GeneralPageController.js'
-                        ]
-                    });
-                }]
-            }
-        })
-        // Planner Notifications Page
-        .state('plan_notifications', {
-            url: "/settings/notifications",
-            templateUrl: "views/plan/settings/notifications.html",
-            data: { pageTitle: 'Notifications' },
-            controller: "GeneralPageController",
-            resolve: {
-                deps: ['$ocLazyLoad', function($ocLazyLoad) {
-                    return $ocLazyLoad.load({
-                        name: 'MetronicApp',
-                        insertBefore: '#ng_load_plugins_before',
-                        files: [
-                            'js/controllers/GeneralPageController.js'
-                        ]
-                    });
-                }]
-            }
-        })
+
 }]);
 
 /* Init global settings and run the app */

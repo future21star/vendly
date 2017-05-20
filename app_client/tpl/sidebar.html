@@ -14,25 +14,25 @@
           <span style="font-weight: 400;">Calendar</span>
         </a>
       </li>
-      <li ng-show="userlogintype != 'Planner'">
+      <li ng-show="user_settings.usertype != 'Engaged Couple'">
         <a href="#/rolodex" class="mdl-typography--subhead mdl-color-text--grey-600">
           <i class="fa fa-user" style="padding-right: 8px;"></i>
           <span style="font-weight: 400;">My Clients</span>
         </a>
       </li>
-      <li ng-show="userlogintype != 'Planner'">
+      <li ng-show="user_settings.usertype != 'Engaged Couple'">
         <a href="#/handbooks" class="mdl-typography--subhead mdl-color-text--grey-600">
           <i class="fa fa-book" style="padding-right: 8px;"></i>
           <span style="font-weight: 400;">My Handbooks</span>
         </a>
       </li>
-      <li ng-show="userlogintype != 'Planner'">
+      <li ng-show="user_settings.usertype == 'Engaged Couple'">
         <a href="#/venue_details" class="mdl-typography--subhead mdl-color-text--grey-600">
           <i class="fa fa-home" style="padding-right: 8px;"></i>
           <span style="font-weight: 400;">My Venues</span>
         </a>
       </li>
-      <li ng-show="userlogintype != 'Planner'">
+      <li ng-show="user_settings.usertype == 'Engaged Couple'">
         <a href="#/vendor_details" class="mdl-typography--subhead mdl-color-text--grey-600">
           <i class="fa fa-cart-arrow-down" style="padding-right: 8px;"></i>
           <span style="font-weight: 400;">My Vendors</span>
@@ -44,14 +44,20 @@
           <span style="font-weight: 400;">Documents</span>
         </a>
       </li>
-      <li>
-        <a href="#/finance/overview" class="mdl-typography--subhead mdl-color-text--grey-600">
+      <li ng-show="user_settings.usertype != 'Engaged Couple'">
+        <a href="#/finances" class="mdl-typography--subhead mdl-color-text--grey-600">
           <i class="fa fa-money" style="padding-right: 8px;"></i>
           <span style="font-weight: 400;">Finances</span>
         </a>
       </li>
-      <li hidden>
-        <a href="#/inventory" ng-show="userlogintype != 'Planner'" class="mdl-typography--subhead mdl-color-text--grey-600">
+      <li ng-show="user_settings.usertype == 'Engaged Couple'">
+        <a href="#/budget" class="mdl-typography--subhead mdl-color-text--grey-600">
+          <i class="fa fa-money" style="padding-right: 8px;"></i>
+          <span style="font-weight: 400;">Budget</span>
+        </a>
+      </li>
+      <li hidden ng-show="user_settings.usertype != 'Engaged Couple'">
+        <a href="#/inventory" class="mdl-typography--subhead mdl-color-text--grey-600">
           <i class="fa fa-bookmark-o" style="padding-right: 8px;"></i>
           <span style="font-weight: 400;">Inventory</span>
         </a>
@@ -71,7 +77,7 @@
             <li>
               <a href="#/settings/account">Account Information</a>
             </li>
-            <li ng-show="userlogintype != 'Planner'">
+            <li ng-show="user_settings.usertype != 'Engaged Couple'">
               <a href="#/settings/business">Business Information</a>
             </li>
         </ul>

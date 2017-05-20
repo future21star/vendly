@@ -13,7 +13,7 @@
 </div>
 
 <div ng-controller="DashboardController">
-  <div class="mdl-card mdl-shadow--2dp full-width m-b-2" style="min-height: 0; margin-bottom: 30px;">
+  <div ng-show="user_settings.usertype != 'Engaged Couple'" class="mdl-card mdl-shadow--2dp full-width m-b-2" style="min-height: 0; margin-bottom: 30px;">
     <div class="mdl-card__title p-b-0" style="padding-bottom: 0;">
       <span class="mdl-card__title-text">
         Pending Approvals
@@ -72,15 +72,77 @@
   </div>
   
     <div class="row">
-      <div class="col-md-6 col-sm-12">
+      <!-- Upcoming Deadlines -->
+      <div ng-show="user_settings.usertype == 'Engaged Couple'" class="col-md-6 col-sm-12">
+        <div class="mdl-card mdl-shadow--2dp full-width">
+          <div class="mdl-card__title mdl-card--border p-b-0" style="padding-bottom: 0;">
+            <span class="mdl-card__title-text">
+              Upcoming Deadlines
+            </span>
+          </div>
+          <div class="mdl-card__supporting-text full-width p-a-0" style="padding: 0; max-height: 400px; overflow-y: scroll;">
+            <h6 class="m-y-0 p-l-1 mdl-color-text--blue-grey m-b-0 m-t-1" style="margin-bottom: 0; margin-top: 15px; padding-left: 15px;">Vendly Venue</h6>
+            <md-list-item>
+              <md-checkbox ng-disabled="true" aria-label="deadlines checkbox"></md-checkbox>
+              <p>
+                List of people in your set up team.
+              </p>
+            </md-list-item>
+            <hr style="margin: 0 auto;">
+            <md-list-item>
+              <md-checkbox ng-disabled="true" class="md-checked" aria-label="deadlines checkbox"></md-checkbox>
+              <p>
+                Would you prefer to have the unity candle or unity sand ceremony?
+              </p>
+            </md-list-item>
+            <hr style="margin: 0 auto;">
+            <h6 class="m-b-0 p-l-1 mdl-color-text--blue-grey m-b-0 m-t-1" style="margin-bottom: 0; margin-top: 15px; padding-left: 15px;">Vendly Vendor</h6>
+            <md-list-item>
+              <md-checkbox ng-disabled="true" class="md-checked" aria-label="deadlines checkbox"></md-checkbox>
+              <p>
+                How many guests do you anticipate attending?
+              </p>
+            </md-list-item>
+            <hr style="margin: 0 auto;">
+            <md-list-item>
+              <md-checkbox ng-disabled="true" class="md-checked" aria-label="deadlines checkbox"></md-checkbox>
+              <p>
+                How many attendees are under the age of 3 years old?
+              </p>
+            </md-list-item>
+            <hr style="margin: 0 auto;">
+            <md-list-item>
+              <md-checkbox ng-disabled="true" aria-label="deadlines checkbox"></md-checkbox>
+              <p>
+                How many attendees are under the age of 21 years old?
+              </p>
+            </md-list-item>
+            <hr style="margin: 0 auto;">
+            <md-list-item>
+              <md-checkbox ng-disabled="true" aria-label="deadlines checkbox"></md-checkbox>
+              <p>
+                Which drink package do you prefer?
+              </p>
+            </md-list-item>
+          </div>
+          <div class="mdl-card_action p-y-0 p-x-1" style="padding: 0 15px;">
+            <a href="" class="mdl-typography--body-1 mdl-color-text--grey-400" style="float: right; font-size: 10px;">
+              <em><sup>*</sup>Next 3 weeks</em>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Recent Activity -->
+      <div ng-show="user_settings.usertype != 'Engaged Couple'" class="col-md-6 col-sm-12">
         <div class="mdl-card mdl-shadow--2dp full-width">
           <div class="mdl-card__title mdl-card--border p-b-0" style="padding-bottom: 0;">
             <span class="mdl-card__title-text">
               Recent Activities
             </span>
           </div>
-          <div class="mdl-card__supporting-text full-width p-a-0" style="padding: 0;">
-            <ul class="mdl-list" style="max-height: 300px; overflow-y: scroll;">
+          <div class="mdl-card__supporting-text full-width p-a-0" style="max-height: 400px; overflow-y: scroll; padding: 0;">
+            <ul class="mdl-list">
               <li class="mdl-list__item mdl-list__item--two-line">
                 <div class="mdl-list__item-primary-content">
                   <span>Taylor Christine paid $875</span>
@@ -146,8 +208,8 @@
               Tasks
             </span>
           </div>
-          <div class="mdl-card__supporting-text full-width p-a-0" style="padding: 0;">
-            <ul class="mdl-list" style="max-height: 300px; overflow-y: scroll;">
+          <div class="mdl-card__supporting-text full-width p-a-0" style="max-height: 400px; overflow-y: scroll; padding: 0;">
+            <ul class="mdl-list">
               <li class="mdl-list__item mdl-list__item--two-line">
                 <div class="mdl-list__item-primary-content">
                   <span>Update calendar with upcoming showings</span>

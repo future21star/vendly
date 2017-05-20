@@ -61,10 +61,7 @@ License: You must have a valid license purchased only from themeforest(the above
             a.appendChild(r);
         })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
     </script> -->
-    
-    <!-- Appcues Integration -->
-    <!-- <script src="//fast.appcues.com/19422.js"></script> -->
-    
+        
     <!-- Pendo Integration -->
     <script>
       (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=[];
@@ -79,31 +76,26 @@ License: You must have a valid license purchased only from themeforest(the above
           apiKey: '2be2f898-ec20-4a36-79f6-d96a3d531614',
           
           visitor: {
-            id:              'VISITOR-UNIQUE-ID'   // Required if user is logged in
-            // email:        // Optional
-            // role:         // Optional
-            
-            // You can add any additional visitor level key-values here, as long as it's not one of the above reserved names.
+            id:           user_settings.id
+            name:         user_settings.name
+            email:        user_settings.email
+            role:         user_settings.usertype
           },
-          
           account: {
-            // id:           'ACCOUNT-UNIQUE-ID' // Highly recommended
-            // name:         // Optional
-            
             // You can add any additional account level key-values here, as long as it's not one of the above reserved names.
           }
         });      
     </script>
 </head>
 
-<body ng-controller="AppController">
+<body data-ng-controller="AppController">
     <div ng-spinner-bar class="page-spinner-bar">
         <div class="bounce1"></div>
         <div class="bounce2"></div>
         <div class="bounce3"></div>
     </div>
     <div data-ng-controller="HeaderController" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <header data-ng-controller="HeaderController" class="mdl-layout__header mdl-color--blue mdl-shadow--6dp">
+      <header ng-hide="authentication.isLoggedIn()" data-ng-controller="HeaderController" class="mdl-layout__header mdl-color--blue mdl-shadow--6dp">
         <div class="mdl-layout__header-row">
           <!-- <span class="mdl-layout-title">Title</span> -->
           <div class="mdl-layout-spacer"></div>
@@ -116,7 +108,7 @@ License: You must have a valid license purchased only from themeforest(the above
             </a>
             <button id="header-menu" class="mdl-button mdl-js-button mdl-color-text--white" style="padding: 0; margin-left: 12px;">
               <img src={{user_settings.avatar}} height="100%" alt="" style="border-radius: 50%; margin-right: 3px;">
-              {user_settings.name}
+              {{user_settings.name}}
               <i class="material-icons">keyboard_arrow_down</i>
             </button>
               <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="header-menu">
@@ -184,12 +176,12 @@ License: You must have a valid license purchased only from themeforest(the above
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <script type="text/javascript" src="../assets/global/plugins/angular-payments/lib/angular-payments.js"></script>
     <!-- Angular Material requires Angular.js Libraries -->
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
-  <!-- Angular Material Library -->
-  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    
   <!--
     <script src='./compiled/bundle.js' type="text/javascript"></script>
     <script src="./assets/global/plugins/jquery.min.js" type="text/javascript"></script>
