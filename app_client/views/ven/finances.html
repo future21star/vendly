@@ -1,0 +1,119 @@
+<style>
+  svg { width: 100% !important; }
+</style>
+<div ng-controller="GeneralPageController">
+  <div class="mdl-card full-width">
+    <div class="mdl-card__title">
+      <span class="mdl-card__title-text">Finances</span>
+    </div>
+    <div class="mdl-card mdl-shadow--2dp full-width m-b-3" style="margin-bottom: 45px;">
+      <div class="mdl-card__supporting-text full-width p-b-0" style="padding-bottom: 0;">
+        <div class="col-xs-4">
+          <p align="center">
+            <span class="mdl-typography--subhead">Revenue</span><br>
+            <span class="mdl-typography--body-2">$ ##,###</span>
+          </p>
+        </div>
+        <div class="col-xs-4">
+          <p align="center">
+            <span class="mdl-typography--subhead">Expenses</span><br>
+            <span class="mdl-typography--body-2">$ ##,###</span>
+          </p>
+        </div>
+        <div class="col-xs-4">
+          <p align="center">
+            <span class="mdl-typography--subhead">Profit</span><br>
+            <span class="mdl-typography--body-2">$ ##,###</span>
+          </p>
+        </div>
+      </div>
+      <div class="mdl-card__supporting-text full-width p-t-0" style="padding-top: 0;">
+        <div id="sales_statistics" style="width: 100%;"> </div>
+      </div>
+    </div>
+    <div class="row m-b-2" style="margin-bottom: 30px;">
+      <div class="col-xs-12 col-md-6">
+        <div class="mdl-card mdl-shadow--2dp full-width" style="min-height: 0; max-height: 350px;">
+          <div class="mdl-card__title mdl-card--border p-b-0">
+            <span class="mdl-card__title-text">Revenue</span>
+          </div>
+          <div class="mdl-card__supporting-text full-width p-t-0" style="padding-top: 0;">
+            <md-list-item class="secondary-button-padding" ng-click="doPrimaryAction($event)">
+              <div class="md-list-item-text p-y-1" style="padding: 15px 0;">
+                <h6 class="mdl-color-text--grey-700">{ Title of revenue or Person paid }</h6>
+                <p class="m-b-0" style="margin-bottom: 0;">$ { amount }</p>
+              </div>
+              <md-button class="md-secondary md-icon-button" ng-click="doSecondaryAction($event)">
+                <i class="material-icons mdl-color-text--grey-400">info_outline</i>
+              </md-button>
+            </md-list-item>
+            <md-list-item class="secondary-button-padding" ng-click="doPrimaryAction($event)">
+              <div class="md-list-item-text p-y-1" style="padding: 15px 0;">
+                <h6 class="mdl-color-text--grey-700">{ Title of revenue or Person paid }</h6>
+                <p class="m-b-0" style="margin-bottom: 0;">$ { amount }</p>
+              </div>
+              <md-button class="md-secondary md-icon-button" ng-click="doSecondaryAction($event)">
+                <i class="material-icons mdl-color-text--grey-400">info_outline</i>
+              </md-button>
+            </md-list-item>
+            <md-list-item class="secondary-button-padding" ng-click="doPrimaryAction($event)">
+              <div class="md-list-item-text p-y-1" style="padding: 15px 0;">
+                <h6 class="mdl-color-text--grey-700">{ Title of revenue or Person paid }</h6>
+                <p class="m-b-0" style="margin-bottom: 0;">$ { amount }</p>
+              </div>
+              <md-button class="md-secondary md-icon-button" ng-click="doSecondaryAction($event)">
+                <i class="material-icons mdl-color-text--grey-400">info_outline</i>
+              </md-button>
+            </md-list-item>
+          </div>
+          <div class="mdl-card__menu">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--grey">Add Revenue</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="mdl-card mdl-shadow--2dp full-width" style="min-height: 0; max-height: 350px;">
+          <div class="mdl-card__title mdl-card--border p-b-0">
+            <span class="mdl-card__title-text">Expenses</span>
+          </div>
+          <div class="mdl-card__supporting-text full-width p-t-0" style="padding-top: 0;">
+            <md-list-item class="secondary-button-padding" ng-click="doPrimaryAction($event)">
+              <div class="md-list-item-text p-y-1" style="padding: 15px 0;">
+                <h6 class="mdl-color-text--grey-700">{ Title of expense }</h6>
+                <p class="m-b-0" style="margin-bottom: 0;">$ { amount }</p>
+              </div>
+              <md-button class="md-secondary md-icon-button" ng-click="doSecondaryAction($event)">
+                <i class="material-icons mdl-color-text--grey-400">info_outline</i>
+              </md-button>
+            </md-list-item>
+            <md-list-item class="secondary-button-padding" ng-click="doPrimaryAction($event)">
+              <div class="md-list-item-text p-y-1" style="padding: 15px 0;">
+                <h6 class="mdl-color-text--grey-700">{ Title of expense }</h6>
+                <p class="m-b-0" style="margin-bottom: 0;">$ { amount }</p>
+              </div>
+              <md-button class="md-secondary md-icon-button" ng-click="doSecondaryAction($event)">
+                <i class="material-icons mdl-color-text--grey-400">info_outline</i>
+              </md-button>
+            </md-list-item>
+            <md-list-item class="secondary-button-padding" ng-click="doPrimaryAction($event)">
+              <div class="md-list-item-text p-y-1" style="padding: 15px 0;">
+                <h6 class="mdl-color-text--grey-700">{ Title of expense }</h6>
+                <p class="m-b-0" style="margin-bottom: 0;">$ { amount }</p>
+              </div>
+              <md-button class="md-secondary md-icon-button" ng-click="doSecondaryAction($event)">
+                <i class="material-icons mdl-color-text--grey-400">info_outline</i>
+              </md-button>
+            </md-list-item>
+          </div>
+          <div class="mdl-card__menu">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--grey">Add Expense</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    Dashboard.init();
+</script>

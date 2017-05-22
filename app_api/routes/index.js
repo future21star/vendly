@@ -15,6 +15,7 @@ var emails = require('../controllers/emails');
 var employee = require('../controllers/employee');
 var clients = require('../controllers/clientController');
 var tasks = require('../controllers/tasks');
+var notification = require('../controllers/notifications');
 
 // files
 router.get('/sign', auth, amazons3.getSignedURL);
@@ -47,6 +48,7 @@ router.post('/saveBooklet', auth, handbook.saveBooklet);
 router.put('/updateBooklet', auth, handbook.updateBooklet);
 router.put('/setActiveHandbook', auth, handbook.setActiveHandbook);
 router.get('/getActiveHandbook', auth, handbook.getActiveHandbook);
+router.get('/handbooks/:handbookId', auth, handbook.getHandbook);
 
 // email
 router.post('/sendEmail', auth, emails.sendEmail);
@@ -62,5 +64,9 @@ router.get('/clients/:clientId', auth, clients.getContact);
 
 // tasks
 
+
+// notifications
+router.get('/getNotifications', auth, notification.getNotifications);
+router.put('/updateNotifications', auth, notification.updateNotifications);
 
 module.exports = router;

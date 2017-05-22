@@ -1,46 +1,30 @@
 /* Setup general page controller */
 angular.module('MetronicApp')
 
-.config(['sirTrevorServiceProvider', function(sirTrevorServiceProvider) {
-    // set config
-    sirTrevorServiceProvider.setConfig({
-        "debug": false,
-        "scribeDebug": false,
-        "language": "en"
-    });
-
-    // set defaults
-    sirTrevorServiceProvider.setDefaults({
-        "iconUrl": "vendor/sir-trevor/src/icons/sir-trevor-icons.svg"
-    });
-
-    // set block options
-    sirTrevorServiceProvider.setBlockOptions({
-        /* put block options here */
-    });
-}])
+// .config(['sirTrevorServiceProvider', function(sirTrevorServiceProvider) {
+//     // set config
+//     sirTrevorServiceProvider.setConfig({
+//         "debug": false,
+//         "scribeDebug": false,
+//         "language": "en"
+//     });
+// 
+//     // set defaults
+//     sirTrevorServiceProvider.setDefaults({
+//         "iconUrl": "vendor/sir-trevor/src/icons/sir-trevor-icons.svg"
+//     });
+// 
+//     // set block options
+//     sirTrevorServiceProvider.setBlockOptions({
+//         /* put block options here */
+//     });
+// }])
 
 .controller('GeneralPageController', ['$rootScope', '$scope', 'settings', 'meanData', 'amazons3', 'authentication',
 function($rootScope, $scope, settings, meanData, amazons3, authentication) {
     $scope.$on('$viewContentLoaded', function() {
         // initialize core components
         App.initAjax();
-
-        // set default layout mode
-        $rootScope.settings.layout.pageContentWhite = true;
-        $rootScope.settings.layout.pageBodySolid = false;
-        $rootScope.settings.layout.pageSidebarClosed = false;
-
-
-        $scope.editorContent = {
-          "data": [{
-              "type": "checkbox",
-              "data": {
-                  "text": "<p>Start creating your event handbook!</p>",
-                  "format": "html"
-              }
-          }]
-        };
 
     });
 
@@ -130,4 +114,24 @@ function($rootScope, $scope, settings, meanData, amazons3, authentication) {
                 toastr.error(e.message, 'Error');
             });
     };
+    
+    // $scope.notificationSettings = {};
+    // meanData.getNotificationSettings()
+    //     .success(function (notificationSettings) {
+    //         $scope.notificationSettings = notificationSettings[0];
+    //     })
+    //     .error(function (e) {
+    //         console.log(e);
+    //     });
+
+    // $scope.notificationChanges = {};
+    // $scope.updateNotificationSettings = function () {
+    //     meanData.updateNotificationSettings($scope.notificationSettings)
+    //         .success(function () {
+    //             toastr.success('Notification settings changed successfully.', 'Changes Saved');
+    //         })
+    //         .error(function (e) {
+    //             toastr.error(e.message, 'Error');
+    //         });
+    // };
 }]);

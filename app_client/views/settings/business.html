@@ -1,0 +1,452 @@
+<style>
+  .pull-right { float: right; }
+  .mdl-menu__item a { text-decoration: none; }
+  .no-underline, .no-underline:hover { text-decoration: none !important; }
+  .mdl-tabs__tab.is-active { color: #455A64 !important; background-color: #E3F2FD; width: 100%; text-align: left; }
+  .mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:after { background: #FF8A80; }
+  .mdl-tabs__tab-bar, .mdl-tabs__tab-bar a { display: block; text-align: left; }
+  .mdl-data-table.vendly-no_border, .mdl-data-table.vendly-no_border th, .mdl-data-table.vendly-no_border td {border-color: transparent !important; padding-left: 8px !important; padding-bottom: 0 !important; padding-top: 0px !important;}
+  .mdl-data-table, th, td { padding: 0 8px !important;}
+  .mdl-switch__label { left: 16px; }
+</style>
+
+<div ng-controller="GeneralPageController" class="row p-t-2">
+	<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+		<div class="col-xs-12 col-md-4 p-b-2">
+			<div class="hidden-sm-down">
+				<p align="center">
+					<img src={{user_settings.avatar}} alt="" style="border-radius: 5em; width: 55%; max-width: 100px;">
+				</p>
+				<h4 align="center" class="p-b-2">
+					{{user_settings.name}}
+				</h4>
+			</div>
+			<div class="mdl-tabs__tab-bar">
+				<a href="#employees" class="mdl-tabs__tab no-underline full-width is-active">
+					<i class="fa fa-users p-r-1"></i>
+					Employees
+				</a>                  
+			</div>
+			<div class="mdl-tabs__tab-bar">
+				<a href="#preferred" class="mdl-tabs__tab no-underline full-width">
+					<i class="fa fa-home p-r-1"></i>
+					Preferred Partners
+				</a>
+			</div>
+			<div class="mdl-tabs__tab-bar">
+				<a href="#deposits" class="mdl-tabs__tab no-underline full-width">
+					<i class="fa fa-university p-r-1"></i>
+					Deposits
+				</a>
+			</div>
+			<div class="mdl-tabs__tab-bar">
+				<a href="#membership" class="mdl-tabs__tab no-underline full-width">
+					<i class="fa fa-id-card-o p-r-1"></i>
+					Membership
+				</a>
+			</div>
+		</div>
+		
+		<div class="col-xs-12 col-md-8 p-b-2" style="padding-bottom: 30px;">
+			<div class="mdl-tabs__panel m-b-2 is-active" id="employees" style="margin-bottom: 30px;">
+				<div class="mdl-card mdl-shadow--2dp full-width">
+					<div class="mdl-card__title p-b-0" style="padding-bottom: 0;">
+						<h4 class="mdl-card__title-text">
+							Employees
+							<small>
+								<i id="employees_tt" class="fa fa-info-circle" style="margin: 10px 0 0 5px;"></i>
+							</small>
+						</h4>
+						<div class="mdl-tooltip" data-mdl-for="employees_tt">
+							Add and Manage employees
+						</div>
+					</div>
+					<div class="mdl-card__supporting-text full-width p-t-0 p-b-3" style="overflow-x: auto; padding: 0 15px 45px;">
+						<table class="mdl-data-table mdl-js-data-table full-width vendly-no_border">
+							<thead>
+								<tr>
+									<th class="mdl-data-table__cell--non-numeric">Full Name</th>
+									<th class="mdl-data-table__cell--non-numeric">Email</th>
+									<th class="mdl-data-table__cell--non-numeric">Role</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="emp in myEmployees">
+									<td class="mdl-data-table__cell--non-numeric mdl-typography--subhead">
+										{{emp.employee.name}}
+									</td>
+									<td class="mdl-data-table__cell--non-numeric mdl-typography--subhead">
+										{emp.employee.email}
+									</td>
+									<td class="mdl-data-table__cell--non-numeric mdl-typography--subhead">
+										{{emp.title}}
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="mdl-card__actions mdl-card--border p-b-1">
+						<div class="row p-x-1">
+							<div class="col-xs-12">
+								<em class="mdl-typography--body-1 mdl-color-text--blue-grey-400" style="font-weight: 300;">Add Employee</em>
+							</div>
+							<form ng-submit="saveEmployee()" class="">
+								<div class="col-xs-12 col-md-3">
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-width">
+										<input ng-model="employee.firstname" type="text" class="mdl-textfield__input">
+										<label class="mdl-textfield__label" >First Name</label>
+									</div>
+								</div>
+								<div class="col-xs-12 col-md-3">
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-width">
+                    <input ng-model="employee.lastname" type="text" class="mdl-textfield__input">
+										<label class="mdl-textfield__label">Last Name</label>
+									</div>
+								</div>
+								<div class="col-xs-12 col-md-3">
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-width">
+                    <input ng-model="employee.email" type="email" class="mdl-textfield__input">
+										<label class="mdl-textfield__label">Email Address</label>
+									</div>
+								</div>
+								<div class="col-xs-12 col-md-3">
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-width">
+										<label class="mdl-textfield__label">Role</label>
+										<select ng-model="employee.permission" class="mdl-textfield__input full-width" style="border-color: transparent; background-color: transparent; border-bottom: 1px solid rgba(0,0,0,.12); border-radius: 0px; -webkit-appearance: none;">
+											<option value="" disabled selected hidden></option>
+											<option value="view">Overseer</option>
+											<option value="add">Manager</option>
+											<option value="edit">Admin</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-xs-12">
+									<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-color--blue mdl-color-text--white pull-right" type="submit">
+                    Send Invite
+                  </button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="mdl-tabs__panel m-b-2" id="preferred" style="margin-bottom: 30px;">
+				<div class="mdl-card mdl-shadow--2dp full-width">
+					<div class="mdl-card__title p-b-0" style="padding-bottom: 0;">
+						<h4 class="mdl-card__title-text">
+							Preferred Partners
+							<small>
+								<i id="preferred_tt" class="fa fa-info-circle" style="margin: 10px 0 0 5px;"></i>
+							</small>
+						</h4>
+						<div class="mdl-tooltip" data-mdl-for="preferred_tt">
+							Add/Remove partnerships with other businesses
+						</div>
+					</div>
+					<div class="mdl-card__supporting-text full-width p-y-0" style="overflow-x: auto; padding: 0 15px 45px;">
+						<table class="mdl-data-table mdl-js-data-table full-width vendly-no_border">
+							<thead>
+								<tr>
+									<th class="mdl-data-table__cell--non-numeric">Business Name</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="mdl-data-table__cell--non-numeric mdl-typography--subhead">
+										<a href="">
+											Lindsey Lakes
+										</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="mdl-card__actions mdl-card--border p-b-1">
+						<div class="row p-x-2">
+              <div class="col-xs-12">
+								<em class="mdl-typography--body-1 mdl-color-text--blue-grey-400" style="font-weight: 300;">Add Partnership</em>
+							</div>
+							<form action="#">
+								<div class="col-xs-12 col-sm-6">
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-width">
+										<input class="mdl-textfield__input" type="text" id="business_name">
+										<label class="mdl-textfield__label" for="business_name">Business Name</label>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-6">
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-width">
+										<input class="mdl-textfield__input" type="text" id="employee_email">
+										<label class="mdl-textfield__label" for="employee_email">Email Address</label>
+									</div>
+								</div>
+								<div class="col-xs-12">
+									<input class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-color--blue mdl-color-text--white pull-right" type="submit" value="Send Request">
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="mdl-tabs__panel m-b-2" id="deposits" style="margin-bottom: 30px;">
+				<div class="mdl-card mdl-shadow--2dp full-width">
+					<div class="mdl-card__title">
+						<span class="mdl-card__title-text">
+							Deposits
+						</span>
+					</div>
+					<div id="tos" class="supporting-text full-width p-x-1" style="padding: 0 15px;">
+						<div class="p-a-1" style="height: 250px; border: thin solid #CCCCCC; border-radius: 5px; padding: 15px;">                      
+							<h6 class="m-b-0">Activate ACH Deposits</h6>
+							<p class="mdl-typography--body-1 mdl-color-text--blue-grey-500 p-b-0" style="line-height: 1.1; margin-top: 5px;">
+								Before starting, you will first need to enable ACH depositing on your account. By doing so you are agreeing to our Terms of Service available <a href="#/tos">here</a>.
+							</p>
+							<p class="p-t-2" align="center">
+								<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored">
+									Accept Terms of Service
+								</button>
+							</p>
+						</div>
+					</div>
+					<div hidden id="deposit_table" class="mdl-card__supporting-text full-width p-a-0" style="padding: 0;">
+            <table class="full-width vendly-responsive_table" style="table-layout: fixed;">
+              <tr>
+                <td style="vertical-align: top;">
+                  <div class="mdl-card full-width">
+    								<div class="mdl-card__title p-b-0" style="padding-bottom: 0;">
+    									<span class="mdl-card__title-text">
+    										Bank Account
+    									</span>
+    								</div>
+    								<div class="mdl-card__supporting-text p-y-0 full-width" style="padding-top: 0; padding-bottom: 0;">                          
+    									<p class="mdl-typography--caption">This is where your deposits will be transfered.</p>
+    								</div>
+    								
+    								<div class="mdl-card__supporting-text full-width p-t-0">
+                      <!-- Account linked -->
+    								  <!-- <div>                            
+    								    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised full-width m-b-1" style="height: 50px; line-height: 1; max-width: 300px; margin: 0 auto 15px;">
+    								      Bank of America<br>
+    								      <small>Account &nbsp; - &nbsp; **1234</small>
+    								    </button>
+    								  </div> -->
+    									
+    									<!-- No account linked -->
+    									<div class="col-xs-12">
+    										<p align="center">
+    											<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised text-muted">
+    												<i class="fa fa-university"></i> Change Bank Account
+    											</button>
+    										</p>
+    									</div>
+    								</div>
+    								<div class="mdl-card__actions p-t-2">
+    									<div class="col-xs-7">
+    										<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
+    											<input type="checkbox" class="mdl-switch__input">
+    											<span class="mdl-switch__label" style="padding-left: 5px"><small>Deactivate</small></span>
+    										</label>
+    									</div>
+    									<div class="col-xs-5 hidden">
+    										<p align="center" class="m-y-0" style="font-size: 12px; line-height: 1;">
+    											Confirm?<br>
+    											<a href="" class="mdl-color-text--red">Yes</a>
+    											&nbsp;
+    											<a href="" class="mdl-color-text--blue">Cancel</a>
+    										</p>
+    									</div>
+    								</div>
+    							</div>                            
+                </td>
+                <td style="vertical-align: top; border-left: 1px solid lightgrey;">
+                  <div class="mdl-card full-width">
+                    <div class="mdl-card__title mdl-color--red-100">
+                      <span class="mdl-card__title-text">Deactived</span>
+                    </div>
+                    <div class="mdl-card__supporting-text full-width">
+                      <h6 class="m-b-t" style="margin-bottom: 0;">Next Deposit</h6>
+                      <hr style="margin: 0 0 4px;">
+                      <p>November 1, 2016</p>
+                    </div>
+                    <div class="mdl-card__supporting-text full-width">
+                      <h6 class="m-b-t" style="margin-bottom: 0;">Deposit Schedule</h6>
+                      <hr style="margin: 0 0 4px;">
+                      <p>1<sup>st</sup> &amp; 15<sup>th</sup> of every month</p>
+                    </div>
+                    <div class="mdl-card__supporting-text full-width p-r-0 p-b-0" style="padding-right: 0; padding-bottom: 0;">
+                      <h6 class="m-b-t" style="margin-bottom: 0;">Recent Deposits</h6>
+                      <hr style="margin: 0 0 4px;">
+                      <ul class="mdl-list p-t-0 m-b-0" style="padding-top: 0; margin-bottom: 0; max-height: 120px; overflow-y: scroll;">
+                        <li class="mdl-list__item mdl-list__item--three-line p-l-0" style="padding-left: 0; height: 0;">
+                          <div class="mdl-list__item-primary-content">
+                            <span>$ 5,019</span>
+                            <span class="mdl-list__item-text-body" style="height: 0;">
+                              October 15, 2016
+                            </span>
+                          </div>
+                          <div class="mdl-list__item-secondary-content">
+                            <a href="#" class="mdl-list__item-secondary-action"  style="height: 0;">
+                              <i class="material-icons" style="font-size: 18px;">open_in_new</i>
+                            </a>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>                    
+                </td>
+              </tr>
+            </table>                
+						<div class="col-xs-12 col-md-6 p-x-0">
+							<span class="hidden-md-up"><hr></span>
+						</div>
+						<div class="col-xs-12 col-md-6 p-r-0" style="padding-right: 0">
+						</div>
+					</div>
+					<div class="mdl-card__actions"></div>
+					<div class="mdl-card__menu">
+						<img src="https://2sorea2b9ama3o8i8o2afd7a-wpengine.netdna-ssl.com/wp-content/uploads/2016/03/outline@3x.png" alt="" height="25px">
+					</div>
+				</div>
+      </div>
+
+			<div class="mdl-tabs__panel m-b-2" id="membership" style="margin-bottom: 30px;">
+				<div class="mdl-card mdl-shadow--2dp full-width">
+					<div class="mdl-card__title">
+						<span class="mdl-card__title-text">
+							Membership
+						</span>
+					</div>
+					<div class="supporting-text full-width">
+            <table class="full-width vendly-responsive_table" style="table-layout: fixed;">
+              <tr>
+                <td style="vertical-align: top;">
+                  <div class="mdl-card full-width">
+    								<div class="mdl-card__title mdl-color--green-100">
+    									<h6 class="mdl-card__title-text">
+    										Active
+    									</h6>
+    								</div>                          
+    								<div class="mdl-card__supporting-text full-width">
+                      
+    									<div class="row p-b-1" style="padding-bottom: 15px;">
+                        <!-- Initial State -->
+                        <div class="">
+                          <div class="col-xs-12">
+                            <p align="center">                            
+                              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised text-muted">
+                                <i class="fa fa-credit-card"></i> Add Card
+                              </button>
+                            </p>
+                          </div>
+                          <div class="col-xs-12">
+                            <p align="center">
+                              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised text-muted">
+                                <i class="fa fa-university"></i> Link Account
+                              </button>
+                            </p>
+                          </div>
+                        </div>
+
+                        <!-- Once Card Added -->
+                        <div class="hidden">                            
+                          <small>
+                            <div class="row p-b-1">
+                              <div class="col-xs-6">
+                                <p class="mdl-color-text--blue-grey m-b-0" style="margin-bottom: 0;">Billing Manager</p>
+                                <p>Austin Teague</p>
+                              </div>
+                              <div class="col-xs-6">
+                                <p class="mdl-color-text--blue-grey m-b-0" style="margin-bottom: 0;">Billing Email</p>
+                                <p>austin@vendly.com</p>
+                              </div>
+                            </div>                           
+                            <div class="row p-b-2">
+                              <div class="col-xs-6">
+                                <p class="mdl-color-text--blue-grey m-b-0" style="margin-bottom: 0;">Card Number</p>
+                                <p>xxxx xxxx xxxx 1234</p>
+                              </div>
+                              <div class="col-xs-6">
+                                <p class="mdl-color-text--blue-grey m-b-0" style="margin-bottom: 0;">Expiration Date</p>
+                                <p>01/2017</p>
+                              </div>
+                            </div>
+                          </small>
+                          <p align="center" class="p-t-1">
+                            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised text-muted full-width">
+                              <i class="fa fa-university"></i>
+                              Update Payment Method
+                            </button>
+                          </p>
+                        </div>
+    									</div>
+    								</div>
+    								<div class="mdl-card__actions p-t-3">
+    									<div class="col-xs-7">
+    										<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
+    											<input type="checkbox" class="mdl-switch__input">
+    											<span class="mdl-switch__label" style="padding-left: 5px"><small>Deactivate</small></span>
+    										</label>
+    									</div>
+    									<div class="col-xs-5 hidden">
+    										<p align="center" class="m-b-0" style="font-size: 12px; line-height: 1;">
+    											Confirm?<br>
+    											<a href="" class="mdl-color-text--red">Yes</a>
+    											&nbsp;
+    											<a href="" class="mdl-color-text--blue">Cancel</a>
+    										</p>
+    									</div>
+    								</div>
+    							</div>
+                </td>
+                <td style="vertical-align: top; border-left: 1px solid lightgrey;">
+                  <div class="mdl-card full-width">
+    								<div class="mdl-card__title">
+    									<span class="mdl-card__title-text">Billing History</span>
+    								</div>
+    								<div class="mdl-card__supporting-text full-width">
+                      <h6 class="m-b-t" style="margin-bottom: 0;">Subscription Renews On</h6>
+                      <hr style="margin: 0 0 4px;">
+    									<p>December 21, 2016</p>
+    								</div>
+                    <div class="mdl-card__supporting-text full-width p-r-0 p-b-0" style="padding-right: 0; padding-bottom: 0;">
+                      <h6 class="m-b-t" style="margin-bottom: 0;">Recent Payments</h6>
+                      <hr style="margin: 0 0 4px;">
+                      <ul class="mdl-list p-t-0 m-b-0" style="padding-top: 0; margin-bottom: 0; max-height: 300px; overflow-y: scroll;">
+                        <li class="mdl-list__item mdl-list__item--three-line p-l-0" style="padding-left: 0; height: 0;">
+                          <div class="mdl-list__item-primary-content">
+                            <span>$ 89</span>
+                            <span class="mdl-list__item-text-body" style="height: 0;">
+                              October 1, 2016
+                            </span>
+                          </div>
+                          <div class="mdl-list__item-secondary-content">
+                            <a href="#" class="mdl-list__item-secondary-action"  style="height: 0;">
+                              <i class="material-icons" style="font-size: 18px;">open_in_new</i>
+                            </a>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+    							</div>
+                </td>
+              </tr>
+            </table>
+					</div>
+					<div class="mdl-card__actions"></div>
+					<div class="mdl-card__menu">
+						<img src="https://2sorea2b9ama3o8i8o2afd7a-wpengine.netdna-ssl.com/wp-content/uploads/2016/03/outline@3x.png" alt="" height="25px">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+  $('#tos').click(function(){
+    $('#tos').prop('hidden', true);
+    $('#deposit_table').prop('hidden', false);
+  });
+</script>
+
