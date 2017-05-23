@@ -72,6 +72,7 @@ MetronicApp.controller('AppController', ['$scope', '$rootScope', 'meanData', 'au
         .error(function (e) {
             console.log(e);
         });
+        
         console.log($scope);
 }]);
 
