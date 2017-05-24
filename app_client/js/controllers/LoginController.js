@@ -1,5 +1,5 @@
-angular.module('MetronicApp').controller('LoginController', ['$location', 'authentication', '$scope', '$rootScope', 'meanData',
-    function($location, authentication, $scope, $rootScope, meanData) {
+angular.module('MetronicApp').controller('LoginController', ['$window', '$location', 'authentication', '$scope', '$rootScope', 'meanData',
+    function($window, $location, authentication, $scope, $rootScope, meanData) {
         $scope.$on('$viewContentLoaded', function() {
             // initialize core components
             App.initAjax();
@@ -21,6 +21,7 @@ angular.module('MetronicApp').controller('LoginController', ['$location', 'authe
                 .then(function() {
                     $('.modal-backdrop').remove();
                     $location.path('dashboard');
+                    $window.location.reload();
                 });
         };
 

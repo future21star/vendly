@@ -50,8 +50,8 @@ module.exports = {
         if (err)
           res.status(409).json({"message": err});
 
-        let content = JSON.parse(req.body.content);
-        let booklet = new Booklet({
+        var content = JSON.parse(req.body.content);
+        var booklet = new Booklet({
           _owner: user._id,
           title: req.body.title,
           content: content,
