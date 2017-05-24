@@ -3,16 +3,9 @@
         opacity: 1;
         background: linear-gradient(180deg, #455A64 0%, #333333 100%);
     }
-    .pac-container {
-        z-index: 100001 !important;
-    }
-    label {
-      margin: 0
-    }
     header {
       z-index: 0 !important;
     }
-    
 </style>
 
 <div class="modal-saver">
@@ -22,44 +15,46 @@
     </div>
       <div class="mdl-card mdl-shadow--8dp" style="max-width: 650px; width: 100%; margin: 0 auto;">
         <div id="loginbody" class="mdl-card__supporting-text" style="width: 100%; padding: 0;">
-          <table style="border: 0 transparent;">
+          <table style="border: 0 transparent; table-layout: fixed;">
             <tr>
-              <td style="padding: 0;">
+              <td style="padding: 0; width: 50%">
                 <div class="login-content">
-                  <h3 class="mdl-typography--subhead text-center" style="margin-top: 0;">
+                  <h3 class="mdl-typography--subhead text-xs-center" style="margin-top: 0;">
                     Collaborate with 10,000+ wedding venues &amp; vendors
                   </h3>
                   <div class="img-container">
-                      <img class="img-circle img-responsive" src="../assets/pages/img/avatars/team1.jpg" alt="" style="border-radius: 5em;">
-                      <img class="img-circle img-responsive" src="../assets/pages/img/avatars/team2.jpg" alt="" style="border-radius: 5em;">
-                      <img class="img-circle img-responsive" src="../assets/pages/img/avatars/team3.jpg" alt="" style="border-radius: 5em;">
-                      <img class="img-circle img-responsive" src="../assets/pages/img/avatars/team4.jpg" alt="" style="border-radius: 5em;">
-                      <img class="img-circle img-responsive" src="../assets/pages/img/avatars/team5.jpg" alt="" style="border-radius: 5em;">
+                    <img class="img-circle img-responsive" src="../assets/pages/img/avatars/team3.jpg" alt="" style="border-radius: 5em;">
+                    <img class="img-circle img-responsive" src="../assets/pages/img/avatars/team4.jpg" alt="" style="border-radius: 5em;">
+                    <img class="img-circle img-responsive" src="../assets/pages/img/avatars/team2.jpg" alt="" style="border-radius: 5em;">
+                    <img class="img-circle img-responsive" src="../assets/pages/img/avatars/team5.jpg" alt="" style="border-radius: 5em;">
+                    <img class="img-circle img-responsive" src="../assets/pages/img/avatars/team1.jpg" alt="" style="border-radius: 5em;">
                   </div>
                   <div class="create-container text-center">
                       <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-color--blue mdl-color-text--white" id="registerButton">Create Account</button>
                   </div>
                   <hr style="height: 1px; width: 85%; margin: 10px auto;">
                   <h3 class="mdl-typography--subhead text-center" style="margin: 16px 0 0;">Already Have An Account?</h3>
-                  <form ng-submit="onSubmit()" style="margin-top: 0;">
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="mdl-textfield__input" type="text" ng-model="credentials.email">
-                      <label class="mdl-textfield__label">Email Address</label>
-                    </div>
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="mdl-textfield__input" type="password" ng-model="credentials.password">
-                      <label class="mdl-textfield__label" style="z-index: -2;">Password</label>
-                    </div>
-                    <div style="float: right; margin-top: -18px; z-index: 999;">
-                      <a class="mdl-color-text--red-200" style="font-size: 10px; float: right;">Forgot Password</a>
-                    </div>
-                    <div class="text-center">
+                  <md-content layout="column" class="md-padding full-width" style="background-color: white">
+                    <form ng-submit="onSubmit()" style="margin-top: 0;">
+                      <md-input-container class="full-width m-y-0" style="margin: 0;">
+                        <label>Email</label>
+                        <input ng-model="credentials.email" required md-no-asterisk name="email">
+                      </md-input-container>
+                      <md-input-container class="full-width m-y-0" style="margin: 0;">
+                        <label>Password</label>
+                        <input ng-model="credentials.password" required md-no-asterisk type="password" name="password">
+                        <div class="hint">
+                          <a class="mdl-color-text--red-200 no-underline" style="font-size: 10px; float: right;">Forgot Password</a>
+                        </div>
+                      </md-input-container>
+                      <div class="text-xs-center p-t-1" style="padding-top: 15px;">
                         <button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-color--grey--50 mdl-color-text--blue">Login</button>
-                    </div>
-                  </form>
+                      </div>
+                    </form>
+                </md-content>
                 </div>
               </td>
-              <td style="padding: 0;">
+              <td style="padding: 0; width: 50%">
                 <div class="login-side-div">
                   <img class='img-responsive' src="./assets/global/img/placeholder-images/5wuut2ndjwi-anne-edgar-compressor.jpg" alt="">
                 </div>
@@ -69,8 +64,6 @@
         </div>
       </div>
     </div>
-    <!-- END LOGIN MODAL CONTENT -->
-    <!-- BEGIN REGISTER MODAL CONTENT -->
 
     <div class="modal" id="registerModal" tabindex="-1" role="dialog" style="z-index: 10050;">
         <div class="col-sm-12 login-header img-responsive">
@@ -86,51 +79,52 @@
                         <form class="signup-form" ng-submit="onRegisterSubmit()">
                           <div class="row">
                             <div class="col-xs-12 col-md-6">
-                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" ng-model="register.firstname">
-                                <label class="mdl-textfield__label">First Name</label>
-                              </div>
+                              <md-input-container class="full-width">
+                                <label>First Name</label>
+                                <input ng-model="register.firstname" required md-no-asterisk>
+                              </md-input-container>
                             </div>
                             <div class="col-xs-12 col-md-6">
-                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" ng-model="register.lastname">
-                                <label class="mdl-textfield__label">Last Name</label>
-                              </div>
+                              <md-input-container class="full-width">
+                                <label>Last Name</label>
+                                <input ng-model="register.lastname" required md-no-asterisk>
+                              </md-input-container>
                             </div>
                           </div>
                           <div class="row">
                             <div class="col-xs-12 col-md-6">
-                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" ng-model="register.email">
-                                <label class="mdl-textfield__label">Email Address</label>
-                              </div>
+                              <md-input-container class="full-width">
+                                <label>Email Address</label>
+                                <input ng-model="register.email" required md-no-asterisk>
+                              </md-input-container>
                             </div>
                             <div class="col-xs-12 col-md-6 p-t-2" style="display: flex; padding-top: 25px;">
                               <div style="order: 1; margin-right: 4px; font-size: 16px; font-family: Roboto, sans-serif; color: rgba(0, 0, 0, 0.541176); font-weight: 400; padding-top: 2px;">
                                 I am a
                               </div>
-                              <div style="order: 2; flex: 1;">
-                                <select ng-model="register.usertype" autocomplete="off" style="font-size: 16px; font-family: Roboto, sans-serif; color: rgba(0, 0, 0, 0.541176); font-weight: 400; border-bottom: 0 transparent;">
-                                  <option selected disabled value="">User Type</option>
-                                  <option>Wedding Venue</option>
-                                  <option>Wedding Vendor</option>
-                                  <option>Engaged Couple</option>
-                                </select>
-                              </div>
+                              <md-input-container style="order: 2; flex: 1; margin-top: -7px;">
+                                <label>User Type</label>
+                                <md-select ng-model="register.usertype" required md-no-asterisk>
+                                  <md-option value="couple">Engaged Couple</md-option>
+                                  <md-option value="venue">Wedding Venue</md-option>
+                                  <md-option value="vendor">Wedding Vendor</md-option>
+                                  <md-option value="planner">Wedding Planner</md-option>
+                                </md-select>
+                              </md-input-container>
                             </div>
                           </div>
                           <div class="row">
                             <div class="col-xs-12 col-md-6">
-                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="password" ng-model="register.password">
-                                <label class="mdl-textfield__label">Password</label>
-                              </div>
+                              <md-input-container class="full-width">
+                                <label>Password</label>
+                                <input ng-model="register.password" required md-no-asterisk>
+                              </md-input-container>
                             </div>
                             <div class="col-xs-12 col-md-6">
-                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="password" ng-model="register_password_confirm">
-                                <label class="mdl-textfield__label">Confirm Password</label>
-                              </div>
+                              <md-input-container class="full-width">
+                                <label>Confirm Password</label>
+                                <input ng-model="register_password_confirm" required md-no-asterisk>
+                              </md-input-container>
                             </div>
                           </div>
                           <div class="text-right">
